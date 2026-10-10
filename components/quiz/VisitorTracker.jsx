@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { API_URL, apiRequest } from "@/services/api";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const VISITOR_STORAGE_KEY = "pd_visitor_id";
 
 const getOrCreateId = (storage, key) => {
@@ -60,9 +60,8 @@ export default function VisitorTracker() {
     };
 
     const timer = window.setTimeout(() => {
-      fetch(`${API_URL}/analytics/track`, {
+      apiRequest("/analytics/track", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         keepalive: true,
         body: JSON.stringify(payload),
       }).catch(() => {});

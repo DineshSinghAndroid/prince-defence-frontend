@@ -1,52 +1,10 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "");
+import { apiRequest } from "./api";
 
-const request = async (endpoint, options = {}) => {
-  if (!API_URL) {
-    const error = new Error("Quiz API URL is not configured.");
-    error.isConfigurationError = true;
-    throw error;
-  }
-
-  const isFormData = options.body instanceof FormData;
-
-  let response;
-  try {
-    response = await fetch(`${API_URL}${endpoint}`, {
-      ...options,
-      credentials: "include",
-      headers: {
-        ...(isFormData ? {} : { "Content-Type": "application/json" }),
-        ...(options.headers || {}),
-      },
-    });
-  } catch (error) {
-    const networkError = new Error("Unable to reach the quiz API. Please check your connection.");
-    networkError.isNetworkError = true;
-    networkError.cause = error;
-    throw networkError;
-  }
-
-  let payload = {};
-
-  try {
-    payload = await response.json();
-  } catch {
-    payload = {};
-  }
-
-  if (!response.ok) {
-    const error = new Error(
-      payload.message || "Something went wrong. Please try again."
-    );
-
-    error.status = response.status;
-    error.payload = payload;
-
-    throw error;
-  }
-
-  return payload;
-};
+const request = (endpoint, options = {}) =>
+  apiRequest(endpoint, {
+    ...options,
+    credentials: "include",
+  });
 
 /* Public quiz */
 

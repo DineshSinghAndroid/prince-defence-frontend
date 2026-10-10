@@ -1,21 +1,12 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+import { apiRequest } from "./api";
 
 export const createContact = async (contactData) => {
-    const response = await fetch(`${API_URL}/contact`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
+    return apiRequest(
+        "/contact",
+        {
+            method: "POST",
+            body: JSON.stringify(contactData),
         },
-        body: JSON.stringify(contactData),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-        throw new Error(
-            data?.message || "Failed to submit enquiry"
-        );
-    }
-
-    return data;
+        "Failed to submit enquiry"
+    );
 };

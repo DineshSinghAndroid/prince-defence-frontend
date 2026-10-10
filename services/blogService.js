@@ -1,10 +1,15 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+import { apiRequest } from "./api";
+
 const BLOG_API_TIMEOUT_MS = 10000;
 
-const fetchBlogApi = (url) =>
-    fetch(url, {
-        signal: AbortSignal.timeout(BLOG_API_TIMEOUT_MS),
-    });
+const requestBlogApi = (endpoint, fallbackMessage) =>
+    apiRequest(
+        endpoint,
+        {
+            signal: AbortSignal.timeout(BLOG_API_TIMEOUT_MS),
+        },
+        fallbackMessage
+    );
 
 
 // Get Published Blogs
@@ -50,20 +55,10 @@ export const getPublicBlogs = async ({
         );
     }
 
-    const response = await fetchBlogApi(
-        `${API_URL}/blogs?${params.toString()}`
+    return requestBlogApi(
+        `/blogs?${params.toString()}`,
+        "Failed to fetch blogs"
     );
-
-    const data = await response.json();
-
-    if (!response.ok) {
-        throw new Error(
-            data?.message ||
-                "Failed to fetch blogs"
-        );
-    }
-
-    return data;
 };
 
 
@@ -78,22 +73,10 @@ export const getPublicBlogBySlug = async (
         );
     }
 
-    const response = await fetchBlogApi(
-        `${API_URL}/blogs/slug/${encodeURIComponent(
-            slug
-        )}`
+    return requestBlogApi(
+        `/blogs/slug/${encodeURIComponent(slug)}`,
+        "Failed to fetch blog"
     );
-
-    const data = await response.json();
-
-    if (!response.ok) {
-        throw new Error(
-            data?.message ||
-                "Failed to fetch blog"
-        );
-    }
-
-    return data;
 };
 
 
@@ -110,20 +93,10 @@ export const getRelatedBlogs = async (
         );
     }
 
-    const response = await fetchBlogApi(
-        `${API_URL}/blogs/related/${categoryId}/${blogId}?limit=${limit}`
+    return requestBlogApi(
+        `/blogs/related/${categoryId}/${blogId}?limit=${limit}`,
+        "Failed to fetch related blogs"
     );
-
-    const data = await response.json();
-
-    if (!response.ok) {
-        throw new Error(
-            data?.message ||
-                "Failed to fetch related blogs"
-        );
-    }
-
-    return data;
 };
 
 
@@ -144,18 +117,8 @@ export const getPublicBlogCategories =
             params.set("search", search.trim());
         }
 
-        const response = await fetchBlogApi(
-            `${API_URL}/blog-categories?${params.toString()}`
+        return requestBlogApi(
+            `/blog-categories?${params.toString()}`,
+            "Failed to fetch blog categories"
         );
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(
-                data?.message ||
-                    "Failed to fetch blog categories"
-            );
-        }
-
-        return data;
     };
