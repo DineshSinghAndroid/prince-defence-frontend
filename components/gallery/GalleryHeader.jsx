@@ -2,9 +2,9 @@ import Image from "next/image";
 import { Globe, Mail, MessageCircle, PhoneCall, Send } from "lucide-react";
 
 const galleryImages = [
-    { src: "/images/armyteam.webp", alt: "Students posing together" },
+    { src: "/images/sport03.webp", alt: "Students posing together" },
     { src: "/images/event-01.webp", alt: "Academy event" },
-    { src: "/images/nda.webp", alt: "Defence training" },
+    { src: "/images/vedio-labirary04.webp", alt: "Defence training" },
 ];
 
 //  bg-gradient-to-r from-[#2fc96d] via-[#31c76c] to-[#1ca35a]
@@ -12,7 +12,7 @@ const galleryImages = [
 
 export default function GalleryHero() {
     return (
-        <section className="relative overflow-hidden px-3 py-6 sm:px-6 lg:px-10">
+        <section className="relative overflow-hidden mt-5 py-6 sm:px-6 lg:px-10">
             <div className="mx-auto max-w-full">
                 <div className="relative overflow-hidden rounded-[2px] bg-[#F0F3F8] px-4 py-6 shadow-lg sm:px-6 lg:px-8 lg:py-7 rounded-xl">
                     <div className="absolute -left-20 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-gradient-to-bl from-[#192AB6] via-[#90CAF9] to-[#E3F2FD] sm:-left-16 sm:h-40 sm:w-40 lg:-left-40 lg:h-60 lg:w-60" />
