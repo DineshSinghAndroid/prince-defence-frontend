@@ -1197,7 +1197,7 @@ function QuizScreen({
       {!submitting && <Shimmer />}
 
       <span className="relative">
-        {submitting ? "Submitting..." : "Submit Quiz"}
+        {submitting ? "Submitting..." : "Submit"}
       </span>
 
       {!submitting && (
