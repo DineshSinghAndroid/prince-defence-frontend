@@ -1,0 +1,148 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import HeroReveal from "../animations/HeroReveal";
+import ContactForm from "../common/ContactForm";
+import EnquireButton from "../common/EnquireButton";
+
+const slides = [
+    {
+        image: "/images/fighterjet.avif",
+        alt: "Defence fighter jet",
+    },
+    {
+        image: "/images/fighterjets.avif",
+        alt: "Fighter jets formation",
+    },
+    {
+        image: "/images/military.avif",
+        alt: "Defence training",
+    },
+    {
+        image: "/images/campusbg-2.webp",
+        alt: "Defence training",
+    },
+];
+
+export const Hero = () => {
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % slides.length);
+        }, 6000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    const activeSlide = slides[current];
+
+    return (
+
+        <section
+            className="relative min-h-[100svh] overflow-hidden"
+            aria-label="Prince Defence Academy introduction"
+        >
+            {/* Background images */}
+            <div className="absolute inset-0">
+                <Image
+                    src={activeSlide.image}
+                    alt={activeSlide.alt}
+                    fill
+                    priority
+                    fetchPriority="high"
+                    sizes="100vw"
+                    quality={85}
+                    className="object-cover object-center"
+                />
+            </div>
+
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-[rgba(8,20,30,0.85)]" />
+
+            {/* Hero content */}
+
+            <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center px-5 pb-16 pt-32 sm:px-8 lg:px-10 lg:pt-36">
+                <div className="grid w-full  grid-cols-1 justify-items-center items-center gap-10 lg:grid-cols-2">
+
+                    {/* Left content */}
+
+                    <HeroReveal type="fade-up" duration={1200} delay={30}>
+                        <div className="max-w-5xl text-white">
+                            <span className="glass-card inline-block rounded-full  px-4 py-2 text-xs font-semibold tracking-[0.2em] text-white  sm:text-sm">
+                                INDIA&apos;s NO.1 DEFENCE ACADEMY
+                            </span>
+
+                            <h1 className="mt-5 cinzel text-2xl text-shadow-xs text-shadow-white/70 text-(--gold) font-extrabold leading-tight sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl">
+                                Prince Defence Academy
+                                <span className="block text-(--white)">
+                                    Build Your Career
+                                </span>
+                            </h1>
+
+                            <p className="mt-5 max-w-xl text-sm text-justify leading-6 inter text-white/90 sm:text-base sm:leading-8 lg:text-lg">
+                               Welcome to the Best Defence Academy in Sikar for Indian Navy, Army, and Air Force preparation, Prince Defence Academy. Along with defence services, we are known for offering best preparation or courses for NDA, Air Force, Navy, Army, SSC, and other competitive exams preparations. 
+                            </p>
+
+                            {/* CTA */}
+                            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                                <Link
+                                    href="/courses"
+                                    className="inline-flex items-center justify-center gap-2 inter rounded-xl bg-(--gold) px-6 py-3 text-sm font-bold text-white transition-transform duration-200 hover:-translate-y-0.5"
+                                >
+                                    Explore Courses
+                                    <ArrowRight size={17} />
+                                </Link>
+
+                                <EnquireButton
+                                    variant="right"
+                                    className="group glass-card inline-flex items-center gap-2 inter justify-center rounded-xl border px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
+                                >
+                                    Enquire Now
+                                </EnquireButton>
+                            </div>
+                        </div>
+
+                    </HeroReveal>
+
+
+                    {/* Enquiry card */}
+                    <div className="hidden xl:block">
+                        <HeroReveal type="zoom" duration={1200} delay={30}>
+
+                            <ContactForm theme="glass" size="sm" />
+                        </HeroReveal>
+                    </div>
+
+                    <div className="block xl:hidden">
+                        <HeroReveal type="zoom" duration={1200} delay={30}>
+
+                            <ContactForm theme="glass" size="lg" />
+                        </HeroReveal>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+                {slides.map((_, index) => (
+                    <button
+                        key={index}
+                        type="button"
+                        onClick={() => setCurrent(index)}
+                        aria-label={`Go to slide ${index + 1}`}
+                        className={`h-2 rounded-full transition-all ${index === current
+                            ? "w-7 bg-(--gold)"
+                            : "w-2 bg-white/60"
+                            }`}
+                    />
+                ))}
+            </div>
+        </section>
+
+    );
+};
