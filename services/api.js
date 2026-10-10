@@ -1,5 +1,9 @@
-const configuredApiUrl =
-    process.env.NEXT_PUBLIC_API_URL?.trim().replace(/\/+$/, "");
+const DEFAULT_API_URL =
+    "https://prince-defence-backend.onrender.com/api";
+
+const configuredApiUrl = (
+    process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_URL
+).trim().replace(/\/+$/, "");
 
 export const API_URL = configuredApiUrl
     ? `${configuredApiUrl.replace(/\/api$/i, "")}/api`
