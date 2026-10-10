@@ -1192,7 +1192,7 @@ function QuizScreen({
       type="button"
       onClick={onSubmit}
       disabled={busy}
-      className="group relative inline-flex h-10 flex-1 items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-[#e7c36d] to-[#b89242] px-4 text-xs font-extrabold text-[#071b32] shadow-[0_10px_25px_rgba(184,146,66,0.35)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_38px_rgba(184,146,66,0.5)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#e7c36d]/40 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50 sm:h-12 sm:gap-2 sm:px-6 sm:text-sm lg:flex-none lg:px-7"
+      className="group relative inline-flex h-10 flex-1 items-center justify-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-b from-[#e7c36d] to-[#b89242] px-4 text-[9px] font-extrabold text-[#071b32] shadow-[0_10px_25px_rgba(184,146,66,0.35)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_38px_rgba(184,146,66,0.5)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#e7c36d]/40 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50 sm:h-12 sm:gap-2 sm:px-6 sm:text-sm lg:flex-none lg:px-7"
     >
       {!submitting && <Shimmer />}
 
@@ -1495,7 +1495,7 @@ function QuizResult({ result, onRestart }) {
       <QuizStyles />
 
       {/* Top band */}
-      <div className="relative overflow-hidden bg-[#071b32] px-4 pb-24 pt-24 text-center sm:pb-28 sm:pt-28">
+      <div className="relative overflow-hidden bg-[#071b32] px-4 pb-24 pt-30 text-center sm:pb-28 sm:pt-30">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(184,146,66,0.28),transparent_55%),radial-gradient(ellipse_at_90%_90%,rgba(56,105,208,0.25),transparent_40%)]" />
 
         <div className="relative">
