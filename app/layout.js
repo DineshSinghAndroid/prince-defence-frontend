@@ -131,7 +131,7 @@ export default function RootLayout({ children }) {
   href="tel:+919610732222"
   aria-label="Call Prince Defence Academy"
   className="floating-gold-btn fixed bottom-6 left-4 z-50
-    flex h-12 w-12 items-center justify-center
+    flex h-14 w-14 items-center justify-center
     rounded-full bg-(--green) text-white
     sm:bottom-8 sm:left-6 sm:h-14 sm:w-14"
 >
