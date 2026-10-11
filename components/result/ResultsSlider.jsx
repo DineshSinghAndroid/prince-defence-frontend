@@ -13,6 +13,13 @@ const slidesByCategory = {
         category: "Our achievements",
     },
     {
+        src: "/images/ndaSelections2.webp",
+        alt: "Prince Defence Academy selection results",
+        title: "A legacy of defence selections",
+        category: "Our achievements",
+    },
+
+    {
         src: "/images/AirForceSelections.webp",
         alt: "Air Force students and achievements",
         title: "Preparing future Air Force achievers",
