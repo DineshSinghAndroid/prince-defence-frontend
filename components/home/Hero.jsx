@@ -88,10 +88,10 @@ export const Hero = () => {
                             </p>
 
                             {/* CTA */}
-                            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                            <div className="mt-7 flex flex-row gap-3">
                                 <Link
                                     href="/courses"
-                                    className="inline-flex items-center justify-center gap-2 inter rounded-xl bg-(--gold) px-6 py-3 text-sm font-bold text-white transition-transform duration-200 hover:-translate-y-0.5"
+                                    className="inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl bg-(--gold) px-3 py-3 text-center text-xs font-bold text-white transition-transform duration-200 hover:-translate-y-0.5 sm:flex-none sm:px-6 sm:text-sm"
                                 >
                                     Explore Courses
                                     <ArrowRight size={17} />
@@ -99,10 +99,37 @@ export const Hero = () => {
 
                                 <EnquireButton
                                     variant="right"
-                                    className="group glass-card inline-flex items-center gap-2 inter justify-center rounded-xl border px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
+                                    className="group glass-card inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl border px-3 py-3 text-center text-xs font-semibold text-white transition-colors hover:bg-white/20 sm:flex-none sm:px-6 sm:text-sm"
                                 >
                                     Enquire Now
                                 </EnquireButton>
+                            </div>
+
+                            <div className="mt-8 grid max-w-xl grid-cols-3 gap-2 sm:gap-3">
+                                <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
+                                    <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
+                                        3900+
+                                    </p>
+                                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/75 sm:text-xs">
+                                        Selections
+                                    </p>
+                                </div>
+                                <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
+                                    <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
+                                        2011
+                                    </p>
+                                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/75 sm:text-xs">
+                                        Established
+                                    </p>
+                                </div>
+                                <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
+                                    <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
+                                        15+
+                                    </p>
+                                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/75 sm:text-xs">
+                                        Years Experience
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
