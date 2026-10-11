@@ -110,51 +110,27 @@ export default function FacilityDetails({ facility }) {
 
                             {/* Lower Images */}
 
-                            <div className="hidden lg:flex absolute bottom-3 left-1/2 z-10 w-auto -translate-x-1/2 gap-2 px-3 sm:gap-3 sm:px-10 lg:bottom-2 lg:left-15 lg:w-1/3 lg:translate-x-0 lg:px-14">
-                                <div className="relative aspect-square w-18 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-[0_14px_30px_rgba(16,42,67,0.35)] sm:w-28">
-                                    <Image
-                                        src={heroImage}
-                                        alt={`${facility.title} at Prince Defence Academy`}
-                                        fill
-                                        priority
-                                        sizes="112px"
-                                        quality={100}
-                                        className="object-cover w-full"
-                                    />
+                            <div className="absolute bottom-3 left-1/2 z-10 hidden w-auto -translate-x-1/2 gap-2 px-3 sm:gap-3 sm:px-10 lg:bottom-2 lg:left-15 lg:flex lg:w-1/3 lg:translate-x-0 lg:px-14">
+                                {Array.from({ length: 3 }, (_, index) => {
+                                    const image = facility.images[index] || heroImage;
 
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                                </div>
-
-                                <div className="relative aspect-square w-18 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-[0_14px_30px_rgba(16,42,67,0.35)] sm:w-28">
-                                    <Image
-                                        src={heroImage}
-                                        alt={`${facility.title} at Prince Defence Academy`}
-                                        fill
-                                        priority
-                                        sizes="112px"
-                                        quality={100}
-                                        className="object-cover w-full"
-                                    />
-
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                                </div>
-
-
-                                <div className="relative aspect-square w-18 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-[0_14px_30px_rgba(16,42,67,0.35)] sm:w-28">
-                                    <Image
-                                        src={heroImage}
-                                        alt={`${facility.title} at Prince Defence Academy`}
-                                        fill
-                                        priority
-                                        sizes="112px"
-                                        quality={100}
-                                        className="object-cover w-full"
-                                    />
-
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                                </div>
-
-
+                                    return (
+                                        <div
+                                            key={`${image}-${index}`}
+                                            className="relative aspect-square w-18 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-[0_14px_30px_rgba(16,42,67,0.35)] sm:w-28"
+                                        >
+                                            <Image
+                                                src={image}
+                                                alt={`${facility.title} at Prince Defence Academy`}
+                                                fill
+                                                sizes="112px"
+                                                quality={100}
+                                                className="w-full object-cover"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
 

@@ -7,25 +7,25 @@ import { ChevronLeft, ChevronRight, Trophy } from "lucide-react";
 const slidesByCategory = {
     all: [
     {
-        src: "/images/Prince Defence Results.webp",
+        src: "/images/SsbTotalSelections.webp",
         alt: "Prince Defence Academy selection results",
         title: "A legacy of defence selections",
         category: "Our achievements",
     },
     {
-        src: "/images/airforce.webp",
+        src: "/images/AirForceSelections.webp",
         alt: "Air Force students and achievements",
         title: "Preparing future Air Force achievers",
         category: "Air Force",
     },
     {
-        src: "/images/army.webp",
+        src: "/images/ArmySelections.webp",
         alt: "Army students and achievements",
         title: "Building a future in the Army",
         category: "Army",
     },
     {
-        src: "/images/navy.webp",
+        src: "/images/NavySelections.webp",
         alt: "Navy students and achievements",
         title: "Celebrating our Navy selections",
         category: "Navy",
@@ -33,13 +33,13 @@ const slidesByCategory = {
     ],
     "air-force": [
         {
-            src: "/images/airforce.webp",
+            src: "/images/AirForceSelections.webp",
             alt: "Air Force students and achievements",
             title: "Preparing future Air Force achievers",
             category: "Air Force",
         },
         {
-            src: "/images/fighterjets.avif",
+            src: "/images/AirForceSelctions2.webp",
             alt: "Air Force fighter jets",
             title: "Focused training for the skies",
             category: "Air Force",
@@ -47,27 +47,23 @@ const slidesByCategory = {
     ],
     army: [
         {
-            src: "/images/army.webp",
+            src: "/images/ArmySelections.webp",
             alt: "Army students and achievements",
             title: "Building a future in the Army",
             category: "Army",
-        },
-        {
-            src: "/images/armyteam.webp",
-            alt: "Indian Army team",
-            title: "Discipline, courage and achievement",
-            category: "Army",
-        },
+        }
     ],
     navy: [
         {
-            src: "/images/navy.webp",
+            src: "/images/NavySelections.webp",
             alt: "Navy students and achievements",
             title: "Celebrating our Navy selections",
             category: "Navy",
         },
+    ],
+    nda: [
         {
-            src: "/images/Prince Defence Results.webp",
+            src: "/images/SsbTotalSelections.webp",
             alt: "Prince Defence Academy selection results",
             title: "A legacy of defence selections",
             category: "Navy",
@@ -101,10 +97,10 @@ export default function ResultsSlider({ category = "all" }) {
     return (
         <section
             aria-label="Prince Defence Academy results slideshow"
-            className="bg-(--white) px-3 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-12"
+            className="bg-(--white) pt-3 sm:px-8 sm:py-8 lg:px-12 lg:py-12"
         >
             <div
-                className="relative mx-auto aspect-[4/3] max-w-7xl overflow-hidden rounded-3xl bg-(--navy) shadow-[0_24px_70px_rgba(8,24,48,0.2)] sm:aspect-[16/8] lg:aspect-[16/7]"
+                className="relative mx-auto aspect-[1145/501] max-w-7xl overflow-hidden rounded-none bg-(--navy) shadow-[0_24px_70px_rgba(8,24,48,0.2)] sm:aspect-[16/8] sm:rounded-3xl lg:aspect-[16/7]"
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
                 onFocus={() => setPaused(true)}
@@ -131,7 +127,7 @@ export default function ResultsSlider({ category = "all" }) {
                             priority={index === 0}
                             fetchPriority={index === 0 ? "high" : "auto"}
                             sizes="(max-width: 768px) calc(100vw - 40px), 1280px"
-                            quality={75}
+                            quality={95}
                             className={`object-contain md:object-cover transition-transform duration-[6000ms] ${
                                 index === current
                                     ? "scale-100 md:scale-105"
@@ -147,18 +143,18 @@ export default function ResultsSlider({ category = "all" }) {
                 />
 
                 <div
-                    className="absolute bottom-14 left-5 z-[3] max-w-2xl text-white sm:bottom-16 sm:left-10 lg:bottom-20 lg:left-14"
+                    className="absolute inset-x-12 bottom-3 z-[3] max-w-2xl text-white sm:inset-x-auto sm:bottom-16 sm:left-10 lg:bottom-20 lg:left-14"
                     aria-live="polite"
                     aria-atomic="true"
                 >
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-sm sm:text-xs">
-                        <Trophy size={14} className="text-(--gold)" />
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.15em] text-white backdrop-blur-sm sm:gap-2 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.2em]">
+                        <Trophy size={12} className="text-(--gold) sm:h-[14px] sm:w-[14px]" />
                         {slides[current].category}
                     </span>
-                    <h2 className="mt-3 max-w-xl font-(--font-montserrat) text-2xl font-bold leading-tight sm:text-3xl lg:text-5xl">
+                    <h2 className="mt-1.5 max-w-xl font-(--font-montserrat) text-base font-bold leading-tight sm:mt-3 sm:text-3xl lg:text-5xl">
                         {slides[current].title}
                     </h2>
-                    <p className="mt-2 text-xs text-white/75 sm:text-sm">
+                    <p className="mt-2 hidden text-xs text-white/75 sm:block sm:text-sm">
                         Prince Defence Academy
                     </p>
                 </div>

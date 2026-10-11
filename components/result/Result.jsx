@@ -56,7 +56,7 @@ const Result = ({ category = "all" }) => {
             className="bg-(--white)"
         >
             {/* Results Hero */}
-            <header className="relative overflow-hidden bg-gradient-to-br from-[#000825] via-[#001D87] to-[#002CCD] px-5 py-32 sm:px-8 lg:px-12 sm:py-35 lg:py-40">
+            <header className="relative overflow-hidden bg-gradient-to-br from-[#000825] via-[#001D87] to-[#002CCD] px-5 pt-30 pb-8 sm:px-8 sm:py-35 lg:px-12 lg:py-40">
                 {/* Results Hero Content */}
                 <ScrollReveal className="mx-auto max-w-7xl">
                 <div>
@@ -70,10 +70,10 @@ const Result = ({ category = "all" }) => {
                     </div>
 
                     {/* Main Content */}
-                    <div className="mt-8 mx-auto grid grid-cols-1 items-center gap-10 text-center lg:grid-cols-[38%_30%_30%] lg:gap-8 lg:text-left">
+                    <div className="mt-8 mx-auto flex flex-col items-center gap-10 text-center lg:flex-row lg:justify-between lg:gap-8 lg:text-left">
 
                         {/* Left Content */}
-                        <div>
+                        <div className="w-full lg:w-[38%]">
                             <h2
                                 id="results-heading"
                                 className="montserrat mx-auto max-w-2xl text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:mx-0 lg:text-5xl"
@@ -91,7 +91,7 @@ const Result = ({ category = "all" }) => {
                         </div>
 
                         {/* Center Content - Total Selections */}
-                        <div className="flex flex-col items-center justify-center rounded-2xl border border-white/20 bg-white/7 px-8 py-7 backdrop-blur-xl lg:min-w-[260px]">
+                        <div className="flex w-full flex-col items-center justify-center rounded-2xl border border-white/20 bg-white/7 px-8 py-7 backdrop-blur-xl lg:w-[30%] lg:min-w-[260px]">
                             <p className="montserrat text-5xl font-extrabold text-white sm:text-6xl lg:text-7xl">
                                 3900<span className="text-[#FFAA22]">+</span>
                             </p>
@@ -103,7 +103,7 @@ const Result = ({ category = "all" }) => {
 
                         {/* Right Content */}
 
-                        <div className="text-white leading-7 text-sm text-justify sm:text-base inter">
+                        <div className="w-full text-justify text-sm leading-7 text-white inter sm:text-base lg:w-[30%]">
                             Explore our selection achievements and see the consistent success of our students across defence and government recruitment examinations.
                         </div>
 
@@ -134,7 +134,7 @@ const Result = ({ category = "all" }) => {
 
                     <nav
                         aria-label="Filter results by defence force"
-                        className="mt-6 flex flex-wrap gap-2"
+                        className="mt-6 flex flex-nowrap gap-2 overflow-x-auto overscroll-x-contain whitespace-nowrap pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0 [&::-webkit-scrollbar]:hidden"
                     >
                         {resultCategories.map((item) => (
                             <Link

@@ -7,6 +7,7 @@ import {
   Target,
   Trophy,
 } from "lucide-react";
+import ScrollReveal from "../animations/ScrollReveal";
 
 export default function HomeQuizSection() {
   return (
@@ -18,7 +19,7 @@ export default function HomeQuizSection() {
       <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.6)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12">
-        <div className="max-w-2xl">
+        <ScrollReveal animation="up" className="w-full max-w-2xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#b89242]/35 bg-[#b89242]/10 px-4 py-2 text-[10px] font-extrabold tracking-[0.18em] text-[#e7c36d] sm:text-[11px]">
             <Target size={14} />
             DAILY DEFENCE CHALLENGE
@@ -71,9 +72,14 @@ export default function HomeQuizSection() {
               Track your score
             </span>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="quiz-preview-float relative mx-auto w-full max-w-[430px] md:justify-self-end">
+        <ScrollReveal
+          animation="up-zoom"
+          delay={150}
+          className="mx-auto w-full max-w-[430px] md:mx-0 md:justify-self-end"
+        >
+        <div className="quiz-preview-float relative w-full">
           <div className="absolute -inset-3 rounded-[2rem] border border-[#e7c36d]/20 bg-[#e7c36d]/5" />
           <div className="quiz-preview-glow relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/[0.08] p-5 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-7">
             <p className="text-[10px] font-extrabold tracking-[0.2em] text-[#e7c36d]">
@@ -134,6 +140,7 @@ export default function HomeQuizSection() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );
