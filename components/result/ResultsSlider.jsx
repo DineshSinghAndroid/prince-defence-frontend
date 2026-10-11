@@ -66,7 +66,13 @@ const slidesByCategory = {
             src: "/images/SsbTotalSelections.webp",
             alt: "Prince Defence Academy selection results",
             title: "A legacy of defence selections",
-            category: "Navy",
+            category: "Nda",
+        },
+         {
+            src: "/images/ndaSelections2.webp",
+            alt: "Prince Defence Academy selection results",
+            title: "A legacy of defence selections",
+            category: "Nda",
         },
     ],
 };
