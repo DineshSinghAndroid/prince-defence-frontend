@@ -182,7 +182,7 @@ export default function HeroPlus() {
                             </div>
 
                             {/* Highlights */}
-                            <ul className="mt-8 grid max-w-xl gap-3 border-t border-slate-200 pt-6 sm:grid-cols-3">
+                            <ul className="mt-8 flex flex-row justify-between md:justify-start md:gap-10 lg:gap-12">
                                 {["Discipline", "Expert Mentors", "Results"].map((item) => (
                                     <li
                                         key={item}

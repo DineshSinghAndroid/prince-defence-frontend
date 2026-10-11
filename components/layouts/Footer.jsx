@@ -150,52 +150,54 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div className="lg:col-span-2">
-                        <h4 className="mb-5 text-base font-bold">
-                            Quick Links
-                        </h4>
+                    <div className="flex flex-col-2 gap-20 lg:col-span-4 lg:flex-row lg:gap-30">
+                        {/* Quick Links */}
+                        <div className="lg:col-span-2">
+                            <h4 className="mb-5 text-base font-bold">
+                                Quick Links
+                            </h4>
 
-                        <ul className="space-y-3">
-                            {quickLinks.map((link) => (
-                                <li key={link.name}>
-                                    <Link
-                                        href={link.href}
-                                        className="group flex w-fit items-center gap-2 text-sm text-white/60 transition hover:text-(--gold)"
-                                    >
-                                        <ChevronRight
-                                            size={15}
-                                            className="text-(--gold) transition-transform group-hover:translate-x-1"
-                                        />
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                            <ul className="space-y-3">
+                                {quickLinks.map((link) => (
+                                    <li key={link.name}>
+                                        <Link
+                                            href={link.href}
+                                            className="group flex w-fit items-center gap-2 text-sm text-white/60 transition hover:text-(--gold)"
+                                        >
+                                            <ChevronRight
+                                                size={15}
+                                                className="text-(--gold) transition-transform group-hover:translate-x-1"
+                                            />
+                                            {link.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
 
-                    {/* Courses */}
-                    <div className="lg:col-span-2">
-                        <h4 className="mb-5 text-base font-bold">
-                            Our Courses
-                        </h4>
+                        {/* Courses */}
+                        <div className="lg:col-span-2">
+                            <h4 className="mb-5 text-base font-bold">
+                                Our Courses
+                            </h4>
 
-                        <ul className="space-y-3">
-                            {courses.map((course) => (
-                                <li key={course.name}>
-                                    <Link
-                                        href={course.href}
-                                        className="group flex w-fit items-center gap-2 text-sm text-white/60 transition hover:text-(--gold)"
-                                    >
-                                        <ChevronRight
-                                            size={15}
-                                            className="text-(--gold) transition-transform group-hover:translate-x-1"
-                                        />
-                                        {course.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                            <ul className="space-y-3">
+                                {courses.map((course) => (
+                                    <li key={course.name}>
+                                        <Link
+                                            href={course.href}
+                                            className="group flex w-fit items-center gap-2 text-sm text-white/60 transition hover:text-(--gold)"
+                                        >
+                                            <ChevronRight
+                                                size={15}
+                                                className="text-(--gold) transition-transform group-hover:translate-x-1"
+                                            />
+                                            {course.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
 
                     {/* Contact Details */}
