@@ -151,7 +151,7 @@ export const Navbar = () => {
                                 2xl:text-base
                             "
                         >
-                            PRINCE DEFENCE
+                            PRINCE DEFENCE ACADEMY
                         </p>
 
                         <p
