@@ -133,7 +133,7 @@ export default function RootLayout({ children }) {
   className="floating-gold-btn fixed bottom-6 left-4 z-50
     flex h-14 w-14 items-center justify-center
     rounded-full bg-(--green) text-white
-    sm:bottom-8 sm:left-6 sm:h-14 sm:w-14"
+    sm:bottom-8 sm:left-6 sm:h-16 sm:w-16"
 >
   <PhoneCall size={22} className="text-white" />
 </Link>

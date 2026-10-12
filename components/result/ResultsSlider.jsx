@@ -13,6 +13,12 @@ const slidesByCategory = {
         category: "Our achievements",
     },
     {
+        src: "/images/resultFirst.webp",
+        alt: "Prince Defence Academy selection results",
+        title: "A legacy of defence selections",
+        category: "Our achievements",
+    },
+    {
         src: "/images/ndaSelections2.webp",
         alt: "Prince Defence Academy selection results",
         title: "A legacy of defence selections",
@@ -94,7 +100,7 @@ export default function ResultsSlider({ category = "all" }) {
 
         const timer = window.setInterval(() => {
             setCurrent((index) => (index + 1) % slides.length);
-        }, 5000);
+        }, 4000);
 
         return () => window.clearInterval(timer);
     }, [paused, slides.length]);
@@ -190,22 +196,6 @@ export default function ResultsSlider({ category = "all" }) {
                     <ChevronRight aria-hidden="true" />
                 </button>
 
-                <div className="absolute bottom-4 right-5 z-[4] flex gap-2 sm:bottom-7 sm:right-10 lg:right-14">
-                    {slides.map((slide, index) => (
-                        <button
-                            key={slide.src}
-                            type="button"
-                            onClick={() => setCurrent(index)}
-                            aria-label={`Show results image ${index + 1}`}
-                            aria-current={index === current ? "true" : undefined}
-                            className={`h-2 rounded-full transition-all ${
-                                index === current
-                                    ? "w-8 bg-(--gold)"
-                                    : "w-2 bg-white/70 hover:bg-white"
-                            }`}
-                        />
-                    ))}
-                </div>
             </div>
         </section>
     );
