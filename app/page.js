@@ -1,5 +1,6 @@
 import {Hero} from "@/components/home/Hero"
 import WhyChooseUs from "@/components/home/WhyChoose";
+import HomeFacilities from "@/components/home/HomeFacilities";
 import HomeCourses from "@/components/home/HomeCourses";
 import HomeVideos from "@/components/home/HomeVideos";
 import Directorpage from "@/components/home/Director";
@@ -31,6 +32,7 @@ export default function Home() {
         <HomeCourses/>
         <HomeQuizSection/>
         <WhyChooseUs/>
+        <HomeFacilities/>
         <DailyRoutine/>
         <HomeVideos/>
         <Directorpage/>

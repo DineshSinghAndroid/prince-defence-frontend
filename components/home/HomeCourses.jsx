@@ -92,10 +92,11 @@ export default function HomeCourses() {
 
           <h2
             id="courses-heading"
-            className="mt-5 font-(--font-montserrat) text-3xl font-bold text-(--navy) sm:text-4xl lg:text-5xl"
+            className="mt-5 montserrat  text-3xl font-bold text-(--navy) sm:text-4xl lg:text-5xl"
           >
-            Defence &amp; Competitive Exam{" "}
-            <span className="text-(--gold)">Courses</span>
+              Courses in {""} 
+            <span className="text-(--gold)">Prince {""} </span>
+            Defence Academy
           </h2>
 
           <p className="mt-4 text-sm leading-7 text-(--muted) sm:text-base">
