@@ -40,7 +40,7 @@ export default function WhatsAppChannelCard() {
         <div className="absolute inset-0 z-10 flex items-center pl-[6%] pr-[7%]">
           {/* Left: heading */}
           <div className="w-[42%]">
-            <h3 className="mt-1 text-2xl font-extrabold leading-[1.05] text-[var(--navy)] sm:text-4xl">
+            <h3 className="mt-1 text-[clamp(1.8rem,2.2vw,3.1rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-[var(--navy)]">
               Our
               <span className="block text-[var(--gold)]">WhatsApp</span>
               <span className="block">Channel!</span>
@@ -60,7 +60,7 @@ export default function WhatsAppChannelCard() {
               {features.map((feature) => (
                 <li
                   key={feature}
-                  className="flex items-center gap-2 text-[10px] font-semibold leading-tight text-[var(--foreground)] sm:text-base"
+                  className="flex items-center gap-2 text-[10px] font-medium leading-tight tracking-[0.01em] text-[var(--foreground)] sm:text-base"
                 >
                   <FaCheckCircle className="shrink-0 text-[var(--gold)]" />
                   <span>{feature}</span>
