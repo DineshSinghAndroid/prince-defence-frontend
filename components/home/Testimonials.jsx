@@ -212,7 +212,7 @@ export default function GoogleReviews({
             </div>
           )}
 
-          <div className="h-[400px] w-full min-w-0">
+          <div className="h-[480px] w-full min-w-0 md:h-[400px]">
             <div
               id="google-reviews-widget"
               ref={widgetRef}
@@ -221,8 +221,8 @@ export default function GoogleReviews({
               data-layout="carousel"
               data-min-rating="4"
               data-hide-header="false"
-              data-height="400px"
-              className="h-[400px] w-full min-w-0 [&>iframe]:!h-[400px] [&>iframe]:!max-h-[400px]"
+              data-height="480px"
+              className="h-[480px] w-full min-w-0 md:h-[400px] [&>iframe]:!h-[480px] [&>iframe]:!max-h-[480px] md:[&>iframe]:!h-[400px] md:[&>iframe]:!max-h-[400px]"
             />
           </div>
         </div>
