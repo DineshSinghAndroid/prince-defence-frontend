@@ -188,7 +188,7 @@ export default function AchieverCard({ student = {} }) {
 
             {/* Name: Centered on Photo and Details Boundary */}
             <div
-                className="absolute inset-x-3 top-[68%] z-30 flex min-h-10 -translate-y-1/2 items-center justify-center rounded-xl border border-white/40 px-3 py-2 shadow-lg sm:inset-x-4 sm:rounded-2xl sm:py-2.5"
+                className="absolute inset-x-3 top-[60%] md:top-[68%] z-30 flex min-h-10 -translate-y-1/2 items-center justify-center rounded-xl border border-white/40 px-3 py-2 shadow-lg sm:inset-x-4 sm:rounded-2xl sm:py-2.5"
                 style={{
                     background: `linear-gradient(135deg, ${theme.accent}, ${theme.accent}ed)`,
                 }}
@@ -208,7 +208,7 @@ export default function AchieverCard({ student = {} }) {
                 <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-1.5 text-center">
                     {father && (
                         <p
-                            className={`relative top-[15px] m-0 max-w-full line-clamp-2 break-words text-[11px] font-bold sm:top-0 sm:text-sm ${theme.text}`}
+                            className={`relative m-0 max-w-full line-clamp-2 break-words text-[11px] font-bold sm:top-0 sm:text-sm ${theme.text}`}
                         >
                             S/o Sh.{" "}
                             <span className="capitalize">{father}</span>
@@ -218,7 +218,7 @@ export default function AchieverCard({ student = {} }) {
                     {address && (
                         <p
                             title={address}
-                            className={`relative top-[5px] m-0 max-w-full line-clamp-2 break-words text-[10px] font-medium sm:top-0 sm:text-xs ${theme.muted}`}
+                            className={`relative m-0 max-w-full line-clamp-2 break-words text-[10px] font-medium sm:top-0 sm:text-xs ${theme.muted}`}
                         >
                             {address}
                         </p>
