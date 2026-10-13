@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
     MapPin,
     Phone,
@@ -17,6 +18,7 @@ const quickLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "All Courses", href: "/courses" },
+    {name:"Achievers", href:"/achievers"},
     { name: "Facilities", href: "/facilities" },
     { name: "Results", href: "/results" },
     { name: "Gallery", href: "/gallery " },
@@ -25,11 +27,11 @@ const quickLinks = [
 ];
 
 const courses = [
-    { name: "NDA", href: "/courses" },
-    { name: "Navy", href: "/courses" },
-    { name: "Army", href: "/courses" },
-    { name: "Air Force", href: "/courses" },
-    { name: "SSC & Police", href: "/courses" },
+    { name: "NDA", href: "/courses/nda-application-form-2019" },
+    { name: "Navy", href: "/courses/indian-navy-ssr-eligibility" },
+    { name: "Army", href: "/courses/indian-army-selection-process" },
+    { name: "Air Force", href: "/courses/indian-air-force-airmen-eligibility" },
+    { name: "SSC", href: "/courses/ssc-selection-process" },
 ];
 
 const socials = [
@@ -108,17 +110,21 @@ export default function Footer() {
                     <div className="lg:col-span-4">
 
                         <Link href="/" className="inline-flex items-center gap-3">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-(--gold) text-[#071b16]">
-                                <ShieldCheck size={27} />
-                            </div>
+                            <Image
+                                src="/logos/mainLogo.png"
+                                alt="Prince Defence Academy logo"
+                                width={48}
+                                height={48}
+                                className="h-12 w-12 rounded-xl object-contain"
+                            />
 
                             <div>
                                 <h3 className="text-lg font-extrabold tracking-wide">
-                                    PRINCE
+                                    PRINCE DEFENCE  <br/> ACADEMY
                                 </h3>
-                                <p className="text-xs font-semibold tracking-[2px] text-(--gold)">
-                                    DEFENCE ACADEMY
-                                </p>
+                               
+                                    
+                                
                             </div>
                         </Link>
 

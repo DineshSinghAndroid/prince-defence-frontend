@@ -232,7 +232,7 @@ export default function AchieverCard({ student = {} }) {
                 >
                     {exam && (
                         <AchieverChip
-                            label="Examination"
+                            label="Selected in"
                             value={exam}
                             theme={theme}
                             accent={theme.accent}

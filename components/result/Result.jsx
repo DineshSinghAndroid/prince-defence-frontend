@@ -56,61 +56,63 @@ const Result = ({ category = "all" }) => {
             className="bg-(--white)"
         >
             {/* Results Hero */}
-            <header className="relative overflow-hidden bg-gradient-to-br from-[#000825] via-[#001D87] to-[#002CCD] px-5 pt-30 pb-8 sm:px-8 sm:py-35 lg:px-12 lg:py-40">
-                {/* Results Hero Content */}
+
+
+
+
+            <header className="relative isolate overflow-hidden bg-gradient-to-br from-[#000825] via-[#001D87] to-[#002CCD] px-4 pb-8 pt-30 sm:px-8 sm:pb-16 sm:pt-32 lg:px-12 lg:pb-20 lg:pt-36">
+                <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.3)_1px,transparent_1px)] [background-size:48px_48px]" />
+
+                <div className="pointer-events-none absolute -right-20 -top-24 -z-10 h-72 w-72 rounded-full border border-white/10 sm:h-96 sm:w-96" />
+                <div className="pointer-events-none absolute -right-8 -top-12 -z-10 h-52 w-52 rounded-full border border-white/10 sm:h-72 sm:w-72" />
+
                 <ScrollReveal className="mx-auto max-w-7xl">
-                <div>
+                    <div>
+                        <div className="flex items-center justify-center gap-3 lg:justify-start">
+                            
 
-                    {/* Label */}
-                    <div className="flex justify-center">
-                        <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-blue-100 sm:text-sm">
-                            <Trophy size={16} aria-hidden="true" />
-                            OUR RESULTS
-                        </span>
+                            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-blue-100 sm:text-sm">
+                                <Trophy size={16} aria-hidden="true" />
+                                OUR RESULTS
+                            </span>
+
+                            
+                        </div>
+
+                        <div className="mt-5 grid items-center gap-2 sm:mt-9 sm:gap-8 lg:mt-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
+                            <div className="relative text-center lg:text-left">
+                                <h2
+                                    id="results-heading"
+                                    className="montserrat text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl sm:leading-[1.2] md:text-5xl lg:text-6xl"
+                                >
+                                    {activeCategory.value === "all"
+                                        ? "Year After Year, We Deliver"
+                                        : `${activeCategory.label} Selection`}{" "}
+                                    <span className="bg-gradient-to-r from-[#94E6FE] via-[#ADD4BD] to-[#FFAA22] bg-clip-text text-transparent">
+                                        Results
+                                    </span>
+                                </h2>
+
+                                <div className="mt-1 flex items-center justify-center gap-2 sm:mt-6 lg:justify-start">
+                                    <span className=" hidden lg:block h-1 w-16 rounded-full bg-[#94E6FE]" />
+                                        
+                                </div>
+                            </div>
+
+                            <div className="relative lg:border-l lg:border-white/20 lg:pl-8">
+                                <div className="absolute -left-px top-0 hidden h-12 w-0.5 bg-[#FFAA22] lg:block" />
+
+                                <p className="inter text-center text-sm leading-6 text-white/90 sm:text-base sm:leading-8 md:text-justify">
+                                    Explore our selection achievements and see the consistent success of our students across defence and government recruitment examinations.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-
-                    {/* Main Content */}
-                    <div className="mt-8 mx-auto flex flex-col items-center gap-10 text-center lg:flex-row lg:justify-between lg:gap-8 lg:text-left">
-
-                        {/* Left Content */}
-                        <div className="w-full lg:w-[38%]">
-                            <h2
-                                id="results-heading"
-                                className="montserrat mx-auto max-w-2xl text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:mx-0 lg:text-5xl"
-                            >
-                                {activeCategory.value === "all"
-                                    ? "Year After Year, We Deliver"
-                                    : `${activeCategory.label} Selection`}
-                                {" "}
-                                <span className=" bg-gradient-to-r from-[#94E6FE] via-[#ADD4BD] to-[#FFAA22] bg-clip-text text-transparent">
-                                    Results
-                                </span>
-                            </h2>
-
-
-                        </div>
-
-                        {/* Center Content - Total Selections */}
-                        <div className="flex w-full flex-col items-center justify-center rounded-2xl border border-white/20 bg-white/7 px-8 py-7 backdrop-blur-xl lg:w-[30%] lg:min-w-[260px]">
-                            <p className="montserrat text-5xl font-extrabold text-white sm:text-6xl lg:text-7xl">
-                                3900<span className="text-[#FFAA22]">+</span>
-                            </p>
-
-                            <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-blue-100 sm:text-sm">
-                                Total Selections
-                            </p>
-                        </div>
-
-                        {/* Right Content */}
-
-                        <div className="w-full text-justify text-sm leading-7 text-white inter sm:text-base lg:w-[30%]">
-                            Explore our selection achievements and see the consistent success of our students across defence and government recruitment examinations.
-                        </div>
-
-                    </div>
-                </div>
                 </ScrollReveal>
             </header>
+
+
+
 
             <ScrollReveal>
                 <ResultsSlider
@@ -145,11 +147,10 @@ const Result = ({ category = "all" }) => {
                                         ? "page"
                                         : undefined
                                 }
-                                className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                                    item.value === activeCategory.value
-                                        ? "bg-(--navy) text-white"
-                                        : "border border-slate-200 bg-white text-(--navy) hover:border-(--gold) hover:text-(--green)"
-                                }`}
+                                className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${item.value === activeCategory.value
+                                    ? "bg-(--navy) text-white"
+                                    : "border border-slate-200 bg-white text-(--navy) hover:border-(--gold) hover:text-(--green)"
+                                    }`}
                             >
                                 {item.label}
                             </Link>
@@ -165,19 +166,19 @@ const Result = ({ category = "all" }) => {
                                 aria-labelledby={`results-year-${year.replace(/[^a-zA-Z0-9]/g, "-")}`}
                             >
                                 <ScrollReveal>
-                                <h4
-                                    id={`results-year-${year.replace(/[^a-zA-Z0-9]/g, "-")}`}
-                                    className="mb-5 flex items-center gap-3 font-(--font-montserrat) text-xl font-bold text-(--navy) sm:text-2xl"
-                                >
-                                    <span>{year}</span>
-                                    <span className="h-px flex-1 bg-gradient-to-r from-(--gold)/50 to-transparent" />
-                                    <span className="rounded-full bg-[#f1f5f9] px-3 py-1 text-xs font-semibold text-(--muted)">
-                                        {groupedResults[year].length}{" "}
-                                        {groupedResults[year].length === 1
-                                            ? "record"
-                                            : "records"}
-                                    </span>
-                                </h4>
+                                    <h4
+                                        id={`results-year-${year.replace(/[^a-zA-Z0-9]/g, "-")}`}
+                                        className="mb-5 flex items-center gap-3 font-(--font-montserrat) text-xl font-bold text-(--navy) sm:text-2xl"
+                                    >
+                                        <span>{year}</span>
+                                        <span className="h-px flex-1 bg-gradient-to-r from-(--gold)/50 to-transparent" />
+                                        <span className="rounded-full bg-[#f1f5f9] px-3 py-1 text-xs font-semibold text-(--muted)">
+                                            {groupedResults[year].length}{" "}
+                                            {groupedResults[year].length === 1
+                                                ? "record"
+                                                : "records"}
+                                        </span>
+                                    </h4>
                                 </ScrollReveal>
 
                                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -243,8 +244,8 @@ const Result = ({ category = "all" }) => {
                     alt="Prince Defence Academy Defence Results"
                     width={1000}
                     height={764}
-                   loading="lazy"
-                   quality={100}
+                    loading="lazy"
+                    quality={100}
                     className="
               mx-auto
               h-auto
