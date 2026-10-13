@@ -15,7 +15,7 @@ export default function AchieversPage() {
     return (
         <>
             <Achieversheader />
-            <AchieversClient />
+            <AchieversClient key="all" />
         </>
     );
 }

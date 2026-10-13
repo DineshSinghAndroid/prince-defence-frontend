@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Trophy, ChevronLeft, ChevronRight, RefreshCw } from "lucide-react";
 import { getPublicAchieverCategories, getPublicAchievers } from "@/services/achieverService";
 import AchieverCard, { AchieverCardSkeleton } from "@/components/achievers/AchieverCard";
@@ -8,9 +9,12 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 
 const PAGE_SIZE = 12;
 
-export default function AchieversClient() {
+export default function AchieversClient({ initialCategorySlug = "" }) {
+    const router = useRouter();
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState("all");
+    const [selectedCategory, setSelectedCategory] = useState(
+        initialCategorySlug || "all"
+    );
     const [achievers, setAchievers] = useState([]);
     const [page, setPage] = useState(1);
     const [pagination, setPagination] = useState(null);
@@ -114,6 +118,12 @@ export default function AchieversClient() {
     const changeCategory = (slug) => {
         setSelectedCategory(slug);
         setPage(1);
+        router.push(
+            slug === "all"
+                ? "/achievers"
+                : `/achievers/${encodeURIComponent(slug)}`,
+            { scroll: false }
+        );
     };
 
     const totalPages = Math.max(1, Number(pagination?.totalPages || 1));
