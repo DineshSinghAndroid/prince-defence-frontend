@@ -2,6 +2,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import ScrollReveal from "../animations/ScrollReveal";
+
+
+
+
 
 const SCRIPT_URL =
   "https://app.coachingsinsikar.com/embed/reviews.js";
@@ -222,6 +227,7 @@ export default function GoogleReviews({
           </div>
         </div>
       </div>
+       
     </section>
   );
 }

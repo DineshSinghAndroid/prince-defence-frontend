@@ -35,7 +35,7 @@ const courses = [
 const socials = [
     {
         name: "FaFacebook",
-        href: "https://www.facebook.com/",
+        href: "https://www.facebook.com/PrinceEduHubSikar/",
         icon: FaFacebook,
     },
     {
@@ -45,7 +45,7 @@ const socials = [
     },
     {
         name: "FaYoutube ",
-        href: "https://www.youtube.com/",
+        href: "https://www.youtube.com/@Prince_NDA_academy",
         icon: FaYoutube,
     },
 

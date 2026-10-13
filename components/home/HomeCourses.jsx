@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -37,6 +37,25 @@ const preparation = [
 export default function HomeCourses() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const tabsRef = useRef([]);
+
+  useEffect(() => {
+    const activeSlug = exams[activeIndex]?.slug;
+    const activeTabIndex = examData.navbar.findIndex(
+      (exam) => exam.slug === activeSlug
+    );
+    const activeTab = tabsRef.current[activeTabIndex];
+    const tabsContainer = activeTab?.parentElement;
+
+    if (activeTab && tabsContainer) {
+      tabsContainer.scrollTo({
+        left:
+          activeTab.offsetLeft -
+          (tabsContainer.clientWidth - activeTab.clientWidth) / 2,
+        behavior: "smooth",
+      });
+    }
+  }, [activeIndex]);
 
   // Next exam
   const nextSlide = () => {
@@ -91,9 +110,12 @@ export default function HomeCourses() {
           aria-label="Exam categories"
           className="mt-8 flex w-full gap-2 overflow-x-scroll p-2 scrollbar-hide lg:mx-auto lg:w-[70%] lg:justify-center lg:p-0"
         >
-          {examData.navbar.map((exam) => (
+          {examData.navbar.map((exam, index) => (
             <button
               key={exam.slug}
+              ref={(element) => {
+                tabsRef.current[index] = element;
+              }}
               type="button"
               onClick={() => {
                 const examIndex = getExamIndex(exam.slug);

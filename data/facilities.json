@@ -131,7 +131,6 @@
         "/images/sport04.webp",
         "/images/sport05.webp",
         "/images/sport06.webp"
-
       ],
       "longDescription": "A defence is incomplete without sports, and sports are a core part of life at Prince Defense Academy. From running tracks to team games, daily play sharpens fitness, builds team spirit and teaches cadets to stay determined, win or lose.",
       "onHome": true,
@@ -142,6 +141,25 @@
         "Athletic Activities",
         "Physical Training",
         "Fitness Activities"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Physical Ground",
+      "slug": "physical-ground",
+      "images": [
+        "/images/sport03.webp",
+        "/images/sport04.webp",
+        "/images/sport02.webp"
+      ],
+      "longDescription": "Prince Defence Academy features a vast, standard physical training ground designed for rigorous defence preparation. It provides standard tracks and obstacle courses to build endurance, agility, and absolute physical readiness for defence exams.",
+      "onHome": true,
+      "list": [
+        "Running Track",
+        "Obstacle Course",
+        "Physical Drill Area",
+        "Endurance Training",
+        "Expert Coaching"
       ]
     }
   ]

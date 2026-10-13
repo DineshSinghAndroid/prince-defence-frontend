@@ -4,6 +4,7 @@ import HomeCourses from "@/components/home/HomeCourses";
 import HomeVideos from "@/components/home/HomeVideos";
 import Directorpage from "@/components/home/Director";
 import HeroPlus from "@/components/home/HeroPlus";
+import SelectionRecords from "@/components/home/SelectionRecords";
 import Testimonials from "@/components/home/Testimonials";
 import HomeFAQ from "@/components/home/HomeFAQ";
 import DailyRoutine from "@/components/home/DailyRoutine";
@@ -26,16 +27,17 @@ export default function Home() {
 
         <Hero/>
         <HeroPlus/>
+        <SelectionRecords/>
         <HomeCourses/>
         <HomeQuizSection/>
         <WhyChooseUs/>
         <DailyRoutine/>
         <HomeVideos/>
         <Directorpage/>
+        <HomeFAQ/>
         <ScrollReveal>
           <Testimonials/>
         </ScrollReveal>
-        <HomeFAQ/>
 
       </main>
     </div>

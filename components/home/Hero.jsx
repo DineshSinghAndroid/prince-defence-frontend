@@ -104,12 +104,18 @@ export const Hero = () => {
                                     />
                                 </Link>
 
-                                <EnquireButton
-                                    variant="right"
-                                    className="group glass-card inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl border px-3 py-3 text-center text-xs font-semibold text-white transition-colors hover:bg-white/20 sm:flex-none sm:px-6 sm:text-sm"
+                                <Link
+                                    href="https://www.youtube.com/watch?v=TYeSoOQUhlY"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group glass-card inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl border px-3 py-3 text-center text-xs font-semibold text-white hover:bg-white/20 sm:flex-none sm:px-6 sm:text-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                                 >
-                                    Enquire Now
-                                </EnquireButton>
+                                    Campus Tour
+                                    <ArrowRight
+                                        size={17}
+                                        className="relative transition-transform duration-300 group-hover:translate-x-1.5"
+                                    />
+                                </Link>
                             </div>
 
                             <div className="mt-8 grid max-w-xl grid-cols-3 gap-2 sm:gap-3">

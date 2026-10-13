@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import EnquireButton from "@/components/common/EnquireButton";
+import SelectionRecords from "@/components/home/SelectionRecords";
 
 const achievements = [
   {
@@ -36,10 +37,9 @@ const achievements = [
 
 const courses = [
   "NDA",
-  "Indian Army",
+  " Army",
   "Air Force",
-  "Indian Navy",
-  "SSB",
+  " Navy",
   "SSC",
 ];
 
@@ -64,9 +64,10 @@ export const metadata = {
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className=" relative overflow-hidden fixed bg-[#E0EDFF] px-5 py-16 sm:px-8 lg:px-12 lg:py-30"
+    <>
+      <section
+        id="about"
+        className=" relative overflow-hidden fixed bg-[#E0EDFF] px-5 py-16 sm:px-8 lg:px-12 lg:py-30"
       >
 
         <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/20 via-white/10 h-[100px] to-transparent" />
@@ -312,5 +313,7 @@ export default function About() {
 
         </div>
       </section>
+      <SelectionRecords />
+    </>
     );
 }

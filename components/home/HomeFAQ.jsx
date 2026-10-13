@@ -1,62 +1,6 @@
 import ScrollReveal from "../animations/ScrollReveal";
 
-const selections = [
-  {
-    batch: "1/2026",
-    total: 182,
-    detail: "X Group - 113, Y Group - 69",
-  },
-  {
-    batch: "2/2025",
-    total: 110,
-    detail: "X Group - 67, Y Group - 43",
-  },
-  {
-    batch: "1/2025",
-    total: 85,
-    detail: "X Group - 51, Y Group - 34",
-  },
-  {
-    batch: "1/2025",
-    total: 21,
-    detail: "INDIAN NAVY - SSR",
-  },
-  {
-    batch: "1/2025",
-    total: 35,
-    detail: "Tech - 10, GD - 19, Clerk - 6",
-  },
-  {
-    batch: "2/2024",
-    total: 28,
-    detail: "INDIAN NAVY - SSR",
-  },
-  {
-    batch: "1/2024",
-    total: 78,
-    detail: "X Group - 46, Y Group - 32",
-  },
-  {
-    batch: "2/2023",
-    total: 204,
-    detail: "X Group - 119, Y Group - 85",
-  },
-  {
-    batch: "1/2023",
-    total: 174,
-    detail: "X Group - 139, Y Group - 35",
-  },
-  {
-    batch: "2/2023",
-    total: 34,
-    detail: "INDIAN NAVY - SSR",
-  },
-  {
-    batch: "1/2023",
-    total: 48,
-    detail: "INDIAN NAVY - SSR",
-  },
-];
+
 
 
 
@@ -93,7 +37,7 @@ export default function HomeFAQ() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="bg-[#DFE7F1] px-5 pb-8 pt-16 sm:px-8 lg:px-12 lg:pb-10 lg:pt-20"
+      className="bg-[#DFE7F1] px-5 pb-12 pt-16 sm:px-8 lg:px-12 lg:pb-20 lg:pt-20"
     >
       <div className="mx-auto max-w-4xl">
         <ScrollReveal>
@@ -148,70 +92,7 @@ export default function HomeFAQ() {
       </div>
 
 
-      {/* Selection Records */}
-      <ScrollReveal animation="up" delay={100} duration={700}>
-        <div className="mt-10 w-full -z-1 overflow-hidden rounded-3xl p-4 sm:p-6 lg:p-7">
-
-          <style>{`
-            @keyframes selection-marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-
-            .selection-marquee-track {
-              animation: selection-marquee 28s linear infinite;
-            }
-
-            .selection-marquee-track:hover {
-              animation-play-state: paused;
-            }
-          `}</style>
-
-          <div className="font-extrabold text-[var(--navy)]  montserrat text-center pb-8">
-            OUR SELECTIONS
-          </div>
-
-          <div className="w-full overflow-hidden">
-            <div className="selection-marquee-track flex w-max items-stretch gap-4">
-              {[...selections, ...selections].map((item, index) => (
-                <article
-                  key={`${item.batch}-${index}`}
-                  className="relative h-full min-w-[180px] max-w-[260px] overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-tr from-[#ABD2FA]/70 via-white to-white shadow-[0_16px_35px_rgba(15,23,42,0.12)] before:absolute before:left-0 before:top-0 before:h-20 before:w-20 before:rounded-tl-xl before:border-l-2 before:border-t-2 before:border-[#031968]"
-                >
-                  <div className="flex h-full flex-col items-center justify-between gap-3 pt-6 text-center">
-
-                    <div className="w-full">
-                      <h4 className="montserrat text-sm font-bold leading-6 text-[var(--navy)] sm:text-base">
-                        {item.batch}
-                      </h4>
-
-                      <p className="mt-1 text-[11px] text-[var(--muted)]">
-                        {item.detail}
-                      </p>
-                    </div>
-
-                    <div className="w-full">
-                      <p className="font-[var(--font-montserrat)] text-2xl font-extrabold text-[var(--green)] sm:text-3xl">
-                        {item.total}
-                      </p>
-
-                      <span className="block text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">
-                        Selections
-                      </span>
-                    </div>
-
-                    <div className="w-full rounded-b-xl bg-gradient-to-r from-[#FCAD38] to-[#EB7F31] py-2 text-center text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
-                      Batch Record
-                    </div>
-
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </ScrollReveal>
+     
     </section>
   );
 }

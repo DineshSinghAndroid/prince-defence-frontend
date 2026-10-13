@@ -7,12 +7,6 @@ import { ChevronLeft, ChevronRight, Trophy } from "lucide-react";
 const slidesByCategory = {
     all: [
     {
-        src: "/images/SsbTotalSelections.webp",
-        alt: "Prince Defence Academy selection results",
-        title: "A legacy of defence selections",
-        category: "Our achievements",
-    },
-    {
         src: "/images/resultFirst.webp",
         alt: "Prince Defence Academy selection results",
         title: "A legacy of defence selections",
