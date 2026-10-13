@@ -204,7 +204,7 @@ export default function AchieversClient() {
 
                     {/*  results  */}
                     {loading ? (
-                        <ScrollReveal className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        <ScrollReveal className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
                                 {Array.from({ length: 8 }).map((_, index) => (
                                     <AchieverCardSkeleton key={index} />
                                 ))}
@@ -240,7 +240,7 @@ export default function AchieversClient() {
                                     </h2>
                                   </ScrollReveal>
 
-                                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                                    <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
                                         {students.map((student, index) => (
                                             <ScrollReveal
                                                 key={student._id}

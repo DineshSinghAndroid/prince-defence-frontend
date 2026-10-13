@@ -115,18 +115,18 @@ function AchieverChip({
 
     return (
         <div
-            className="min-w-0 rounded-lg border border-slate-200/80 bg-white px-2 py-2 shadow-sm sm:rounded-xl sm:px-3 sm:py-2.5"
+            className="min-w-0 rounded-lg border border-slate-200/80 bg-white px-1.5 py-1.5 shadow-sm sm:rounded-xl sm:px-3 sm:py-2.5"
             style={{ borderTop: `2px solid ${accent}` }}
         >
             <span
-                className={`block truncate text-[9px] font-bold uppercase tracking-[0.09em] sm:text-[10px] ${theme.label}`}
+                className={`block truncate text-[8px] font-bold uppercase tracking-[0.07em] sm:text-[10px] sm:tracking-[0.09em] ${theme.label}`}
             >
                 {label}
             </span>
 
             <span
                 title={value}
-                className={`mt-1 block truncate text-[11px] font-extrabold leading-tight sm:text-sm ${theme.chip} ${
+                className={`mt-0.5 block truncate text-[10px] font-extrabold leading-tight sm:mt-1 sm:text-sm ${theme.chip} ${
                     uppercase ? "uppercase" : "capitalize"
                 }`}
             >
@@ -155,7 +155,7 @@ export default function AchieverCard({ student = {} }) {
 
     return (
         <article
-            className={`group relative isolate flex aspect-[3/5] w-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br ${theme.background} font-sans shadow-[0_6px_22px_rgba(20,50,100,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(20,50,100,0.2)] motion-reduce:transform-none motion-reduce:transition-none`}
+            className={`group relative isolate flex aspect-[3/5.5] w-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br ${theme.background} font-sans shadow-[0_6px_22px_rgba(20,50,100,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(20,50,100,0.2)] motion-reduce:transform-none motion-reduce:transition-none sm:aspect-[3/5]`}
         >
             {/* Student Photo */}
             <div className="absolute inset-x-0 top-0 h-[70%] overflow-hidden">
@@ -203,12 +203,12 @@ export default function AchieverCard({ student = {} }) {
 
             {/* Student Details */}
             <div
-                className={`absolute inset-x-0 bottom-0 z-20 flex h-[32%] flex-col justify-between bg-gradient-to-br ${theme.panel} px-3 pb-3 pt-7 sm:px-4 sm:pb-4 sm:pt-8`}
+                className={`absolute inset-x-0 bottom-0 z-20 flex h-[40%] flex-col justify-between bg-gradient-to-br ${theme.panel} px-2.5 pb-2.5 pt-7 sm:h-[32%] sm:px-4 sm:pb-4 sm:pt-8`}
             >
                 <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-1.5 text-center">
                     {father && (
                         <p
-                            className={`m-0 max-w-full truncate text-xs font-bold sm:text-sm ${theme.text}`}
+                            className={`relative top-[15px] m-0 max-w-full line-clamp-2 break-words text-[11px] font-bold sm:top-0 sm:text-sm ${theme.text}`}
                         >
                             S/o Sh.{" "}
                             <span className="capitalize">{father}</span>
@@ -218,7 +218,7 @@ export default function AchieverCard({ student = {} }) {
                     {address && (
                         <p
                             title={address}
-                            className={`m-0 max-w-full truncate text-[11px] font-medium sm:text-xs ${theme.muted}`}
+                            className={`relative top-[5px] m-0 max-w-full line-clamp-2 break-words text-[10px] font-medium sm:top-0 sm:text-xs ${theme.muted}`}
                         >
                             {address}
                         </p>
@@ -226,7 +226,7 @@ export default function AchieverCard({ student = {} }) {
                 </div>
 
                 <div
-                    className={`grid w-full gap-2 ${
+                    className={`grid w-full gap-1.5 sm:gap-2 ${
                         exam ? "grid-cols-[1.15fr_1fr]" : "grid-cols-1"
                     }`}
                 >
@@ -254,9 +254,9 @@ export default function AchieverCard({ student = {} }) {
 
 export function AchieverCardSkeleton() {
     return (
-        <div className="relative aspect-[3/5] w-full animate-pulse overflow-hidden rounded-2xl border border-slate-200 bg-slate-200">
+        <div className="relative aspect-[3/5.5] w-full animate-pulse overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:aspect-[3/5]">
             <div className="absolute inset-x-0 top-0 h-[70%] bg-slate-300" />
-            <div className="absolute inset-x-0 bottom-0 h-[32%] bg-slate-100" />
+            <div className="absolute inset-x-0 bottom-0 h-[40%] bg-slate-100 sm:h-[32%]" />
             <div className="absolute inset-x-3 top-[70%] h-10 -translate-y-1/2 rounded-xl bg-slate-300 sm:inset-x-4" />
         </div>
     );
