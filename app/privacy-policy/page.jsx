@@ -1,4 +1,4 @@
-import Link from "next/link";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 
 export const metadata = {
   title: "Privacy Policy | Prince Defence Academy",
@@ -115,11 +115,11 @@ export default function PrivacyPolicy() {
 
         <div className="space-y-10">
           {sections.map((section) => (
-            <section
-              key={section.id}
-              id={section.id}
-              className="scroll-mt-10 border-b border-[#e6e1cd] pb-8 last:border-0"
-            >
+            <ScrollReveal key={section.id}>
+              <section
+                id={section.id}
+                className="scroll-mt-10 border-b border-[#e6e1cd] pb-8 last:border-0"
+              >
 
 
               <h2 className="font-serif text-lg text-[#20241f] sm:text-xl">
@@ -141,7 +141,8 @@ export default function PrivacyPolicy() {
                   ))}
                 </ul>
               )}
-            </section>
+              </section>
+            </ScrollReveal>
           ))}
 
          

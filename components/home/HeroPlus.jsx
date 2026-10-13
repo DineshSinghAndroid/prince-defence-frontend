@@ -19,7 +19,7 @@ export default function HeroPlus() {
     const prev = () =>
         setCurrent((c) => (c - 1 + slides.length) % slides.length);
 
-    // Auto-play: 3 sec, hover par pause
+    // Auto-play every 3 seconds; pause on hover.
     useEffect(() => {
         if (paused) return;
         const timer = setInterval(next, 3000);

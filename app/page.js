@@ -8,6 +8,7 @@ import Testimonials from "@/components/home/Testimonials";
 import HomeFAQ from "@/components/home/HomeFAQ";
 import DailyRoutine from "@/components/home/DailyRoutine";
 import HomeQuizSection from "@/components/home/HomeQuizSection";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 
 
 export const metadata = {
@@ -31,7 +32,9 @@ export default function Home() {
         <DailyRoutine/>
         <HomeVideos/>
         <Directorpage/>
-        <Testimonials/>
+        <ScrollReveal>
+          <Testimonials/>
+        </ScrollReveal>
         <HomeFAQ/>
 
       </main>

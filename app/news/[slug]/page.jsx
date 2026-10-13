@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 import Link from "next/link";
 import { ArrowLeft, CalendarDays, Newspaper } from "lucide-react";
 import { notFound } from "next/navigation";

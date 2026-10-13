@@ -76,6 +76,43 @@ img {
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 8px 30px var(--shadow-glass);
 }
+
+.gold-shimmer-cta {
+  overflow: hidden;
+}
+
+.gold-cta-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  transform: skewX(-20deg) translateX(-130%);
+  animation: gold-cta-shimmer 2.8s ease-in-out infinite;
+}
+
+.gold-shimmer-cta > :not(.gold-cta-shimmer) {
+  z-index: 1;
+}
+
+@keyframes gold-cta-shimmer {
+  to {
+    transform: skewX(-20deg) translateX(430%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-cta-shimmer {
+    animation: none;
+  }
+
+  .gold-shimmer-cta,
+  .gold-shimmer-cta > svg {
+    transition: none;
+  }
+}
+
 .facilities-box {
     background:
         linear-gradient(

@@ -91,10 +91,17 @@ export const Hero = () => {
                             <div className="mt-7 flex flex-row gap-3">
                                 <Link
                                     href="/courses"
-                                    className="inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl bg-(--gold) px-3 py-3 text-center text-xs font-bold text-white transition-transform duration-200 hover:-translate-y-0.5 sm:flex-none sm:px-6 sm:text-sm"
+                                    className="gold-shimmer-cta group relative isolate inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl bg-(--gold) px-3 py-3 text-center text-xs font-bold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:flex-none sm:px-6 sm:text-sm"
                                 >
-                                    Explore Courses
-                                    <ArrowRight size={17} />
+                                    <span
+                                        aria-hidden="true"
+                                        className="gold-cta-shimmer pointer-events-none absolute inset-y-0 left-0 w-1/3"
+                                    />
+                                    <span className="relative">Explore Courses</span>
+                                    <ArrowRight
+                                        size={17}
+                                        className="relative transition-transform duration-300 group-hover:translate-x-1.5"
+                                    />
                                 </Link>
 
                                 <EnquireButton

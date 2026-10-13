@@ -52,7 +52,13 @@ const slidesByCategory = {
             category: "Air Force",
         },
         {
-            src: "/images/AirForceSelctions2.webp",
+            src: "/images/AirForceSelections2.webp",
+            alt: "Air Force fighter jets",
+            title: "Focused training for the skies",
+            category: "Air Force",
+        },
+        {
+            src: "/images/AirForceSelections3.webp",
             alt: "Air Force fighter jets",
             title: "Focused training for the skies",
             category: "Air Force",
@@ -100,7 +106,7 @@ export default function ResultsSlider({ category = "all" }) {
 
         const timer = window.setInterval(() => {
             setCurrent((index) => (index + 1) % slides.length);
-        }, 4000);
+        }, 3000);
 
         return () => window.clearInterval(timer);
     }, [paused, slides.length]);
@@ -116,10 +122,10 @@ export default function ResultsSlider({ category = "all" }) {
     return (
         <section
             aria-label="Prince Defence Academy results slideshow"
-            className="bg-(--white) pt-3 sm:px-8 sm:py-8 lg:px-12 lg:py-12"
+            className="bg-(--white) px-4 pt-3 sm:px-8 sm:py-8 lg:px-12 lg:py-12"
         >
             <div
-                className="relative mx-auto aspect-[1145/501] max-w-7xl overflow-hidden rounded-none bg-(--navy) shadow-[0_24px_70px_rgba(8,24,48,0.2)] sm:aspect-[16/8] sm:rounded-3xl lg:aspect-[16/7]"
+                className="relative mx-auto aspect-[1145/501] max-w-7xl overflow-hidden rounded-xl lg:rounded-2xl bg-(--navy) shadow-[0_24px_70px_rgba(8,24,48,0.2)] sm:aspect-[16/8] lg:aspect-[16/7]"
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
                 onFocus={() => setPaused(true)}
@@ -156,33 +162,12 @@ export default function ResultsSlider({ category = "all" }) {
                     </div>
                 ))}
 
-                <div
-                    aria-hidden="true"
-                    className="absolute inset-0 z-[2] bg-gradient-to-t from-[#06162c]/90 via-[#06162c]/25 to-[#06162c]/10"
-                />
-
-                <div
-                    className="absolute inset-x-12 bottom-3 z-[3] max-w-2xl text-white sm:inset-x-auto sm:bottom-16 sm:left-10 lg:bottom-20 lg:left-14"
-                    aria-live="polite"
-                    aria-atomic="true"
-                >
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.15em] text-white backdrop-blur-sm sm:gap-2 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.2em]">
-                        <Trophy size={12} className="text-(--gold) sm:h-[14px] sm:w-[14px]" />
-                        {slides[current].category}
-                    </span>
-                    <h2 className="mt-1.5 max-w-xl font-(--font-montserrat) text-base font-bold leading-tight sm:mt-3 sm:text-3xl lg:text-5xl">
-                        {slides[current].title}
-                    </h2>
-                    <p className="mt-2 hidden text-xs text-white/75 sm:block sm:text-sm">
-                        Prince Defence Academy
-                    </p>
-                </div>
 
                 <button
                     type="button"
                     onClick={showPrevious}
                     aria-label="Previous results image"
-                    className="absolute left-3 top-1/2 z-[4] flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-[#06162c]/35 text-white shadow-lg backdrop-blur-md transition-colors hover:bg-(--gold) sm:left-6 sm:h-12 sm:w-12"
+                    className="absolute left-3 top-1/2 z-[4] flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-transparent text-white shadow-[0_2px_12px_rgba(0,0,0,0.8)] transition-colors hover:bg-(--gold) sm:left-6 sm:h-12 sm:w-12"
                 >
                     <ChevronLeft aria-hidden="true" />
                 </button>
@@ -191,7 +176,7 @@ export default function ResultsSlider({ category = "all" }) {
                     type="button"
                     onClick={showNext}
                     aria-label="Next results image"
-                    className="absolute right-3 top-1/2 z-[4] flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-[#06162c]/35 text-white shadow-lg backdrop-blur-md transition-colors hover:bg-(--gold) sm:right-6 sm:h-12 sm:w-12"
+                    className="absolute right-3 top-1/2 z-[4] flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-transparent text-white shadow-[0_2px_12px_rgba(0,0,0,0.8)] transition-colors hover:bg-(--gold) sm:right-6 sm:h-12 sm:w-12"
                 >
                     <ChevronRight aria-hidden="true" />
                 </button>

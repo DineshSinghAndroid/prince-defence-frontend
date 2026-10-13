@@ -134,7 +134,7 @@ export default function GoogleReviews({
   return (
     <section
       aria-labelledby="google-reviews-title"
-      className="overflow-hidden bg-white px-4 py-6 sm:px-6 sm:py-8 lg:py-10"
+      className="bg-white px-4 py-6 sm:px-6 sm:py-8 lg:py-10"
     >
       <div className="mx-auto max-w-6xl">
         <header className="mb-4 flex flex-wrap items-center justify-between gap-3 sm:mb-5">
@@ -207,7 +207,7 @@ export default function GoogleReviews({
             </div>
           )}
 
-          <div className="h-[600px] w-full min-w-0 overflow-hidden sm:h-[500px]">
+          <div className="h-[1050px] w-full min-w-0">
             <div
               id="google-reviews-widget"
               ref={widgetRef}
@@ -216,7 +216,8 @@ export default function GoogleReviews({
               data-layout="carousel"
               data-min-rating="4"
               data-hide-header="false"
-              className="h-full w-full min-w-0 overflow-hidden"
+              data-height="1400px"
+              className="h-[1050px] w-full min-w-0 [&>iframe]:!h-[1050px] [&>iframe]:!max-h-[1050px]"
             />
           </div>
         </div>

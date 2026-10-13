@@ -11,9 +11,9 @@ export default function WhatsAppChannelCard() {
 
   return (
     <div className="w-full px-4 py-8">
-      {/* Box ka size yahin se control hota hai: width = max-w, height = aspect ratio */}
+      {/* Control the box size here: width = max-w, height = aspect ratio. */}
       <div className="relative mx-auto aspect-[4/3] w-full max-w-4xl sm:aspect-[5/2]">
-        {/* Trapezoid shape (left lamba, right chhota, symmetric) */}
+        {/* Symmetrical trapezoid shape with a longer left side and shorter right side. */}
         <svg
           className="absolute inset-0 h-full w-full drop-shadow-[0_18px_30px_rgba(7,33,58,0.15)]"
           viewBox="0 0 1000 400"
@@ -36,7 +36,7 @@ export default function WhatsAppChannelCard() {
           />
         </svg>
 
-        {/* Content: shape ke andar, vertically center */}
+        {/* Center the content vertically inside the shape. */}
         <div className="absolute inset-0 z-10 flex items-center pl-[6%] pr-[7%]">
           {/* Left: heading */}
           <div className="w-[42%]">

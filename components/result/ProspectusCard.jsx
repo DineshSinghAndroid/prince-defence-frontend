@@ -35,7 +35,7 @@ export default function ProspectusCard({
         }
       `}</style>
 
-      {/* Peeche ke soft glow, taaki glass effect dikhe */}
+      {/* Soft glow behind the card creates a glass effect. */}
       {withBackdrop && (
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
 
