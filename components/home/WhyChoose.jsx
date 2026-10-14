@@ -1,5 +1,5 @@
 import {
-    ShieldCheck,
+    Check,
     ArrowUpRight,
 } from "lucide-react";
 
@@ -82,11 +82,11 @@ export default function WhyChooseUs() {
                                 {reasons.map((reason) => (
                                     <li
                                         key={reason}
-                                        className="group flex min-h-[88px] w-full items-center justify-start gap-4 rounded-2xl border border-white/70 bg-white/35 p-4 shadow-[0_12px_32px_rgba(16,42,67,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur-xl transition-all duration-300 hover:bg-white/55 sm:min-h-24 sm:p-5"
+                                        className="group flex min-h-[50px] w-full items-center justify-start gap-4 rounded-2xl border border-white/70 bg-white/35 p-2 shadow-[0_12px_32px_rgba(16,42,67,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur-xl transition-all duration-300 hover:bg-white/55 sm:p-4"
                                     >
                                         {/* icon */}
-                                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-(--navy)/10 text-(--navy) ring-1 ring-(--navy)/20 transition-all duration-300 group-hover:bg-(--navy) group-hover:text-white group-hover:ring-(--navy)">
-                                            <ShieldCheck aria-hidden="true" size={19} />
+                                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-(--navy)/10 text-(--navy) ring-1 ring-(--navy)/20 transition-all duration-300 group-hover:bg-(--navy) group-hover:text-white group-hover:ring-(--navy)">
+                                            <Check aria-hidden="true" size={15} />
                                         </span>
 
                                         {/* text: left-right justified, extra text wraps below */}
