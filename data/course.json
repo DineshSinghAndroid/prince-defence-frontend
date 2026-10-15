@@ -7,31 +7,31 @@
   "navbar": [
     {
       "name": "NDA",
-      "slug": "nda-application-form-2019",
+      "slug": "nda",
       "icon": "FaAward",
       "color": "#D4AF37"
     },
     {
       "name": "Air Force",
-      "slug": "indian-air-force-airmen-eligibility",
+      "slug": "AirForce",
       "icon": "GiJetFighter",
       "color": "#5D8AA8"
     },
     
     {
       "name": "Navy",
-      "slug": "indian-navy-ssr-eligibility",
+      "slug": "navy",
       "icon": "FaAnchor",
       "color": "#002060"
     },
     {
       "name": "Army",
-      "slug": "indian-army-selection-process",
+      "slug": "army",
       "icon": "FaShieldAlt",
       "color": "#4B5320"
     },{
       "name": "SSC",
-      "slug": "ssc-selection-process",
+      "slug": "ssc",
       "icon": "FaShieldAlt",
       "color": "#000080"
     }
@@ -41,7 +41,7 @@
   "exams": [
     {
       "title": "NDA Exam Guide",
-      "slug": "nda-application-form-2019",
+      "slug": "nda",
       "category": "UPSC NDA",
       "image": "/images/nda.webp",
       "contentNote": "The Indian Army offers young candidates an opportunity to become officers through the National Defence Academy (NDA). For NDA (I) 2026, the UPSC examination provides entry to the Army, Navy, and Air Force wings of the NDA. The Army Wing has 208 vacancies, including 198 for male candidates and 10 for female candidates. The selected candidates undergo training at the National Defence Academy before moving ahead for further service training. The NDA selection is not based only on the written exam. Candidates first have to qualify the UPSC written examination and then appear for the Services Selection Board (SSB) Intelligence and Personality Test. Final selection is based on merit, medical fitness, eligibility, and the available vacancies.",
@@ -419,7 +419,7 @@
     },
     {
       "title": "Indian Air Force Agniveervayu",
-      "slug": "indian-air-force-airmen-eligibility",
+      "slug": "AirForce",
       "category": "Indian Air Force",
       "image": "/images/airforce.webp",
       "contentNote": "Joining the Indian Air Force is the dream of many young aspirants who want to serve the nation while working in a challenging and disciplined environment. Prince Defence Academy Sikar provides structured coaching for students preparing for various Indian Air Force recruitment and entrance examinations. The academy focuses on academic preparation, regular practice, physical fitness, and overall personality development to help students prepare for the different stages of the selection process.",
@@ -900,7 +900,7 @@
     },
     {
       "title": "Indian Navy Agniveer",
-      "slug": "indian-navy-ssr-eligibility",
+      "slug": "navy",
       "category": "Indian Navy",
       "image": "/images/navy.webp",
       "contentNote": "The Indian Navy is the maritime branch of the Indian Armed Forces responsible for protecting the country's maritime interests and securing its sea borders. It plays an important role in national defence, maritime security, disaster relief and safeguarding India's interests at sea.",
@@ -1256,7 +1256,7 @@
     },
     {
       "title": "Indian Army Agniveer",
-      "slug": "indian-army-selection-process",
+      "slug": "army",
       "category": "Indian Army",
       "image": "/images/army.webp",
       "contentNote": "The Indian Army offers young candidates an opportunity to serve in the armed forces through the Agniveer recruitment under the Agnipath Scheme. The notification provided for the Recruiting Year 2027 is issued by Headquarters Recruiting Zone, Jaipur, and invites applications from unmarried female candidates from all districts of Rajasthan for the Agniveer General Duty (Women Military Police) category. Under this scheme, selected Agniveers are enrolled in the Indian Army for a period of four years and receive military training according to Army requirements",
@@ -1603,7 +1603,7 @@
     },
     {
       "title": "Staff Selection Commission (SSC)",
-      "slug": "ssc-selection-process",
+      "slug": "ssc",
       "category": "SSC Recruitment",
       "image": "/images/scc.webp",
       "contentNote": "The Staff Selection Commission (SSC) is a central government organisation that conducts various competitive exams for recruitment to Group B and Group C posts in ministries, departments, and offices of the Government of India. Every year, lakhs of candidates appear for SSC exams such as CGL, CHSL, GD, MTS, CPO, and JE for government job opportunities.",
@@ -1821,7 +1821,7 @@
           ]
         },
         {
-          "id": "ssc-selection-process",
+          "id": "ssc",
           "heading": "SSC Selection Process",
           "blocks": [
             {

@@ -7,6 +7,7 @@ import ProspectusCard from "./ProspectusCard";
 import Image from "next/image";
 import Link from "next/link";
 import ResultsSlider from "./ResultsSlider";
+import YearResultImage from "./YearResultImage";
 
 const resultCategories = [
     { label: "All Results", href: "/results", value: "all" },
@@ -166,19 +167,19 @@ const Result = ({ category = "all" }) => {
                                 aria-labelledby={`results-year-${year.replace(/[^a-zA-Z0-9]/g, "-")}`}
                             >
                                 <ScrollReveal>
-                                    <h4
-                                        id={`results-year-${year.replace(/[^a-zA-Z0-9]/g, "-")}`}
-                                        className="mb-5 flex items-center gap-3 font-(--font-montserrat) text-xl font-bold text-(--navy) sm:text-2xl"
-                                    >
-                                        <span>{year}</span>
-                                        <span className="h-px flex-1 bg-gradient-to-r from-(--gold)/50 to-transparent" />
-                                        <span className="rounded-full bg-[#f1f5f9] px-3 py-1 text-xs font-semibold text-(--muted)">
-                                            {groupedResults[year].length}{" "}
-                                            {groupedResults[year].length === 1
-                                                ? "record"
-                                                : "records"}
-                                        </span>
-                                    </h4>
+                                    <div className="mb-5 flex items-center gap-3">
+                                        <h4
+                                            id={`results-year-${year.replace(/[^a-zA-Z0-9]/g, "-")}`}
+                                            className="flex min-w-0 flex-1 items-center gap-3 font-(--font-montserrat) text-xl font-bold text-(--navy) sm:text-2xl"
+                                        >
+                                            <span>{year}</span>
+                                            <span className="h-px flex-1 bg-gradient-to-r from-(--gold)/50 to-transparent" />
+                                        </h4>
+                                        <YearResultImage
+                                            year={year}
+                                            category={activeCategory.value}
+                                        />
+                                    </div>
                                 </ScrollReveal>
 
                                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

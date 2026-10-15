@@ -30,7 +30,7 @@ const Courses = () => {
                     duration={500}
                     className="w-full min-w-0 flex-none"
                 >
-                    <article className="grid w-full min-w-full basis-full flex-none overflow-hidden rounded-4xl border border-slate-200 bg-white p-5 shadow-sm lg:grid-cols-[40%_60%] lg:p-8">
+                    <article className="grid w-full min-w-full basis-full tems-center flex-none overflow-hidden rounded-4xl border border-slate-200 bg-white p-5 shadow-sm lg:grid-cols-[40%_60%] lg:p-8">
 
                         {/* Course Image */}
                         <div className="relative mx-auto aspect-square w-full max-w-[320px] overflow-hidden rounded-4xl bg-slate-50 sm:max-w-[400px] lg:mx-0 lg:max-w-none">
@@ -53,7 +53,7 @@ const Courses = () => {
                         </div>
 
                         {/* Course Details */}
-                        <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10 xl:p-12">
+                        <div className="flex flex-col justify-center px-6 lg:px-8 xl:px-12 pt-6 md:pt-0">
                             <span className="w-fit rounded-full bg-[#fbf1d8] px-3.5 py-1.5 text-xs font-bold tracking-wide text-(--gold)">
                                 DEFENCE EXAM GUIDE
                             </span>

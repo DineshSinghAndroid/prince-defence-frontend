@@ -18,6 +18,7 @@ export const getPublicAchievers = async (
     {
         page = 1,
         limit = 12,
+        year,
         sort = "newest",
     } = {}
 ) => {
@@ -26,6 +27,10 @@ export const getPublicAchievers = async (
         limit: String(limit),
         sort,
     });
+
+    if (year !== undefined && year !== null) {
+        params.set("year", String(year));
+    }
 
     const endpoint = categorySlug
         ? `/achievers/category/${encodeURIComponent(categorySlug)}`

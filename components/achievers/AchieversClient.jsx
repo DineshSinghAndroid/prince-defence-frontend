@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Trophy, ChevronLeft, ChevronRight, RefreshCw } from "lucide-react";
 import { getPublicAchieverCategories, getPublicAchievers } from "@/services/achieverService";
@@ -11,15 +11,19 @@ const PAGE_SIZE = 12;
 
 export default function AchieversClient({ initialCategorySlug = "" }) {
     const router = useRouter();
+    const fetchSequence = useRef(0);
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(
         initialCategorySlug || "all"
     );
-    const [achievers, setAchievers] = useState([]);
-    const [page, setPage] = useState(1);
-    const [pagination, setPagination] = useState(null);
+    const [years, setYears] = useState([]);
+    const [yearResults, setYearResults] = useState({});
+    const [yearPages, setYearPages] = useState({});
+    const [yearLoading, setYearLoading] = useState({});
+    const [yearErrors, setYearErrors] = useState({});
+    const [totalResults, setTotalResults] = useState(0);
     const [categoriesLoading, setCategoriesLoading] = useState(true);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
     useEffect(() => {
@@ -62,62 +66,154 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
     }, []);
 
     const fetchAchievers = useCallback(async () => {
+        const requestSequence = ++fetchSequence.current;
         setLoading(true);
         setError("");
+        setYears([]);
+        setYearResults({});
+        setYearPages({});
+        setYearLoading({});
+        setYearErrors({});
+        setTotalResults(0);
+
+        try {
+            const categorySlug =
+                selectedCategory === "all" ? "" : selectedCategory;
+            const response = await getPublicAchievers(
+                categorySlug,
+                {
+                    page: 1,
+                    limit: 1,
+                    sort: "newest",
+                }
+            );
+
+            if (requestSequence !== fetchSequence.current) return;
+
+            const result = response?.data;
+            if (!Array.isArray(result?.years)) {
+                throw new Error("Achiever years could not be loaded.");
+            }
+
+            const availableYears = result.years.map(String);
+            setYears(availableYears);
+            setTotalResults(
+                Number(result.pagination?.total ?? 0)
+            );
+            setYearPages(
+                Object.fromEntries(availableYears.map((year) => [year, 1]))
+            );
+
+            const yearResponses = await Promise.all(
+                availableYears.map(async (year) => {
+                    const yearResponse = await getPublicAchievers(
+                        categorySlug,
+                        {
+                            page: 1,
+                            limit: PAGE_SIZE,
+                            year,
+                            sort: "newest",
+                        }
+                    );
+                    const yearResult = yearResponse?.data;
+
+                    if (
+                        !Array.isArray(yearResult?.items) ||
+                        !yearResult?.pagination
+                    ) {
+                        throw new Error(`Achievers for ${year} could not be loaded.`);
+                    }
+
+                    return [
+                        year,
+                        {
+                            items: yearResult.items,
+                            pagination: yearResult.pagination,
+                        },
+                    ];
+                })
+            );
+
+            if (requestSequence !== fetchSequence.current) return;
+
+            setYearResults(Object.fromEntries(yearResponses));
+        } catch (err) {
+            if (requestSequence !== fetchSequence.current) return;
+
+            setYears([]);
+            setYearResults({});
+            setError(err?.message || "Achievers load nahi ho sake.");
+        } finally {
+            if (requestSequence === fetchSequence.current) {
+                setLoading(false);
+            }
+        }
+    }, [selectedCategory]);
+
+    const fetchYearPage = useCallback(async (year, nextPage) => {
+        const yearKey = String(year);
+        const requestSequence = fetchSequence.current;
+        setYearLoading((current) => ({ ...current, [yearKey]: true }));
+        setYearErrors((current) => ({ ...current, [yearKey]: "" }));
 
         try {
             const response = await getPublicAchievers(
                 selectedCategory === "all" ? "" : selectedCategory,
                 {
-                    page,
+                    page: nextPage,
                     limit: PAGE_SIZE,
+                    year: yearKey,
                     sort: "newest",
                 }
             );
-
             const result = response?.data;
 
-            setAchievers(
-                Array.isArray(result?.items)
-                    ? result.items
-                    : Array.isArray(result)
-                        ? result
-                        : []
-            );
+            if (requestSequence !== fetchSequence.current) return;
 
-            setPagination(result?.pagination || null);
+            if (!Array.isArray(result?.items) || !result?.pagination) {
+                throw new Error(`Achievers for ${yearKey} could not be loaded.`);
+            }
+
+            setYearResults((current) => ({
+                ...current,
+                [yearKey]: {
+                    items: result.items,
+                    pagination: result.pagination,
+                },
+            }));
+            setYearPages((current) => ({ ...current, [yearKey]: nextPage }));
         } catch (err) {
-            setAchievers([]);
-            setPagination(null);
-            setError(err?.message || "Achievers load nahi ho sake.");
+            if (requestSequence !== fetchSequence.current) return;
+
+            setYearErrors((current) => ({
+                ...current,
+                [yearKey]: {
+                    message:
+                        err?.message ||
+                        `Achievers for ${yearKey} could not be loaded.`,
+                    page: nextPage,
+                },
+            }));
         } finally {
-            setLoading(false);
+            if (requestSequence === fetchSequence.current) {
+                setYearLoading((current) => ({ ...current, [yearKey]: false }));
+            }
         }
-    }, [selectedCategory, page]);
+    }, [selectedCategory]);
 
     useEffect(() => {
         const timer = setTimeout(() => {
             fetchAchievers();
         }, 250);
 
-        return () => clearTimeout(timer);
+        return () => {
+            clearTimeout(timer);
+            fetchSequence.current += 1;
+        };
     }, [fetchAchievers]);
-
-    const achieversByYear = useMemo(() => {
-        const grouped = achievers.reduce((years, achiever) => {
-            const year = String(achiever.year || "Other");
-            (years[year] ||= []).push(achiever);
-            return years;
-        }, {});
-
-        return Object.entries(grouped).sort(([first], [second]) =>
-            second.localeCompare(first, undefined, { numeric: true })
-        );
-    }, [achievers]);
 
     const changeCategory = (slug) => {
         setSelectedCategory(slug);
-        setPage(1);
         router.push(
             slug === "all"
                 ? "/achievers"
@@ -125,12 +221,6 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
             { scroll: false }
         );
     };
-
-    const totalPages = Math.max(1, Number(pagination?.totalPages || 1));
-
-    const totalResults = Number(
-        pagination?.total ?? pagination?.totalItems ?? achievers.length
-    );
 
     return (
         <main className="min-h-screen overflow-hidden bg-gradient-to-b from-white via-[#EFF3FF] to-[#EFF3FF] text-[#102a43]">
@@ -219,7 +309,7 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
                                     <AchieverCardSkeleton key={index} />
                                 ))}
                         </ScrollReveal>
-                    ) : achievers.length === 0 ? (
+                    ) : years.length === 0 ? (
                         <ScrollReveal className="flex min-h-64 flex-col items-center justify-center rounded-3xl border border-dashed border-[#d5deec] bg-white/70 px-5 text-center">
                             <div className="grid size-16 place-items-center rounded-2xl bg-[#fbf3dc] text-[#b89242]">
                                 <Trophy size={30} />
@@ -231,7 +321,17 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
                         </ScrollReveal>
                     ) : (
                         <div className="space-y-10">
-                            {achieversByYear.map(([year, students]) => (
+                            {years.map((year) => {
+                                const yearResult = yearResults[year];
+                                const students = yearResult?.items || [];
+                                const pagination = yearResult?.pagination;
+                                const page = Number(yearPages[year] || 1);
+                                const totalPages = Math.max(
+                                    1,
+                                    Number(pagination?.totalPages || 1)
+                                );
+
+                                return (
                                 <section
                                     key={year}
                                     aria-labelledby={`achievers-year-${year.replace(/[^a-zA-Z0-9]/g, "-")}`}
@@ -244,11 +344,31 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
                                         <span>{year}</span>
                                         <span className="h-px flex-1 bg-gradient-to-r from-[#b89242]/50 to-transparent" />
                                         <span className="rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-slate-500">
-                                            {students.length}{" "}
-                                            {students.length === 1 ? "achiever" : "achievers"}
+                                            {pagination?.total ?? students.length}{" "}
+                                            {(pagination?.total ?? students.length) === 1
+                                                ? "achiever"
+                                                : "achievers"}
                                         </span>
                                     </h2>
                                   </ScrollReveal>
+
+                                    {yearErrors[year] && (
+                                        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+                                            <p>{yearErrors[year].message}</p>
+                                            <button
+                                                type="button"
+                                                onClick={() =>
+                                                    fetchYearPage(
+                                                        year,
+                                                        yearErrors[year].page
+                                                    )
+                                                }
+                                                className="font-semibold underline"
+                                            >
+                                                Retry
+                                            </button>
+                                        </div>
+                                    )}
 
                                     <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
                                         {students.map((student, index) => (
@@ -264,41 +384,43 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
                                             </ScrollReveal>
                                         ))}
                                     </div>
+
+                                    {pagination && (
+                                        <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-[#e6ebf3] bg-white p-4 shadow-[0_4px_20px_rgba(16,42,67,0.05)] sm:flex-row sm:items-center sm:justify-between">
+                                            <p className="text-center text-sm text-slate-500 sm:text-left">
+                                                {year} — Page{" "}
+                                                <strong className="text-[#102a43]">{page}</strong>{" "}
+                                                of{" "}
+                                                <strong className="text-[#102a43]">{totalPages}</strong>
+                                            </p>
+
+                                            <div className="flex items-center justify-center gap-2">
+                                                <button
+                                                    type="button"
+                                                    disabled={page <= 1 || yearLoading[year]}
+                                                    onClick={() => fetchYearPage(year, page - 1)}
+                                                    className="inline-flex items-center gap-1 rounded-xl border border-[#e3e9f2] bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-[#f6f8fc] disabled:cursor-not-allowed disabled:opacity-40"
+                                                >
+                                                    <ChevronLeft size={17} />
+                                                    Previous
+                                                </button>
+
+                                                <button
+                                                    type="button"
+                                                    disabled={page >= totalPages || yearLoading[year]}
+                                                    onClick={() => fetchYearPage(year, page + 1)}
+                                                    className="inline-flex items-center gap-1 rounded-xl bg-[#102a43] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#17395c] disabled:cursor-not-allowed disabled:opacity-40"
+                                                >
+                                                    {yearLoading[year] ? "Loading..." : "Next"}
+                                                    {!yearLoading[year] && <ChevronRight size={17} />}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
                                 </section>
-                            ))}
+                                );
+                            })}
                         </div>
-                    )}
-
-                    {/*  pagination  */}
-                    {!loading && achievers.length > 0 && (
-                        <ScrollReveal className="mt-8 flex flex-col gap-4 rounded-2xl border border-[#e6ebf3] bg-white p-4 shadow-[0_4px_20px_rgba(16,42,67,0.05)] sm:flex-row sm:items-center sm:justify-between sm:p-5">
-                            <p className="text-center text-sm text-slate-500 sm:text-left">
-                                Page <strong className="text-[#102a43]">{page}</strong> of{" "}
-                                <strong className="text-[#102a43]">{totalPages}</strong>
-                            </p>
-
-                            <div className="flex items-center justify-center gap-2">
-                                <button
-                                    type="button"
-                                    disabled={page <= 1}
-                                    onClick={() => setPage((current) => Math.max(1, current - 1))}
-                                    className="inline-flex items-center gap-1 rounded-xl border border-[#e3e9f2] bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-[#f6f8fc] disabled:cursor-not-allowed disabled:opacity-40"
-                                >
-                                    <ChevronLeft size={17} />
-                                    Previous
-                                </button>
-
-                                <button
-                                    type="button"
-                                    disabled={page >= totalPages}
-                                    onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
-                                    className="inline-flex items-center gap-1 rounded-xl bg-[#102a43] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#17395c] disabled:cursor-not-allowed disabled:opacity-40"
-                                >
-                                    Next
-                                    <ChevronRight size={17} />
-                                </button>
-                        </div>
-                        </ScrollReveal>
                     )}
                 </div>
             </section>
