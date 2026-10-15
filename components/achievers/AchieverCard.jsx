@@ -9,7 +9,7 @@ const THEMES = {
         chip: "text-[#204b80]",
         label: "text-[#71849d]",
     },
-    cds: {
+    ssc: {
         background: "from-[#172554] via-[#344d91] to-[#8296d0]",
         accent: "#263d7e",
         panel: "from-[#fafaff] to-[#e5e9f9]",
@@ -18,7 +18,7 @@ const THEMES = {
         chip: "text-[#273d7b]",
         label: "text-[#69779b]",
     },
-    afcat: {
+    airforce: {
         background: "from-[#103b46] via-[#087f8c] to-[#43b9b4]",
         accent: "#087781",
         panel: "from-[#f4fffe] to-[#d6f3ee]",
@@ -47,7 +47,7 @@ army: {
         chip: "text-[#07547d]",
         label: "text-[#557a91]",
     },
-    airforce: {
+    afcat: {
         background: "from-[#183765] via-[#366db4] to-[#91baf0]",
         accent: "#315fa4",
         panel: "from-[#f7faff] to-[#e0eaff]",
@@ -68,22 +68,31 @@ army: {
     },
 };
 
-function getTheme(exam = "") {
-    const value = exam.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+function getThemeForValue(value) {
+    const normalized = value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 
-    if (/\bnda\b/.test(value)) return THEMES.nda;
-    if (/\bcds\b/.test(value)) return THEMES.cds;
-    if (/\bafcat\b/.test(value)) return THEMES.afcat;
-    if (/\bnavy\b|\bssr\b|\bagniveer\s+navy\b/.test(value))
+    if (/\bnda\b/.test(normalized)) return THEMES.nda;
+    if (/\bcds\b/.test(normalized)) return THEMES.cds;
+    if (/\bafcat\b/.test(normalized)) return THEMES.afcat;
+    if (/\bnavy\b|\bssr\b|\bagniveer\s+navy\b/.test(normalized))
         return THEMES.navy;
-    if (/\bair\s*force\b|\bagniveer\s+vayu\b/.test(value))
+    if (/\bair\s*force\b|\bairforce\b|\bagniveer\s+vayu\b/.test(normalized))
         return THEMES.airforce;
-    if (/\barmy\b|\bagniveer\b|\btechnical\b|\bgd\b|\bclerk\b/.test(value))
+    if (/\barmy\b|\bagniveer\b|\btechnical\b|\bgd\b|\bclerk\b/.test(normalized))
         return THEMES.army;
-    if (/\bpolice\b|\bconstable\b|\bsub\s*inspector\b|\bsi\b/.test(value))
-        return THEMES.police;
+    if (/\bpolice\b|\bconstable\b|\bsub\s*inspector\b|\bsi\b/.test(normalized))
+        return THEMES.default;
 
-    return THEMES.default;
+    return null;
+}
+
+function getTheme(category, exam = "") {
+    const categoryValue =
+        typeof category === "string"
+            ? category
+            : [category?.slug, category?.name].filter(Boolean).join(" ");
+
+    return getThemeForValue(categoryValue) || getThemeForValue(exam) || THEMES.default;
 }
 
 function getInitials(name = "") {
@@ -144,7 +153,7 @@ export default function AchieverCard({ student = {} }) {
     const address = (student.address || "").trim();
     const batch = (student.batch || "Target").trim();
     const photoUrl = student.photo?.url;
-    const theme = getTheme(exam);
+    const theme = getTheme(student.categoryId, exam);
 
     const nameSize =
         name.length > 25
@@ -181,7 +190,7 @@ export default function AchieverCard({ student = {} }) {
 
             {/* Selection Year */}
             {year && (
-                <span className="absolute right-3 top-3 z-20 rounded-lg border border-amber-200/70 bg-gradient-to-br from-[#fff0bb] to-[#e5bd59] px-2.5 py-1.5 text-xs font-extrabold tracking-wide text-[#243958] shadow-md sm:right-4 sm:top-4 sm:text-sm">
+                <span className="absolute right-2 top-3 z-20 rounded-lg border border-amber-200/70 bg-gradient-to-br from-[#fff0bb] to-[#e5bd59] px-2 py-1 text-[10px] font-extrabold tracking-wide text-[#243958] shadow-md sm:right-4 sm:top-4 sm:px-2.5 sm:py-1.5 sm:text-sm">
                     {year}
                 </span>
             )}
