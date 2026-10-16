@@ -164,13 +164,13 @@ export default function HeroPlus() {
                             <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 text-justify sm:text-lg sm:leading-8">
 
 
-                                Started in 2011, &nbsp;
+                                Started in 2012, &nbsp;
 
                                 <span className="font-semibold text-(--navy)">
                                      Prince Defence Academy
                                 </span>{" "}
 
-                                has helped thousands of candidates secure selections in defence exams, including Navy, Army, Air Force, NDA, CDS, AFCAT, etc. Prince Defence Academy, Sikar, is known for providing the best education and physical training. Prince Defence Academy creates a learning environment and provides physical training under the guidance of retired army officials.
+                                has helped thousands of candidates secure selections in defence exams, including NDA, Navy, Army, Air Force, CDS, AFCAT, etc. Prince Defence Academy, Sikar, is known for providing the best education and physical training. Prince Defence Academy creates a learning environment and provides physical training under the guidance of retired army officials.
 
                             </p>
 

@@ -129,7 +129,7 @@ export default function Footer() {
                         </Link>
 
                         <p className="mt-5 max-w-sm text-sm leading-7 text-white/60">
-                            Established in 2011, Prince Defence Academy provides
+                            Established in 2012, Prince Defence Academy provides
                             guidance and preparation for defence and competitive
                             examinations, helping students work towards their
                             career goals.
@@ -274,7 +274,7 @@ export default function Footer() {
                 <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 text-center sm:flex-row sm:text-left">
 
                     <p className="text-xs leading-5 text-white/50 sm:text-sm">
-                        Copyright © 2011 - {new Date().getFullYear()} All Rights Reserved  <Link href="/" className="hover:text-(--gold)">
+                        Copyright © 2012 - {new Date().getFullYear()} All Rights Reserved  <Link href="/" className="hover:text-(--gold)">
                             @Prince Defence Academy
                         </Link>
                     </p>

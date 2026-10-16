@@ -109,7 +109,7 @@ export default function PrivacyPolicy() {
             information of visitors and students who use <a href="https://princedefence.com" className="hover:text-(--gold)">www.princedefence.com</a> , in compliance with the Information
             Technology Act, 2000 and the IT (Reasonable Security Practices
             and Procedures and Sensitive Personal Data or Information)
-            Rules, 2011.
+            Rules, 2012.
           </p>
         </div>
 

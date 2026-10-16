@@ -17,7 +17,7 @@ import SelectionRecords from "@/components/home/SelectionRecords";
 const achievements = [
   {
     icon: GraduationCap,
-    number: "2011",
+    number: "2012",
     title: "Established",
     desc: "A journey of excellence",
   },
@@ -91,7 +91,7 @@ export default function About() {
               <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
                 Empowering ambitious students with quality education,
                 professional guidance and the confidence to pursue
-                their dreams since 2011.
+                their dreams since 2012.
               </p>
             </div>
           </ScrollReveal>
@@ -120,7 +120,7 @@ export default function About() {
                   <div className="absolute bottom-6 left-6 right-6 z-10 rounded-2xl border border-white/20 bg-gradient-to-b from-black/70 via-black/45 to-white/10 p-5 text-white backdrop-blur-[2px] sm:bottom-8 sm:left-8 sm:right-8">
                     <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#e7c36d]">
                       <Star size={15} fill="currentColor" />
-                      Our Journey Since 2011
+                      Our Journey Since 2012
                     </div>
 
                     <h3 className="text-2xl font-extrabold sm:text-3xl">
@@ -183,11 +183,11 @@ export default function About() {
                 </h3>
 
                 <p className="mt-5 text-sm leading-7 inter text-slate-600 sm:text-base">
-                  Prince Defence Academy (PDA) is one of the emerging defence coaching institutes of Northern India and has contributed by delivering thousands of successful candidates to various defence and government services. Prince Defence Academy was established in 2011 with an aim of helping students in delivering the best education and physical training. Prince Defence Academy believes in providing structured coaching, expert guidance, and a disciplined learning environment.
+                  Prince Defence Academy (PDA) is one of the emerging defence coaching institutes of Northern India and has contributed by delivering thousands of successful candidates to various defence and government services. Prince Defence Academy was established in 2012 with an aim of helping students in delivering the best education and physical training. Prince Defence Academy believes in providing structured coaching, expert guidance, and a disciplined learning environment.
                 </p>
 
                 <p className="mt-4 text-sm leading-7 inter text-slate-600 sm:text-base">
-                  Prince Defence Academy (PDA) was inaugurated in 2011 and started its first batch with a few students. Gradually, it expanded its courses and changed the preparation methods according to the requirements of competitive examinations. Its unique teaching methods and physical training attract future soldiers to PDA. The way of learning, disciplined environment, guidance of experts, and defence-oriented preparation have helped thousands of students. And today, Prince Defense Academy stands among the leading defence academies in India.
+                  Prince Defence Academy (PDA) was inaugurated in 2012 and started its first batch with a few students. Gradually, it expanded its courses and changed the preparation methods according to the requirements of competitive examinations. Its unique teaching methods and physical training attract future soldiers to PDA. The way of learning, disciplined environment, guidance of experts, and defence-oriented preparation have helped thousands of students. And today, Prince Defense Academy stands among the leading defence academies in India.
                 </p>
 
                 {/* FEATURE LIST */}
@@ -299,7 +299,7 @@ export default function About() {
               </h3>
 
               <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-                Prince Defence Academy has contributed to the preparation of candidates selected in different defence and government services. The academy has crossed 1286+ selections (2022 to 2025) across areas including the Army, Navy, Air Force, SSB, NDA, etc., based on the academy's reported selection record
+                Prince Defence Academy has contributed to the preparation of candidates selected in different defence and government services. The academy has crossed 1286+ selections (2022 to 2025) across areas including the NDA, Army, Navy, Air Force, SSC, etc., based on the academy's reported selection record
               </p>
 
               <EnquireButton
