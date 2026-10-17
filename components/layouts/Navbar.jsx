@@ -97,7 +97,7 @@ export const Navbar = () => {
         >
             {/* TOP NAVBAR / ANNOUNCEMENT */}
             <div
-                className={`overflow-hidden whitespace-nowrap
+                className={`-mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden whitespace-nowrap
                     text-white text-sm py-1
                     transition-all duration-300
                     ${isScroll
@@ -105,7 +105,7 @@ export const Navbar = () => {
                         : "opacity-0"
                     }`}
             >
-                <div className="animate-sequential-scroll gap-4 text-center font-medium py-1 px-2">
+                <div className="animate-sequential-scroll gap-4 text-center font-medium py-1">
                     <span
                         className="font-bold text-(--gold)"
                     >

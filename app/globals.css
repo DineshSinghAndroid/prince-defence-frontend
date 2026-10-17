@@ -326,7 +326,7 @@ img {
   display: block;
   min-width: 100vw;
   text-align: right;
-  padding: 0 20px;
+  padding: 0;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
