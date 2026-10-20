@@ -34,7 +34,7 @@ const exams = examData.exams
 
 const CoursesPage = () => {
   return (
-    <main className="min-h-screen bg-[#ffffff]">
+    <main className="min-h-screen bg-[#ffffff] overflow-x-clip">
 
 
       {/* Courses Header */}
