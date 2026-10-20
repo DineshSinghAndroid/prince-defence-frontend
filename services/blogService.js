@@ -1,27 +1,38 @@
 import { apiRequest } from "./api";
 
-const BLOG_API_TIMEOUT_MS = 10000;
+const BLOG_API_TIMEOUT_MS = 25000;
 
-const requestBlogApi = (endpoint, fallbackMessage) =>
-    apiRequest(
+const requestBlogApi = (endpoint, fallbackMessage, options = {}) => {
+    const isClient = typeof window !== "undefined";
+    const fetchOptions = {
+        ...(isClient
+            ? { signal: AbortSignal.timeout(BLOG_API_TIMEOUT_MS) }
+            : { next: { revalidate: 300 } }),
+        ...options,
+    };
+
+    return apiRequest(
         endpoint,
-        {
-            signal: AbortSignal.timeout(BLOG_API_TIMEOUT_MS),
-        },
+        fetchOptions,
         fallbackMessage
     );
+};
 
 
 // Get Published Blogs
 
-export const getPublicBlogs = async ({
-    page = 1,
-    limit = 9,
-    search = "",
-    category = "",
-    excludeCategory = "",
-    excludeCategorySlug = "",
-} = {}) => {
+export const getPublicBlogs = async (
+    {
+        page = 1,
+        limit = 9,
+        search = "",
+        category = "",
+        categorySlug = "",
+        excludeCategory = "",
+        excludeCategorySlug = "",
+    } = {},
+    options = {}
+) => {
     const params = new URLSearchParams();
 
     params.append("page", String(page));
@@ -41,6 +52,13 @@ export const getPublicBlogs = async ({
         );
     }
 
+    if (categorySlug) {
+        params.append(
+            "categorySlug",
+            categorySlug
+        );
+    }
+
     if (excludeCategory) {
         params.append(
             "excludeCategory",
@@ -57,7 +75,8 @@ export const getPublicBlogs = async ({
 
     return requestBlogApi(
         `/blogs?${params.toString()}`,
-        "Failed to fetch blogs"
+        "Failed to fetch blogs",
+        options
     );
 };
 
@@ -65,7 +84,8 @@ export const getPublicBlogs = async ({
 // Get Single Published Blog
 
 export const getPublicBlogBySlug = async (
-    slug
+    slug,
+    options = {}
 ) => {
     if (!slug) {
         throw new Error(
@@ -75,7 +95,8 @@ export const getPublicBlogBySlug = async (
 
     return requestBlogApi(
         `/blogs/slug/${encodeURIComponent(slug)}`,
-        "Failed to fetch blog"
+        "Failed to fetch blog",
+        options
     );
 };
 
@@ -85,7 +106,8 @@ export const getPublicBlogBySlug = async (
 export const getRelatedBlogs = async (
     categoryId,
     blogId,
-    limit = 5
+    limit = 5,
+    options = {}
 ) => {
     if (!categoryId || !blogId) {
         throw new Error(
@@ -95,7 +117,8 @@ export const getRelatedBlogs = async (
 
     return requestBlogApi(
         `/blogs/related/${categoryId}/${blogId}?limit=${limit}`,
-        "Failed to fetch related blogs"
+        "Failed to fetch related blogs",
+        options
     );
 };
 
@@ -107,7 +130,7 @@ export const getPublicBlogCategories =
         page = 1,
         limit = 10,
         search = "",
-    } = {}) => {
+    } = {}, options = {}) => {
         const params = new URLSearchParams({
             page: String(page),
             limit: String(limit),
@@ -119,6 +142,7 @@ export const getPublicBlogCategories =
 
         return requestBlogApi(
             `/blog-categories?${params.toString()}`,
-            "Failed to fetch blog categories"
+            "Failed to fetch blog categories",
+            options
         );
     };

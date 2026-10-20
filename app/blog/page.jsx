@@ -46,16 +46,6 @@ export default async function BlogPage() {
                     ? blogsResult.value?.pagination
                     : undefined
             }
-            initialError={
-                blogsResult.status === "rejected"
-                    ? "Articles could not be loaded. Please try again."
-                    : ""
-            }
-            categoriesError={
-                categoriesResult.status === "rejected"
-                    ? "Blog categories could not be loaded."
-                    : ""
-            }
         />
     );
 }

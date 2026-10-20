@@ -84,21 +84,16 @@ export default async function NewsArticlePage({ params }) {
     let newsPagination = null;
     const categoryId = article.category?._id;
 
-    if (categoryId) {
-        try {
-            const response = await getPublicBlogs({
-                page: 1,
-                limit: 50,
-                category: categoryId,
-            });
-            allNews = (response?.data || []).filter(
-                (blog) =>
-                    (blog.category?._id || blog.category) === categoryId
-            );
-            newsPagination = response?.pagination || null;
-        } catch (error) {
-            console.error("Failed to fetch news navigation:", error);
-        }
+    try {
+        const response = await getPublicBlogs({
+            page: 1,
+            limit: 50,
+            ...(categoryId ? { category: categoryId } : { categorySlug: "news" }),
+        });
+        allNews = response?.data || [];
+        newsPagination = response?.pagination || null;
+    } catch (error) {
+        console.error("Failed to fetch news navigation:", error);
     }
 
     const publishedDate = article.publishedAt

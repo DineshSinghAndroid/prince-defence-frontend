@@ -14,9 +14,9 @@ const PAGE_SIZE = 9;
 
 const NewsListing = ({
     categoryId,
+    categorySlug = "news",
     initialBlogs = [],
     initialPagination,
-    initialError = "",
 }) => {
     const [blogs, setBlogs] = useState(initialBlogs);
     const [page, setPage] = useState(1);
@@ -24,21 +24,17 @@ const NewsListing = ({
         initialPagination || {
             page: 1,
             limit: PAGE_SIZE,
-            totalBlogs: 0,
-            totalPages: 0,
+            totalBlogs: initialBlogs.length,
+            totalPages: initialBlogs.length > 0 ? 1 : 0,
         }
     );
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(initialError);
-    const skipInitialFetch = useRef(!initialError);
+    const [loading, setLoading] = useState(initialBlogs.length === 0);
+    const [error, setError] = useState("");
+    const skipInitialFetch = useRef(initialBlogs.length > 0);
 
     useEffect(() => {
         if (skipInitialFetch.current) {
             skipInitialFetch.current = false;
-            return;
-        }
-
-        if (!categoryId) {
             return;
         }
 
@@ -49,29 +45,32 @@ const NewsListing = ({
                 setLoading(true);
                 setError("");
 
-                const response = await getPublicBlogs({
+                const query = {
                     page,
                     limit: PAGE_SIZE,
-                    category: categoryId,
-                });
+                };
+
+                if (categoryId) {
+                    query.category = categoryId;
+                } else {
+                    query.categorySlug = categorySlug || "news";
+                }
+
+                const response = await getPublicBlogs(query);
 
                 if (!active) return;
 
-                const newsOnly = (response?.data || []).filter(
-                    (blog) =>
-                        (blog?.category?._id || blog?.category) ===
-                        categoryId
-                );
-
-                setBlogs(newsOnly);
+                const newsItems = response?.data || [];
+                setBlogs(newsItems);
                 setPagination(
                     response?.pagination || {
                         page,
                         limit: PAGE_SIZE,
-                        totalBlogs: 0,
-                        totalPages: 0,
+                        totalBlogs: newsItems.length,
+                        totalPages: newsItems.length > 0 ? 1 : 0,
                     }
                 );
+                toast.dismiss("news-list-load-error");
             } catch (fetchError) {
                 if (!active) return;
 
@@ -91,7 +90,7 @@ const NewsListing = ({
         return () => {
             active = false;
         };
-    }, [categoryId, page, initialError]);
+    }, [categoryId, categorySlug, page]);
 
     const handlePageChange = (nextPage) => {
         setPage(nextPage);

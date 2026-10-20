@@ -10,7 +10,7 @@ import BlogPagination from "@/components/blogs/BlogPagination";
 import RecentBlogs from "@/components/blogs/RecentBlogs";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 
-import { getPublicBlogs } from "@/services/blogService";
+import { getPublicBlogs, getPublicBlogCategories } from "@/services/blogService";
 
 const isNewsCategory = (category) =>
     category?.name?.trim().toLowerCase() === "news" ||
@@ -23,16 +23,13 @@ const BlogPage = ({
     initialBlogs = [],
     initialCategories = [],
     initialPagination,
-    initialError = "",
-    categoriesError = "",
 }) => {
-    const [blogs, setBlogs] = useState(
-        initialBlogs.filter((blog) => !isNewsBlog(blog))
-    );
+    const validInitialBlogs = initialBlogs.filter((blog) => !isNewsBlog(blog));
+    const [blogs, setBlogs] = useState(validInitialBlogs);
     const [categories, setCategories] = useState(
         initialCategories.filter((item) => !isNewsCategory(item))
     );
-    const skipInitialFetch = useRef(initialError === "");
+    const skipInitialFetch = useRef(validInitialBlogs.length > 0);
 
     const [search, setSearch] =
         useState("");
@@ -47,28 +44,46 @@ const BlogPage = ({
         initialPagination || {
             page: 1,
             limit: 9,
-            totalBlogs: 0,
-            totalPages: 0,
+            totalBlogs: validInitialBlogs.length,
+            totalPages: validInitialBlogs.length > 0 ? 1 : 0,
         }
     );
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(validInitialBlogs.length === 0);
 
-    const [error, setError] = useState(initialError);
+    const [error, setError] = useState("");
 
+    // Fetch categories on client if not provided by SSR
     useEffect(() => {
-        if (categoriesError) {
-            toast.error(categoriesError, {
-                id: "blog-categories-load-error",
-            });
-        }
-    }, [categoriesError]);
+        if (categories.length > 0) return;
+
+        let active = true;
+        const fetchCategories = async () => {
+            try {
+                const response = await getPublicBlogCategories({ limit: 50 });
+                if (!active) return;
+                const filtered = (response?.data || []).filter(
+                    (item) => !isNewsCategory(item)
+                );
+                setCategories(filtered);
+            } catch (err) {
+                console.error("Failed to fetch blog categories on client:", err);
+            }
+        };
+
+        fetchCategories();
+        return () => {
+            active = false;
+        };
+    }, [categories.length]);
 
     useEffect(() => {
         if (skipInitialFetch.current) {
             skipInitialFetch.current = false;
             return;
         }
+
+        let active = true;
 
         const fetchBlogs =
             async () => {
@@ -85,21 +100,26 @@ const BlogPage = ({
                             excludeCategorySlug: "news",
                         });
 
-                    setBlogs(
-                        (response?.data || []).filter(
-                            (blog) => !isNewsBlog(blog)
-                        )
+                    if (!active) return;
+
+                    const fetchedBlogs = (response?.data || []).filter(
+                        (blog) => !isNewsBlog(blog)
                     );
+
+                    setBlogs(fetchedBlogs);
 
                     setPagination(
                         response?.pagination || {
                             page,
                             limit: 9,
-                            totalBlogs: 0,
-                            totalPages: 0,
+                            totalBlogs: fetchedBlogs.length,
+                            totalPages: fetchedBlogs.length > 0 ? 1 : 0,
                         }
                     );
+                    toast.dismiss("blog-list-load-error");
                 } catch (error) {
+                    if (!active) return;
+
                     console.error(
                         "Failed to fetch blogs:",
                         error
@@ -116,20 +136,18 @@ const BlogPage = ({
                         "Failed to load blogs"
                     );
                 } finally {
-                    setLoading(false);
+                    if (active) {
+                        setLoading(false);
+                    }
                 }
             };
 
         fetchBlogs();
-    }, [page, search, category, initialError]);
 
-    useEffect(() => {
-        if (initialError) {
-            toast.error(initialError, {
-                id: "blog-list-load-error",
-            });
-        }
-    }, [initialError]);
+        return () => {
+            active = false;
+        };
+    }, [page, search, category]);
 
 
     // Search
