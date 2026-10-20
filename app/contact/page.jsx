@@ -223,7 +223,7 @@ export default function ContactPage() {
 
                                 {/* WHATSAPP CHANNEL CARD */}
                                 <ScrollReveal animation="up" delay={80} duration={500}>
-                                    <div className="mt-8">
+                                    <div className="mt-8 w-full">
                                         <WhatsAppChannelCard />
                                     </div>
                                 </ScrollReveal>
