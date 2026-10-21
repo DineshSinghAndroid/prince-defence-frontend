@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -42,20 +41,25 @@ function ReviewSkeleton() {
       {[1, 2, 3].map((item) => (
         <div
           key={item}
-          className="rounded-xl border border-gray-200 bg-white p-4"
+          className="rounded-xl border border-gray-200 bg-white p-5 min-h-[340px]"
         >
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 shrink-0 animate-pulse rounded-full bg-gray-200" />
+            <div className="h-10 w-10 shrink-0 animate-pulse rounded-full bg-gray-200" />
             <div className="flex-1 space-y-2">
-              <div className="h-3 w-24 animate-pulse rounded bg-gray-200" />
-              <div className="h-2.5 w-16 animate-pulse rounded bg-gray-100" />
+              <div className="h-3.5 w-28 animate-pulse rounded bg-gray-200" />
+              <div className="h-3 w-20 animate-pulse rounded bg-gray-100" />
             </div>
           </div>
 
-          <div className="mt-4 space-y-2">
-            <div className="h-2.5 animate-pulse rounded bg-gray-100" />
-            <div className="h-2.5 animate-pulse rounded bg-gray-100" />
-            <div className="h-2.5 w-2/3 animate-pulse rounded bg-gray-100" />
+          <div className="mt-5 space-y-3">
+            <div className="h-3 animate-pulse rounded bg-gray-100" />
+            <div className="h-3 animate-pulse rounded bg-gray-100" />
+            <div className="h-3 w-4/5 animate-pulse rounded bg-gray-100" />
+          </div>
+
+          <div className="mt-6 rounded-lg bg-gray-50 p-3 space-y-2">
+            <div className="h-2.5 w-32 animate-pulse rounded bg-gray-200" />
+            <div className="h-2.5 w-full animate-pulse rounded bg-gray-100" />
           </div>
         </div>
       ))}
@@ -107,23 +111,28 @@ export default function GoogleReviews({
       if (active) setFailed(true);
     };
 
-    let script = document.querySelector(
+    // Remove any previously appended reviews script to guarantee fresh re-execution on mount
+    const existingScript = document.querySelector(
       `script[src="${SCRIPT_URL}"]`
     );
-
-    if (!script) {
-      script = document.createElement("script");
-      script.src = SCRIPT_URL;
-      script.async = true;
-      script.defer = true;
-      script.addEventListener("error", handleScriptError);
-      document.body.appendChild(script);
-    } else {
-      script.addEventListener("error", handleScriptError);
+    if (existingScript) {
+      existingScript.remove();
     }
 
+    const script = document.createElement("script");
+    script.src = SCRIPT_URL;
+    script.async = true;
+    script.defer = true;
+    script.addEventListener("error", handleScriptError);
+    document.body.appendChild(script);
+
     timeout = setTimeout(() => {
-      if (active) setFailed(true);
+      if (active) {
+        const hasContent =
+          widget.childElementCount > 0 ||
+          widget.textContent.trim().length > 0;
+        if (!hasContent) setFailed(true);
+      }
     }, 12000);
 
     checkWidget();
@@ -139,7 +148,7 @@ export default function GoogleReviews({
   return (
     <section
       aria-labelledby="google-reviews-title"
-      className="bg-white px-4 py-6 sm:px-6 sm:py-8 lg:py-10"
+      className="bg-white px-4 py-8 sm:px-6 sm:py-12 lg:py-14"
     >
       <div className="mx-auto max-w-6xl">
         <header className="mb-4 flex flex-wrap items-center justify-between gap-3 sm:mb-5">
@@ -157,7 +166,7 @@ export default function GoogleReviews({
               </h2>
 
               <p className="mt-0.5 text-xs text-gray-500 sm:text-sm">
-                Feedback from our students and visitors
+                Feedback from our students and Parents
               </p>
             </div>
           </div>
@@ -212,17 +221,19 @@ export default function GoogleReviews({
             </div>
           )}
 
-          <div className="h-[480px] w-full min-w-0 md:h-[400px]">
+          <div className="min-h-[480px] w-full min-w-0 md:min-h-[450px]">
             <div
               id="google-reviews-widget"
               ref={widgetRef}
-              data-location="accounts/113869565307694473678/locations/1004355570809401037"
+              data-location="accounts/111088591236522962859/locations/1004355570809401037"
               data-theme="light"
               data-layout="carousel"
-              data-min-rating="4"
-              data-hide-header="false"
               data-height="480px"
-              className="h-[480px] w-full min-w-0 md:h-[400px] [&>iframe]:!h-[480px] [&>iframe]:!max-h-[480px] md:[&>iframe]:!h-[400px] md:[&>iframe]:!max-h-[400px]"
+              data-min-rating="4"
+              data-title="Google Reviews"
+              data-subtitle="Feedback from our students and Parents"
+              data-hide-header="false"
+              className="min-h-[480px] w-full min-w-0 md:min-h-[450px] [&>iframe]:!h-[480px] md:[&>iframe]:!h-[450px] [&>iframe]:!max-h-none"
             />
           </div>
         </div>

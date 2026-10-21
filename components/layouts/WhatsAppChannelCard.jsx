@@ -50,7 +50,7 @@ export function WhatsAppChannelCard() {
             </h2>
 
             <p className="mt-0.5 text-xs sm:text-[13px] text-white/75 leading-relaxed">
-              Results, exam notices &amp; updates sabse pehle
+              Results, Exam Notices & Updates — First to Know
             </p>
           </div>
 
