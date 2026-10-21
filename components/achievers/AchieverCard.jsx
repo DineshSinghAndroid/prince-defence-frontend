@@ -119,8 +119,9 @@ function AchieverChip({
     theme,
     accent,
     uppercase = false,
+    allowEmpty = false,
 }) {
-    if (!value) return null;
+    if (!value && !allowEmpty) return null;
 
     return (
         <div
@@ -134,12 +135,12 @@ function AchieverChip({
             </span>
 
             <span
-                title={value}
+                title={value || ""}
                 className={`mt-0.5 block truncate text-[10px] font-extrabold leading-tight sm:mt-1 sm:text-sm ${theme.chip} ${
                     uppercase ? "uppercase" : "capitalize"
                 }`}
             >
-                {value}
+                {value || "\u00A0"}
             </span>
         </div>
     );
@@ -151,7 +152,12 @@ export default function AchieverCard({ student = {} }) {
     const year = student.year ? String(student.year) : "";
     const father = cleanFatherName(student.fatherName || "");
     const address = (student.address || "").trim();
-    const batch = (student.batch || "Target").trim();
+    const rawBatch = (student.batch || "").trim();
+    const isBatchEmpty =
+        !rawBatch ||
+        rawBatch.toLowerCase() === "null" ||
+        rawBatch.toLowerCase() === "none";
+    const batch = isBatchEmpty ? "" : rawBatch;
     const photoUrl = student.photo?.url;
     const theme = getTheme(student.categoryId, exam);
 
@@ -254,6 +260,7 @@ export default function AchieverCard({ student = {} }) {
                         value={batch}
                         theme={theme}
                         accent={theme.accent}
+                        allowEmpty
                     />
                 </div>
             </div>
