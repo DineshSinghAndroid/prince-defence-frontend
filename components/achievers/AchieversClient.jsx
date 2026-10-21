@@ -84,7 +84,7 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
                 {
                     page: 1,
                     limit: 1,
-                    sort: "newest",
+                    sort: "order",
                 }
             );
 
@@ -112,7 +112,7 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
                             page: 1,
                             limit: PAGE_SIZE,
                             year,
-                            sort: "newest",
+                            sort: "order",
                         }
                     );
                     const yearResult = yearResponse?.data;
@@ -163,7 +163,7 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
                     page: nextPage,
                     limit: PAGE_SIZE,
                     year: yearKey,
-                    sort: "newest",
+                    sort: "order",
                 }
             );
             const result = response?.data;
