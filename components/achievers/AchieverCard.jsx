@@ -1,4 +1,6 @@
 
+import Image from "next/image";
+
 const THEMES = {
     nda: {
         background: "from-[#0b2148] via-[#194d91] to-[#4788d1]",
@@ -125,18 +127,18 @@ function AchieverChip({
 
     return (
         <div
-            className="min-w-0 rounded-lg border border-slate-200/80 bg-white px-1.5 py-1.5 shadow-sm sm:rounded-xl sm:px-3 sm:py-2.5"
+            className="min-w-0 rounded-lg border border-slate-200/80 bg-white px-1.5 py-1 shadow-sm sm:rounded-xl sm:px-3 sm:py-2"
             style={{ borderTop: `2px solid ${accent}` }}
         >
             <span
-                className={`block truncate text-[8px] font-bold uppercase tracking-[0.07em] sm:text-[10px] sm:tracking-[0.09em] ${theme.label}`}
+                className={`block truncate text-[7.5px] font-bold uppercase tracking-[0.05em] sm:text-[10px] sm:tracking-[0.09em] ${theme.label}`}
             >
                 {label}
             </span>
 
             <span
                 title={value || ""}
-                className={`mt-0.5 block truncate text-[10px] font-extrabold leading-tight sm:mt-1 sm:text-sm ${theme.chip} ${
+                className={`mt-0.5 block truncate text-[9.5px] font-extrabold leading-tight sm:mt-1 sm:text-sm ${theme.chip} ${
                     uppercase ? "uppercase" : "capitalize"
                 }`}
             >
@@ -163,67 +165,71 @@ export default function AchieverCard({ student = {} }) {
 
     const nameSize =
         name.length > 25
-            ? "text-xs sm:text-sm"
+            ? "text-[9.5px] sm:text-sm"
             : name.length > 17
-              ? "text-sm sm:text-base"
-              : "text-sm sm:text-lg";
+              ? "text-[10.5px] sm:text-base"
+              : "text-xs sm:text-lg";
+
+    const imageAlt = `${name} - ${exam ? `${exam} ` : ""}Result | Prince Defence Academy${year ? ` ${year}` : ""}`;
 
     return (
         <article
             className={`group relative isolate flex aspect-[3/5.5] w-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br ${theme.background} font-sans shadow-[0_6px_22px_rgba(20,50,100,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(20,50,100,0.2)] motion-reduce:transform-none motion-reduce:transition-none sm:aspect-[3/5]`}
         >
             {/* Student Photo */}
-            <div className="absolute inset-x-0 top-0 h-[70%] overflow-hidden">
+            <div className="relative min-h-0 w-full flex-1 overflow-hidden">
                 {photoUrl ? (
-                    <img
+                    <Image
                         src={photoUrl}
-                        alt={`${name}${exam ? ` - ${exam}` : ""}${year ? ` ${year}` : ""}`}
-                        loading="lazy"
-                        decoding="async"
+                        alt={imageAlt}
+                        fill
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        quality={85}
                         draggable={false}
-                        className="h-full w-full object-cover object-top"
+                        className="object-cover object-top"
                     />
                 ) : (
                     <div className="grid h-full w-full place-items-center">
-                        <span className="grid size-20 place-items-center rounded-full border border-white/40 bg-white/15 text-3xl font-extrabold text-white">
+                        <span className="grid size-16 place-items-center rounded-full border border-white/40 bg-white/15 text-2xl font-extrabold text-white sm:size-20 sm:text-3xl">
                             {getInitials(name)}
                         </span>
                     </div>
                 )}
 
-                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#071a38]/65 via-[#071a38]/10 to-transparent" />
-            </div>
+                {/* Selection Year */}
+                {year && (
+                    <span className="absolute right-2 top-2.5 z-20 rounded-lg border border-amber-200/70 bg-gradient-to-br from-[#fff0bb] to-[#e5bd59] px-2 py-0.5 text-[9px] font-extrabold tracking-wide text-[#243958] shadow-md sm:right-4 sm:top-4 sm:px-2.5 sm:py-1.5 sm:text-sm">
+                        {year}
+                    </span>
+                )}
 
-            {/* Selection Year */}
-            {year && (
-                <span className="absolute right-2 top-3 z-20 rounded-lg border border-amber-200/70 bg-gradient-to-br from-[#fff0bb] to-[#e5bd59] px-2 py-1 text-[10px] font-extrabold tracking-wide text-[#243958] shadow-md sm:right-4 sm:top-4 sm:px-2.5 sm:py-1.5 sm:text-sm">
-                    {year}
-                </span>
-            )}
-
-            {/* Name: Centered on Photo and Details Boundary */}
-            <div
-                className="absolute inset-x-3 top-[60%] md:top-[68%] z-30 flex min-h-10 -translate-y-1/2 items-center justify-center rounded-xl border border-white/40 px-3 py-2 shadow-lg sm:inset-x-4 sm:rounded-2xl sm:py-2.5"
-                style={{
-                    background: `linear-gradient(135deg, ${theme.accent}, ${theme.accent}ed)`,
-                }}
-            >
-                <h3
-                    title={name}
-                    className={`m-0 max-w-full truncate text-center font-extrabold uppercase leading-tight tracking-wide text-white ${nameSize}`}
-                >
-                    {name}
-                </h3>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#071a38]/65 via-[#071a38]/10 to-transparent sm:h-28" />
             </div>
 
             {/* Student Details */}
             <div
-                className={`absolute inset-x-0 bottom-0 z-20 flex h-[40%] flex-col justify-between bg-gradient-to-br ${theme.panel} px-2.5 pb-2.5 pt-7 sm:h-[32%] sm:px-4 sm:pb-4 sm:pt-8`}
+                className={`relative z-20 flex shrink-0 flex-col justify-between bg-gradient-to-br ${theme.panel} px-2.5 pb-2.5 pt-0 sm:px-4 sm:pb-3.5`}
             >
-                <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-1.5 text-center">
+                {/* Name: Centered on Photo and Details Boundary */}
+                <div
+                    className="relative z-30 -mt-3.5 mx-0.5 flex min-h-[30px] items-center justify-center rounded-xl border border-white/40 px-2 py-1 shadow-md sm:-mt-5 sm:mx-1 sm:min-h-10 sm:rounded-2xl sm:px-3 sm:py-2"
+                    style={{
+                        background: `linear-gradient(135deg, ${theme.accent}, ${theme.accent}ed)`,
+                    }}
+                >
+                    <h3
+                        title={name}
+                        className={`m-0 max-w-full text-center font-extrabold uppercase leading-tight tracking-wide text-white line-clamp-2 break-words ${nameSize}`}
+                    >
+                        {name}
+                    </h3>
+                </div>
+
+                {/* Student Info: Father Name & Address */}
+                <div className="flex min-h-[36px] flex-col items-center justify-center gap-0.5 py-1 text-center sm:min-h-[46px] sm:gap-1.5 sm:py-2">
                     {father && (
                         <p
-                            className={`relative m-0 max-w-full line-clamp-2 break-words text-[11px] font-bold sm:top-0 sm:text-sm ${theme.text}`}
+                            className={`m-0 max-w-full text-center text-[9.5px] font-bold leading-tight line-clamp-2 break-words sm:text-sm ${theme.text}`}
                         >
                             S/o Sh.{" "}
                             <span className="capitalize">{father}</span>
@@ -233,13 +239,14 @@ export default function AchieverCard({ student = {} }) {
                     {address && (
                         <p
                             title={address}
-                            className={`relative m-0 max-w-full line-clamp-2 break-words text-[10px] font-medium sm:top-0 sm:text-xs ${theme.muted}`}
+                            className={`m-0 max-w-full text-center text-[8.5px] font-medium leading-tight line-clamp-2 break-words sm:text-xs ${theme.muted}`}
                         >
                             {address}
                         </p>
                     )}
                 </div>
 
+                {/* Examination and Batch Chips */}
                 <div
                     className={`grid w-full gap-1.5 sm:gap-2 ${
                         exam ? "grid-cols-[1.15fr_1fr]" : "grid-cols-1"
@@ -270,10 +277,19 @@ export default function AchieverCard({ student = {} }) {
 
 export function AchieverCardSkeleton() {
     return (
-        <div className="relative aspect-[3/5.5] w-full animate-pulse overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:aspect-[3/5]">
-            <div className="absolute inset-x-0 top-0 h-[70%] bg-slate-300" />
-            <div className="absolute inset-x-0 bottom-0 h-[40%] bg-slate-100 sm:h-[32%]" />
-            <div className="absolute inset-x-3 top-[70%] h-10 -translate-y-1/2 rounded-xl bg-slate-300 sm:inset-x-4" />
+        <div className="relative flex aspect-[3/5.5] w-full animate-pulse flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:aspect-[3/5]">
+            <div className="flex-1 bg-slate-300" />
+            <div className="relative flex shrink-0 flex-col bg-slate-100 px-2.5 pb-2.5 pt-0 sm:px-4 sm:pb-3.5">
+                <div className="-mt-3.5 mx-1 h-7.5 rounded-xl bg-slate-300 sm:-mt-5 sm:h-10 sm:rounded-2xl" />
+                <div className="my-2 flex flex-col items-center gap-1.5">
+                    <div className="h-2.5 w-3/4 rounded bg-slate-200" />
+                    <div className="h-2 w-1/2 rounded bg-slate-200" />
+                </div>
+                <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+                    <div className="h-8 rounded-lg bg-slate-200 sm:rounded-xl" />
+                    <div className="h-8 rounded-lg bg-slate-200 sm:rounded-xl" />
+                </div>
+            </div>
         </div>
     );
 }
