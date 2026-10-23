@@ -148,49 +148,10 @@ export default function GoogleReviews({
   return (
     <section
       aria-labelledby="google-reviews-title"
-      className="bg-white px-4 py-8 sm:px-6 sm:py-12 lg:py-14"
+      className="bg-white px-4 py-4 sm:px-6 sm:py-6 lg:py-8"
     >
       <div className="mx-auto max-w-6xl">
-        <header className="mb-4 flex flex-wrap items-center justify-between gap-3 sm:mb-5">
-          <div className="flex min-w-0 items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-white shadow-sm">
-              <GoogleIcon />
-            </div>
 
-            <div className="min-w-0">
-              <h2
-                id="google-reviews-title"
-                className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl"
-              >
-                {title}
-              </h2>
-
-              <p className="mt-0.5 text-xs text-gray-500 sm:text-sm">
-                Feedback from our students and Parents
-              </p>
-            </div>
-          </div>
-
-          {googleUrl && (
-            <a
-              href={googleUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-gray-200 px-3.5 py-2 text-xs font-semibold text-gray-800 transition hover:border-gray-400 hover:bg-gray-50 sm:text-sm"
-            >
-              View all
-              <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="h-4 w-4"
-                aria-hidden="true"
-              >
-                <path d="M11 3a1 1 0 100 2h2.6l-6.3 6.3a1 1 0 101.4 1.4L15 6.4V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-              </svg>
-            </a>
-          )}
-        </header>
 
         <div className="relative w-full min-w-0">
           {!loaded && !failed && (
@@ -221,19 +182,19 @@ export default function GoogleReviews({
             </div>
           )}
 
-          <div className="min-h-[480px] w-full min-w-0 md:min-h-[450px]">
+          <div className="min-h-[475px] w-full min-w-0 md:min-h-[380px]">
             <div
               id="google-reviews-widget"
               ref={widgetRef}
               data-location="accounts/111088591236522962859/locations/1004355570809401037"
               data-theme="light"
               data-layout="carousel"
-              data-height="480px"
+              data-height="475px"
               data-min-rating="4"
               data-title="Google Reviews"
               data-subtitle="Feedback from our students and Parents"
               data-hide-header="false"
-              className="min-h-[480px] w-full min-w-0 md:min-h-[450px] [&>iframe]:!h-[480px] md:[&>iframe]:!h-[450px] [&>iframe]:!max-h-none"
+              className="min-h-[475px] w-full min-w-0 md:min-h-[380px] [&>iframe]:!h-[475px] md:[&>iframe]:!h-[380px] [&>iframe]:!max-h-none"
             />
           </div>
         </div>

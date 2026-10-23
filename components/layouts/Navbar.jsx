@@ -22,8 +22,8 @@ const navLinks = [
     { name: "Results", href: "/results" },
     { name: "Achievers", href: "/achievers" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Blogs", href: "/blog" },
-    { name: "News", href: "/news" },
+    // { name: "Blogs", href: "/blog" },
+    // { name: "News", href: "/news" },
     { name: "Contact", href: "/contact" },
 
 ];

@@ -22,7 +22,8 @@ const quickLinks = [
     { name: "Facilities", href: "/facilities" },
     { name: "Results", href: "/results" },
     { name: "Gallery", href: "/gallery " },
-    { name: "Blogs", href: "/blog" },
+    // { name: "Blogs", href: "/blog" },
+    // { name: "News", href: "/news" },
     { name: "Contact Us", href: "/contact" },
 ];
 

@@ -58,6 +58,15 @@ army: {
         chip: "text-[#28548e]",
         label: "text-[#687fa1]",
     },
+    cds: {
+        background: "from-[#1e1b4b] via-[#312e81] to-[#4f46e5]",
+        accent: "#3730a3",
+        panel: "from-[#f5f3ff] to-[#e0e7ff]",
+        text: "text-[#1e1b4b]",
+        muted: "text-[#4338ca]",
+        chip: "text-[#3730a3]",
+        label: "text-[#475569]",
+    },
 
     default: {
         background: "from-[#0b2148] via-[#194d91] to-[#4788d1]",
