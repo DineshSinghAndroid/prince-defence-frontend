@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-// 1. Upar ke Main Sections (Inhe normal import hi rakhna hai taaki turant dikhein)
+
 import { Hero } from "@/components/home/Hero";
 import HeroPlus from "@/components/home/HeroPlus";
 import SelectionRecords from "@/components/home/SelectionRecords";
@@ -9,7 +9,7 @@ import HomeQuizSection from "@/components/home/HomeQuizSection";
 import WhyChooseUs from "@/components/home/WhyChoose";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 
-// 🚀 2. Neeche ke Heavy Sections (Inhe dynamic import karein taaki JS bundle 50% chhota ho jaye)
+
 const HomeFacilities = dynamic(() => import("@/components/home/HomeFacilities"));
 const DailyRoutine = dynamic(() => import("@/components/home/DailyRoutine"));
 const HomeVideos = dynamic(() => import("@/components/home/HomeVideos"));
