@@ -131,7 +131,7 @@ export default function HeroPlus() {
                                                         ? "true"
                                                         : undefined
                                                 }
-                                                className={`h-2 rounded-full transition-all duration-300 ${index === current
+                                                className={`slider-dot h-2 rounded-full transition-all duration-300 ${index === current
                                                     ? "w-6 bg-(--gold)"
                                                     : "w-2 bg-white/70"
                                                     }`}

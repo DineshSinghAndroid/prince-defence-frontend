@@ -54,7 +54,7 @@ export default function HeroBackground() {
             {/* Dark overlay */}
             <div className="absolute inset-0 bg-[rgba(8,20,30,0.85)]" />
 
-            {/* Dots navigation - closely packed with gap-2 */}
+            {/* Dots navigation - closely packed with gap-2 and 44px touch target */}
             <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2">
                 {slides.map((_, index) => (
                     <button
@@ -62,7 +62,7 @@ export default function HeroBackground() {
                         type="button"
                         onClick={() => setCurrent(index)}
                         aria-label={`Go to slide ${index + 1}`}
-                        className={`h-2 rounded-full transition-all duration-300 ${
+                        className={`slider-dot h-2 rounded-full transition-all duration-300 ${
                             index === current
                                 ? "w-7 bg-(--gold)"
                                 : "w-2 bg-white/60"

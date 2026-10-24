@@ -380,19 +380,36 @@ body:has(.quiz-page-shell) .floating-gold-btn {
   }
 }
 
-/* Static Hero Reveal Keyframes */
+/* Touch target expansion for compact slider dots without changing visual spacing */
+.slider-dot {
+  position: relative;
+}
+
+.slider-dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Static Hero Reveal Keyframes - Visible on paint to avoid inflating LCP render delay */
 .hero-reveal {
-  opacity: 0;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 
 .hero-reveal--fade-up {
-  transform: translateY(28px);
   animation-name: heroFadeUp;
 }
 
 @keyframes heroFadeUp {
+  from {
+    opacity: 0.7;
+    transform: translateY(12px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -400,11 +417,14 @@ body:has(.quiz-page-shell) .floating-gold-btn {
 }
 
 .hero-reveal--zoom {
-  transform: scale(0.94);
   animation-name: heroZoomIn;
 }
 
 @keyframes heroZoomIn {
+  from {
+    opacity: 0.8;
+    transform: scale(0.97);
+  }
   to {
     opacity: 1;
     transform: scale(1);
