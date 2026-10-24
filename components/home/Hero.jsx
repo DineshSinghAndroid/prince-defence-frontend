@@ -34,75 +34,69 @@ export const Hero = () => {
                            Welcome to the Best Defence Academy in Sikar for Indian Navy, Army, and Air Force preparation, Prince Defence Academy. Along with defence services, we are known for offering best preparation or courses for NDA, Air Force, Navy, Army, SSC, and other competitive exams preparations. 
                         </p>
 
-                        {/* CTA with smooth reveal */}
-                        <HeroReveal type="fade-up" duration={600} delay={120}>
-                            <div className="mt-7 flex flex-row gap-3">
-                                <Link
-                                    href="/courses"
-                                    className="gold-shimmer-cta group relative isolate inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl bg-(--gold) px-3 py-3 text-center text-xs font-bold text-[#071b32] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:flex-none sm:px-6 sm:text-sm"
-                                >
-                                    <span
-                                        aria-hidden="true"
-                                        className="gold-cta-shimmer pointer-events-none absolute inset-y-0 left-0 w-1/3"
-                                    />
-                                    <span className="relative">Explore Courses</span>
-                                    <ArrowRight
-                                        size={17}
-                                        className="relative transition-transform duration-300 group-hover:translate-x-1.5"
-                                    />
-                                </Link>
+                        {/* CTA buttons */}
+                        <div className="mt-7 flex flex-row gap-3">
+                            <Link
+                                href="/courses"
+                                className="gold-shimmer-cta group relative isolate inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl bg-(--gold) px-3 py-3 text-center text-xs font-bold text-[#071b32] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:flex-none sm:px-6 sm:text-sm"
+                            >
+                                <span
+                                    aria-hidden="true"
+                                    className="gold-cta-shimmer pointer-events-none absolute inset-y-0 left-0 w-1/3"
+                                />
+                                <span className="relative">Explore Courses</span>
+                                <ArrowRight
+                                    size={17}
+                                    className="relative transition-transform duration-300 group-hover:translate-x-1.5"
+                                />
+                            </Link>
 
-                                <Link
-                                    href="https://www.youtube.com/watch?v=TYeSoOQUhlY"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group glass-card inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl border px-3 py-3 text-center text-xs font-semibold text-white hover:bg-white/20 sm:flex-none sm:px-6 sm:text-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                                >
-                                    Campus Tour
-                                    <ArrowRight
-                                        size={17}
-                                        className="relative transition-transform duration-300 group-hover:translate-x-1.5"
-                                    />
-                                </Link>
-                            </div>
-                        </HeroReveal>
+                            <Link
+                                href="https://www.youtube.com/watch?v=TYeSoOQUhlY"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group glass-card inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl border px-3 py-3 text-center text-xs font-semibold text-white hover:bg-white/20 sm:flex-none sm:px-6 sm:text-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                            >
+                                Campus Tour
+                                <ArrowRight
+                                    size={17}
+                                    className="relative transition-transform duration-300 group-hover:translate-x-1.5"
+                                />
+                            </Link>
+                        </div>
 
-                        {/* Stats with staggered reveal */}
-                        <HeroReveal type="fade-up" duration={700} delay={240}>
-                            <div className="mt-8 grid max-w-xl grid-cols-3 gap-2 sm:gap-3">
-                                <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
-                                    <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
-                                        3900+
-                                    </p>
-                                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/75 sm:text-xs">
-                                        Selections
-                                    </p>
-                                </div>
-                                <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
-                                    <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
-                                        2012
-                                    </p>
-                                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/75 sm:text-xs">
-                                        Established
-                                    </p>
-                                </div>
-                                <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
-                                    <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
-                                        15+
-                                    </p>
-                                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/75 sm:text-xs">
-                                        Years Experience
-                                    </p>
-                                </div>
+                        {/* Stats cards */}
+                        <div className="mt-8 grid max-w-xl grid-cols-3 gap-2 sm:gap-3">
+                            <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
+                                <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
+                                    3900+
+                                </p>
+                                <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/75 sm:text-xs">
+                                    Selections
+                                </p>
                             </div>
-                        </HeroReveal>
+                            <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
+                                <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
+                                    2012
+                                </p>
+                                <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/75 sm:text-xs">
+                                    Established
+                                </p>
+                            </div>
+                            <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
+                                <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
+                                    15+
+                                </p>
+                                <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/75 sm:text-xs">
+                                    Years Experience
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Enquiry card - single instance to prevent duplicate ARIA IDs */}
+                    {/* Enquiry card */}
                     <div className="w-full max-w-lg">
-                        <HeroReveal type="zoom" duration={800} delay={60}>
-                            <ContactForm theme="glass" size="md" />
-                        </HeroReveal>
+                        <ContactForm theme="glass" size="md" />
                     </div>
                 </div>
             </div>

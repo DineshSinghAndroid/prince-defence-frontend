@@ -119,7 +119,7 @@ export default function HeroPlus() {
 
                                 {/* Dots + counter */}
                                 <div className="absolute inset-x-4 bottom-3 z-10 flex items-center justify-between sm:inset-x-6 sm:bottom-4">
-                                    <div className="flex gap-2">
+                                    <div className="flex gap-1.5">
                                         {slides.map((slide, index) => (
                                             <button
                                                 key={slide.src}
@@ -131,11 +131,16 @@ export default function HeroPlus() {
                                                         ? "true"
                                                         : undefined
                                                 }
-                                                className={`slider-dot h-2 rounded-full transition-all duration-300 ${index === current
-                                                    ? "w-6 bg-(--gold)"
-                                                    : "w-2 bg-white/70"
+                                                className="flex h-10 w-5 items-center justify-center py-2"
+                                            >
+                                                <span
+                                                    className={`h-2 rounded-full transition-all duration-300 ${
+                                                        index === current
+                                                            ? "w-5 bg-(--gold)"
+                                                            : "w-2 bg-white/70"
                                                     }`}
-                                            />
+                                                />
+                                            </button>
                                         ))}
                                     </div>
                                     <span className="text-xs font-semibold tabular-nums text-white/90 sm:text-sm">
