@@ -186,7 +186,7 @@ export default function GoogleReviews({
             <div
               id="google-reviews-widget"
               ref={widgetRef}
-              data-location="accounts/111088591236522962859/locations/1004355570809401037"
+              location="accounts/113869565307694473678/locations/1004355570809401037"
               data-theme="light"
               data-layout="carousel"
               data-height="475px"
