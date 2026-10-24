@@ -119,7 +119,7 @@ export default function HeroPlus() {
 
                                 {/* Dots + counter */}
                                 <div className="absolute inset-x-4 bottom-3 z-10 flex items-center justify-between sm:inset-x-6 sm:bottom-4">
-                                    <div className="flex gap-1">
+                                    <div className="flex gap-2">
                                         {slides.map((slide, index) => (
                                             <button
                                                 key={slide.src}
@@ -131,15 +131,11 @@ export default function HeroPlus() {
                                                         ? "true"
                                                         : undefined
                                                 }
-                                                className="flex h-10 w-10 items-center justify-center p-2"
-                                            >
-                                                <span
-                                                    className={`h-2 rounded-full transition-all duration-300 ${index === current
-                                                        ? "w-6 bg-(--gold)"
-                                                        : "w-2 bg-white/70"
-                                                        }`}
-                                                />
-                                            </button>
+                                                className={`h-2 rounded-full transition-all duration-300 ${index === current
+                                                    ? "w-6 bg-(--gold)"
+                                                    : "w-2 bg-white/70"
+                                                    }`}
+                                            />
                                         ))}
                                     </div>
                                     <span className="text-xs font-semibold tabular-nums text-white/90 sm:text-sm">

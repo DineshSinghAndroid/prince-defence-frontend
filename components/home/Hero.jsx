@@ -1,67 +1,16 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import HeroReveal from "../animations/HeroReveal";
 import ContactForm from "../common/ContactForm";
-import EnquireButton from "../common/EnquireButton";
-
-const slides = [
-    {
-        image: "/images/fighterjet.avif",
-        alt: "Defence fighter jet",
-    },
-    {
-        image: "/images/fighterjets.avif",
-        alt: "Fighter jets formation",
-    },
-    {
-        image: "/images/military.avif",
-        alt: "Defence training",
-    },
-    {
-        image: "/images/campusbg-2.webp",
-        alt: "Defence training",
-    },
-];
+import HeroBackground from "./HeroBackground";
 
 export const Hero = () => {
-    const [current, setCurrent] = useState(0);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrent((prev) => (prev + 1) % slides.length);
-        }, 9000);
-
-        return () => clearInterval(timer);
-    }, []);
-
-    const activeSlide = slides[current];
-
     return (
-
         <section
             className="relative min-h-[100svh] overflow-hidden"
             aria-label="Prince Defence Academy introduction"
         >
-            {/* Background images */}
-            <div className="absolute inset-0">
-                <Image
-                    src={activeSlide.image}
-                    alt={activeSlide.alt}
-                    fill
-                    priority
-                    fetchPriority="high"
-                    sizes="100vw"
-                    quality={45}
-                    className="object-cover object-center"
-                />
-            </div>
-
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-[rgba(8,20,30,0.85)]" />
+            <HeroBackground />
 
             {/* Hero content */}
 
@@ -158,25 +107,6 @@ export const Hero = () => {
                 </div>
             </div>
 
-            <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-1">
-                {slides.map((_, index) => (
-                    <button
-                        key={index}
-                        type="button"
-                        onClick={() => setCurrent(index)}
-                        aria-label={`Go to slide ${index + 1}`}
-                        className="flex h-11 w-11 items-center justify-center p-2"
-                    >
-                        <span
-                            className={`h-2 rounded-full transition-all duration-300 ${index === current
-                                ? "w-7 bg-(--gold)"
-                                : "w-2 bg-white/60"
-                                }`}
-                        />
-                    </button>
-                ))}
-            </div>
         </section>
-
     );
 };
