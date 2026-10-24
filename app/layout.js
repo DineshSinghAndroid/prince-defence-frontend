@@ -34,7 +34,7 @@ const montserrat = localFont({
   src: "./fonts/Montserrat-Variable.woff2",
   variable: "--montserrat-fonts",
   weight: "400 900",
-  display: "swap",
+  display: "optional",
   preload: false,
   fallback: ["sans-serif"],
 });

@@ -26,5 +26,11 @@
   "overrides": {
     "micromatch": "^4.0.8",
     "braces": "^3.0.3"
-  }
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ]
 }

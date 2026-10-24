@@ -14,15 +14,20 @@ const slides = [
 export default function HeroPlus() {
     const [current, setCurrent] = useState(0);
     const [paused, setPaused] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     const next = () => setCurrent((c) => (c + 1) % slides.length);
     const prev = () =>
         setCurrent((c) => (c - 1 + slides.length) % slides.length);
 
-    // Auto-play every 3 seconds; pause on hover.
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Auto-play every 3.5 seconds; pause on hover.
     useEffect(() => {
         if (paused) return;
-        const timer = setInterval(next, 3000);
+        const timer = setInterval(next, 3500);
         return () => clearInterval(timer);
     }, [paused]);
 
@@ -64,26 +69,29 @@ export default function HeroPlus() {
                                     }
                                 }}
                             >
-                                {slides.map((slide, index) => (
-                                    <div
-                                        key={slide.src}
-                                        aria-hidden={index !== current}
-                                        className={`absolute inset-0 transition-opacity duration-700 ${index === current
-                                            ? "opacity-100"
-                                            : "pointer-events-none opacity-0"
-                                            }`}
-                                    >
-                                        <Image
-                                            src={slide.src}
-                                            alt={slide.alt}
-                                            fill
-                                            // priority={index === 0}
-                                            sizes="(max-width: 1023px) 100vw, 50vw"
-                                            quality={70}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    </div>
-                                ))}
+                                {slides.map((slide, index) => {
+                                    // Only render active slide during initial SSR/load to save network bandwidth
+                                    if (index !== current && !mounted) return null;
+                                    return (
+                                        <div
+                                            key={slide.src}
+                                            aria-hidden={index !== current}
+                                            className={`absolute inset-0 transition-opacity duration-700 ${index === current
+                                                ? "opacity-100"
+                                                : "pointer-events-none opacity-0"
+                                                }`}
+                                        >
+                                            <Image
+                                                src={slide.src}
+                                                alt={slide.alt}
+                                                fill
+                                                sizes="(max-width: 1023px) 100vw, 50vw"
+                                                quality={55}
+                                                className="h-full w-full object-cover"
+                                            />
+                                        </div>
+                                    );
+                                })}
 
                                 {/* Bottom fade for readability */}
                                 <div
@@ -111,7 +119,7 @@ export default function HeroPlus() {
 
                                 {/* Dots + counter */}
                                 <div className="absolute inset-x-4 bottom-3 z-10 flex items-center justify-between sm:inset-x-6 sm:bottom-4">
-                                    <div className="flex gap-2">
+                                    <div className="flex gap-1">
                                         {slides.map((slide, index) => (
                                             <button
                                                 key={slide.src}
@@ -123,11 +131,15 @@ export default function HeroPlus() {
                                                         ? "true"
                                                         : undefined
                                                 }
-                                                className={`h-2 rounded-full transition-all ${index === current
-                                                    ? "w-6 bg-(--gold)"
-                                                    : "w-2 bg-white/70"
-                                                    }`}
-                                            />
+                                                className="flex h-10 w-10 items-center justify-center p-2"
+                                            >
+                                                <span
+                                                    className={`h-2 rounded-full transition-all duration-300 ${index === current
+                                                        ? "w-6 bg-(--gold)"
+                                                        : "w-2 bg-white/70"
+                                                        }`}
+                                                />
+                                            </button>
                                         ))}
                                     </div>
                                     <span className="text-xs font-semibold tabular-nums text-white/90 sm:text-sm">

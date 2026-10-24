@@ -161,7 +161,8 @@ img {
 }
 
   .quiz-cta-glow {
-    animation: quiz-cta-glow 2.8s ease-in-out infinite;
+    box-shadow: 0 14px 36px rgba(184, 146, 66, 0.32);
+    transition: transform 300ms ease, box-shadow 300ms ease;
   }
 
   .quiz-preview-float {
@@ -196,12 +197,14 @@ img {
   }
 
   .quiz-preview-glow {
-    animation: quiz-preview-glow 4s ease-in-out infinite;
-    transition: transform 300ms ease;
+    border-color: rgba(231, 195, 109, 0.35);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35), 0 0 25px rgba(184, 146, 66, 0.14);
+    transition: transform 300ms ease, box-shadow 300ms ease;
   }
 
   .quiz-preview-glow:hover {
     transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 34px 100px rgba(0, 0, 0, 0.45), 0 0 35px rgba(184, 146, 66, 0.22);
   }
 
   @keyframes quiz-cta-sheen {
@@ -216,17 +219,6 @@ img {
     }
   }
 
-  @keyframes quiz-cta-glow {
-    0%,
-    100% {
-      box-shadow: 0 12px 30px rgba(184, 146, 66, 0.2);
-    }
-
-    50% {
-      box-shadow: 0 16px 42px rgba(184, 146, 66, 0.38);
-    }
-  }
-
   @keyframes quiz-preview-float {
     0%,
     100% {
@@ -238,25 +230,9 @@ img {
     }
   }
 
-  @keyframes quiz-preview-glow {
-    0%,
-    100% {
-      border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
-    }
-
-    50% {
-      border-color: rgba(231, 195, 109, 0.5);
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35),
-        0 0 30px rgba(184, 146, 66, 0.16);
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .quiz-cta-glow,
     .quiz-cta-sheen::after,
-    .quiz-preview-float,
-    .quiz-preview-glow {
+    .quiz-preview-float {
       animation: none;
     }
 

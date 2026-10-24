@@ -326,9 +326,9 @@ export default function ContactForm({
                     className="
                         group flex w-full items-center justify-center gap-2
                         rounded-xl bg-(--gold) px-5 py-3.5
-                        text-sm font-bold text-white
+                        text-sm font-bold text-[#071b32]
                         transition-all duration-200
-                        hover:bg-(--navy)
+                        hover:bg-(--navy) hover:text-white
                         hover:-translate-y-0.5
                         disabled:cursor-not-allowed
                         disabled:opacity-60

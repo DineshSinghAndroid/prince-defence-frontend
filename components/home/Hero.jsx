@@ -90,7 +90,7 @@ export const Hero = () => {
                             <div className="mt-7 flex flex-row gap-3">
                                 <Link
                                     href="/courses"
-                                    className="gold-shimmer-cta group relative isolate inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl bg-(--gold) px-3 py-3 text-center text-xs font-bold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:flex-none sm:px-6 sm:text-sm"
+                                    className="gold-shimmer-cta group relative isolate inline-flex min-w-0 flex-1 items-center justify-center gap-2 inter rounded-xl bg-(--gold) px-3 py-3 text-center text-xs font-bold text-[#071b32] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:flex-none sm:px-6 sm:text-sm"
                                 >
                                     <span
                                         aria-hidden="true"
@@ -149,38 +149,31 @@ export const Hero = () => {
                         </HeroReveal>
                     </div>
 
-
-                    {/* Enquiry card */}
-                    <div className="hidden xl:block">
-                        <HeroReveal type="zoom" duration={1200} delay={30}>
-
-                            <ContactForm theme="glass" size="sm" />
-                        </HeroReveal>
-                    </div>
-
-                    <div className="block xl:hidden">
-                        <HeroReveal type="zoom" duration={1200} delay={30}>
-
-                            <ContactForm theme="glass" size="lg" />
+                    {/* Enquiry card - single instance to prevent duplicate ARIA IDs */}
+                    <div className="w-full max-w-lg">
+                        <HeroReveal type="zoom" duration={800} delay={60}>
+                            <ContactForm theme="glass" size="md" />
                         </HeroReveal>
                     </div>
                 </div>
             </div>
 
-
-
-            <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+            <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-1">
                 {slides.map((_, index) => (
                     <button
                         key={index}
                         type="button"
                         onClick={() => setCurrent(index)}
                         aria-label={`Go to slide ${index + 1}`}
-                        className={`h-2 rounded-full transition-all ${index === current
-                            ? "w-7 bg-(--gold)"
-                            : "w-2 bg-white/60"
-                            }`}
-                    />
+                        className="flex h-11 w-11 items-center justify-center p-2"
+                    >
+                        <span
+                            className={`h-2 rounded-full transition-all duration-300 ${index === current
+                                ? "w-7 bg-(--gold)"
+                                : "w-2 bg-white/60"
+                                }`}
+                        />
+                    </button>
                 ))}
             </div>
         </section>

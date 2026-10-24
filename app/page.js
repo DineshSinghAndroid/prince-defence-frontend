@@ -3,13 +3,12 @@ import dynamic from "next/dynamic";
 
 import { Hero } from "@/components/home/Hero";
 import HeroPlus from "@/components/home/HeroPlus";
-import SelectionRecords from "@/components/home/SelectionRecords";
-import HomeCourses from "@/components/home/HomeCourses";
-import HomeQuizSection from "@/components/home/HomeQuizSection";
-import WhyChooseUs from "@/components/home/WhyChoose";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 
-
+const SelectionRecords = dynamic(() => import("@/components/home/SelectionRecords"));
+const HomeCourses = dynamic(() => import("@/components/home/HomeCourses"));
+const HomeQuizSection = dynamic(() => import("@/components/home/HomeQuizSection"));
+const WhyChooseUs = dynamic(() => import("@/components/home/WhyChoose"));
 const HomeFacilities = dynamic(() => import("@/components/home/HomeFacilities"));
 const DailyRoutine = dynamic(() => import("@/components/home/DailyRoutine"));
 const HomeVideos = dynamic(() => import("@/components/home/HomeVideos"));
