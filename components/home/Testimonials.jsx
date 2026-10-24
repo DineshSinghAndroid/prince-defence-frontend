@@ -12,28 +12,6 @@ const SCRIPT_URL =
 
 const GOOGLE_URL = "https://share.google/ci1XBgkfweJLeCgqq";
 
-function GoogleIcon() {
-  return (
-    <svg viewBox="0 0 48 48" className="h-7 w-7" aria-hidden="true">
-      <path
-        fill="#EA4335"
-        d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"
-      />
-      <path
-        fill="#4285F4"
-        d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.6 5.9c4.4-4.1 7-10.1 7-17.6z"
-      />
-      <path
-        fill="#FBBC05"
-        d="M10.5 28.7a14.5 14.5 0 010-9.4l-7.9-6.1a24 24 0 000 21.6l7.9-6.1z"
-      />
-      <path
-        fill="#34A853"
-        d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"
-      />
-    </svg>
-  );
-}
 
 function ReviewSkeleton() {
   return (
@@ -76,74 +54,92 @@ export default function GoogleReviews({
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  useEffect(() => {
+   useEffect(() => {
     const widget = widgetRef.current;
     if (!widget) return;
 
     let active = true;
     let timeout;
-    let observer;
+    let mutationObserver;
+    let intersectionObserver;
+    let scriptElement = null;
 
-    const checkWidget = () => {
-      if (!active) return;
+    // Yeh function tab chalega jab user scroll karke paas aayega
+    const loadScriptAndObserver = () => {
+      const checkWidget = () => {
+        if (!active) return;
 
-      const hasContent =
-        widget.childElementCount > 0 ||
-        widget.textContent.trim().length > 0;
-
-      if (hasContent) {
-        setLoaded(true);
-        setFailed(false);
-        clearTimeout(timeout);
-        observer?.disconnect();
-      }
-    };
-
-    observer = new MutationObserver(checkWidget);
-
-    observer.observe(widget, {
-      childList: true,
-      subtree: true,
-      characterData: true,
-    });
-
-    const handleScriptError = () => {
-      if (active) setFailed(true);
-    };
-
-    // Remove any previously appended reviews script to guarantee fresh re-execution on mount
-    const existingScript = document.querySelector(
-      `script[src="${SCRIPT_URL}"]`
-    );
-    if (existingScript) {
-      existingScript.remove();
-    }
-
-    const script = document.createElement("script");
-    script.src = SCRIPT_URL;
-    script.async = true;
-    script.defer = true;
-    script.addEventListener("error", handleScriptError);
-    document.body.appendChild(script);
-
-    timeout = setTimeout(() => {
-      if (active) {
         const hasContent =
           widget.childElementCount > 0 ||
           widget.textContent.trim().length > 0;
-        if (!hasContent) setFailed(true);
-      }
-    }, 12000);
 
-    checkWidget();
+        if (hasContent) {
+          setLoaded(true);
+          setFailed(false);
+          clearTimeout(timeout);
+          mutationObserver?.disconnect();
+        }
+      };
+
+      mutationObserver = new MutationObserver(checkWidget);
+      mutationObserver.observe(widget, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+      });
+
+      const handleScriptError = () => {
+        if (active) setFailed(true);
+      };
+
+      const existingScript = document.querySelector(
+        `script[src="${SCRIPT_URL}"]`
+      );
+      if (existingScript) {
+        existingScript.remove();
+      }
+
+      scriptElement = document.createElement("script");
+      scriptElement.src = SCRIPT_URL;
+      scriptElement.async = true;
+      scriptElement.defer = true;
+      scriptElement.addEventListener("error", handleScriptError);
+      document.body.appendChild(scriptElement);
+
+      timeout = setTimeout(() => {
+        if (active) {
+          const hasContent =
+            widget.childElementCount > 0 ||
+            widget.textContent.trim().length > 0;
+          if (!hasContent) setFailed(true);
+        }
+      }, 12000);
+
+      checkWidget();
+    };
+
+    // 🚀 LAZY LOAD: Jab user widget ke 200px paas pahuchega, tabhi script download hogi
+    intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          intersectionObserver.disconnect();
+          loadScriptAndObserver();
+        }
+      },
+      { rootMargin: "200px 0px" } // 200px pehle hi trigger hoga taaki user ko wait na karna pade
+    );
+
+    intersectionObserver.observe(widget);
 
     return () => {
       active = false;
       clearTimeout(timeout);
-      observer?.disconnect();
-      script?.removeEventListener("error", handleScriptError);
+      mutationObserver?.disconnect();
+      intersectionObserver?.disconnect();
+      scriptElement?.removeEventListener("error", handleScriptError);
     };
   }, []);
+
 
   return (
     <section

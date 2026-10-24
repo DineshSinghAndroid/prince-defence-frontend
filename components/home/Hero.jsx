@@ -55,7 +55,7 @@ export const Hero = () => {
                     priority
                     fetchPriority="high"
                     sizes="100vw"
-                    quality={85}
+                    quality={45}
                     className="object-cover object-center"
                 />
             </div>
@@ -70,7 +70,7 @@ export const Hero = () => {
 
                     {/* Left content */}
 
-                    <HeroReveal type="fade-up" duration={1200} delay={30}>
+                    <HeroReveal type="fade-up" duration={400} delay={30}>
                         <div className="max-w-5xl text-white">
                             <span className="glass-card inline-block rounded-full  px-4 py-2 text-xs font-semibold tracking-[0.2em] text-white  sm:text-sm">
                                 INDIA&apos;s NO.1 DEFENCE ACADEMY

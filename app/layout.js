@@ -17,7 +17,7 @@ const cinzel = localFont({
   variable: "--cinzel-fonts",
   weight: "400 900",
   display: "swap",
-  preload: false,
+  preload: true,
   fallback: ["serif"],
 });
 

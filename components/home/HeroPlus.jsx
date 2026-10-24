@@ -77,7 +77,7 @@ export default function HeroPlus() {
                                             src={slide.src}
                                             alt={slide.alt}
                                             fill
-                                            priority={index === 0}
+                                            // priority={index === 0}
                                             sizes="(max-width: 1023px) 100vw, 50vw"
                                             quality={70}
                                             className="h-full w-full object-cover"
