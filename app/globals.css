@@ -304,7 +304,7 @@ img {
 @media (max-width: 768px) {
   @keyframes sequentialScroll {
     from {
-      transform: translateX(200px);
+      transform: translateX(0px);
     }
     to {
       transform: translateX(-100%);

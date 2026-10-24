@@ -25,7 +25,7 @@ const inter = localFont({
   src: "./fonts/Inter-Variable.woff2",
   variable: "--inter-fonts",
   weight: "400 900",
-  display: "swap",
+  display: "optional",
   preload: true,
   fallback: ["sans-serif"],
 });
