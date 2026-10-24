@@ -120,8 +120,8 @@ export default function Footer() {
                             />
 
                             <div>
-                                <h3 className="text-lg font-extrabold tracking-wide">
-                                    PRINCE DEFENCE  <br/> ACADEMY
+                                <h3 className="text-base lg:text-lg font-extrabold tracking-wide">
+                                    PRINCE DEFENCE ACADEMY
                                 </h3>
                                
                                     
