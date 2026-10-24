@@ -81,9 +81,9 @@ export const Hero = () => {
                             </span>
                         </h1>
 
-                        <p className="mt-5 max-w-xl text-sm text-justify leading-6 text-white/90 sm:text-base sm:leading-8 lg:text-lg">
+                        {/* <p className="mt-5 max-w-xl text-sm text-justify leading-6 text-white/90 sm:text-base sm:leading-8 lg:text-lg">
                            Welcome to the Best Defence Academy in Sikar for Indian Navy, Army, and Air Force preparation, Prince Defence Academy. Along with defence services, we are known for offering best preparation or courses for NDA, Air Force, Navy, Army, SSC, and other competitive exams preparations. 
-                        </p>
+                        </p> */}
 
                         {/* CTA with smooth reveal */}
                         <HeroReveal type="fade-up" duration={600} delay={120}>
