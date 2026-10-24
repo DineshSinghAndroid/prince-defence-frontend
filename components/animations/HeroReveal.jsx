@@ -18,7 +18,7 @@ export default function HeroReveal({
 
       <style jsx>{`
         .hero-reveal {
-          opacity: 0.85;
+          opacity: 0;
           animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
           animation-fill-mode: forwards;
         }

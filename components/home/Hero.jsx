@@ -69,25 +69,24 @@ export const Hero = () => {
                 <div className="grid w-full  grid-cols-1 justify-items-center items-center gap-10 lg:grid-cols-2">
 
                     {/* Left content */}
+                    <div className="max-w-5xl text-white">
+                        <span className="glass-card inline-block rounded-full px-4 py-2 text-xs font-semibold tracking-[0.2em] text-white sm:text-sm">
+                            INDIA&apos;s NO.1 DEFENCE ACADEMY
+                        </span>
 
-                    <HeroReveal type="fade-up" duration={400} delay={30}>
-                        <div className="max-w-5xl text-white">
-                            <span className="glass-card inline-block rounded-full  px-4 py-2 text-xs font-semibold tracking-[0.2em] text-white  sm:text-sm">
-                                INDIA&apos;s NO.1 DEFENCE ACADEMY
+                        <h1 className="mt-5 cinzel text-2xl text-shadow-xs text-shadow-white/70 text-(--gold) font-extrabold leading-tight sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl">
+                            Prince Defence Academy
+                            <span className="block text-(--white)">
+                                Build Your Career
                             </span>
+                        </h1>
 
-                            <h1 className="mt-5 cinzel text-2xl text-shadow-xs text-shadow-white/70 text-(--gold) font-extrabold leading-tight sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl">
-                                Prince Defence Academy
-                                <span className="block text-(--white)">
-                                    Build Your Career
-                                </span>
-                            </h1>
+                        <p className="mt-5 max-w-xl text-sm text-justify leading-6 inter text-white/90 sm:text-base sm:leading-8 lg:text-lg">
+                           Welcome to the Best Defence Academy in Sikar for Indian Navy, Army, and Air Force preparation, Prince Defence Academy. Along with defence services, we are known for offering best preparation or courses for NDA, Air Force, Navy, Army, SSC, and other competitive exams preparations. 
+                        </p>
 
-                            <p className="mt-5 max-w-xl text-sm text-justify leading-6 inter text-white/90 sm:text-base sm:leading-8 lg:text-lg">
-                               Welcome to the Best Defence Academy in Sikar for Indian Navy, Army, and Air Force preparation, Prince Defence Academy. Along with defence services, we are known for offering best preparation or courses for NDA, Air Force, Navy, Army, SSC, and other competitive exams preparations. 
-                            </p>
-
-                            {/* CTA */}
+                        {/* CTA with smooth reveal */}
+                        <HeroReveal type="fade-up" duration={600} delay={120}>
                             <div className="mt-7 flex flex-row gap-3">
                                 <Link
                                     href="/courses"
@@ -117,7 +116,10 @@ export const Hero = () => {
                                     />
                                 </Link>
                             </div>
+                        </HeroReveal>
 
+                        {/* Stats with staggered reveal */}
+                        <HeroReveal type="fade-up" duration={700} delay={240}>
                             <div className="mt-8 grid max-w-xl grid-cols-3 gap-2 sm:gap-3">
                                 <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
                                     <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
@@ -144,9 +146,8 @@ export const Hero = () => {
                                     </p>
                                 </div>
                             </div>
-                        </div>
-
-                    </HeroReveal>
+                        </HeroReveal>
+                    </div>
 
 
                     {/* Enquiry card */}
