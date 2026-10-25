@@ -10,6 +10,15 @@ import Link from "next/link";
 import Popup from "@/components/layouts/PopUp";
 import { Toaster } from "react-hot-toast";
 import VisitorTracker from "@/components/quiz/VisitorTracker";
+import { API_URL } from "@/services/api";
+
+const apiOrigin = (() => {
+  try {
+    return new URL(API_URL).origin;
+  } catch {
+    return null;
+  }
+})();
 
 // Fonts
 const cinzel = localFont({
@@ -120,6 +129,11 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${cinzel.variable} ${montserrat.variable} h-full antialiased`}
     >
+      <head>
+        {apiOrigin && (
+          <link rel="preconnect" href={apiOrigin} crossOrigin="anonymous" />
+        )}
+      </head>
       <body className="flex min-h-full flex-col overflow-x-hidden">
 
         {/* Starting Popup */}

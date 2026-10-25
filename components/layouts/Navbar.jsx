@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -34,6 +34,7 @@ export const Navbar = () => {
 
     const menuRef = useRef(null);
     const pathname = usePathname();
+    const router = useRouter();
 
     // Check current active page
     const isActive = (href) => {
@@ -42,6 +43,12 @@ export const Navbar = () => {
         }
 
         return pathname === href || pathname.startsWith(`${href}/`);
+    };
+
+    const prefetchOnIntent = (href) => {
+        if (!isActive(href)) {
+            router.prefetch(href);
+        }
     };
 
     // Close menu on outside click and Escape
@@ -180,6 +187,9 @@ export const Navbar = () => {
                             <Link
                                 key={link.name}
                                 href={link.href}
+                                prefetch={false}
+                                onPointerEnter={() => prefetchOnIntent(link.href)}
+                                onFocus={() => prefetchOnIntent(link.href)}
                                 aria-current={active ? "page" : undefined}
                                 className={`
                                     whitespace-nowrap rounded-xl px-2 py-2
@@ -295,6 +305,9 @@ export const Navbar = () => {
                                     <Link
                                         key={link.name}
                                         href={link.href}
+                                        prefetch={false}
+                                        onPointerEnter={() => prefetchOnIntent(link.href)}
+                                        onFocus={() => prefetchOnIntent(link.href)}
                                         onClick={closeMenu}
                                         aria-current={
                                             active ? "page" : undefined
