@@ -83,19 +83,19 @@ export const Navbar = () => {
     };
 
     // Navbar scroll handling
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScroll(window.scrollY <= 50);
-        };
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         setIsScroll(window.scrollY <= 50);
+    //     };
 
-        handleScroll();
+    //     handleScroll();
 
-        window.addEventListener("scroll", handleScroll);
+    //     window.addEventListener("scroll", handleScroll);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener("scroll", handleScroll);
+    //     };
+    // }, []);
 
     return (
         <header
@@ -113,14 +113,14 @@ export const Navbar = () => {
                     }`}
             >
                 <div className="animate-sequential-scroll gap-4 text-center font-medium py-1">
-                    <span
+                    {/* <span
                         className="font-bold text-(--gold)"
                     >
                         📌 Turn Your Defence Dream into Reality, Join
                         Prince Defence Academy | Limited Seats
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Total Selections : 3965
-                    </span>
+                    </span> */}
                 </div>
             </div>
 
