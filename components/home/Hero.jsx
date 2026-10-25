@@ -23,7 +23,7 @@ export const Hero = () => {
                             INDIA&apos;s NO.1 DEFENCE ACADEMY
                         </span>
 
-                        <h1 className="mt-5 cinzel text-2xl text-shadow-xs text-shadow-white/70 text-(--gold) font-extrabold leading-tight sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl">
+                        {/* <h1 className="mt-5 cinzel text-2xl text-shadow-xs text-shadow-white/70 text-(--gold) font-extrabold leading-tight sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl">
                             Prince Defence Academy
                             <span className="block text-(--white)">
                                 Build Your Career
@@ -32,7 +32,7 @@ export const Hero = () => {
 
                         <p className="mt-5 max-w-xl text-sm leading-6 text-white/90 sm:text-base sm:leading-8 lg:text-lg">
                            Welcome to the Best Defence Academy in Sikar for Indian Navy, Army, and Air Force preparation, Prince Defence Academy. Along with defence services, we are known for offering best preparation or courses for NDA, Air Force, Navy, Army, SSC, and other competitive exams preparations. 
-                        </p>
+                        </p> */}
 
                         {/* CTA buttons */}
                         <div className="mt-7 flex flex-row gap-3">
