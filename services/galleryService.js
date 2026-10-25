@@ -1,9 +1,17 @@
 import { apiRequest } from "./api";
 
 // Get gallery categories
-export const getGalleryCategories = async () => {
+export const getGalleryCategories = async ({ includeGallerySummary = false } = {}) => {
+    const params = new URLSearchParams();
+
+    if (includeGallerySummary) {
+        params.set("includeGallerySummary", "true");
+    }
+
+    const query = params.toString();
+
     return apiRequest(
-        "/gallery-categories",
+        `/gallery-categories${query ? `?${query}` : ""}`,
         {
             method: "GET",
             cache: "no-store",

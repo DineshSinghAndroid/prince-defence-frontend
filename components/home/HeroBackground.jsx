@@ -43,8 +43,8 @@ export default function HeroBackground() {
                     src={activeSlide.image}
                     alt={activeSlide.alt}
                     fill
-                    priority
-                    fetchPriority="high"
+                    loading={current === 0 ? "eager" : "lazy"}
+                    fetchPriority={current === 0 ? "high" : "auto"}
                     sizes="100vw"
                     quality={45}
                     className="object-cover object-center"

@@ -246,7 +246,8 @@ const Result = ({ category = "all" }) => {
                     width={1000}
                     height={764}
                     loading="lazy"
-                    quality={100}
+                    sizes="(max-width: 768px) calc(100vw - 32px), 1000px"
+                    quality={85}
                     className="
               mx-auto
               h-auto

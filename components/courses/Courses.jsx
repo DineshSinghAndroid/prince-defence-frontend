@@ -38,8 +38,8 @@ const Courses = () => {
                                 src={exam.image}
                                 alt={exam.title}
                                 fill
-                                sizes="(max-width: 1023px) 100vw, 40vw"
-                                quality={100}
+                                sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1023px) 400px, 40vw"
+                                quality={75}
                                 className="rounded-4xl object-contain"
                                 // priority={index === 0}
                             />

@@ -152,14 +152,6 @@ img {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);}
 
-  .glass-card-dark{
-  border: 1px solid rgba(14, 13, 13, 0.3);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-}
-
   .quiz-cta-glow {
     box-shadow: 0 14px 36px rgba(184, 146, 66, 0.32);
     transition: transform 300ms ease, box-shadow 300ms ease;
@@ -263,10 +255,6 @@ img {
   font-family: var(--montserrat-fonts), sans-serif;
 }
 
-.momoSignature {
-  font-family: var(--momoSignature-fonts), sans-serif;
-}
-
 @keyframes sequentialScroll {
    from {
   transform: translateX(0px);
@@ -274,17 +262,6 @@ img {
 
   to {
     transform: translateX(-100%);
-  }
-}
-
-@media (max-width: 768px) {
-  @keyframes sequentialScroll {
-    from {
-      transform: translateX(0px);
-    }
-    to {
-      transform: translateX(-100%);
-    }
   }
 }
 
@@ -314,32 +291,6 @@ img {
   scrollbar-width: none;
 }
 
-
-
-
-.facilities {
-  overflow: hidden;
-}
-
-
-.facilities-track {
-  animation: facilities-scroll 40s linear infinite;
-  width: max-content;
-}
-
-.facilities-track:hover{
-  animation-play-state: paused;
-}
-
-@keyframes facilities-scroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
 
 
 
@@ -378,21 +329,6 @@ body:has(.quiz-page-shell) .floating-gold-btn {
     animation: none;
     transition: none;
   }
-}
-
-/* Touch target expansion for compact slider dots without changing visual spacing */
-.slider-dot {
-  position: relative;
-}
-
-.slider-dot::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 44px;
-  min-height: 44px;
 }
 
 /* Static Hero Reveal Keyframes - Visible on paint to avoid inflating LCP render delay */

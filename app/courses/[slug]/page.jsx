@@ -210,7 +210,7 @@ export default async function Page({ params }) {
                                     height={901}
                                     loading="eager"
                                     sizes="(max-width: 640px) 280px, (max-width: 768px) 360px, 440px"
-                                    quality={100}
+                                    quality={85}
                                     className="h-auto w-full rounded-2xl object-contain"
                                 />
                             </div>

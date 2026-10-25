@@ -46,7 +46,7 @@ export default function EnquiryPopup() {
             src="/images/campusbg-2.webp"
             alt="Prince Defence Academy Admissions Open"
             fill
-             loading="eager"
+            loading="lazy"
             quality={40}
             sizes="(max-width: 768px) 100vw, 480px"
             className="object-cover"

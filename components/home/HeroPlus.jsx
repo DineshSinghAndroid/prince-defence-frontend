@@ -14,15 +14,25 @@ const slides = [
 export default function HeroPlus() {
     const [current, setCurrent] = useState(0);
     const [paused, setPaused] = useState(false);
-    const [mounted, setMounted] = useState(false);
+    const [loadedSlides, setLoadedSlides] = useState(() => new Set([0]));
 
     const next = () => setCurrent((c) => (c + 1) % slides.length);
     const prev = () =>
         setCurrent((c) => (c - 1 + slides.length) % slides.length);
 
     useEffect(() => {
-        setMounted(true);
-    }, []);
+        if (loadedSlides.has(current)) return;
+
+        const frameId = requestAnimationFrame(() => {
+            setLoadedSlides((previous) => {
+                const nextSlides = new Set(previous);
+                nextSlides.add(current);
+                return nextSlides;
+            });
+        });
+
+        return () => cancelAnimationFrame(frameId);
+    }, [current, loadedSlides]);
 
     // Auto-play every 3.5 seconds; pause on hover.
     useEffect(() => {
@@ -70,13 +80,12 @@ export default function HeroPlus() {
                                 }}
                             >
                                 {slides.map((slide, index) => {
-                                    // Only render active slide during initial SSR/load to save network bandwidth
-                                    if (index !== current && !mounted) return null;
+                                    if (index !== current && !loadedSlides.has(index)) return null;
                                     return (
                                         <div
                                             key={slide.src}
                                             aria-hidden={index !== current}
-                                            className={`absolute inset-0 transition-opacity duration-700 ${index === current
+                                            className={`absolute inset-0 transition-opacity duration-700 ${index === current && loadedSlides.has(index)
                                                 ? "opacity-100"
                                                 : "pointer-events-none opacity-0"
                                                 }`}

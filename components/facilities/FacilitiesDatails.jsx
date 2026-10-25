@@ -67,8 +67,8 @@ export default function FacilityDetails({ facility }) {
                                         alt={`${facility.title} at Prince Defence Academy`}
                                         fill
                                         priority
-                                        sizes="(max-width: 1023px) 100vw, 50vw"
-                                        quality={100}
+                                        sizes="(max-width: 1023px) calc(100vw - 40px), 50vw"
+                                        quality={85}
                                         className="object-cover"
                                     />
 
@@ -124,7 +124,7 @@ export default function FacilityDetails({ facility }) {
                                                 alt={`${facility.title} at Prince Defence Academy`}
                                                 fill
                                                 sizes="112px"
-                                                quality={100}
+                                                quality={75}
                                                 className="w-full object-cover"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
@@ -191,8 +191,8 @@ export default function FacilityDetails({ facility }) {
                                         src={facility.images[currentImage]}
                                         alt={`${facility.title} - image ${currentImage + 1}`}
                                         fill
-                                        sizes="(max-width: 1023px) 100vw, calc(100vw - 360px)"
-                                        quality={100}
+                                        sizes="(max-width: 1023px) calc(100vw - 40px), (max-width: 1280px) 50vw, 640px"
+                                        quality={85}
                                         className="object-cover"
                                         priority={currentImage === 0}
                                     />

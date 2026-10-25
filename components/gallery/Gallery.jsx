@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import Image from "next/image";
 import {
@@ -19,58 +19,66 @@ import {
     getGalleryCategories,
 } from "@/services/galleryService";
 
+const GALLERY_PAGE_SIZE = 12;
+
+const normalizeGalleryImages = (images = []) =>
+    images.map((image) => ({
+        src: image.imageUrl,
+        alt: image.alt || image.title || "Gallery image",
+    }));
+
 const Gallery = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] =
         useState(null);
     const [selectedImage, setSelectedImage] =
         useState(null);
+    const [selectedImageIndex, setSelectedImageIndex] =
+        useState(0);
+    const [galleryPagination, setGalleryPagination] =
+        useState(null);
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [retryCount, setRetryCount] = useState(0);
+    const galleryPageCache = useRef(new Map());
+    const galleryRequestRef = useRef(false);
+    const gallerySessionRef = useRef(0);
+    const galleryScrollRef = useRef(null);
+    const galleryEndRef = useRef(null);
 
-    const fetchAllGalleryImages = useCallback(
-        async (categoryId) => {
-            let page = 1;
-            let allImages = [];
-            let hasNextPage = true;
+    const fetchGalleryPage = useCallback(async (categoryId, page) => {
+        const cacheKey = `${categoryId}:${page}`;
+        const cachedPage = galleryPageCache.current.get(cacheKey);
+        if (cachedPage) return cachedPage;
 
-            while (hasNextPage) {
-                const galleryResponse =
-                    await getGallery({
-                        category: categoryId,
-                        page,
-                        limit: 50,
-                    });
+        const request = getGallery({
+            category: categoryId,
+            page,
+            limit: GALLERY_PAGE_SIZE,
+        }).then((response) => ({
+            images: normalizeGalleryImages(response?.data || []),
+            pagination: response?.pagination || null,
+        }));
 
-                const images =
-                    galleryResponse?.data || [];
+        galleryPageCache.current.set(cacheKey, request);
 
-                allImages = [
-                    ...allImages,
-                    ...images,
-                ];
-
-                hasNextPage =
-                    galleryResponse?.pagination
-                        ?.hasNextPage || false;
-
-                page++;
-            }
-
-            return allImages;
-        },
-        []
-    );
+        try {
+            return await request;
+        } catch (requestError) {
+            galleryPageCache.current.delete(cacheKey);
+            throw requestError;
+        }
+    }, []);
 
     useEffect(() => {
         let isActive = true;
 
         const loadGalleryData = async () => {
             try {
-                const categoryResponse =
-                    await getGalleryCategories();
+                const categoryResponse = await getGalleryCategories({
+                    includeGallerySummary: true,
+                });
 
                 const backendCategories =
                     categoryResponse?.data || [];
@@ -81,49 +89,22 @@ const Gallery = () => {
                             category.isActive
                     );
 
-                const categoryData =
-                    await Promise.all(
-                        activeCategories.map(
-                            async (category) => {
-                                const images =
-                                    await fetchAllGalleryImages(
-                                        category._id
-                                    );
-
-                                return {
-                                    id: category._id,
-                                    name: category.name,
-                                    description:
-                                        category.alt ||
-                                        `Explore ${category.name} gallery`,
-                                    cover:
-                                        images[0]
-                                            ?.imageUrl || "",
-                                    coverAlt:
-                                        images[0]?.alt ||
-                                        category.name,
-                                    images: images.map(
-                                        (image) => ({
-                                            src:
-                                                image.imageUrl,
-                                            alt:
-                                                image.alt ||
-                                                image.title ||
-                                                category.name,
-                                        })
-                                    ),
-                                };
-                            }
-                        )
-                    );
-
-                const categoriesWithImages =
-                    categoryData.filter(
-                        (category) =>
-                            category.images.length > 0
-                    );
+                const categoriesWithImages = activeCategories
+                    .filter((category) => category.imageCount > 0)
+                    .map((category) => ({
+                        id: category._id,
+                        name: category.name,
+                        description:
+                            category.alt ||
+                            `Explore ${category.name} gallery`,
+                        cover: category.coverImageUrl || "",
+                        coverAlt: category.coverAlt || category.name,
+                        imageCount: category.imageCount,
+                        images: [],
+                    }));
 
                 if (isActive) {
+                    galleryPageCache.current.clear();
                     setCategories(categoriesWithImages);
                 }
             } catch (error) {
@@ -150,7 +131,92 @@ const Gallery = () => {
         return () => {
             isActive = false;
         };
-    }, [fetchAllGalleryImages, retryCount]);
+    }, [retryCount]);
+
+    const openCategory = useCallback(async (category) => {
+        if (galleryRequestRef.current) return;
+
+        galleryRequestRef.current = true;
+        const session = ++gallerySessionRef.current;
+        galleryPageCache.current.clear();
+
+        try {
+            const firstPage = await fetchGalleryPage(category.id, 1);
+            if (session !== gallerySessionRef.current) return;
+
+            setSelectedCategory({ ...category, images: firstPage.images });
+            setGalleryPagination(firstPage.pagination);
+        } catch (requestError) {
+            toast.error(requestError?.message || "Failed to load gallery images");
+        } finally {
+            galleryRequestRef.current = false;
+        }
+    }, [fetchGalleryPage]);
+
+    const loadNextGalleryPage = useCallback(async () => {
+        if (
+            !selectedCategory ||
+            !galleryPagination?.hasNextPage ||
+            galleryRequestRef.current
+        ) {
+            return;
+        }
+
+        galleryRequestRef.current = true;
+        const categoryId = selectedCategory.id;
+        const session = gallerySessionRef.current;
+        const nextPage = galleryPagination.page + 1;
+
+        try {
+            const pageData = await fetchGalleryPage(categoryId, nextPage);
+            if (session !== gallerySessionRef.current) return;
+
+            setSelectedCategory((currentCategory) =>
+                currentCategory?.id === categoryId
+                    ? {
+                        ...currentCategory,
+                        images: [...currentCategory.images, ...pageData.images],
+                    }
+                    : currentCategory
+            );
+            setGalleryPagination(pageData.pagination);
+        } catch (requestError) {
+            toast.error(requestError?.message || "Failed to load more gallery images");
+        } finally {
+            galleryRequestRef.current = false;
+        }
+    }, [fetchGalleryPage, galleryPagination, selectedCategory]);
+
+    useEffect(() => {
+        const scrollRoot = galleryScrollRef.current;
+        const sentinel = galleryEndRef.current;
+
+        if (
+            !selectedCategory ||
+            !galleryPagination?.hasNextPage ||
+            !scrollRoot ||
+            !sentinel
+        ) {
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    loadNextGalleryPage();
+                }
+            },
+            { root: scrollRoot, rootMargin: "200px" }
+        );
+
+        observer.observe(sentinel);
+        return () => observer.disconnect();
+    }, [
+        selectedCategory?.id,
+        galleryPagination?.page,
+        galleryPagination?.hasNextPage,
+        loadNextGalleryPage,
+    ]);
 
     const retryGalleryData = () => {
         setError("");
@@ -168,65 +234,37 @@ const Gallery = () => {
         };
     }, [selectedCategory]);
 
+    const navigateImage = useCallback(async (direction) => {
+        if (!selectedImage || !selectedCategory || selectedCategory.imageCount < 1) {
+            return;
+        }
+
+        const targetIndex =
+            (selectedImageIndex + direction + selectedCategory.imageCount) %
+            selectedCategory.imageCount;
+        const page = Math.floor(targetIndex / GALLERY_PAGE_SIZE) + 1;
+
+        try {
+            const pageData = await fetchGalleryPage(selectedCategory.id, page);
+            const image = pageData.images[targetIndex % GALLERY_PAGE_SIZE];
+
+            if (image) {
+                setSelectedImage(image);
+                setSelectedImageIndex(targetIndex);
+            }
+        } catch (requestError) {
+            toast.error(requestError?.message || "Failed to load gallery image");
+        }
+    }, [fetchGalleryPage, selectedCategory, selectedImage, selectedImageIndex]);
+
     const handlePreviousImage = useCallback(
-        () => {
-            if (
-                !selectedImage ||
-                !selectedCategory
-            )
-                return;
-
-            const images =
-                selectedCategory.images;
-
-            const currentIndex =
-                images.findIndex(
-                    (image) =>
-                        image.src ===
-                        selectedImage.src
-                );
-
-            const previousIndex =
-                currentIndex <= 0
-                    ? images.length - 1
-                    : currentIndex - 1;
-
-            setSelectedImage(
-                images[previousIndex]
-            );
-        },
-        [selectedImage, selectedCategory]
+        () => navigateImage(-1),
+        [navigateImage]
     );
 
     const handleNextImage = useCallback(
-        () => {
-            if (
-                !selectedImage ||
-                !selectedCategory
-            )
-                return;
-
-            const images =
-                selectedCategory.images;
-
-            const currentIndex =
-                images.findIndex(
-                    (image) =>
-                        image.src ===
-                        selectedImage.src
-                );
-
-            const nextIndex =
-                currentIndex ===
-                images.length - 1
-                    ? 0
-                    : currentIndex + 1;
-
-            setSelectedImage(
-                images[nextIndex]
-            );
-        },
-        [selectedImage, selectedCategory]
+        () => navigateImage(1),
+        [navigateImage]
     );
 
     useEffect(() => {
@@ -264,8 +302,11 @@ const Gallery = () => {
     ]);
 
     const handleCategoryClose = () => {
+        gallerySessionRef.current += 1;
         setSelectedCategory(null);
+        setGalleryPagination(null);
         setSelectedImage(null);
+        setSelectedImageIndex(0);
     };
 
     const getImageIndex = () => {
@@ -276,13 +317,7 @@ const Gallery = () => {
             return 0;
         }
 
-        return (
-            selectedCategory.images.findIndex(
-                (image) =>
-                    image.src ===
-                    selectedImage.src
-            ) + 1
-        );
+        return selectedImageIndex + 1;
     };
 
     return (
@@ -409,11 +444,7 @@ const Gallery = () => {
                                             {/* Cover */}
                                             <button
                                                 type="button"
-                                                onClick={() =>
-                                                    setSelectedCategory(
-                                                        category
-                                                    )
-                                                }
+                                                onClick={() => openCategory(category)}
                                                 aria-label={`Open ${category.name} gallery`}
                                                 className="relative block w-full overflow-hidden text-left"
                                             >
@@ -433,7 +464,7 @@ const Gallery = () => {
                                                             2
                                                         }
                                                         sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(50vw - 32px), 400px"
-                                                        quality={100}
+                                                        quality={75}
                                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                                                     />
 
@@ -449,11 +480,7 @@ const Gallery = () => {
                                                             }
                                                         />
 
-                                                        {
-                                                            category
-                                                                .images
-                                                                .length
-                                                        }{" "}
+                                                        {category.imageCount}{" "}
                                                         Photos
 
                                                     </div>
@@ -488,11 +515,7 @@ const Gallery = () => {
                                                 {/* Right Arrow */}
                                                 <button
                                                     type="button"
-                                                    onClick={() =>
-                                                        setSelectedCategory(
-                                                            category
-                                                        )
-                                                    }
+                                                    onClick={() => openCategory(category)}
                                                     aria-label={`View ${category.name} gallery`}
                                                     className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#C8D5EA] bg-[#F2F6FF] text-[#102A43] transition-all duration-300 hover:border-[#3869D0]/40 hover:bg-[#3869D0] hover:text-white"
                                                 >
@@ -538,11 +561,7 @@ const Gallery = () => {
                                     </h2>
 
                                     <p className="mt-1 text-sm text-slate-500">
-                                        {
-                                            selectedCategory
-                                                .images
-                                                .length
-                                        }{" "}
+                                        {selectedCategory.imageCount}{" "}
                                         Photos
                                     </p>
 
@@ -563,7 +582,7 @@ const Gallery = () => {
 
 
                             {/* Images */}
-                            <div className="overflow-y-auto bg-[#F2F6FF] p-4 sm:p-5">
+                            <div ref={galleryScrollRef} className="overflow-y-auto bg-[#F2F6FF] p-4 sm:p-5">
 
                                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
 
@@ -575,11 +594,10 @@ const Gallery = () => {
                                             <button
                                                 key={`${image.src}-${index}`}
                                                 type="button"
-                                                onClick={() =>
-                                                    setSelectedImage(
-                                                        image
-                                                    )
-                                                }
+                                                onClick={() => {
+                                                    setSelectedImage(image);
+                                                    setSelectedImageIndex(index);
+                                                }}
                                                 aria-label={`View image ${index + 1}`}
                                                 className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-white/70 bg-white shadow-[0_8px_25px_rgba(16,42,67,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_14px_35px_rgba(16,42,67,0.15)]"
                                             >
@@ -592,8 +610,8 @@ const Gallery = () => {
                                                         image.alt
                                                     }
                                                     fill
-                                                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                                                    quality={100}
+                                                    sizes="(max-width: 640px) calc(50vw - 24px), (max-width: 1024px) calc(33vw - 24px), 300px"
+                                                    quality={75}
                                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                                 />
 
@@ -628,6 +646,8 @@ const Gallery = () => {
                                     )}
 
                                 </div>
+
+                                <div ref={galleryEndRef} aria-hidden="true" className="h-px" />
 
                             </div>
 
@@ -685,8 +705,8 @@ const Gallery = () => {
                                         selectedImage.alt
                                     }
                                     fill
-                                    sizes="100vw"
-                                    quality={100}
+                                    sizes="(max-width: 1216px) calc(100vw - 32px), 1184px"
+                                    quality={85}
                                     className="object-contain"
                                 />
 
@@ -710,11 +730,7 @@ const Gallery = () => {
                             <div className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md">
                                 {getImageIndex()}{" "}
                                 /{" "}
-                                {
-                                    selectedCategory
-                                        .images
-                                        .length
-                                }
+                                {selectedCategory.imageCount}
                             </div>
 
                         </div>

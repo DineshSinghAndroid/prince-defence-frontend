@@ -38,15 +38,15 @@ export default function GalleryHero() {
                         <div className="relative z-10 order-2 flex min-h-[250px] items-center justify-center lg:min-h-[420px]">
                             <div className="relative flex h-[240px] w-full max-w-[460px] items-center justify-center sm:h-[300px] lg:h-[390px]">
                                 <div className="absolute left-[0%] top-[50%] h-[140px] w-[140px] -translate-y-1/2 overflow-hidden rounded-full border-[5px] border-[#f3f3f3] bg-[#d9d7d3] shadow-lg sm:left-[0%] sm:h-[180px] sm:w-[180px] lg:left-[0%] lg:h-[220px] lg:w-[220px]">
-                                    <Image src={galleryImages[0].src} alt={galleryImages[0].alt} fill sizes="220px" quality={100} className="object-cover" />
+                                    <Image src={galleryImages[0].src} alt={galleryImages[0].alt} fill sizes="(max-width: 640px) 140px, (max-width: 1023px) 180px, 220px" quality={75} className="object-cover" />
                                 </div>
 
                                 <div className="absolute z-10 left-1/2 top-1/2 h-[170px] w-[170px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-[5px] border-[#f3f3f3] bg-[#d9d7d3] shadow-lg sm:h-[210px] sm:w-[210px] lg:h-[270px] lg:w-[270px]">
-                                    <Image src={galleryImages[1].src} alt={galleryImages[1].alt} fill sizes="270px" quality={100} className="object-cover" />
+                                    <Image src={galleryImages[1].src} alt={galleryImages[1].alt} fill sizes="(max-width: 640px) 170px, (max-width: 1023px) 210px, 270px" quality={75} className="object-cover" />
                                 </div>
 
                                 <div className="absolute right-[0%] top-[50%] h-[140px] w-[140px] -translate-y-1/2 overflow-hidden rounded-full border-[5px] border-[#f3f3f3] bg-[#d9d7d3] shadow-lg sm:right-[0%] sm:h-[180px] sm:w-[180px] lg:right-[0%] lg:h-[220px] lg:w-[220px]">
-                                    <Image src={galleryImages[2].src} alt={galleryImages[2].alt} fill sizes="220px" quality={100} className="object-cover" />
+                                    <Image src={galleryImages[2].src} alt={galleryImages[2].alt} fill sizes="(max-width: 640px) 140px, (max-width: 1023px) 180px, 220px" quality={75} className="object-cover" />
                                 </div>
                             </div>
                         </div>
