@@ -15,6 +15,9 @@ const cspValue = [
 ].join("; ");
 
 const nextConfig = {
+    experimental: {
+        inlineCss: true,
+    },
     images: {
         formats: ["image/avif", "image/webp"],
 
