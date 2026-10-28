@@ -35,13 +35,7 @@ const achievements = [
   },
 ];
 
-const courses = [
-  "NDA",
-  " Army",
-  "Air Force",
-  " Navy",
-  "SSC",
-];
+const courses = ["NDA", " Army", "Air Force", " Navy", "SSC"];
 
 const values = [
   "Quality education & expert guidance",
@@ -49,8 +43,6 @@ const values = [
   "Disciplined and supportive learning environment",
   "Focus on confidence and personality development",
 ];
-
-
 
 export const metadata = {
   title: "About Prince Defence Academy | NDA, CDS & AFCAT Coaching",
@@ -61,7 +53,6 @@ export const metadata = {
   },
 };
 
-
 export default function About() {
   return (
     <>
@@ -69,10 +60,8 @@ export default function About() {
         id="about"
         className=" relative overflow-hidden fixed bg-[#E0EDFF] px-5 py-16 sm:px-8 lg:px-12 lg:py-30"
       >
-
         <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/20 via-white/10 h-[100px] to-transparent" />
         <div className="mx-auto max-w-7xl">
-
           {/* TOP HEADING */}
           <ScrollReveal animation="up" duration={500}>
             <div className="mx-auto mb-10 mt-20 sm:mt-15 lg:mt-4 max-w-3xl text-center">
@@ -83,15 +72,13 @@ export default function About() {
 
               <h2 className="mt-5 montserrat text-3xl font-extrabold leading-tight text-(--navy) sm:text-4xl lg:text-5xl">
                 Shaping Future
-                <span className="text-(--gold)">
-                  {" "}Defence Leaders
-                </span>
+                <span className="text-(--gold)"> Defence Leaders</span>
               </h2>
 
               <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
                 Empowering ambitious students with quality education,
-                professional guidance and the confidence to pursue
-                their dreams since 2012.
+                professional guidance and the confidence to pursue their dreams
+                since 2012.
               </p>
             </div>
           </ScrollReveal>
@@ -99,10 +86,8 @@ export default function About() {
           {/* ABOUT CONTENT */}
           <ScrollReveal animation="up" delay={80} duration={500}>
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-
               {/* IMAGE SIDE */}
               <div className="relative mx-auto w-full max-w-xl lg:mx-0">
-
                 <div className="absolute -left-5 -top-5 h-32 w-32 rounded-3xl border-2 border-(--gold)/30" />
 
                 <div className="relative z-10 h-[360px] overflow-hidden rounded-3xl bg-slate-200 shadow-xl sm:h-[480px] lg:h-[560px]">
@@ -146,10 +131,7 @@ export default function About() {
                           key={item.title}
                           className="px-2 text-center sm:px-4"
                         >
-                          <Icon
-                            size={21}
-                            className="mx-auto text-(--gold)"
-                          />
+                          <Icon size={21} className="mx-auto text-(--gold)" />
 
                           <h4 className="mt-2 text-lg font-extrabold text-(--navy) sm:text-2xl">
                             {item.number}
@@ -167,36 +149,45 @@ export default function About() {
                     })}
                   </div>
                 </div>
-
               </div>
 
               {/* CONTENT SIDE */}
               <div className="lg:py-4">
-
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-(--gold)">
                   No. 1 Defence Academy of India
                 </span>
 
                 <h3 className="mt-4 font-(--font-montserrat) text-2xl font-extrabold leading-snug text-(--navy) sm:text-3xl">
-                  Your Dreams, Our Guidance,
-                  Your Future.
+                  Your Dreams, Our Guidance, Your Future.
                 </h3>
 
                 <p className="mt-5 text-sm leading-7 inter text-slate-600 sm:text-base">
-                  Prince Defence Academy (PDA) is one of the emerging defence coaching institutes of Northern India and has contributed by delivering thousands of successful candidates to various defence and government services. Prince Defence Academy was established in 2012 with an aim of helping students in delivering the best education and physical training. Prince Defence Academy believes in providing structured coaching, expert guidance, and a disciplined learning environment.
+                  Prince Defence Academy (PDA) is one of the emerging defence
+                  coaching institutes of Northern India and has contributed by
+                  delivering thousands of successful candidates to various
+                  defence and government services. Prince Defence Academy was
+                  established in 2012 with an aim of helping students in
+                  delivering the best education and physical training. Prince
+                  Defence Academy believes in providing structured coaching,
+                  expert guidance, and a disciplined learning environment.
                 </p>
 
                 <p className="mt-4 text-sm leading-7 inter text-slate-600 sm:text-base">
-                  Prince Defence Academy (PDA) was inaugurated in 2012 and started its first batch with a few students. Gradually, it expanded its courses and changed the preparation methods according to the requirements of competitive examinations. Its unique teaching methods and physical training attract future soldiers to PDA. The way of learning, disciplined environment, guidance of experts, and defence-oriented preparation have helped thousands of students. And today, Prince Defense Academy stands among the leading defence academies in India.
+                  Prince Defence Academy (PDA) was inaugurated in 2012 and
+                  started its first batch with a few students. Gradually, it
+                  expanded its courses and changed the preparation methods
+                  according to the requirements of competitive examinations. Its
+                  unique teaching methods and physical training attract future
+                  soldiers to PDA. The way of learning, disciplined environment,
+                  guidance of experts, and defence-oriented preparation have
+                  helped thousands of students. And today, Prince Defence
+                  Academy stands among the leading defence academies in India.
                 </p>
 
                 {/* FEATURE LIST */}
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {values.map((value) => (
-                    <div
-                      key={value}
-                      className="flex items-start gap-3"
-                    >
+                    <div key={value} className="flex items-start gap-3">
                       <CheckCircle2
                         size={19}
                         className="mt-0.5 shrink-0 text-(--green)"
@@ -216,7 +207,6 @@ export default function About() {
                   Discover Our Academy
                   <ArrowRight size={18} />
                 </Link>
-
               </div>
             </div>
           </ScrollReveal>
@@ -225,18 +215,21 @@ export default function About() {
           <ScrollReveal animation="up" delay={120} duration={500}>
             <div className="mt-20 rounded-3xl bg-(--navy) px-6 py-10 sm:px-10 lg:px-14 lg:py-12">
               <div className="grid items-center gap-8 text-center sm:gap-10 lg:text-left">
-
                 <div>
-
                   <h3 className="mt-3 text-2xl font-extrabold text-white sm:text-3xl">
                     Our Approach to Defence
-                    <span className="text-[#e7c36d]">
-                      {" "} Exam Preparation
-                    </span>
+                    <span className="text-[#e7c36d]"> Exam Preparation</span>
                   </h3>
 
                   <p className="mt-4 text-sm leading-7 text-justify md:text-left text-slate-300">
-                    Prince Defense Academy believes in providing defence and exam-oriented preparation. At PDA, students are offered quality study material, proper classes, proper physical training, the best strategy to question-solving techniques, and guidance on how to deal with concepts. The main approach of Prince Defence is to build a strong foundation first and then work on improving a student's speed, accuracy, and confidence through continuous practice.
+                    Prince Defense Academy believes in providing defence and
+                    exam-oriented preparation. At PDA, students are offered
+                    quality study material, proper classes, proper physical
+                    training, the best strategy to question-solving techniques,
+                    and guidance on how to deal with concepts. The main approach
+                    of Prince Defence is to build a strong foundation first and
+                    then work on improving a student's speed, accuracy, and
+                    confidence through continuous practice.
                   </p>
                 </div>
 
@@ -250,7 +243,6 @@ export default function About() {
                     </span>
                   ))}
                 </div>
-
               </div>
             </div>
           </ScrollReveal>
@@ -258,7 +250,6 @@ export default function About() {
           {/* VISION & MISSION */}
           <ScrollReveal animation="up" delay={160} duration={500}>
             <div className="mt-16 grid gap-6 md:grid-cols-2">
-
               <div className="rounded-3xl border border-slate-100 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:p-9">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#edf4ef] text-(--green)">
                   <Target size={25} />
@@ -269,7 +260,13 @@ export default function About() {
                 </h3>
 
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Prince Defence Academy provides a platform for students where they get quality academic support, updated study resources, regular practice, physical training by experts, and proper guidance. Prince Defence creates an environment where students can identify their strengths, work on their weaknesses, and prepare themselves with discipline, consistency, and confidence.
+                  Prince Defence Academy provides a platform for students where
+                  they get quality academic support, updated study resources,
+                  regular practice, physical training by experts, and proper
+                  guidance. Prince Defence creates an environment where students
+                  can identify their strengths, work on their weaknesses, and
+                  prepare themselves with discipline, consistency, and
+                  confidence.
                 </p>
               </div>
 
@@ -283,11 +280,13 @@ export default function About() {
                 </h3>
 
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  The main motive of Prince Defence Academy Sikar is to shape today’s generation and prepare them for a successful future in the defence services. Prince Defence Academy aims to fulfil the dreams of lakhs of students who aspire to serve the nation by joining the Indian Defence Forces.
-
+                  The main motive of Prince Defence Academy Sikar is to shape
+                  today’s generation and prepare them for a successful future in
+                  the defence services. Prince Defence Academy aims to fulfil
+                  the dreams of lakhs of students who aspire to serve the nation
+                  by joining the Indian Defence Forces.
                 </p>
               </div>
-
             </div>
           </ScrollReveal>
 
@@ -299,7 +298,11 @@ export default function About() {
               </h3>
 
               <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-                Prince Defence Academy has contributed to the preparation of candidates selected in different defence and government services. The academy has crossed 1286+ selections (2022 to 2025) across areas including the NDA, Army, Navy, Air Force, SSC, etc., based on the academy's reported selection record
+                Prince Defence Academy has contributed to the preparation of
+                candidates selected in different defence and government
+                services. The academy has crossed 1286+ selections (2022 to
+                2025) across areas including the NDA, Army, Navy, Air Force,
+                SSC, etc., based on the academy's reported selection record
               </p>
 
               <EnquireButton
@@ -310,10 +313,9 @@ export default function About() {
               </EnquireButton>
             </div>
           </ScrollReveal>
-
         </div>
       </section>
       <SelectionRecords />
     </>
-    );
+  );
 }

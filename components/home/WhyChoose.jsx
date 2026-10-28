@@ -18,6 +18,7 @@ const reasons = [
     "SSB, interview and personality development guidance",
     "Preparation support for different defence and government exams",
     "A disciplined environment that encourages regular study and steady progress",
+    "Separate Facilities for boys and girls.(HM & EM)"
 ];
 
 
