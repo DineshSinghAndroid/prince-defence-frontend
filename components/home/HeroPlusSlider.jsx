@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import ScrollReveal from "../animations/ScrollReveal";
 
 const slides = [
-    { src: "/images/DefenceTotalSection.webp", alt: "Prince Defence Total Sections 2026" },
+    { src: "/images/DefenceTotalSection.webp", alt: "Prince Defence Total Selections 2026" },
     { src: "/images/Defenceresults01.webp", alt: "Prince Defence Results Slide" },
     { src: "/images/DefenceResult02.webp", alt: "Prince Defence Results Slide 2" },
 ];

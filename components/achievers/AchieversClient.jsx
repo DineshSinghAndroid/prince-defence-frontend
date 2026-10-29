@@ -51,7 +51,7 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
                 setCategories(activeCategories);
             } catch (err) {
                 if (active) {
-                    setError(err?.message || "Categories load nahi ho sakin.");
+                    setError(err?.message || "Failed to load categories.");
                 }
             } finally {
                 if (active) setCategoriesLoading(false);
@@ -142,7 +142,7 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
 
             setYears([]);
             setYearResults({});
-            setError(err?.message || "Achievers load nahi ho sake.");
+            setError(err?.message || "Failed to load achievers.");
         } finally {
             if (requestSequence === fetchSequence.current) {
                 setLoading(false);

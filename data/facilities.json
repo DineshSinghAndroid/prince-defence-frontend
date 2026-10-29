@@ -5,10 +5,7 @@
       "id": 1,
       "title": "Hostel",
       "slug": "hostel",
-      "images": [
-        "/images/hostle01.webp",
-        "/images/hostle.webp"
-      ],
+      "images": ["/images/hostle01.webp", "/images/hostle.webp"],
       "longDescription": "Prince Defence Academy offers a safe, comfortable, and disciplined environment, with well-maintained hostel facilities. Students will get clean rooms, individual beds, and a disciplined routine.",
       "onHome": true,
       "list": [
@@ -44,10 +41,8 @@
       "id": 3,
       "title": "Temple",
       "slug": "temple",
-      "images": [
-        "/images/Temple.webp"
-      ],
-      "longDescription": "A temple is a place of symbol and peace. Prince Defence has a beautiful temple in its campus where students can pray and always stay positive.",
+      "images": ["/images/Temple.webp"],
+      "longDescription": "A temple is a place of faith and peace. Prince Defence has a beautiful temple in its campus where students can pray and always stay positive.",
       "onHome": true,
       "list": [
         "Prayer",
@@ -102,12 +97,14 @@
       "title": "Events and Competitions",
       "slug": "events-and-competitions",
       "images": [
-        "/images/event-01.webp",
-        "/images/event-02.webp",
-        "/images/event-03.webp",
-        "/images/event-04.webp",
-        "/images/event-05.webp",
-        "/images/event-06.webp"
+        "/images/event(1).webp",
+        "/images/event(2).webp",
+        "/images/event(3).webp",
+        "/images/event(4).webp",
+        "/images/event(5).webp",
+        "/images/event(6).webp",
+        "/images/event(7).webp",
+        "/images/event(8).webp"
       ],
       "longDescription": "Prince Defence Academy Sikar provides a platform for students where they can show their talent by performing under pressure and celebrate each other’s wins through Events and Competitions. ",
       "onHome": true,
@@ -132,7 +129,7 @@
         "/images/sport05.webp",
         "/images/sport06.webp"
       ],
-      "longDescription": "A defence is incomplete without sports, and sports are a core part of life at Prince Defense Academy. From running tracks to team games, daily play sharpens fitness, builds team spirit and teaches cadets to stay determined, win or lose.",
+      "longDescription": "A defence is incomplete without sports, and sports are a core part of life at Prince Defence Academy. From running tracks to team games, daily play sharpens fitness, builds team spirit and teaches cadets to stay determined, win or lose.",
       "onHome": true,
       "list": [
         "Outdoor Games",

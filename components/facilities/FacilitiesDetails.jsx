@@ -145,7 +145,7 @@ export default function FacilityDetails({ facility }) {
                                     {facility.title}
                                 </h1>
 
-                                <p className=" max-w-xl text-xs leading-75inter">
+                                <p className=" max-w-xl text-xs leading-75 inter">
                                     {facility.shortDescription}
                                 </p>
 
@@ -192,7 +192,7 @@ export default function FacilityDetails({ facility }) {
                                         alt={`${facility.title} - image ${currentImage + 1}`}
                                         fill
                                         sizes="(max-width: 1023px) calc(100vw - 40px), (max-width: 1280px) 50vw, 640px"
-                                        quality={85}
+                                        quality={95}
                                         className="object-cover"
                                         priority={currentImage === 0}
                                     />

@@ -16,28 +16,26 @@ import WhatsAppChannelCard from "@/components/layouts/WhatsAppChannelCard";
 export const metadata = {
     title: "Contact Prince Defence Academy",
     description:
-        "Contact Prince Institute for course enquiries, admissions and career guidance. Find our location and get directions on Google Maps.",
+        "Contact Prince Defence Academy for course enquiries, admissions and career guidance. Find our location and get directions on Google Maps.",
     alternates: {
         canonical: "/contact",
     },
     openGraph: {
-        title: "Contact Prince Institute",
+        title: "Contact Prince Defence Academy",
         description:
-            "Get in touch with Prince Institute for admissions and course enquiries.",
+            "Get in touch with Prince Defence Academy for admissions and course enquiries.",
         url: "/contact",
         type: "website",
     },
 };
 
 
-const INSTITUTE_ADDRESS =
-    "Prince Defence Academy, Palwas Rd, Sikar, Palwas, Rajasthan 332042, India";
+
 
 const MAPS_URL =
     "https://www.google.com/maps/search/?api=1&query=Prince%20Defence%20Academy%2C%20Palwas%20Rd%2C%20Sikar%2C%20Palwas%2C%20Rajasthan%20332042%2C%20India";
 
-const MAP_EMBED_URL =
-    "https://maps.google.com/maps?q=Prince%20Defence%20Academy%2C%20Palwas%20Rd%2C%20Sikar%2C%20Palwas%2C%20Rajasthan%20332042%2C%20India&z=16&output=embed";
+
 
 
 const contactCards = [

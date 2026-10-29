@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import facilitiesData from "@/data/facilities.json";
-import FacilityDetails from "@/components/facilities/FacilitiesDatails";
+import FacilityDetails from "@/components/facilities/FacilitiesDetails";
 
 
 export function generateStaticParams() {

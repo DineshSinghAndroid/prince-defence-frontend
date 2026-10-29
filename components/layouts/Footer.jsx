@@ -5,7 +5,6 @@ import {
     Phone,
     Mail,
     ArrowUpRight,
-    Send,
     ShieldCheck,
     ChevronRight,
 } from "lucide-react";
@@ -21,7 +20,7 @@ const quickLinks = [
     {name:"Achievers", href:"/achievers"},
     { name: "Facilities", href: "/facilities" },
     { name: "Results", href: "/results" },
-    { name: "Gallery", href: "/gallery " },
+    { name: "Gallery", href: "/gallery" },
     // { name: "Blogs", href: "/blog" },
     // { name: "News", href: "/news" },
     { name: "Contact Us", href: "/contact" },
@@ -47,7 +46,7 @@ const socials = [
         icon: FaInstagram,
     },
     {
-        name: "FaYoutube ",
+        name: "FaYoutube",
         href: "https://www.youtube.com/@Prince_NDA_academy",
         icon: FaYoutube,
     },

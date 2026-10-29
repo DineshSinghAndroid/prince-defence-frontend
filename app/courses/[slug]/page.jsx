@@ -157,7 +157,7 @@ export default async function Page({ params }) {
         (item) => item.slug === slug
     );
 
-    const allExam = examData.exams
+   
 
     if (!exam) notFound();
 

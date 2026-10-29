@@ -44,7 +44,7 @@ export default function HeroPlus() {
                   Prince Defence Academy
                 </span>{" "}
                 has helped thousands of candidates secure selections in defence
-                exams, including NDA, Navy,Air Force, Army, SSC and Police etc.
+                exams, including NDA, Navy, AirForce, Army, SSC and Police etc.
                 Prince Defence Academy, Sikar, is known for providing the best
                 education and physical training. Prince Defence Academy creates
                 a learning environment and provides physical training under the

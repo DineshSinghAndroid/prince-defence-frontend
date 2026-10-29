@@ -75,7 +75,7 @@ const sections = [
         id: "law",
         num: "09",
         title: "Governing law & jurisdiction",
-        text: "These Terms are governed by Indian law the Indian Contract Act, 1872 and the Information Technology Act, 2000. Disputes are subject to the exclusive jurisdiction of the courts in [your city/district, e.g., Sikar, Rajasthan].",
+        text: "These Terms are governed by Indian law the Indian Contract Act, 1872 and the Information Technology Act, 2000. Disputes are subject to the exclusive jurisdiction of the courts in [Sikar, Rajasthan].",
     },
 ];
 

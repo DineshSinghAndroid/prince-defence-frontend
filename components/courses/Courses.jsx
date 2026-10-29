@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import examData from "@/data/course.json";
 import ScrollReveal from "../animations/ScrollReveal";
@@ -30,7 +30,7 @@ const Courses = () => {
                     duration={500}
                     className="w-full min-w-0 flex-none"
                 >
-                    <article className="grid w-full min-w-full basis-full tems-center flex-none overflow-hidden rounded-4xl border border-slate-200 bg-white p-5 shadow-sm lg:grid-cols-[40%_60%] lg:p-8">
+                    <article className="grid w-full min-w-full basis-full items-center flex-none overflow-hidden rounded-4xl border border-slate-200 bg-white p-5 shadow-sm lg:grid-cols-[40%_60%] lg:p-8">
 
                         {/* Course Image */}
                         <div className="relative mx-auto aspect-square w-full max-w-[320px] overflow-hidden rounded-4xl bg-slate-50 sm:max-w-[400px] lg:mx-0 lg:max-w-none">

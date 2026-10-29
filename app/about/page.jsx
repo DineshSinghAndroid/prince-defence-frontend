@@ -35,7 +35,7 @@ const achievements = [
   },
 ];
 
-const courses = ["NDA", " Army", "Air Force", " Navy", "SSC"];
+const courses = ["NDA", "Army", "Air Force", "Navy", "SSC"];
 
 const values = [
   "Quality education & expert guidance",
@@ -222,7 +222,7 @@ export default function About() {
                   </h3>
 
                   <p className="mt-4 text-sm leading-7 text-justify md:text-left text-slate-300">
-                    Prince Defense Academy believes in providing defence and
+                    Prince Defence Academy believes in providing defence and
                     exam-oriented preparation. At PDA, students are offered
                     quality study material, proper classes, proper physical
                     training, the best strategy to question-solving techniques,

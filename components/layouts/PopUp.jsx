@@ -72,7 +72,7 @@ export default function EnquiryPopup() {
             className="mt-5 group inline-flex rounded-md bg-(--gold) px-6 py-2.5 text-sm font-medium text-white hover:shadow-[0_10px_25px_-5px_rgba(34,48,31,0.5)] transition"
             onClick={()=>{setShow(false)}}
           >
-            Enquiry Now
+            Enquire Now
           </EnquireButton>
 
          

@@ -2,11 +2,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+
 import {
-  ArrowRight,
-  GraduationCap,
   ShieldCheck,
 } from "lucide-react";
 
@@ -57,10 +54,6 @@ export default function HomeCourses() {
     }
   }, [activeIndex]);
 
-  // Next exam
-  const nextSlide = () => {
-    setActiveIndex((prev) => (prev + 1) % exams.length);
-  };
 
   // Auto slider
   useEffect(() => {

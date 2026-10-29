@@ -1,4 +1,4 @@
-import React from "react";
+
 import { ArrowRight } from "lucide-react";
 
 const CHANNEL_URL = "https://whatsapp.com/channel/0029VaBwXM1IyPtJUs87cq2v";

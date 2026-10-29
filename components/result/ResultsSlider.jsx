@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Trophy } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slidesByCategory = {
     all: [

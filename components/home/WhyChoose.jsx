@@ -59,7 +59,7 @@ export default function WhyChooseUs() {
                     </ScrollReveal>
 
                     <p className="mt-4 text-xs leading-6 text-(--muted) inter sm:text-base lg:text-medium">
-                        When it comes to taking admission at Prince Defence Academy Sikar, parents and students should know the key reasons why Prince Defense Academy is the best choice for defence & competitive exam preparation.
+                        When it comes to taking admission at Prince Defence Academy Sikar, parents and students should know the key reasons why Prince Defence Academy is the best choice for defence & competitive exam preparation.
 
 
                     </p>

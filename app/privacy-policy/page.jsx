@@ -104,7 +104,7 @@ export default function PrivacyPolicy() {
             Effective date: [30/09/2026]
           </p>
           <p className="mt-4 max-w-2xl text-[15px] leading-7 text-[#3c392f] sm:text-base">
-            Prince Defence Academy we respects your privacy.
+            Prince Defence Academy, we respect your privacy.
             This policy explains how we collect, use, store, and protect the
             information of visitors and students who use <a href="https://princedefence.com" className="hover:text-(--gold)">www.princedefence.com</a> , in compliance with the Information
             Technology Act, 2000 and the IT (Reasonable Security Practices

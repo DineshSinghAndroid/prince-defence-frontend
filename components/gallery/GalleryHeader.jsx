@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Globe, Mail, MessageCircle, PhoneCall, Send } from "lucide-react";
 
 const galleryImages = [
     { src: "/images/sport03.webp", alt: "Students posing together" },

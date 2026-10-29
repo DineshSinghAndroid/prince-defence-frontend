@@ -1,7 +1,7 @@
 
-import Image from "next/image";
+
 import Link from "next/link";
-import { ArrowRight, GraduationCap, } from "lucide-react";
+
 
 import examData from "@/data/course.json";
 import ScrollReveal from "@/components/animations/ScrollReveal";
@@ -9,7 +9,6 @@ import EnquireButton from "@/components/common/EnquireButton";
 
 import { FaAnchor, FaAward, FaShieldAlt } from 'react-icons/fa';
 import { GiSwordsEmblem, GiJetFighter, GiThreeFriends } from 'react-icons/gi';
-import { SiReact } from "react-icons/si";
 import Courses from "@/components/courses/Courses";
 
 
@@ -30,7 +29,7 @@ export const metadata = {
     "Explore defence training courses and preparation programs at Prince Defence Academy.",
 };
 
-const exams = examData.exams
+
 
 const CoursesPage = () => {
   return (
@@ -53,7 +52,7 @@ const CoursesPage = () => {
           aria-hidden="true"
           className="
       absolute -z-10
-      top-0 bottom-0 FFF
+      top-0 bottom-0
       left-[-20%] w-[140%]
       
       bg-gradient-to-t from-[#EEF2FF] via-[#F5F8FF] to-[#ffffff]

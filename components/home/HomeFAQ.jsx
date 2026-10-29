@@ -21,7 +21,7 @@ const questions = [
       "Yes. We have a safe, comfortable hostel and a mess that serves fresh, healthy meals.",
   },
   {
-    question: "Do Prince Defence provide physical training and SSB preparation?",
+    question: "Does Prince Defence provide physical training and SSB preparation?",
     answer:
       "Yes. Daily physical training, a gym and sports are part of the routine, and SSB students get regular guidance and mock practice.",
   },

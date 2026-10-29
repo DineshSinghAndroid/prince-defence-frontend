@@ -1225,7 +1225,7 @@ function QuizScreen({
             </h2>
 
             <p className="mt-2 max-w-md text-sm font-medium leading-relaxed text-slate-600 sm:text-base">
-              Har ek sawaal aapke knowledge ko aur confidence ko aur strong banata hai.
+              Every question makes your knowledge and confidence stronger.
             </p>
           </div>
 
