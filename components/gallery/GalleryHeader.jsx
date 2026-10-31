@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const galleryImages = [
     { src: "/images/sport03.webp", alt: "Students posing together" },
-    { src: "/images/event-01.webp", alt: "Academy event" },
+    { src: "/images/event(1).webp", alt: "Academy event" },
     { src: "/images/vedio-labirary04.webp", alt: "Defence training" },
 ];
 
