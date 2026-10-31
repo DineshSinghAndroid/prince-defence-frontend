@@ -29,7 +29,7 @@ const achievements = [
   },
   {
     icon: ShieldCheck,
-    number: "15+",
+    number: "1+",
     title: "Years",
     desc: "Of educational experience",
   },

@@ -84,7 +84,7 @@ export const Hero = () => {
                             </div>
                             <div className="rounded-2xl border border-white/20 bg-white/[0.1] px-4 py-4 text-center shadow-lg backdrop-blur-md sm:px-6">
                                 <p className="text-xl font-extrabold text-(--gold) sm:text-2xl">
-                                    15+
+                                    13+
                                 </p>
                                 <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/75 sm:text-xs">
                                     Years Experience
