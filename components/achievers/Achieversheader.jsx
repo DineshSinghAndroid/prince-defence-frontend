@@ -20,7 +20,7 @@ const CENTER = { src: "/images/achiever.webp", alt: "Achiever 1", tag: "NDA", s:
 const ORBIT = [
     { src: "/images/achiever1.webp", alt: "Achiever 3", tag: "Navy", s: 88, r: 150, a: -90, dur: 9, d: 0, in: 0.15, priority: true },
     { src: "/images/achiever2.webp", alt: "Achiever 4", tag: "AirForce", s: 84, r: 150, a: 30, dur: 10, d: 0.5, in: 0.25, priority: true },
-    { src: "/images/achiever3.webp", alt: "Achiever 5", tag: "SSB", s: 90, r: 150, a: 150, dur: 9.5, d: 0.9, in: 0.35, priority: true },
+    { src: "/images/achiever3.webp", alt: "Achiever 5", tag: "AirForce", s: 90, r: 150, a: 150, dur: 9.5, d: 0.9, in: 0.35, priority: true },
     { src: "/images/achiever4.webp", alt: "Achiever 6", tag: "Army", s: 72, r: 225, a: -135, dur: 10.5, d: 0.3, in: 0.45 },
     { src: "/images/achiever5.webp", alt: "Achiever 7", s: 66, r: 225, a: -45, dur: 9, d: 1.1, in: 0.55 },
     { src: "/images/achiever6.webp", alt: "Achiever 8", s: 76, r: 225, a: 45, dur: 10, d: 0.7, in: 0.65 },
