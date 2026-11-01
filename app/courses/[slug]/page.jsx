@@ -11,26 +11,41 @@ export async function generateMetadata({ params }) {
 
     if (!exam) {
         return {
-            title: "Course guide not found | Prince Defence Academy",
+            title: "Course guide not found | Prince Defence Academy Sikar Rajasthan",
         };
     }
 
     const description =
         exam.contentNote ||
-        `${examData.description} Explore the ${exam.title} guide at Prince Defence Academy.`;
+        `Prepare for ${exam.title} at Prince Defence Academy Sikar, the best defence academy in Rajasthan. Structured syllabus, physical training, and expert faculty.`;
 
     return {
-        title: `${exam.title} Preparation Guide | Prince Defence Academy`,
+        title: `${exam.title} Coaching in Rajasthan | Preparation Guide | Prince Defence Academy`,
         description,
         alternates: {
             canonical: `/courses/${slug}`,
         },
         openGraph: {
-            title: `${exam.title} Preparation Guide`,
+            title: `${exam.title} Coaching in Rajasthan | Prince Defence Academy`,
             description,
             url: `/courses/${slug}`,
+            siteName: "Prince Defence Academy",
+            locale: "en_IN",
             type: "article",
-            ...(exam.image ? { images: [exam.image] } : {}),
+            images: [
+                {
+                    url: exam.image || "/images/campusbg-2.webp",
+                    width: 1200,
+                    height: 630,
+                    alt: `${exam.title} Preparation Guide at Prince Defence Academy Sikar Rajasthan`,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${exam.title} Coaching in Rajasthan | Prince Defence Academy`,
+            description,
+            images: [exam.image || "/images/campusbg-2.webp"],
         },
     };
 }

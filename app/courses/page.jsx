@@ -24,9 +24,36 @@ const iconMap = {
 
 
 export const metadata = {
-  title: "Our Courses | Prince Defence Academy",
+  title: "Defence Courses in Rajasthan | NDA, Air Force, Navy, Army Coaching | Prince Defence Academy",
   description:
-    "Explore defence training courses and preparation programs at Prince Defence Academy.",
+    "Explore top defence coaching courses at Prince Defence Academy Sikar, Rajasthan: NDA Foundation (11th/12th), Agniveer Vayu (Air Force), Navy (SSR/MR), Army and SSB interview batches.",
+  alternates: {
+    canonical: "/courses",
+  },
+  openGraph: {
+    title: "Defence Courses in Rajasthan | Prince Defence Academy Sikar",
+    description:
+      "Comprehensive NDA, Air Force, Navy and Army exam coaching programs in Sikar, Rajasthan with integrated schooling and hostel.",
+    url: "/courses",
+    siteName: "Prince Defence Academy",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: "/images/campusbg-2.webp",
+        width: 1200,
+        height: 630,
+        alt: "Prince Defence Academy Courses in Rajasthan",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Defence Courses in Rajasthan | Prince Defence Academy",
+    description:
+      "Top NDA, Air Force, Navy and Army coaching batches at Prince Defence Academy Sikar, Rajasthan.",
+    images: ["/images/campusbg-2.webp"],
+  },
 };
 
 

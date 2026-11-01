@@ -14,18 +14,35 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import WhatsAppChannelCard from "@/components/layouts/WhatsAppChannelCard";
 
 export const metadata = {
-    title: "Contact Prince Defence Academy",
+    title: "Contact Us & Admissions | Prince Defence Academy Sikar, Rajasthan",
     description:
-        "Contact Prince Defence Academy for course enquiries, admissions and career guidance. Find our location and get directions on Google Maps.",
+        "Contact Prince Defence Academy, Palwas Road, Sikar, Rajasthan 332042 for NDA, Air Force, Navy & Army coaching admissions. Phone: +91 96107 42222.",
     alternates: {
         canonical: "/contact",
     },
     openGraph: {
-        title: "Contact Prince Defence Academy",
+        title: "Contact Prince Defence Academy | Best Defence Academy in Rajasthan",
         description:
-            "Get in touch with Prince Defence Academy for admissions and course enquiries.",
+            "Get in touch with Prince Defence Academy Sikar for admissions, course counselling, hostel information and fees.",
         url: "/contact",
+        siteName: "Prince Defence Academy",
+        locale: "en_IN",
         type: "website",
+        images: [
+            {
+                url: "/images/campusbg-2.webp",
+                width: 1200,
+                height: 630,
+                alt: "Contact Prince Defence Academy Sikar Rajasthan",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Contact Prince Defence Academy Sikar, Rajasthan",
+        description:
+            "Admissions open for NDA, Air Force, Navy and Army batches in Sikar, Rajasthan.",
+        images: ["/images/campusbg-2.webp"],
     },
 };
 

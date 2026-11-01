@@ -6,18 +6,35 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import FacilitiesContact from "@/components/facilities/FacilitiesContact";
 
 export const metadata = {
-    title: "Campus Facilities | Prince Defence Academy",
+    title: "Campus & Hostel Facilities | Best Defence Academy in Sikar Rajasthan | Prince Defence Academy",
     description:
-        "Explore hostel, mess, gymnasium, library, sports and student facilities at Prince Defence Academy.",
+        "World-class campus facilities at Prince Defence Academy Sikar, Rajasthan: hostel, hygienic mess, obstacle training ground, gymnasium, library, and 24x7 security.",
     alternates: {
         canonical: "/facilities",
     },
     openGraph: {
-        title: "Campus Facilities | Prince Defence Academy",
+        title: "Campus & Hostel Facilities | Best Defence Academy in Rajasthan",
         description:
-            "Discover the campus facilities supporting student life and defence exam preparation.",
+            "Discover the premier campus infrastructure and residential facilities supporting defence aspirants in Sikar, Rajasthan.",
         url: "/facilities",
+        siteName: "Prince Defence Academy",
+        locale: "en_IN",
         type: "website",
+        images: [
+            {
+                url: "/images/campusbg-2.webp",
+                width: 1200,
+                height: 630,
+                alt: "Prince Defence Academy Campus and Facilities Sikar Rajasthan",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Campus Facilities | Prince Defence Academy Sikar Rajasthan",
+        description:
+            "Explore residential hostel, mess, gym, sports grounds, and academic facilities at Prince Defence Academy.",
+        images: ["/images/campusbg-2.webp"],
     },
 };
 

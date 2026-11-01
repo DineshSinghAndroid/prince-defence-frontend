@@ -1,6 +1,9 @@
 import { apiRequest } from "./api";
 
-// Get gallery categories
+/**
+ * Fetch public gallery categories.
+ * Cached with Next.js ISR revalidation (5 minutes) for optimal performance.
+ */
 export const getGalleryCategories = async ({ includeGallerySummary = false } = {}) => {
     const params = new URLSearchParams();
 
@@ -14,13 +17,16 @@ export const getGalleryCategories = async ({ includeGallerySummary = false } = {
         `/gallery-categories${query ? `?${query}` : ""}`,
         {
             method: "GET",
-            cache: "no-store",
+            next: { revalidate: 300, tags: ["gallery-categories"] },
         },
         "Failed to fetch gallery categories"
     );
 };
 
-// Get gallery images
+/**
+ * Fetch public gallery images with pagination and optional category filter.
+ * Cached with Next.js ISR revalidation (3 minutes).
+ */
 export const getGallery = async ({
     page = 1,
     limit = 50,
@@ -39,7 +45,7 @@ export const getGallery = async ({
         `/gallery?${params.toString()}`,
         {
             method: "GET",
-            cache: "no-store",
+            next: { revalidate: 180, tags: ["gallery"] },
         },
         "Failed to fetch gallery"
     );

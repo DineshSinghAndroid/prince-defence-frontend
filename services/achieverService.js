@@ -1,18 +1,29 @@
 import { apiRequest } from "./api";
 
-const request = (endpoint) =>
+// Helper for cached or non-cached GET requests
+const request = (endpoint, fetchOptions = {}) =>
     apiRequest(
         endpoint,
         {
             method: "GET",
-            cache: "no-store",
+            ...fetchOptions,
         },
         "Failed to fetch achievers"
     );
 
+/**
+ * Fetch public achiever categories.
+ * Cached with Next.js ISR revalidation (5 minutes) as categories rarely change.
+ */
 export const getPublicAchieverCategories = async () =>
-    request("/achiever-categories");
+    request("/achiever-categories", {
+        next: { revalidate: 300, tags: ["achiever-categories"] },
+    });
 
+/**
+ * Fetch public achiever student cards with pagination and optional category filter.
+ * Cached with Next.js ISR revalidation (3 minutes) for fast, smooth browsing.
+ */
 export const getPublicAchievers = async (
     categorySlug,
     {
@@ -36,5 +47,7 @@ export const getPublicAchievers = async (
         ? `/achievers/category/${encodeURIComponent(categorySlug)}`
         : "/achievers";
 
-    return request(`${endpoint}?${params.toString()}`);
+    return request(`${endpoint}?${params.toString()}`, {
+        next: { revalidate: 180, tags: ["achievers"] },
+    });
 };

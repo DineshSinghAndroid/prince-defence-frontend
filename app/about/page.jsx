@@ -45,11 +45,35 @@ const values = [
 ];
 
 export const metadata = {
-  title: "About Prince Defence Academy | NDA, CDS & AFCAT Coaching",
+  title: "About Us | Best Defence Academy in Rajasthan | Prince Defence Academy Sikar",
   description:
-    "Discover Prince Defence Academy, Sikar, Rajasthan, established in 2012. Learn about our expert defence trainers, NDA, CDS and AFCAT coaching, disciplined training and commitment to defence career success.",
+    "Established in 2012, Prince Defence Academy in Sikar, Rajasthan has delivered 3900+ selections in NDA, Army, Navy, and Air Force with expert mentors and strict military discipline.",
   alternates: {
     canonical: "/about",
+  },
+  openGraph: {
+    title: "About Prince Defence Academy | Best Defence Academy in Rajasthan",
+    description:
+      "Established in 2012, Prince Defence Academy in Sikar, Rajasthan has delivered 3900+ selections in NDA, Army, Navy, and Air Force.",
+    url: "/about",
+    siteName: "Prince Defence Academy",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: "/images/campusbg-2.webp",
+        width: 1200,
+        height: 630,
+        alt: "About Prince Defence Academy Campus Sikar Rajasthan",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Prince Defence Academy Sikar, Rajasthan",
+    description:
+      "Learn about Prince Defence Academy Sikar, Rajasthan - 13+ years of excellence, 3900+ selections in NDA, Navy, Army and Air Force.",
+    images: ["/images/campusbg-2.webp"],
   },
 };
 

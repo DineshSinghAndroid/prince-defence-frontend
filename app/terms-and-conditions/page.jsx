@@ -1,11 +1,15 @@
 import ScrollReveal from "@/components/animations/ScrollReveal";
 
 export const metadata = {
-    title: "Terms and Conditions | Prince Defence Academy",
+    title: "Terms and Conditions | Prince Defence Academy Sikar, Rajasthan",
     description:
-        "Review the terms governing use of the Prince Defence Academy website, its information and enquiry services.",
+        "Review terms governing the use of Prince Defence Academy website, admissions, courses, and educational services in Sikar, Rajasthan.",
     alternates: {
         canonical: "/terms-and-conditions",
+    },
+    robots: {
+        index: true,
+        follow: true,
     },
 };
 

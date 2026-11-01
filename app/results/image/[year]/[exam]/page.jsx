@@ -10,11 +10,21 @@ export async function generateMetadata({ params }) {
 
     return {
         title: examLabel
-            ? `${examLabel} Results ${year} | Prince Defence Academy`
+            ? `${examLabel} Results ${year} | Prince Defence Academy Sikar Rajasthan`
             : "Results image not found | Prince Defence Academy",
         description: examLabel
-            ? `View Prince Defence Academy ${examLabel} results for ${year}.`
+            ? `View official Prince Defence Academy ${examLabel} results for ${year}. Selection lists from Rajasthan's best defence coaching academy.`
             : "The requested results image could not be found.",
+        alternates: {
+            canonical: `/results/image/${encodeURIComponent(year)}/${exam}`,
+        },
+        openGraph: {
+            title: examLabel ? `${examLabel} Results ${year} | Prince Defence Academy` : "Results",
+            url: `/results/image/${encodeURIComponent(year)}/${exam}`,
+            siteName: "Prince Defence Academy",
+            locale: "en_IN",
+            type: "website",
+        },
     };
 }
 

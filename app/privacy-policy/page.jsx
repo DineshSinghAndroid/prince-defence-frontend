@@ -1,11 +1,15 @@
 import ScrollReveal from "@/components/animations/ScrollReveal";
 
 export const metadata = {
-  title: "Privacy Policy | Prince Defence Academy",
+  title: "Privacy Policy | Prince Defence Academy Sikar, Rajasthan",
   description:
-    "Learn how Prince Defence Academy collects, uses and protects information submitted through its website.",
+    "Learn how Prince Defence Academy Sikar, Rajasthan collects, uses and protects student and visitor information in compliance with Indian IT laws.",
   alternates: {
     canonical: "/privacy-policy",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
