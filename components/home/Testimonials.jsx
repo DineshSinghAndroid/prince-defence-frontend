@@ -9,7 +9,7 @@ const REVIEWS_API_URL =
 const DEFAULT_REVIEW_LINK =
   "https://search.google.com/local/writereview?placeid=ChIJQedzZv-lbDkRhEVjbl7KceU";
 
-// Official Google 'G' icon in brand colors
+// Official Google 'G' icon
 function GoogleIcon({ className = "w-6 h-6" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
@@ -34,7 +34,7 @@ function GoogleIcon({ className = "w-6 h-6" }) {
 }
 
 // Gold star icon
-function StarIcon({ className = "w-4 h-4" }) {
+function StarIcon({ className = "size-3.5" }) {
   return (
     <svg
       className={className}
@@ -47,7 +47,7 @@ function StarIcon({ className = "w-4 h-4" }) {
   );
 }
 
-// Reviewer Avatar with initials fallback on error
+// Reviewer Avatar with Google badge and initials fallback
 function ReviewerAvatar({ src, name }) {
   const [imgError, setImgError] = useState(false);
   const initials = (name || "A")
@@ -57,25 +57,46 @@ function ReviewerAvatar({ src, name }) {
     .map((word) => word[0]?.toUpperCase())
     .join("");
 
-  if (!src || imgError) {
-    return (
-      <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-slate-200 text-xs font-bold text-slate-700">
-        {initials}
-      </div>
-    );
-  }
-
   return (
-    /* eslint-disable-next-line @next/next/no-img-element */
-    <img
-      src={src}
-      alt={name || "Reviewer"}
-      loading="lazy"
-      decoding="async"
-      referrerPolicy="no-referrer"
-      onError={() => setImgError(true)}
-      className="size-9 shrink-0 rounded-full bg-slate-100 object-cover"
-    />
+    <div className="relative shrink-0">
+      {!src || imgError ? (
+        <div className="flex size-10 items-center justify-center rounded-full bg-gradient-to-br from-slate-200 to-slate-300 text-xs font-extrabold text-slate-700 shadow-xs ring-2 ring-white">
+          {initials}
+        </div>
+      ) : (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img
+          src={src}
+          alt={name || "Reviewer"}
+          loading="lazy"
+          decoding="async"
+          referrerPolicy="no-referrer"
+          onError={() => setImgError(true)}
+          className="size-10 rounded-full bg-slate-100 object-cover shadow-xs ring-2 ring-white"
+        />
+      )}
+      {/* Mini Google verification icon badge */}
+      <span className="absolute -bottom-0.5 -right-0.5 flex size-4 items-center justify-center rounded-full border border-slate-200 bg-white p-0.5 shadow-xs">
+        <svg className="size-2.5" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="#4285F4"
+            d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.14z"
+          />
+          <path
+            fill="#34A853"
+            d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.36 7.33 24 12 24z"
+          />
+          <path
+            fill="#FBBC05"
+            d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.24C.45 8.15 0 9.99 0 12s.45 3.85 1.24 5.42l4.04-3.15z"
+          />
+          <path
+            fill="#EA4335"
+            d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z"
+          />
+        </svg>
+      </span>
+    </div>
   );
 }
 
@@ -90,19 +111,23 @@ export default function GoogleReviews() {
 
     async function fetchReviews() {
       try {
-        // Cache-busting timestamp ensures we always get the latest real-time data from the API
         const url = `${REVIEWS_API_URL}&_t=${Date.now()}`;
         const response = await fetch(url, {
           cache: "no-store",
           headers: {
-            "Accept": "application/json",
+            Accept: "application/json",
           },
         });
 
         if (!response.ok) return;
 
         const json = await response.json();
-        if (active && json && Array.isArray(json.reviews) && json.reviews.length > 0) {
+        if (
+          active &&
+          json &&
+          Array.isArray(json.reviews) &&
+          json.reviews.length > 0
+        ) {
           setData(json);
         }
       } catch (err) {
@@ -113,7 +138,7 @@ export default function GoogleReviews() {
     // 1. Initial live fetch immediately on mount
     fetchReviews();
 
-    // 2. Auto-polling: Refresh in background every 60 seconds so new reviews appear automatically
+    // 2. Auto-polling: Refresh in background every 60 seconds
     const pollTimer = setInterval(fetchReviews, 60000);
 
     // 3. Tab visibility listener: Re-fetch whenever user switches back to this tab
@@ -159,9 +184,10 @@ export default function GoogleReviews() {
   };
 
   const profile = data?.profile || initialReviewsData.profile || {};
-  const reviews = Array.isArray(data?.reviews) && data.reviews.length > 0
-    ? data.reviews
-    : initialReviewsData.reviews || [];
+  const reviews =
+    Array.isArray(data?.reviews) && data.reviews.length > 0
+      ? data.reviews
+      : initialReviewsData.reviews || [];
 
   const averageRating = (profile.averageRating || 4.8).toFixed(1);
   const totalReviews = profile.totalReviews || 782;
@@ -170,46 +196,58 @@ export default function GoogleReviews() {
   return (
     <section
       aria-labelledby="google-reviews-title"
-      className="bg-white px-4 py-4 sm:px-6 sm:py-6 lg:py-8"
+      className="bg-white px-4 py-6 sm:px-6 sm:py-8 lg:py-10"
     >
       <div className="mx-auto max-w-6xl">
-        {/* Header Card */}
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white p-3.5 shadow-sm sm:p-4">
-          <div className="flex flex-wrap items-center gap-3.5">
-            {/* Google Icon Box */}
-            <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-xs">
-              <GoogleIcon />
+        {/* Header Summary Card */}
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200/90 bg-gradient-to-r from-white via-slate-50/50 to-white p-4 shadow-sm sm:p-5">
+          <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
+            {/* Google Icon Badge */}
+            <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-xs">
+              <GoogleIcon className="size-6" />
             </div>
 
             <div>
-              <h2
-                id="google-reviews-title"
-                className="text-[17px] font-extrabold leading-tight text-slate-800"
-              >
-                Google Reviews
-              </h2>
-              <p className="mt-0.5 text-[13px] font-medium leading-tight text-slate-500">
-                Feedback from our students and Parents
+              <div className="flex items-center gap-2">
+                <h2
+                  id="google-reviews-title"
+                  className="text-lg font-black tracking-tight text-slate-900 sm:text-xl"
+                >
+                  Google Reviews
+                </h2>
+                <span className="hidden items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 sm:inline-flex">
+                  <svg
+                    className="size-3 fill-current text-emerald-600"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Verified Academy
+                </span>
+              </div>
+
+              <p className="mt-0.5 text-xs font-medium text-slate-500 sm:text-sm">
+                Real feedback from our students and parents
               </p>
 
               {/* Rating Summary Row */}
-              <div className="mt-1 flex flex-wrap items-center gap-2 text-[13px] text-slate-600">
-                <span className="text-base font-extrabold text-slate-900">
+              <div className="mt-1.5 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-600">
+                <span className="text-base font-black text-slate-900">
                   {averageRating}
                 </span>
 
                 <div className="flex items-center gap-0.5 text-amber-500">
                   {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} />
+                    <StarIcon key={i} className="size-4" />
                   ))}
                 </div>
 
-                <span className="text-slate-500">
+                <span className="font-semibold text-slate-700">
                   Based on {totalReviews} reviews
-                </span>
-
-                <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
-                  ✓ Prince Defence Academy
                 </span>
               </div>
             </div>
@@ -220,7 +258,7 @@ export default function GoogleReviews() {
             href={reviewLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#1a73e8] px-4 py-2 text-[13px] font-bold text-white shadow-xs transition hover:bg-[#1557b0]"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#1a73e8] px-4 py-2.5 text-xs font-extrabold text-white shadow-xs transition duration-200 hover:-translate-y-0.5 hover:bg-[#1557b0] hover:shadow-md sm:text-sm"
           >
             <svg
               className="size-3.5"
@@ -236,7 +274,7 @@ export default function GoogleReviews() {
                 d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
               />
             </svg>
-            Write a review
+            Write a Review
           </a>
         </div>
 
@@ -259,51 +297,87 @@ export default function GoogleReviews() {
           {/* Reviews Scrollable Container */}
           <div
             ref={carouselRef}
-            className="flex gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-4 overflow-x-auto scroll-smooth pb-3 pt-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
             {reviews.map((item, index) => (
               <article
                 key={`${item.reviewerName}-${index}`}
-                className="flex w-full flex-none flex-col justify-between rounded-2xl border border-slate-200 bg-white p-3.5 shadow-xs transition duration-200 hover:-translate-y-0.5 hover:shadow-md sm:w-[calc(50%-8px)] sm:min-w-[280px] lg:w-[calc(33.333%-11px)]"
+                className="group relative flex w-full flex-none flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-gradient-to-b from-white via-white to-slate-50/50 p-4.5 shadow-[0_2px_12px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/50 hover:shadow-[0_12px_28px_rgba(20,50,100,0.1)] sm:w-[calc(50%-8px)] sm:min-w-[280px] sm:p-5 lg:w-[calc(33.333%-11px)]"
               >
-                <div>
-                  {/* Top Bar: User details & Stars */}
-                  <div className="flex items-start justify-between gap-2.5">
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <ReviewerAvatar
-                        src={item.profilePhotoUrl}
-                        name={item.reviewerName}
-                      />
-                      <div className="min-w-0">
-                        <h3 className="truncate text-[13px] font-bold text-slate-900">
+                {/* Decorative subtle background quote mark */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-3 top-2 select-none text-5xl font-serif text-slate-100 transition-colors group-hover:text-amber-100/70"
+                >
+                  “
+                </div>
+
+                <div className="relative z-10">
+                  {/* Top Bar: User details */}
+                  <div className="flex items-center gap-3">
+                    <ReviewerAvatar
+                      src={item.profilePhotoUrl}
+                      name={item.reviewerName}
+                    />
+
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-1.5">
+                        <h3 className="truncate text-sm font-bold text-slate-900 group-hover:text-[#0b1c33]">
                           {item.reviewerName}
                         </h3>
-                        <p className="text-[11px] text-slate-500">
-                          {item.timeAgo}
-                        </p>
+                        {/* Verified badge */}
+                        <svg
+                          className="size-3.5 shrink-0 text-blue-500"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          aria-label="Verified Reviewer"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
                       </div>
-                    </div>
 
-                    <div className="flex shrink-0 items-center gap-0.5 text-amber-500">
-                      {[...Array(Number(item.starRating) || 5)].map((_, i) => (
-                        <StarIcon key={i} />
-                      ))}
+                      <p className="text-[11px] font-medium text-slate-400">
+                        {item.timeAgo}
+                      </p>
                     </div>
                   </div>
 
+                  {/* Stars Row */}
+                  <div className="mt-3 flex items-center gap-1.5">
+                    <div className="flex items-center gap-0.5 text-amber-500">
+                      {[...Array(Number(item.starRating) || 5)].map((_, i) => (
+                        <StarIcon key={i} className="size-3.5 fill-current" />
+                      ))}
+                    </div>
+                    <span className="rounded-md border border-amber-200/60 bg-amber-50 px-1.5 py-0.2 text-[10px] font-extrabold text-amber-700">
+                      5.0
+                    </span>
+                  </div>
+
                   {/* Comment */}
-                  <p className="mt-2.5 text-[12.5px] leading-relaxed text-slate-700 line-clamp-3 break-words">
-                    {item.comment}
+                  <p className="mt-2.5 text-[13px] leading-relaxed text-slate-600 line-clamp-4 break-words">
+                    &ldquo;{item.comment}&rdquo;
                   </p>
                 </div>
 
                 {/* Owner Reply if present */}
                 {item.ownerReply && (
-                  <div className="mt-3 rounded-md border-l-[3px] border-[#1a73e8] bg-slate-50 p-2 text-[11px]">
-                    <p className="font-bold text-[#1a73e8]">
-                      Response from the owner:
-                    </p>
-                    <p className="mt-0.5 text-slate-600 italic line-clamp-2">
+                  <div className="relative z-10 mt-3.5 rounded-xl border border-blue-100 bg-blue-50/70 p-2.5 text-[11px]">
+                    <div className="flex items-center gap-1.5 font-bold text-[#1a73e8]">
+                      <svg
+                        className="size-3 fill-current"
+                        viewBox="0 0 20 20"
+                        aria-hidden="true"
+                      >
+                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                      </svg>
+                      Response from Prince Defence Academy:
+                    </div>
+                    <p className="mt-1 text-slate-600 italic line-clamp-2">
                       {item.ownerReply}
                     </p>
                   </div>
@@ -312,21 +386,21 @@ export default function GoogleReviews() {
             ))}
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="mt-3 flex justify-end gap-2">
+          {/* Carousel Navigation Buttons */}
+          <div className="mt-3.5 flex justify-end gap-2">
             <button
               type="button"
-              onClick={() => scrollCarousel(-300)}
+              onClick={() => scrollCarousel(-320)}
               aria-label="Previous reviews"
-              className="flex size-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-blue-600"
+              className="flex size-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:bg-slate-50 hover:border-slate-300 active:scale-95 focus-visible:outline-2 focus-visible:outline-blue-600"
             >
               ❮
             </button>
             <button
               type="button"
-              onClick={() => scrollCarousel(300)}
+              onClick={() => scrollCarousel(320)}
               aria-label="Next reviews"
-              className="flex size-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-blue-600"
+              className="flex size-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition hover:bg-slate-50 hover:border-slate-300 active:scale-95 focus-visible:outline-2 focus-visible:outline-blue-600"
             >
               ❯
             </button>
