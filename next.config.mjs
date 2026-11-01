@@ -2,7 +2,7 @@
 
 const cspValue = [
     "default-src 'self'",
-    "img-src 'self' data: blob: https://res.cloudinary.com https://i.ytimg.com https://images.unsplash.com https://www.google.com",
+    "img-src 'self' data: blob: https://res.cloudinary.com https://i.ytimg.com https://images.unsplash.com https://www.google.com https://lh3.googleusercontent.com",
     "font-src 'self' data: https://fonts.gstatic.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://app.coachingsinsikar.com",
