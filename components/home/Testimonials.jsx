@@ -84,14 +84,19 @@ export default function GoogleReviews() {
   const carouselRef = useRef(null);
   const isPausedRef = useRef(false);
 
-  // Fetch fresh reviews from API
+  // Dynamic auto-update: Live fetch + background polling + tab focus refresh
   useEffect(() => {
     let active = true;
 
     async function fetchReviews() {
       try {
-        const response = await fetch(REVIEWS_API_URL, {
+        // Cache-busting timestamp ensures we always get the latest real-time data from the API
+        const url = `${REVIEWS_API_URL}&_t=${Date.now()}`;
+        const response = await fetch(url, {
           cache: "no-store",
+          headers: {
+            "Accept": "application/json",
+          },
         });
 
         if (!response.ok) return;
@@ -101,14 +106,28 @@ export default function GoogleReviews() {
           setData(json);
         }
       } catch (err) {
-        // Fallback to initialReviewsData silently
+        // Retain current data if network is temporarily disconnected
       }
     }
 
+    // 1. Initial live fetch immediately on mount
     fetchReviews();
+
+    // 2. Auto-polling: Refresh in background every 60 seconds so new reviews appear automatically
+    const pollTimer = setInterval(fetchReviews, 60000);
+
+    // 3. Tab visibility listener: Re-fetch whenever user switches back to this tab
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        fetchReviews();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       active = false;
+      clearInterval(pollTimer);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
 
