@@ -71,20 +71,65 @@ export async function generateMetadata({ params }) {
     };
 }
 
+// Helper to render inline markdown bold (**bold**)
+function renderFormattedText(text) {
+    if (!text || typeof text !== "string") return text;
+
+    if (text.includes("**")) {
+        const parts = text.split(/(\*{2}.*?\*{2})/g);
+        return parts.map((part, idx) => {
+            if (part.startsWith("**") && part.endsWith("**")) {
+                return (
+                    <strong key={idx} className="font-bold text-slate-900">
+                        {part.slice(2, -2)}
+                    </strong>
+                );
+            }
+            return part;
+        });
+    }
+
+    return text;
+}
+
 // Reusable content block renderer
 function ContentBlock({ block }) {
     switch (block.type) {
         case "paragraph":
+            if (block.text && /^\s*Note\s*:/i.test(block.text)) {
+                const noteText = block.text.replace(/^\s*Note\s*:\s*/i, "");
+                return (
+                    <div className="my-5 rounded-2xl border-l-4 border-amber-500 bg-amber-50/90 p-4 sm:p-5 shadow-xs">
+                        <div className="flex items-start gap-3">
+                            <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-500 text-xs font-black text-white">
+                                !
+                            </span>
+                            <div>
+                                <span className="block text-xs font-bold uppercase tracking-wider text-amber-900">
+                                    Important Note
+                                </span>
+                                <p className="mt-1 text-sm font-semibold leading-relaxed text-amber-950">
+                                    {noteText}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
             return (
                 <p className="text-[15px] leading-8 text-(--muted)">
-                    {block.text}
+                    {renderFormattedText(block.text)}
                 </p>
             );
 
         case "heading":
             return (
-                <h3 className="mt-6 text-xl font-bold text-(--navy)">
-                    {block.text || block.heading}
+                <h3
+                    id={block.id}
+                    className="mt-8 scroll-mt-28 text-lg sm:text-xl font-bold text-(--navy) flex items-center gap-2.5 pb-2.5 border-b border-slate-100"
+                >
+                    <span className="h-5 w-1 rounded-full bg-amber-500 shrink-0" />
+                    <span>{block.text || block.heading}</span>
                 </h3>
             );
 
@@ -96,7 +141,7 @@ function ContentBlock({ block }) {
                             key={i}
                             className="list-disc pl-1 text-[15px] leading-7 text-slate-600 marker:text-amber-500"
                         >
-                            {typeof item === "string" ? item : item.text}
+                            {renderFormattedText(typeof item === "string" ? item : item.text)}
                         </li>
                     ))}
                 </ul>
@@ -104,10 +149,20 @@ function ContentBlock({ block }) {
 
         case "note":
             return (
-                <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50 p-5">
-                    <p className="text-sm font-semibold leading-7 text-amber-950">
-                        {block.text}
-                    </p>
+                <div className="my-5 rounded-2xl border-l-4 border-amber-500 bg-amber-50/90 p-4 sm:p-5 shadow-xs">
+                    <div className="flex items-start gap-3">
+                        <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-500 text-xs font-black text-white">
+                            !
+                        </span>
+                        <div>
+                            <span className="block text-xs font-bold uppercase tracking-wider text-amber-900">
+                                Important Note
+                            </span>
+                            <p className="mt-1 text-sm font-semibold leading-relaxed text-amber-950">
+                                {block.text}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             );
 
@@ -145,37 +200,68 @@ function ContentBlock({ block }) {
 
         case "table":
             return (
-                <div className="overflow-x-auto rounded-xl border border-slate-200">
-                    <table className="w-full min-w-[500px] text-left text-sm">
-                        {block.headers && (
-                            <thead className="bg-slate-900 text-white">
-                                <tr>
-                                    {block.headers.map((header, i) => (
-                                        <th key={i} className="px-5 py-4 font-semibold">
-                                            {header}
-                                        </th>
-                                    ))}
-                                </tr>
-                            </thead>
-                        )}
-
-                        <tbody className="divide-y divide-slate-100">
-                            {block.rows?.map((row, i) => (
-                                <tr key={i} className="odd:bg-white even:bg-slate-50">
-                                    {(Array.isArray(row) ? row : Object.values(row)).map(
-                                        (cell, j) => (
-                                            <td
-                                                key={j}
-                                                className="px-5 py-4 text-slate-600"
+                <div className="my-6 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xs">
+                    {block.title && (
+                        <div className="border-b border-slate-200 bg-slate-50/90 px-5 py-3.5">
+                            <h4 className="flex items-center gap-2 text-base font-bold text-slate-800">
+                                <span className="h-2 w-2 rounded-full bg-amber-500" />
+                                {block.title}
+                            </h4>
+                        </div>
+                    )}
+                    <div className="overflow-x-auto">
+                        <table className="w-full min-w-[340px] sm:min-w-[480px] border-collapse text-left text-sm">
+                            {Array.isArray(block.headers) && block.headers.length > 0 && (
+                                <thead className="bg-[#0b1c33] text-white">
+                                    <tr>
+                                        {block.headers.map((header, i) => (
+                                            <th
+                                                key={i}
+                                                className="border-b-2 border-amber-500 border-r border-white/15 last:border-r-0 px-5 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-white"
                                             >
-                                                {cell}
-                                            </td>
-                                        )
-                                    )}
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                                                {header}
+                                            </th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                            )}
+
+                            <tbody className="divide-y divide-slate-200 bg-white">
+                                {block.rows?.map((row, i) => {
+                                    const cells = Array.isArray(row)
+                                        ? row
+                                        : Object.values(row);
+                                    return (
+                                        <tr
+                                            key={i}
+                                            className="transition-colors odd:bg-white even:bg-slate-50/70 hover:bg-amber-50/40"
+                                        >
+                                            {cells.map((cell, j) => (
+                                                <td
+                                                    key={j}
+                                                    className={`border-r border-slate-200 last:border-r-0 px-5 py-3.5 text-sm ${
+                                                        j === 0
+                                                            ? "font-semibold text-slate-800"
+                                                            : "text-slate-600"
+                                                    }`}
+                                                >
+                                                    {renderFormattedText(cell)}
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                    {(block.note || block.caption) && (
+                        <div className="flex items-center gap-1.5 border-t border-slate-200 bg-slate-50 px-5 py-2.5 text-xs text-slate-500 italic">
+                            <span className="font-semibold not-italic text-amber-600">
+                                Note:
+                            </span>
+                            <span>{renderFormattedText(block.note || block.caption)}</span>
+                        </div>
+                    )}
                 </div>
             );
 
