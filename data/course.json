@@ -260,7 +260,7 @@
                 "**BMI:** Below 25 for the relevant category",
                 "**Waist-to-hip ratio:** Below 0.9 for males and 0.8 for females",
                 "**Waist circumference:** Less than 90 cm for males and 80 cm for females",
-                "Biochemical and metabolic parameters should be within normal limits"
+                "**Biochemical and metabolic parameters:** It should be within normal limits"
               ]
             },
             {
@@ -497,13 +497,13 @@
             {
               "type": "list",
               "items": [
-                "**Airforce X Group – Technical:** For candidates with a Science background, mainly Physics and Mathematics."
+                "**Airforce X Group (Technical):** For candidates with a Science background, mainly Physics and Mathematics."
               ]
             },
             {
               "type": "list",
               "items": [
-                "**Airforce Y Group – Non-Technical:** For candidates applying for non-technical roles and support duties."
+                "**Airforce Y Group (Non-Technical):** For candidates applying for non-technical roles and support duties."
               ]
             }
           ]
@@ -581,8 +581,8 @@
             {
               "type": "list",
               "items": [
-                "**10+2 candidates:** 17 to 21 years; only unmarried candidates are eligible.",
-                "**Diploma/B.Pharma/B.Sc. in Pharmacy candidates:** 19 to 24 years.",
+                "10+2 candidates 17 to 21 years; only unmarried candidates are eligible.",
+                "Diploma/B.Pharma/B.Sc. in Pharmacy candidates 19 to 24 years.",
                 "For married candidates in this category, the age should be 21 to 24 years.",
                 "At the time of enrolment, the maximum age is 21 years for 10+2 candidates and 24 years for Diploma/B.Pharma/B.Sc. in Pharmacy candidates."
               ]
@@ -594,7 +594,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Candidates must have:"
+              "text": "**Candidates must have:**"
             },
             {
               "type": "list",
@@ -604,24 +604,7 @@
                 "Candidates with a two-year vocational course with non-vocational subjects (Physics,Chemistry, Biology and English) can also apply, subject to the prescribed marks requirement."
               ]
             },
-            {
-              "type": "heading",
-              "id": "4-educational-qualification-pharmacy",
-              "text": "4. Educational Qualification – Pharmacy"
-            },
-            {
-              "type": "paragraph",
-              "text": "Candidates with Diploma/B.Pharma/B.Sc. in Pharmacy must:"
-            },
-            {
-              "type": "list",
-              "items": [
-                "Have passed 10+2 with Physics, Chemistry, Biology and English.",
-                "Score at least 50% marks in aggregate and 50% in English.",
-                "Hold a Diploma/B.Pharma/B.Sc. in Pharmacy with at least 50% marks.",
-                "Have valid registration with the State Pharmacy Council or Pharmacy Council of India (PCI) at the time of enrolment."
-              ]
-            },
+          
             {
               "type": "heading",
               "id": "physical-fitness-test-pft",
@@ -717,8 +700,8 @@
             {
               "type": "list",
               "items": [
-                "**Male candidates:** Minimum height of 152 cm.",
-                "**Female candidates:** Minimum height of 152 cm.",
+                "Male candidates: Minimum height of 152 cm.",
+                "Female candidates: Minimum height of 152 cm.",
                 "Female candidates from North East or hilly regions of Uttarakhand can have a minimum height of 147 cm."
               ]
             },
@@ -749,13 +732,13 @@
             {
               "type": "list",
               "items": [
-                "**Male candidates:** Minimum chest circumference should be 77 cm, with at least 5 cm expansion."
+                "Male candidates: Minimum chest circumference should be 77 cm, with at least 5 cm expansion."
               ]
             },
             {
               "type": "list",
               "items": [
-                "**Female candidates:** The chest should be well developed with a minimum 5 cm expansion."
+                "Female candidates: The chest should be well developed with a minimum 5 cm expansion."
               ]
             },
             {
