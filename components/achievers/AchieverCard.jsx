@@ -241,14 +241,14 @@ export default function AchieverCard({ student = {} }) {
                             className={`m-0 max-w-full text-center text-[9.5px] font-bold leading-tight line-clamp-2 break-words sm:text-sm ${theme.text}`}
                         >
                             S/o Sh.{" "}
-                            <span className="capitalize">{father}</span>
+                            <span className="uppercase">{father}</span>
                         </p>
                     )}
 
                     {address && (
                         <p
                             title={address}
-                            className={`m-0 max-w-full text-center text-[8.5px] font-medium leading-tight line-clamp-2 break-words sm:text-xs ${theme.muted}`}
+                            className={`m-0 max-w-full text-center text-[8.5px] uppercase font-medium leading-tight line-clamp-2 break-words sm:text-xs ${theme.muted}`}
                         >
                             {address}
                         </p>

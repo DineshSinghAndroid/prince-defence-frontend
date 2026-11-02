@@ -27,11 +27,11 @@ const quickLinks = [
 ];
 
 const courses = [
-    { name: "NDA", href: "/courses/nda-application-form-2019" },
-    { name: "Navy", href: "/courses/indian-navy-ssr-eligibility" },
-    { name: "Army", href: "/courses/indian-army-selection-process" },
-    { name: "Air Force", href: "/courses/indian-air-force-airmen-eligibility" },
-    { name: "SSC", href: "/courses/ssc-selection-process" },
+    { name: "NDA", href: "/courses/nda" },
+    { name: "Navy", href: "/courses/navy" },
+    { name: "Army", href: "/courses/army" },
+    { name: "Air Force", href: "/courses/AirForce" },
+    { name: "SSC", href: "/courses/ssc" },
 ];
 
 const socials = [

@@ -5,9 +5,30 @@ import examData from "@/data/course.json";
 import Toc from "@/components/others/Toc"
 import ScrollReveal from "@/components/animations/ScrollReveal";
 
+const SLUG_ALIASES = {
+    "nda-application-form-2019": "nda",
+    "indian-navy-ssr-eligibility": "navy",
+    "indian-army-selection-process": "army",
+    "indian-air-force-airmen-eligibility": "AirForce",
+    "ssc-selection-process": "ssc",
+    "airforce": "AirForce",
+    "air-force": "AirForce",
+};
+
+function findExamBySlug(rawSlug) {
+    if (!rawSlug) return null;
+    const normalized = String(rawSlug).toLowerCase();
+    const targetSlug = (SLUG_ALIASES[normalized] || rawSlug).toLowerCase();
+    return (
+        examData.exams?.find(
+            (item) => item.slug.toLowerCase() === targetSlug || item.slug.toLowerCase() === normalized
+        ) || null
+    );
+}
+
 export async function generateMetadata({ params }) {
     const { slug } = await params;
-    const exam = examData.exams.find((item) => item.slug === slug);
+    const exam = findExamBySlug(slug);
 
     if (!exam) {
         return {
@@ -168,11 +189,8 @@ function ContentBlock({ block }) {
 export default async function Page({ params }) {
     const { slug } = await params;
 
-    const exam = examData.exams.find(
-        (item) => item.slug === slug
-    );
-
-   
+    const allExam = examData.exams || [];
+    const exam = findExamBySlug(slug);
 
     if (!exam) notFound();
 
@@ -296,9 +314,9 @@ export default async function Page({ params }) {
                                     <Link
                                         key={course.slug}
                                         href={`/courses/${course.slug}`}
-                                        aria-current={course.slug === slug ? "page" : undefined}
+                                        aria-current={course.slug.toLowerCase() === exam.slug.toLowerCase() ? "page" : undefined}
                                         className={`block rounded-lg px-3 py-2.5 text-sm leading-5 transition
-    ${course.slug === slug
+    ${course.slug.toLowerCase() === exam.slug.toLowerCase()
                                                 ? "bg-amber-500 font-bold text-slate-950"
                                                 : "text-white hover:bg-white/10 hover:text-amber-400"
                                             }`}
