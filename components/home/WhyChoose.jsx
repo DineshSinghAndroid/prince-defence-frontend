@@ -111,7 +111,7 @@ export default function WhyChooseUs() {
                             </span>
                             <div className="mt-5 flex items-end gap-2">
                                 <span className="font-(--font-montserrat) text-5xl font-extrabold sm:text-6xl">
-                                    3965
+                                    3900+
                                 </span>
                                 <span className="mb-2 text-white/70">Selections</span>
                             </div>

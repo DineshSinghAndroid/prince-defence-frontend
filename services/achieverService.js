@@ -30,6 +30,8 @@ export const getPublicAchievers = async (
         page = 1,
         limit = 12,
         year,
+        search,
+        batch,
         sort = "newest",
     } = {}
 ) => {
@@ -39,11 +41,19 @@ export const getPublicAchievers = async (
         sort,
     });
 
-    if (year !== undefined && year !== null) {
+    if (year !== undefined && year !== null && String(year).trim() !== "" && String(year) !== "all") {
         params.set("year", String(year));
     }
 
-    const endpoint = categorySlug
+    if (search !== undefined && search !== null && String(search).trim() !== "") {
+        params.set("search", String(search).trim());
+    }
+
+    if (batch !== undefined && batch !== null && String(batch).trim() !== "") {
+        params.set("batch", String(batch).trim());
+    }
+
+    const endpoint = categorySlug && categorySlug !== "all"
         ? `/achievers/category/${encodeURIComponent(categorySlug)}`
         : "/achievers";
 

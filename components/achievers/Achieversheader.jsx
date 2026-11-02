@@ -84,6 +84,8 @@ const CSS = `
 .achievers-hero .ah-spin{animation:ah-spin 90s linear infinite}
 .achievers-hero .ah-glow{animation:ah-glow 6s ease-in-out infinite}
 .achievers-hero .ah-shimmer{animation:ah-shimmer 2.8s ease-in-out infinite}
+.achievers-hero .ah-avatar-img{object-fit:cover!important;object-position:center top!important;transform:translateY(6%) scale(.94)!important;transform-origin:top center!important}
+.achievers-hero .ah-avatar-center-img{object-fit:cover!important;object-position:center top!important;transform:translateY(5%) scale(.95)!important;transform-origin:top center!important}
 @media (prefers-reduced-motion:reduce){.achievers-hero *{animation:none!important}}
 `;
 
@@ -207,7 +209,7 @@ export default function AchieversHeader() {
                                                 fill
                                                 sizes="180px"
                                                 priority
-                                                className="object-cover object-[center_40%]"
+                                                className="ah-avatar-center-img object-cover object-top"
                                             />
                                         </div>
                                     </div>
@@ -235,7 +237,7 @@ export default function AchieversHeader() {
                                                 fill
                                                 sizes={`${o.s}px`}
                                                 priority={o.priority}
-                                                className="object-cover object-[center_40%]"
+                                                className="ah-avatar-img object-cover object-top"
                                             />
                                         </div>
                                         {o.tag && (
