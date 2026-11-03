@@ -159,7 +159,7 @@ export default function AchieversHeader() {
 
                         <Link
                             href="/courses"
-                            className="group relative mt-8 inline-flex min-h-12 w-fit max-w-full items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-2xl bg-gradient-to-b from-[#e7c36d] to-[#b89242] px-5 py-3 text-sm font-extrabold text-[#071b32] shadow-[0_10px_30px_rgba(184,146,66,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(184,146,66,0.5)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#e7c36d]/40 active:translate-y-0 active:scale-[0.98] sm:px-6 sm:text-base"
+                            className="group relative mt-8 hidden md:inline-flex min-h-12 w-fit max-w-full items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-2xl bg-gradient-to-b from-[#e7c36d] to-[#b89242] px-5 py-3 text-sm font-extrabold text-[#071b32] shadow-[0_10px_30px_rgba(184,146,66,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(184,146,66,0.5)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#e7c36d]/40 active:translate-y-0 active:scale-[0.98] sm:px-6 sm:text-base"
                         >
                             <span
                                 aria-hidden="true"
