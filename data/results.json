@@ -2,9 +2,9 @@
   "result": [
     {
       "title": "Indian Air Force Final Merit List",
-      "date": "01/2026",
-      "selections": 182,
-      "category": "Group: X-113, Y-69"
+      "date": "02/2026",
+      "selections": "149",
+      "category": "X Group-86 Y Group-69"
     },
     {
       "title": "Indian Navy Final Merit List",
@@ -102,12 +102,17 @@
       "selections": 30,
       "category": "NDA 156 Final Merit List"
     },
-   
     {
       "title": "NDA SSB Recommended Cadets",
       "date": "2026",
       "selections": 174,
       "category": "SSB Recommended (2022-2026)"
+    },
+    {
+      "title": "Indian Air Force Final Merit List",
+      "date": "01/2025",
+      "selections": 182,
+      "category": "Group: X-113, Y-69"
     }
   ]
 }
