@@ -151,9 +151,8 @@ function AchieverChip({
 
       <span
         title={value || ""}
-        className={`mt-0.5 block truncate text-[9.5px] font-extrabold leading-tight sm:mt-1 sm:text-sm ${theme.chip} ${
-          uppercase ? "uppercase" : "capitalize"
-        }`}
+        className={`mt-0.5 block truncate text-[9.5px] font-extrabold leading-tight sm:mt-1 sm:text-sm ${theme.chip} ${uppercase ? "uppercase" : "capitalize"
+          }`}
       >
         {value || "\u00A0"}
       </span>
@@ -255,7 +254,7 @@ export default function AchieverCard({ student = {} }) {
             <p
               className={`m-0 max-w-full text-center text-[9.5px] font-bold leading-tight line-clamp-2 break-words sm:text-sm ${theme.text}`}
             >
-              S/o Sh. <span className="uppercase">{father}</span>
+              {student.gender === "female" ? "D/o" : "S/o"} Mr. <span className="uppercase">{father}</span>
             </p>
           )}
 

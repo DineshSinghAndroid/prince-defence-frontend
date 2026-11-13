@@ -581,7 +581,7 @@
             {
               "type": "list",
               "items": [
-                "10+2 candidates 17 to 21 years; only unmarried candidates are eligible.",
+                "10+2 candidates 17.5 to 22 years, only unmarried candidates are eligible.",
                 "Diploma/B.Pharma/B.Sc. in Pharmacy candidates 19 to 24 years.",
                 "For married candidates in this category, the age should be 21 to 24 years.",
                 "At the time of enrolment, the maximum age is 21 years for 10+2 candidates and 24 years for Diploma/B.Pharma/B.Sc. in Pharmacy candidates."
@@ -599,12 +599,11 @@
             {
               "type": "list",
               "items": [
-                "Passed 10+2/Intermediate or equivalent with Physics, Chemistry, Biology and English.",
+                "Passed 10+2 Intermediate or equivalent with Physics, Chemistry, Biology and English.",
                 "Secured at least 50% marks in aggregate and 50% marks in English.",
                 "Candidates with a two-year vocational course with non-vocational subjects (Physics,Chemistry, Biology and English) can also apply, subject to the prescribed marks requirement."
               ]
             },
-          
             {
               "type": "heading",
               "id": "physical-fitness-test-pft",
