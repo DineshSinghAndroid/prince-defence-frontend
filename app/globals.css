@@ -82,17 +82,15 @@ img {
 }
 
 .gold-cta-shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.45),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.45),
+      transparent);
   transform: skewX(-20deg) translateX(-130%);
   animation: gold-cta-shimmer 2.8s ease-in-out infinite;
 }
 
-.gold-shimmer-cta > :not(.gold-cta-shimmer) {
+.gold-shimmer-cta> :not(.gold-cta-shimmer) {
   z-index: 1;
 }
 
@@ -108,132 +106,132 @@ img {
   }
 
   .gold-shimmer-cta,
-  .gold-shimmer-cta > svg {
+  .gold-shimmer-cta>svg {
     transition: none;
   }
 }
 
 .facilities-box {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.16),
-            rgba(255, 255, 255, 0.06)
-        );
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.06));
 
-    border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 
-    backdrop-filter: blur(22px) saturate(160%);
-    -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
 
-    box-shadow:
-        0 20px 50px rgba(0, 20, 50, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 50px rgba(0, 20, 50, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
 
-    transition:
-        transform 0.5s ease,
-        box-shadow 0.5s ease,
-        border-color 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
 }
 
 .facilities-box:hover {
-    border-color: rgba(255, 255, 255, 0.42);
+  border-color: rgba(255, 255, 255, 0.42);
 
-    box-shadow:
-        0 25px 60px rgba(0, 20, 50, 0.35),
-        0 0 35px rgba(120, 200, 255, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 25px 60px rgba(0, 20, 50, 0.35),
+    0 0 35px rgba(120, 200, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .glass-card {
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);}
+  -webkit-backdrop-filter: blur(12px);
+}
 
-  .quiz-cta-glow {
-    box-shadow: 0 14px 36px rgba(184, 146, 66, 0.32);
-    transition: transform 300ms ease, box-shadow 300ms ease;
-  }
+.quiz-cta-glow {
+  box-shadow: 0 14px 36px rgba(184, 146, 66, 0.32);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
 
-  .quiz-preview-float {
-    animation: quiz-preview-float 6s ease-in-out infinite;
-  }
+.quiz-preview-float {
+  animation: quiz-preview-float 6s ease-in-out infinite;
+}
 
-  .quiz-cta-sheen {
-    isolation: isolate;
-  }
+.quiz-cta-sheen {
+  isolation: isolate;
+}
 
-  .quiz-cta-sheen::after {
-    position: absolute;
-    z-index: 0;
-    inset-block: 0;
-    left: -45%;
-    width: 35%;
-    background: linear-gradient(
-      90deg,
+.quiz-cta-sheen::after {
+  position: absolute;
+  z-index: 0;
+  inset-block: 0;
+  left: -45%;
+  width: 35%;
+  background: linear-gradient(90deg,
       transparent,
       rgba(255, 255, 255, 0.58),
-      transparent
-    );
-    content: "";
-    pointer-events: none;
-    transform: skewX(-20deg);
-    animation: quiz-cta-sheen 3.2s ease-in-out infinite;
+      transparent);
+  content: "";
+  pointer-events: none;
+  transform: skewX(-20deg);
+  animation: quiz-cta-sheen 3.2s ease-in-out infinite;
+}
+
+.quiz-cta-sheen>* {
+  position: relative;
+  z-index: 1;
+}
+
+.quiz-preview-glow {
+  border-color: rgba(231, 195, 109, 0.35);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35), 0 0 25px rgba(184, 146, 66, 0.14);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.quiz-preview-glow:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.45), 0 0 35px rgba(184, 146, 66, 0.22);
+}
+
+@keyframes quiz-cta-sheen {
+
+  0%,
+  18% {
+    left: -45%;
   }
 
-  .quiz-cta-sheen > * {
-    position: relative;
-    z-index: 1;
+  65%,
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes quiz-preview-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .quiz-cta-sheen::after,
+  .quiz-preview-float {
+    animation: none;
   }
 
   .quiz-preview-glow {
-    border-color: rgba(231, 195, 109, 0.35);
-    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35), 0 0 25px rgba(184, 146, 66, 0.14);
-    transition: transform 300ms ease, box-shadow 300ms ease;
+    transition: none;
   }
+}
 
-  .quiz-preview-glow:hover {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 34px 100px rgba(0, 0, 0, 0.45), 0 0 35px rgba(184, 146, 66, 0.22);
-  }
-
-  @keyframes quiz-cta-sheen {
-    0%,
-    18% {
-      left: -45%;
-    }
-
-    65%,
-    100% {
-      left: 125%;
-    }
-  }
-
-  @keyframes quiz-preview-float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-7px);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .quiz-cta-sheen::after,
-    .quiz-preview-float {
-      animation: none;
-    }
-
-    .quiz-preview-glow {
-      transition: none;
-    }
-  }
-
-  .container {
+.container {
   width: min(1200px, calc(100% - 40px));
   margin-inline: auto;
 }
@@ -256,8 +254,8 @@ img {
 }
 
 @keyframes sequentialScroll {
-   from {
-  transform: translateX(0px);
+  from {
+    transform: translateX(0px);
   }
 
   to {
@@ -271,7 +269,7 @@ img {
   animation: sequentialScroll 30s linear infinite;
 }
 
-.animate-sequential-scroll:hover{
+.animate-sequential-scroll:hover {
   animation-play-state: paused;
 }
 
@@ -303,6 +301,7 @@ img {
 }
 
 @keyframes goldPulse {
+
   0%,
   100% {
     transform: scale(1);
@@ -346,6 +345,7 @@ body:has(.quiz-page-shell) .floating-gold-btn {
     opacity: 0.7;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -361,6 +361,7 @@ body:has(.quiz-page-shell) .floating-gold-btn {
     opacity: 0.8;
     transform: scale(0.97);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
