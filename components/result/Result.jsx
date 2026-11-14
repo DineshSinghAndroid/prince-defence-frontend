@@ -30,9 +30,10 @@ const matchesCategory = (item, category) => {
     return false;
 };
 
-const getYear = (date) => {
-    const year = date.match(/\b20\d{2}(?:-\d{2})?\b/);
-    return year ? year[0] : "Other";
+const getYear = (item) => {
+    if (item?.year) return String(item.year);
+    const match = item?.date?.match(/\b20\d{2}(?:-\d{2})?\b/);
+    return match ? match[0] : "Other";
 };
 
 const Result = ({ category = "all" }) => {
@@ -44,7 +45,7 @@ const Result = ({ category = "all" }) => {
     );
     const groupedResults = Object.groupBy(
         filteredResults,
-        (item) => getYear(item.date)
+        (item) => getYear(item)
     );
     const years = Object.keys(groupedResults).sort((first, second) =>
         second.localeCompare(first, undefined, { numeric: true })
@@ -70,14 +71,14 @@ const Result = ({ category = "all" }) => {
                 <ScrollReveal className="mx-auto max-w-7xl">
                     <div>
                         <div className="flex items-center justify-center gap-3 lg:justify-start">
-                            
+
 
                             <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-blue-100 sm:text-sm">
                                 <Trophy size={16} aria-hidden="true" />
                                 OUR RESULTS
                             </span>
 
-                            
+
                         </div>
 
                         <div className="mt-5 grid items-center gap-2 sm:mt-9 sm:gap-8 lg:mt-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
@@ -96,7 +97,7 @@ const Result = ({ category = "all" }) => {
 
                                 <div className="mt-1 flex items-center justify-center gap-2 sm:mt-6 lg:justify-start">
                                     <span className=" hidden lg:block h-1 w-16 rounded-full bg-[#94E6FE]" />
-                                        
+
                                 </div>
                             </div>
 
@@ -238,24 +239,17 @@ const Result = ({ category = "all" }) => {
             </div>
 
             {/* Prospectus */}
-            <div className="relative mx-auto w-full">
-
+            <div className="relative mx-auto flex w-full justify-center px-4 sm:px-6">
                 <Image
-                    src="/images/Prince Defence Results.webp"
+                    src="/images/prince-defence-results.webp"
                     alt="Prince Defence Academy Defence Results"
-                    width={1000}
+                    width={2788}
                     height={764}
                     loading="lazy"
-                    sizes="(max-width: 768px) calc(100vw - 32px), 1000px"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     quality={85}
-                    className="
-              mx-auto
-              h-auto
-              
-              object-cover
-            "
+                    className="mx-auto h-auto w-full md:w-1/2 object-contain"
                 />
-
             </div>
             <ProspectusCard />
         </section>
