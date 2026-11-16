@@ -1515,10 +1515,7 @@
                 ]
               ]
             },
-            {
-              "type": "note",
-              "text": "Candidates who take more than 5 min 45 sec do not qualify."
-            },
+           
             {
               "type": "paragraph",
               "text": "**Pull-Ups**"
@@ -1552,10 +1549,7 @@
                 ]
               ]
             },
-            {
-              "type": "note",
-              "text": "Note: A minimum of 6 pull-ups is required to qualify."
-            },
+          
             {
               "type": "paragraph",
               "text": "**Qualifying Events (No Marks)**"
@@ -1586,6 +1580,7 @@
                   "Zig-Zag Balance",
                   "Not Required"
                 ],
+                ["Pull-ups","Not Required"],
                 [
                   "Ditch",
                   "9 ft"
@@ -1600,12 +1595,9 @@
                 ]
               ]
             },
-           {
-            "type":"paragraph",
-            "text":"**Pull-ups and zig-zag balance are not required for female candidates.**"
-           },
+           
            {"type":"note",
-          "text":"Pull-ups and zig-zag balance are not required for female candidates."},
+          "text":"Running timings, marks and standards may change before the recruitment rally, so candidates should check the official Indian Army website (joinindianarmy.nic.in) before appearing. "},
             {
               "type": "heading",
               "id": "indian-army-agniveer-medical-test",

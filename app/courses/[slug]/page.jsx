@@ -239,11 +239,10 @@ function ContentBlock({ block }) {
                                             {cells.map((cell, j) => (
                                                 <td
                                                     key={j}
-                                                    className={`border-r border-slate-200 last:border-r-0 px-5 py-3.5 text-sm ${
-                                                        j === 0
+                                                    className={`border-r border-slate-200 last:border-r-0 px-5 py-3.5 text-sm ${j === 0
                                                             ? "font-semibold text-slate-800"
                                                             : "text-slate-600"
-                                                    }`}
+                                                        }`}
                                                 >
                                                     {renderFormattedText(cell)}
                                                 </td>
@@ -362,15 +361,12 @@ export default async function Page({ params }) {
                         >
                             <ScrollReveal animation="up" delay="0" duration="700">
                                 <div className="mb-6 flex items-start gap-4">
-                                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-sm font-black text-amber-700">
-                                        {String(i + 1).padStart(2, "0")}
-                                    </span>
+                                  
 
                                     <div>
                                         <h2 className="text-xl font-extrabold montserrat leading-snug sm:text-2xl">
                                             {section.heading}
                                         </h2>
-                                        <div className="mt-3 h-1 w-12 rounded-full bg-amber-500" />
                                     </div>
                                 </div>
 
@@ -386,40 +382,40 @@ export default async function Page({ params }) {
 
 
                 {examData.tocEnabled !== false && (
-                        <aside className="top-28 self-start rounded-2xl border border-slate-200 bg-(--navy) p-5 shadow-sm lg:sticky">
-                            <h2 className="mb-4 flex items-center gap-2 text-base text-white font-extrabold">
-                                <span className="h-5 w-1 rounded-full bg-(--gold)" />
-                                All Courses
-                            </h2>
+                    <aside className="top-28 self-start rounded-2xl border border-slate-200 bg-(--navy) p-5 shadow-sm lg:sticky">
+                        <h2 className="mb-4 flex items-center gap-2 text-base text-white font-extrabold">
+                            <span className="h-5 w-1 rounded-full bg-(--gold)" />
+                            All Courses
+                        </h2>
 
-                            <div className="space-y-1">
-                                {allExam.map((course) => (
+                        <div className="space-y-1">
+                            {allExam.map((course) => (
 
 
-                                    <Link
-                                        key={course.slug}
-                                        href={`/courses/${course.slug}`}
-                                        aria-current={course.slug.toLowerCase() === exam.slug.toLowerCase() ? "page" : undefined}
-                                        className={`block rounded-lg px-3 py-2.5 text-sm leading-5 transition
+                                <Link
+                                    key={course.slug}
+                                    href={`/courses/${course.slug}`}
+                                    aria-current={course.slug.toLowerCase() === exam.slug.toLowerCase() ? "page" : undefined}
+                                    className={`block rounded-lg px-3 py-2.5 text-sm leading-5 transition
     ${course.slug.toLowerCase() === exam.slug.toLowerCase()
-                                                ? "bg-amber-500 font-bold text-slate-950"
-                                                : "text-white hover:bg-white/10 hover:text-amber-400"
-                                            }`}
-                                    >
-                                        {course.title}
-                                    </Link>
-                                ))}
-                            </div>
+                                            ? "bg-amber-500 font-bold text-slate-950"
+                                            : "text-white hover:bg-white/10 hover:text-amber-400"
+                                        }`}
+                                >
+                                    {course.title}
+                                </Link>
+                            ))}
+                        </div>
 
-                            <div className="mt-6 rounded-xl bg-slate-950 p-4">
-                                <p className="text-sm font-bold text-white">
-                                    Prepare With Confidence
-                                </p>
-                                <p className="mt-2 text-xs leading-5 text-slate-400">
-                                    Explore the complete exam guide and understand every topic.
-                                </p>
-                            </div>
-                        </aside>
+                        <div className="mt-6 rounded-xl bg-slate-950 p-4">
+                            <p className="text-sm font-bold text-white">
+                                Prepare With Confidence
+                            </p>
+                            <p className="mt-2 text-xs leading-5 text-slate-400">
+                                Explore the complete exam guide and understand every topic.
+                            </p>
+                        </div>
+                    </aside>
                 )}
 
             </section>
