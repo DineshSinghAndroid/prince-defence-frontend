@@ -68,7 +68,7 @@ export default function SelectionRecords() {
                 <div className="w-full overflow-hidden px-0 pb-8">
                     <h2
                         id="selection-records-title"
-                        className="montserrat p-4 text-center text-2xl font-bold leading-tight text-white bg-(--navy) sm:text-3xl lg:text-4xl"
+                        className="montserrat p-3 text-center text-base font-bold uppercase tracking-wider text-white bg-[var(--navy)] sm:text-lg sm:p-3.5"
                     >
                         OUR SELECTIONS
                     </h2>
