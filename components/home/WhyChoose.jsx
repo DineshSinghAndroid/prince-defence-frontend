@@ -26,17 +26,9 @@ export default function WhyChooseUs() {
     return (
         <section
             id="why-choose-us"
-            className="[content-visibility:auto] [contain-intrinsic-size:900px] relative isolate overflow-hidden bg-gradient-to-br from-[#f5f8ff] via-[#edf3ff] to-[#f8faff] px-5 py-16 sm:px-8 lg:px-12 lg:pt-24 lg:pb-15"
+            className="[content-visibility:auto] [contain-intrinsic-size:900px] relative isolate overflow-hidden border-b border-slate-200/60 bg-[#F8FAFD] px-5 py-16 sm:px-8 lg:px-12 lg:pt-24 lg:pb-16"
             aria-labelledby="why-choose-heading"
         >
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -left-40 top-1/4 -z-10 h-[30rem] w-[30rem] rounded-full bg-[#7488f2]/10 blur-3xl"
-            />
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-36 bottom-[-8rem] -z-10 h-[34rem] w-[34rem] rounded-full bg-[#56a4dc]/10 blur-3xl"
-            />
             <div className="mx-auto max-w-7xl">
 
                 {/* Section heading */}

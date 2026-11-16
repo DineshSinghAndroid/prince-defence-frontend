@@ -195,7 +195,7 @@ export default function GoogleReviews() {
   return (
     <section
       aria-labelledby="google-reviews-title"
-      className="bg-white px-4 py-3 sm:px-6 sm:py-4 lg:py-5"
+      className="border-t border-slate-200/60 bg-white px-4 py-4 sm:px-6 sm:py-6 lg:py-6"
     >
       <div className="mx-auto max-w-6xl">
         {/* Compact Header Summary Card */}

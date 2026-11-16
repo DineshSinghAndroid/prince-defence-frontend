@@ -12,13 +12,13 @@ export default function HomeFacilities() {
     return (
         <section
             aria-labelledby="home-facilities-heading"
-            className="bg-white px-5 py-6 sm:px-8 lg:px-12 lg:py-20"
+            className="border-b border-slate-200/60 bg-white px-5 py-16 sm:px-8 lg:px-12 lg:py-20"
         >
             <div className="mx-auto max-w-7xl">
                 <ScrollReveal className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
                     <h2
                         id="home-facilities-heading"
-                        className="mt-4 montserrat text-2xl font-extrabold leading-tight text-(--navy) sm:text-3xl lg:text-4xl"
+                        className="montserrat mt-4 text-2xl font-bold leading-tight text-(--navy) sm:text-3xl lg:text-4xl"
                     >
                         Our <span className="text-(--gold)">Facilities</span>
                     </h2>

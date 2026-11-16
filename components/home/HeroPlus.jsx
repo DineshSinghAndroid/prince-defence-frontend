@@ -3,10 +3,10 @@ import HeroPlusSlider from "./HeroPlusSlider";
 
 export default function HeroPlus() {
   return (
-    <section className="overflow-x-hidden bg-white px-4 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
+    <section className="overflow-x-hidden border-b border-slate-200/60 bg-white px-4 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
       <div className="mx-auto w-full max-w-7xl">
         <ScrollReveal className="mx-auto mb-8 max-w-4xl text-center sm:mb-10">
-          <h2 className="montserrat text-2xl font-extrabold leading-tight text-(--navy) sm:text-3xl md:text-4xl lg:text-4xl">
+          <h2 className="montserrat text-2xl font-bold leading-tight text-(--navy) sm:text-3xl lg:text-4xl">
             Where Defence Dreams Become <br />
             <span className="text-(--gold)">Proud Achievements</span>
           </h2>

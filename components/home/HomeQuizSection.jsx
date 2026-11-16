@@ -13,7 +13,7 @@ export default function HomeQuizSection() {
   return (
     <section
       aria-labelledby="home-quiz-heading"
-      className="relative isolate overflow-hidden bg-[#071b32] px-4 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24"
+      className="relative isolate overflow-hidden border-y border-white/10 bg-[#071b32] px-4 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_12%_15%,rgba(184,146,66,0.22),transparent_34%),radial-gradient(ellipse_at_88%_82%,rgba(56,105,208,0.28),transparent_38%)]" />
       <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.6)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
@@ -27,7 +27,7 @@ export default function HomeQuizSection() {
 
           <h2
             id="home-quiz-heading"
-            className="mt-5 text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
+            className="montserrat mt-4 text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl"
           >
             Ready for today&apos;s
             <span className="block bg-gradient-to-r from-[#e7c36d] to-[#b89242] bg-clip-text text-transparent">

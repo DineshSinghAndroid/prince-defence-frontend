@@ -37,18 +37,14 @@ export default function HomeFAQ() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="bg-[#DFE7F1] px-5 pb-12 pt-16 sm:px-8 lg:px-12 lg:pb-20 lg:pt-20"
+      className="border-b border-slate-200/60 bg-[#F8FAFD] px-5 pb-16 pt-16 sm:px-8 lg:px-12 lg:pb-20 lg:pt-20"
     >
       <div className="mx-auto max-w-4xl">
         <ScrollReveal>
           <header className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex rounded-full border border-[rgba(35,79,61,0.25)] bg-white px-4 py-1.5 text-xs font-bold tracking-[0.18em] text-(--green) sm:text-sm">
-              FAQ
-            </span>
-
             <h2
               id="faq-heading"
-              className="mt-4 font-(--font-montserrat) text-2xl font-bold text-(--navy) sm:text-3xl lg:text-4xl"
+              className="montserrat mt-4 text-2xl font-bold leading-tight text-(--navy) sm:text-3xl lg:text-4xl"
             >
               Frequently Asked{" "}
               <span className="text-(--gold)">Questions</span>

@@ -7,7 +7,7 @@ const Directorpage = () => {
   return (
     <section
       id="Director-Message"
-      className="[content-visibility:auto] [contain-intrinsic-size:900px] bg-(--background) px-5 py-16 sm:px-8 lg:px-12 lg:pt-24 lg:pb-5"
+      className="[content-visibility:auto] [contain-intrinsic-size:900px] border-b border-slate-200/60 bg-white px-5 py-16 sm:px-8 lg:px-12 lg:pt-20 lg:pb-16"
       aria-labelledby="director-message-heading"
     >
       <div className="mx-auto max-w-7xl">
@@ -34,9 +34,12 @@ const Directorpage = () => {
               {/* Director Content */}
               <div className="flex min-w-0 flex-1 flex-col gap-3 rounded-2xl p-4 sm:p-5 lg:p-4">
 
-                <span className="inline-flex rounded-full montserrat py-1 text-lg font-bold text-[var(--navy)]">
+                <h2
+                  id="director-message-heading"
+                  className="montserrat text-2xl font-bold leading-tight text-(--navy) sm:text-3xl lg:text-4xl"
+                >
                   Director&apos;s Message
-                </span>
+                </h2>
 
                 <p className="m-0 text-sm leading-6 text-[var(--muted)] sm:text-[15px] lg:text-base inter text-justify">
                   Dear Parents &amp; Students,

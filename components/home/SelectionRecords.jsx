@@ -62,13 +62,13 @@ export default function SelectionRecords() {
     return (
         <section
             aria-labelledby="selection-records-title"
-            className=" w-full px-0 bg-white"
+            className="w-full px-0 bg-[#F8FAFD] border-b border-slate-200/60"
         >
             <ScrollReveal animation="up" delay={100} duration={700}>
-                <div className="w-full overflow-hidden px-0 pb-8 ">
+                <div className="w-full overflow-hidden px-0 pb-8">
                     <h2
                         id="selection-records-title"
-                        className="montserrat p-4 text-center text-xl font-extrabold text-[var(--white)] bg-[var(--navy)] sm:text-2xl"
+                        className="montserrat p-4 text-center text-2xl font-bold leading-tight text-white bg-(--navy) sm:text-3xl lg:text-4xl"
                     >
                         OUR SELECTIONS
                     </h2>

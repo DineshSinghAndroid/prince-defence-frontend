@@ -581,7 +581,7 @@
             {
               "type": "list",
               "items": [
-                "10+2 candidates 17.5 to 22 years, only unmarried candidates are eligible.",
+                "10+2 candidates 17 ½ years to 22 years; only unmarried candidates are eligible.",
                 "Diploma/B.Pharma/B.Sc. in Pharmacy candidates 19 to 24 years.",
                 "For married candidates in this category, the age should be 21 to 24 years.",
                 "At the time of enrolment, the maximum age is 21 years for 10+2 candidates and 24 years for Diploma/B.Pharma/B.Sc. in Pharmacy candidates."
@@ -594,15 +594,33 @@
             },
             {
               "type": "paragraph",
-              "text": "**Candidates must have:**"
+              "text": "**1. Science Subjects (any one of the following)**"
             },
             {
               "type": "list",
               "items": [
-                "Passed 10+2 Intermediate or equivalent with Physics, Mathematics, and English.",
-                "Secured at least 50% marks in aggregate and 50% marks in English.",
-                "Candidates with a two-year vocational course with non-vocational subjects (Physics, Mathematics, and English) can also apply, subject to the prescribed marks requirement.",
-                "For Y group indivi"
+                "**10+2:** Passed 10+2 (Intermediate or equivalent) with Maths, Physics and English from a recognised board. Minimum 50% in aggregate and 50% in English.",
+                "**Diploma:** Passed a 3-year Engineering Diploma (Mechanical, Electrical, Electronics, Automobile, Computer Science, Instrumentation Technology or Information Technology) from a recognised polytechnic. Minimum 50% in aggregate and 50% in English. If English isn’t a subject in the diploma, the 50% in English is checked in Intermediate or Matriculation.",
+                "**Vocational:** Passed a 2-year Vocational Course with Physics and Maths as non-vocational subjects from a recognised board. Minimum 50% in aggregate and 50% in English. If English isn’t a subject in the course, the 50% in English is checked in Intermediate or Matriculation.",
+                "**Agniveer “Y” Group (Non-Technical / Other Than Science Subjects):** Candidates must have passed Class 12 in any stream (Science, Arts or Commerce) with English as a subject."
+              ]
+            },
+            {
+              "type": "heading",
+              "id": "4-educational-qualification-pharmacy",
+              "text": "4. Educational Qualification – Pharmacy"
+            },
+            {
+              "type": "paragraph",
+              "text": "Candidates with Diploma/B.Pharma/B.Sc. in Pharmacy must:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Have passed 10+2 with Physics, Chemistry, Mathematics and English.",
+                "Score at least 50% marks in aggregate and 50% in English.",
+                "Hold a Diploma/B.Pharma/B.Sc. in Pharmacy with at least 50% marks.",
+                "Have valid registration with the State Pharmacy Council or Pharmacy Council of India (PCI) at the time of enrolment."
               ]
             },
             {

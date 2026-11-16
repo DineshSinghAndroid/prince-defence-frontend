@@ -72,20 +72,17 @@ export default function HomeCourses() {
     <section
       id="courses"
       aria-labelledby="courses-heading"
-      className="[content-visibility:auto] [contain-intrinsic-size:900px] bg-[#dfe7f1] px-5 py-16 sm:px-8 lg:px-12 lg:py-20"
+      className="[content-visibility:auto] [contain-intrinsic-size:900px] border-b border-slate-200/60 bg-white px-5 py-16 sm:px-8 lg:px-12 lg:py-20"
     >
       <div className="mx-auto max-w-7xl">
 
         {/* Section Heading */}
         <ScrollReveal animation="up" duration={500}>
           <header className="mx-auto max-w-3xl text-center">
-          <span className="inline-block rounded-full border border-slate-200 bg-white px-6 py-2 text-sm font-bold tracking-widest text-(--green) sm:px-8">
-            OUR COURSES
-          </span>
 
           <h2
             id="courses-heading"
-            className="mt-5 montserrat  text-3xl font-bold text-(--navy) sm:text-4xl lg:text-5xl"
+            className="montserrat text-2xl font-bold leading-tight text-(--navy) sm:text-3xl lg:text-4xl"
           >
               Courses in {""} 
             <span className="text-(--gold)">Prince {""} </span>

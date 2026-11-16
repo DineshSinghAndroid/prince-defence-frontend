@@ -100,7 +100,7 @@ export default function HomeVideos() {
 
     return (
         <section
-            className="relative isolate overflow-hidden bg-gradient-to-br from-[#07182B] via-[#102A43] to-[#07111F] px-4 py-14 sm:px-8 sm:py-18 lg:px-12 lg:py-20"
+            className="relative isolate overflow-hidden border-y border-white/10 bg-gradient-to-br from-[#07182B] via-[#102A43] to-[#07111F] px-4 py-14 sm:px-8 sm:py-18 lg:px-12 lg:py-20"
             aria-labelledby="home-videos-title"
         >
             <div
@@ -115,13 +115,9 @@ export default function HomeVideos() {
             <div className="mx-auto max-w-7xl">
                 <ScrollReveal>
                 <header className="mx-auto mb-7 max-w-2xl px-1 text-center sm:mb-10 sm:px-0">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-(--gold)/30 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-(--gold) sm:px-4 sm:text-xs sm:tracking-[0.2em]">
-                        <span className="h-1.5 w-1.5 rounded-full bg-(--gold)" />
-                        Academy in action
-                    </span>
                     <h2
                         id="home-videos-title"
-                        className="mt-3 text-[1.65rem] font-extrabold leading-tight text-white sm:text-3xl lg:text-4xl"
+                        className="montserrat text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl"
                     >
                         Academy Videos
                     </h2>

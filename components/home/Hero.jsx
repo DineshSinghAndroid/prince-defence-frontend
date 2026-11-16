@@ -6,7 +6,7 @@ import HeroBackground from "./HeroBackground";
 export const Hero = () => {
     return (
         <section
-            className="relative min-h-[100svh] overflow-hidden"
+            className="relative min-h-[100svh] overflow-hidden border-b border-white/10"
             aria-label="Prince Defence Academy introduction"
         >
             <HeroBackground />

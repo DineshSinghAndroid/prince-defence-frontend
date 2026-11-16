@@ -65,7 +65,7 @@ export default function DailyRoutine() {
         <section
             id="daily-routine"
             aria-labelledby="daily-routine-heading"
-            className="bg-[#DFE7F1] px-5 py-16 sm:px-8 lg:px-12 lg:py-20"
+            className="border-b border-slate-200/60 bg-[#F8FAFD] px-5 py-16 sm:px-8 lg:px-12 lg:py-20"
         >
             <div className="mx-auto max-w-6xl">
                 <ScrollReveal>
@@ -75,7 +75,7 @@ export default function DailyRoutine() {
                         </span>
                         <h2
                             id="daily-routine-heading"
-                            className="mt-4 font-(--font-montserrat) text-2xl font-bold text-(--navy) sm:text-3xl lg:text-4xl"
+                            className="montserrat mt-4 text-2xl font-bold leading-tight text-(--navy) sm:text-3xl lg:text-4xl"
                         >
                             A Routine Built for{" "}
                             <span className="text-(--gold)">Success</span>
@@ -93,7 +93,7 @@ export default function DailyRoutine() {
                             key={item.title}
                             className="relative pl-12 sm:pl-16"
                         >
-                            <span className="absolute left-0 top-5 z-[1] flex h-11 w-11 items-center justify-center rounded-full border-4 border-[#DFE7F1] bg-(--navy) text-lg shadow-sm sm:top-6 sm:h-14 sm:w-14 sm:text-xl">
+                            <span className="absolute left-0 top-5 z-[1] flex h-11 w-11 items-center justify-center rounded-full border-4 border-[#F8FAFD] bg-(--navy) text-lg shadow-sm sm:top-6 sm:h-14 sm:w-14 sm:text-xl">
                                 <span aria-hidden="true">{item.emoji}</span>
                             </span>
 

@@ -58,7 +58,7 @@ const Courses = () => {
                                 DEFENCE EXAM GUIDE
                             </span>
 
-                            <h3 className="mt-4 font-(--font-montserrat) text-xl font-extrabold leading-tight text-(--navy) sm:text-4xl">
+                            <h3 className="montserrat mt-3 text-xl font-bold leading-tight text-(--navy) sm:text-2xl lg:text-3xl">
                                 {exam.title}
                             </h3>
 
