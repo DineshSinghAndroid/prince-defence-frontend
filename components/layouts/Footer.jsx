@@ -75,10 +75,7 @@ export default function Footer() {
                 <div className="flex flex-col gap-5 border-b border-white/10 py-10 sm:py-12 md:flex-row md:items-center md:justify-between">
 
                     <div className="max-w-2xl">
-                        <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-(--gold)/30 bg-(--gold)/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-(--gold)">
-                            <ShieldCheck size={14} />
-                            Shape Your Future
-                        </span>
+                        
 
                         <h2 className="text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
                             Your Defence Dream

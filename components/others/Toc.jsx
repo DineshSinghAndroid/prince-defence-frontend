@@ -60,16 +60,6 @@ export default function Toc({ sections }) {
                     </a>
                 ))}
             </div>
-
-            <div className="mt-6 rounded-xl bg-slate-950 p-4">
-                <p className="text-sm font-bold text-white montserrat">
-                    Prepare With Confidence
-                </p>
-
-                <p className="mt-2 text-xs leading-4 inter text-slate-400">
-                    Explore the complete exam guide and understand every topic.
-                </p>
-            </div>
         </aside>
     );
 }

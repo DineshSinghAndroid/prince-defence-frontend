@@ -89,8 +89,8 @@ export default function About() {
           {/* TOP HEADING */}
           <ScrollReveal animation="up" duration={500}>
             <div className="mx-auto mb-10 mt-20 sm:mt-15 lg:mt-4 max-w-3xl text-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#dce8df] bg-white px-5 py-2 text-xs font-bold tracking-[0.18em] text-(--green)">
-                <ShieldCheck size={15} />
+              <span className="inline-flex items-center gap-2 px-5 text-xs lg:text-sm font-bold tracking-[0.18em] text-(--green)">
+                
                 ABOUT PRINCE DEFENCE ACADEMY
               </span>
 

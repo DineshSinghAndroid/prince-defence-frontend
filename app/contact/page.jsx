@@ -84,7 +84,7 @@ export default function ContactPage() {
                     <div className="mx-auto max-w-7xl">
 
                         <span className="inline-flex mt-15 sm:mt-10  lg:mt-5 items-center gap-3 text-xs font-bold tracking-[0.25em] text-[#D4AF37]">
-                            <span className="h-[2px] w-8 bg-[#D4AF37]" />
+                            
                             GET IN TOUCH
                         </span>
 

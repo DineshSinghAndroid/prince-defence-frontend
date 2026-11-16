@@ -54,9 +54,7 @@ const Courses = () => {
 
                         {/* Course Details */}
                         <div className="flex flex-col justify-center px-6 lg:px-8 xl:px-12 pt-6 md:pt-0">
-                            <span className="w-fit rounded-full bg-[#fbf1d8] px-3.5 py-1.5 text-xs font-bold tracking-wide text-(--gold)">
-                                DEFENCE EXAM GUIDE
-                            </span>
+                           
 
                             <h3 className="montserrat mt-3 text-xl font-bold leading-tight text-(--navy) sm:text-2xl lg:text-3xl">
                                 {exam.title}

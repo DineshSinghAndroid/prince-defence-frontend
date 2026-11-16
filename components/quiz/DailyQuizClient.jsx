@@ -569,7 +569,7 @@ export default function DailyQuizClient() {
           {/* Left */}
           <div className="max-w-2xl">
             <span className="pc-rise inline-flex items-center gap-2 rounded-full border border-[#b89242]/35 bg-[#b89242]/10 px-3.5 py-1.5 text-[10px] font-extrabold tracking-[0.18em] text-[#e7c36d] sm:px-4 sm:py-2 sm:text-[11px]">
-              <span className="h-2 w-2 rounded-full bg-[#e7c36d] motion-safe:animate-pulse" />
+              
               DAILY DEFENCE CHALLENGE
             </span>
 

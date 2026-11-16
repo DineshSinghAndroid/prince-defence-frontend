@@ -227,7 +227,7 @@ function ContentBlock({ block }) {
                             )}
 
                             <tbody className="divide-y divide-slate-200 bg-white">
-                                {block.rows?.map((row, i) => {
+                                {(block.rows || block.row)?.map((row, i) => {
                                     const cells = Array.isArray(row)
                                         ? row
                                         : Object.values(row);
@@ -290,10 +290,9 @@ export default async function Page({ params }) {
                     <ScrollReveal animation="right" delay="50" duration="700">
 
                         <div>
-                            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-amber-400">
-                                <span className="h-2 w-2 rounded-full bg-amber-400" />
+                            <span className="mb-4 inline-block text-xs font-bold uppercase tracking-widest text-(--gold) sm:text-sm">
                                 {exam.category || "Defence Exam Guide"}
-                            </div>
+                            </span>
 
                             <h1 className="text-3xl font-black montserrat leading-tight text-white sm:text-4xl md:text-5xl">
                                 {exam.title}
@@ -427,24 +426,24 @@ export default async function Page({ params }) {
 
             <ScrollReveal animation="up" delay="50" duration="700">
 
-                <section className="px-5 pb-16">
-                    <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-slate-950 px-6 py-10 text-center sm:px-12">
-                        <p className="text-sm font-bold uppercase tracking-widest text-(--gold)">
+                <section className="px-5 pb-10 sm:pb-12">
+                    <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-slate-950 px-6 py-6 text-center sm:px-10 sm:py-7">
+                        <p className="text-xs font-bold uppercase tracking-widest text-(--gold)">
                             Prince Defence
                         </p>
 
-                        <h2 className="mt-3 text-2xl font-black text-white sm:text-3xl">
+                        <h2 className="mt-1.5 text-xl font-black text-white sm:text-2xl">
                             Your Defence Journey Starts Here
                         </h2>
 
-                        <p className="mx-auto mt-4 max-w-xl text-sm leading-6 inter text-(--muted)">
+                        <p className="mx-auto mt-1.5 max-w-xl text-xs sm:text-sm leading-5 sm:leading-6 inter text-(--muted)">
                             Stay focused, prepare smartly, and take the next step towards your
                             defence career.
                         </p>
 
                         <Link
                             href="/courses"
-                            className="mt-7 inline-flex rounded-xl bg-(--gold) px-6 py-3.5 text-sm font-bold text-white transition hover:bg-amber-400"
+                            className="mt-4 inline-flex rounded-xl bg-(--gold) px-5 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:bg-amber-400"
                         >
                             Explore All Courses →
                         </Link>

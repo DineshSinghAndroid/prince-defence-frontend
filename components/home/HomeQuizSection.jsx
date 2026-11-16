@@ -21,7 +21,7 @@ export default function HomeQuizSection() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12">
         <ScrollReveal animation="up" className="w-full max-w-2xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#b89242]/35 bg-[#b89242]/10 px-4 py-2 text-[10px] font-extrabold tracking-[0.18em] text-[#e7c36d] sm:text-[11px]">
-            <Target size={14} />
+         
             DAILY DEFENCE CHALLENGE
           </span>
 
