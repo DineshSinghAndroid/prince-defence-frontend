@@ -252,7 +252,7 @@ export default function About() {
                     training, the best strategy to question-solving techniques,
                     and guidance on how to deal with concepts. The main approach
                     of Prince Defence is to build a strong foundation first and
-                    then work on improving a student's speed, accuracy, and
+                    then work on improving a student&apos;s speed, accuracy, and
                     confidence through continuous practice.
                   </p>
                 </div>
@@ -326,7 +326,7 @@ export default function About() {
                 candidates selected in different defence and government
                 services. The academy has crossed 1286+ selections (2022 to
                 2025) across areas including the NDA, Army, Navy, Air Force,
-                SSC, etc., based on the academy's reported selection record
+                SSC, etc., based on the academy&apos;s reported selection record
               </p>
 
               <EnquireButton

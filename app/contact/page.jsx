@@ -202,13 +202,15 @@ export default function ContactPage() {
                                             const Icon = item.icon;
 
                                             return (
-                                                <article
+                                                <a
                                                     key={item.title}
-                                                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3.5 transition-colors hover:border-[#D4AF37]/60"
+                                                    href={item.href}
+                                                    className="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3.5 transition-all hover:border-[#D4AF37] hover:shadow-sm"
+                                                    title={item.title}
                                                 >
 
                                                     {/* SMALL ICON */}
-                                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-[#A78312]">
+                                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-[#A78312] transition-colors group-hover:bg-[#A78312] group-hover:text-white">
                                                         <Icon size={19} />
                                                     </div>
 
@@ -216,20 +218,17 @@ export default function ContactPage() {
                                                     {/* CONTACT DETAILS */}
                                                     <div className="min-w-0">
 
-                                                        <h3 className="text-sm font-semibold text-(--navy) sm:text-base">
+                                                        <h3 className="text-sm font-semibold text-(--navy) sm:text-base group-hover:text-(--gold)">
                                                             {item.title}
                                                         </h3>
 
-                                                        <Link
-                                                            href={item.href}
-                                                            className="mt-0.5 block break-all text-xs text-(--muted) hover:text-(--gold)"
-                                                        >
+                                                        <span className="mt-0.5 block break-all text-xs text-(--muted) group-hover:text-(--navy) font-medium">
                                                             {item.value}
-                                                        </Link>
+                                                        </span>
 
                                                     </div>
 
-                                                </article>
+                                                </a>
                                             );
                                         })}
 

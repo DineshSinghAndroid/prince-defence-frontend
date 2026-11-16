@@ -177,6 +177,7 @@ export default function DailyQuizClient() {
   const [submitting, setSubmitting] = useState(false);
 
   const submittingRef = useRef(false);
+  const submitQuizRef = useRef(null);
   const nameInputRef = useRef(null);
 
   const currentQuestion = questions[currentIndex];
@@ -192,13 +193,17 @@ export default function DailyQuizClient() {
   useEffect(() => {
     const id = getVisitorId();
 
-    setVisitorId(id);
+    const timer = window.setTimeout(() => {
+      setVisitorId(id);
 
-    const savedName = localStorage.getItem(NAME_KEY);
-    const savedPhone = localStorage.getItem(PHONE_KEY);
+      const savedName = localStorage.getItem(NAME_KEY);
+      const savedPhone = localStorage.getItem(PHONE_KEY);
 
-    if (savedName) setName(savedName);
-    if (savedPhone) setPhoneNumber(savedPhone);
+      if (savedName) setName(savedName);
+      if (savedPhone) setPhoneNumber(savedPhone);
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -245,7 +250,7 @@ export default function DailyQuizClient() {
       setRemainingSeconds(seconds);
 
       if (seconds <= 0 && !submittingRef.current) {
-        submitQuiz(true);
+        submitQuizRef.current?.(true);
       }
     };
 
@@ -498,6 +503,10 @@ export default function DailyQuizClient() {
       setSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    submitQuizRef.current = submitQuiz;
+  });
 
   const resetQuiz = () => {
     setStarted(false);
