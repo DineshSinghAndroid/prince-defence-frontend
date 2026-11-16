@@ -22,9 +22,7 @@ export default function NotFound() {
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-12">
         <div className="text-center md:text-left">
-          <span className="inline-flex items-center rounded-full border border-(--gold)/30 bg-(--gold)/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-(--green)">
-            404 · Page not found
-          </span>
+          
 
           <h1 className="mt-5 font-[var(--cinzel-fonts)] text-7xl font-bold leading-none tracking-tight text-(--navy) sm:text-8xl lg:text-9xl">
             404
