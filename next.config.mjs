@@ -19,6 +19,7 @@ const nextConfig = {
     poweredByHeader: false,
     experimental: {
         optimizePackageImports: ["lucide-react", "react-icons"],
+        agentUpgrade: "security",
     },
     images: {
         formats: ["image/avif", "image/webp"],
