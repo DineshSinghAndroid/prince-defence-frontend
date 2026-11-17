@@ -327,10 +327,7 @@ export default function AchieversClient({ initialCategorySlug = "" }) {
                 <div className="mx-auto max-w-7xl">
                     {/* Header Heading */}
                     <ScrollReveal className="mx-auto mb-8 max-w-2xl text-center">
-                        <p className="inline-flex items-center gap-2 rounded-full border border-[#e9dcb6] bg-[#fbf3dc] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[#8a6a1f]">
-                            <Trophy size={14} />
-                            Hall of Fame
-                        </p>
+                      
                         <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
                             Our Student <span className="text-[#b89242]">Achievers</span>
                         </h1>

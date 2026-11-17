@@ -30,6 +30,94 @@ const matchesCategory = (item, category) => {
     return false;
 };
 
+const getWingTheme = (item) => {
+    const title = (item?.title || "").toLowerCase();
+    const category = (item?.category || "").toLowerCase();
+    const fullText = `${title} ${category}`;
+
+    if (title.includes("air force") || title.includes("airforce")) {
+        return {
+            color: "#0284C7", // Sky / Air Force Blue
+            titleColor: "#0284C7",
+            badgeBg: "bg-[#e0f2fe] text-[#0369a1]",
+            borderHover: "hover:border-[#0284C7]/60",
+            shadowHover: "hover:shadow-[0_20px_40px_rgba(2,132,199,0.18)]",
+        };
+    }
+    if (title.includes("army")) {
+        return {
+            color: "#2D6A4F", // Military / Army Olive Green
+            titleColor: "#2D6A4F",
+            badgeBg: "bg-[#dcfce7] text-[#166534]",
+            borderHover: "hover:border-[#2D6A4F]/60",
+            shadowHover: "hover:shadow-[0_20px_40px_rgba(45,106,79,0.18)]",
+        };
+    }
+    if (title.includes("navy")) {
+        return {
+            color: "#002060", // Indian Navy Deep Blue
+            titleColor: "#002060",
+            badgeBg: "bg-[#dbeafe] text-[#1e40af]",
+            borderHover: "hover:border-[#002060]/60",
+            shadowHover: "hover:shadow-[0_20px_40px_rgba(0,32,96,0.20)]",
+        };
+    }
+    if (title.includes("nda") || title.includes("ssb")) {
+        return {
+            color: "#D4AF37", // NDA Royal Gold
+            titleColor: "#B89242",
+            badgeBg: "bg-[#fef3c7] text-[#92400e]",
+            borderHover: "hover:border-[#D4AF37]/60",
+            shadowHover: "hover:shadow-[0_20px_40px_rgba(212,175,55,0.20)]",
+        };
+    }
+
+    if (fullText.includes("air force") || fullText.includes("airforce")) {
+        return {
+            color: "#0284C7",
+            titleColor: "#0284C7",
+            badgeBg: "bg-[#e0f2fe] text-[#0369a1]",
+            borderHover: "hover:border-[#0284C7]/60",
+            shadowHover: "hover:shadow-[0_20px_40px_rgba(2,132,199,0.18)]",
+        };
+    }
+    if (fullText.includes("army")) {
+        return {
+            color: "#2D6A4F",
+            titleColor: "#2D6A4F",
+            badgeBg: "bg-[#dcfce7] text-[#166534]",
+            borderHover: "hover:border-[#2D6A4F]/60",
+            shadowHover: "hover:shadow-[0_20px_40px_rgba(45,106,79,0.18)]",
+        };
+    }
+    if (fullText.includes("navy")) {
+        return {
+            color: "#002060",
+            titleColor: "#002060",
+            badgeBg: "bg-[#dbeafe] text-[#1e40af]",
+            borderHover: "hover:border-[#002060]/60",
+            shadowHover: "hover:shadow-[0_20px_40px_rgba(0,32,96,0.20)]",
+        };
+    }
+    if (fullText.includes("nda") || fullText.includes("ssb")) {
+        return {
+            color: "#D4AF37",
+            titleColor: "#B89242",
+            badgeBg: "bg-[#fef3c7] text-[#92400e]",
+            borderHover: "hover:border-[#D4AF37]/60",
+            shadowHover: "hover:shadow-[0_20px_40px_rgba(212,175,55,0.20)]",
+        };
+    }
+
+    return {
+        color: "#4F46E5", // Government / Combined Services
+        titleColor: "#4F46E5",
+        badgeBg: "bg-[#ede9fe] text-[#4338ca]",
+        borderHover: "hover:border-[#4F46E5]/60",
+        shadowHover: "hover:shadow-[0_20px_40px_rgba(79,70,229,0.18)]",
+    };
+};
+
 const getYear = (item) => {
     if (item?.year) return String(item.year);
     const match = item?.date?.match(/\b20\d{2}(?:-\d{2})?\b/);
@@ -55,14 +143,14 @@ const Result = ({ category = "all" }) => {
         <section
             id="results"
             aria-labelledby="results-heading"
-            className="bg-(--white)"
+            className="bg-[#F0F3F8]"
         >
             {/* Results Hero */}
 
 
 
 
-            <header className="relative isolate overflow-hidden bg-gradient-to-br from-[#000825] via-[#001D87] to-[#002CCD] px-4 pb-8 pt-30 sm:px-8 sm:pb-16 sm:pt-32 lg:px-12 lg:pb-20 lg:pt-36">
+            <header className="relative isolate overflow-hidden bg-gradient-to-br from-[#000825] via-[#001D87] to-[#002CCD] px-4 pb-32 pt-30 sm:px-8 sm:pb-44 sm:pt-32 lg:px-12 lg:pb-56 lg:pt-36">
                 <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.3)_1px,transparent_1px)] [background-size:48px_48px]" />
 
                 <div className="pointer-events-none absolute -right-20 -top-24 -z-10 h-72 w-72 rounded-full border border-white/10 sm:h-96 sm:w-96" />
@@ -74,14 +162,14 @@ const Result = ({ category = "all" }) => {
 
 
                             <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-blue-100 sm:text-sm">
-                                <Trophy size={16} aria-hidden="true" />
+                                
                                 OUR RESULTS
                             </span>
 
 
                         </div>
 
-                        <div className="mt-5 grid items-center gap-2 sm:mt-9 sm:gap-8 lg:mt-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
+                        <div className="mt-5 grid items-center gap-2 sm:mt-9 sm:gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
                             <div className="relative text-center lg:text-left">
                                 <h2
                                     id="results-heading"
@@ -95,10 +183,7 @@ const Result = ({ category = "all" }) => {
                                     </span>
                                 </h2>
 
-                                <div className="mt-1 flex items-center justify-center gap-2 sm:mt-6 lg:justify-start">
-                                    <span className=" hidden lg:block h-1 w-16 rounded-full bg-[#94E6FE]" />
-
-                                </div>
+                                
                             </div>
 
                             <div className="relative lg:border-l lg:border-white/20 lg:pl-8">
@@ -111,30 +196,44 @@ const Result = ({ category = "all" }) => {
                         </div>
                     </div>
                 </ScrollReveal>
+
+                {/* Curved bottom edge transitioning into #F0F3F8 */}
+                <svg
+                    aria-hidden="true"
+                    viewBox="0 0 1440 64"
+                    preserveAspectRatio="none"
+                    className="pointer-events-none absolute inset-x-0 -bottom-px z-0 h-14 w-full text-[#F0F3F8] sm:h-20 lg:h-28"
+                >
+                    <path
+                        fill="currentColor"
+                        d="M0,64 L0,24 C360,64 1080,0 1440,32 L1440,64 Z"
+                    />
+                </svg>
             </header>
 
-
-
-
-            <ScrollReveal>
-                <ResultsSlider
-                    key={activeCategory.value}
-                    category={activeCategory.value}
-                />
-            </ScrollReveal>
+            <div className="relative z-20 -mt-24 sm:-mt-36 lg:-mt-48">
+                <ScrollReveal>
+                    <ResultsSlider
+                        key={activeCategory.value}
+                        category={activeCategory.value}
+                    />
+                </ScrollReveal>
+            </div>
 
             {/* Selection Records */}
-            <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
-                <header className="mb-8">
-                    <p className="text-xs font-bold tracking-[0.2em] text-(--gold)">
-                        SELECTION RECORDS
-                    </p>
+            <div className="mx-auto max-w-6xl px-3 py-10 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
+                <header className="mb-8 sm:mb-12">
+                   
 
-                    <h3 className="mt-2 font-(--font-montserrat) text-2xl font-bold text-(--navy) sm:text-3xl">
+                    <h3 className="mt-2.5 font-(--font-montserrat) text-2xl font-black tracking-tight text-(--navy) sm:text-3xl lg:text-4xl">
                         {activeCategory.value === "all"
                             ? "Selection Records by Year"
                             : `${activeCategory.label} Results by Year`}
                     </h3>
+
+                    <p className="mt-1.5 text-xs sm:text-sm text-(--muted) max-w-xl">
+                        Official merit list selections and academy milestones across defence recruitment batches.
+                    </p>
 
                     <nav
                         aria-label="Filter results by defence force"
@@ -149,9 +248,9 @@ const Result = ({ category = "all" }) => {
                                         ? "page"
                                         : undefined
                                 }
-                                className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${item.value === activeCategory.value
-                                    ? "bg-(--navy) text-white"
-                                    : "border border-slate-200 bg-white text-(--navy) hover:border-(--gold) hover:text-(--green)"
+                                className={`rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold transition-all duration-200 ${item.value === activeCategory.value
+                                    ? "bg-(--navy) text-white shadow-md shadow-[#001D87]/25"
+                                    : "border border-slate-200 bg-white text-(--navy) hover:border-(--gold) hover:text-(--gold) shadow-sm"
                                     }`}
                             >
                                 {item.label}
@@ -161,20 +260,21 @@ const Result = ({ category = "all" }) => {
                 </header>
 
                 {years.length ? (
-                    <div className="space-y-10">
+                    <div className="space-y-12 sm:space-y-16">
                         {years.map((year) => (
                             <section
                                 key={year}
                                 aria-labelledby={`results-year-${year.replace(/[^a-zA-Z0-9]/g, "-")}`}
                             >
                                 <ScrollReveal>
-                                    <div className="mb-5 flex items-center gap-3">
+                                    <div className="mb-4 sm:mb-6 flex items-center justify-between gap-3">
                                         <h4
                                             id={`results-year-${year.replace(/[^a-zA-Z0-9]/g, "-")}`}
-                                            className="flex min-w-0 flex-1 items-center gap-3 font-(--font-montserrat) text-xl font-bold text-(--navy) sm:text-2xl"
+                                            className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3 font-(--font-montserrat) text-lg sm:text-2xl font-black text-(--navy)"
                                         >
+                                           
                                             <span>{year}</span>
-                                            <span className="h-px flex-1 bg-gradient-to-r from-(--gold)/50 to-transparent" />
+                                            <span className="h-px flex-1 bg-gradient-to-r from-slate-300 via-slate-200 to-transparent" />
                                         </h4>
                                         <YearResultImage
                                             year={year}
@@ -183,50 +283,61 @@ const Result = ({ category = "all" }) => {
                                     </div>
                                 </ScrollReveal>
 
-                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                                    {groupedResults[year].map((item, index) => (
-                                        <ScrollReveal
-                                            key={`${item.title}-${item.date}-${index}`}
-                                            animation="up"
-                                            delay={Math.min(index * 45, 225)}
-                                            duration={450}
-                                            className="h-full"
-                                        >
-                                            <article className="group relative flex h-full min-h-56 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_24px_rgba(15,35,65,0.06)] transition duration-300 hover:-translate-y-1 hover:border-(--gold)/50 hover:shadow-[0_18px_36px_rgba(15,35,65,0.12)]">
-                                                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-(--navy) via-(--gold) to-(--green)" />
+                                <div className="grid grid-cols-2 gap-2.5 pt-3 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+                                    {groupedResults[year].map((item, index) => {
+                                        const wingTheme = getWingTheme(item);
 
-                                                <div className="flex flex-1 flex-col p-5">
-                                                    <div className="flex items-start justify-between gap-3">
-                                                        <span className="inline-flex rounded-full bg-[#f1f5f9] px-3 py-1 text-xs font-semibold text-(--navy)">
-                                                            {item.date}
-                                                        </span>
-                                                        <Trophy
-                                                            size={18}
-                                                            aria-hidden="true"
-                                                            className="shrink-0 text-(--gold) transition-transform group-hover:scale-110"
-                                                        />
+                                        return (
+                                            <ScrollReveal
+                                                key={`${item.title}-${item.date}-${index}`}
+                                                animation="up"
+                                                delay={Math.min(index * 35, 200)}
+                                                duration={400}
+                                                className="h-full pt-2 sm:pt-3"
+                                            >
+                                                <article className={`group relative flex h-full min-h-[195px] sm:min-h-60 flex-col rounded-2xl sm:rounded-3xl border border-white/80 bg-gradient-to-br from-white via-[#F8FAFC] to-[#F0F3F8] shadow-[0_8px_24px_rgba(15,35,65,0.07),0_2px_6px_rgba(15,35,65,0.03)] transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-1.5 ${wingTheme.borderHover} ${wingTheme.shadowHover}`}>
+                                                    {/* Top Line / Tab: Exactly Half Outside & Half Inside the Box as in Screenshot */}
+                                                    <div
+                                                        className="absolute top-0 left-1/2 z-10 h-2.5 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full sm:h-3.5 sm:w-28"
+                                                        style={{
+                                                            background: `linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0.12) 100%), ${wingTheme.color}`,
+                                                            boxShadow: `0 3px 8px -1px ${wingTheme.color}80, 0 1px 2px rgba(0,0,0,0.12)`,
+                                                        }}
+                                                        aria-hidden="true"
+                                                    />
+
+                                                    <div className="flex flex-1 flex-col p-3 pt-3.5 sm:p-6 sm:pt-7">
+                                                        <div className="flex items-center justify-between gap-1.5 sm:gap-3">
+                                                            <span className={`inline-flex max-w-[75%] truncate rounded-full px-2 py-0.5 sm:px-3 sm:py-1 text-[9px] sm:text-xs font-bold ${wingTheme.badgeBg}`}>
+                                                                {item.date}
+                                                            </span>
+                                                           
+                                                        </div>
+
+                                                        <h5
+                                                            className="montserrat mt-2 sm:mt-4 text-xs sm:text-base font-bold leading-tight sm:leading-6 line-clamp-2 min-h-[2rem] sm:min-h-[3rem]"
+                                                            style={{ color: wingTheme.titleColor }}
+                                                        >
+                                                            {item.title}
+                                                        </h5>
+
+                                                        <div className="mt-auto pt-3 sm:pt-6">
+                                                            <p className="font-(--font-montserrat) text-2xl font-black leading-none text-(--navy) sm:text-4xl lg:text-5xl">
+                                                                {item.selections}
+                                                            </p>
+                                                            <span className="mt-0.5 sm:mt-1.5 block text-[8px] sm:text-xs font-bold uppercase tracking-[0.14em] text-(--muted)">
+                                                                Selections
+                                                            </span>
+                                                        </div>
                                                     </div>
 
-                                                    <h5 className="montserrat mt-4 text-sm font-bold leading-6 text-(--navy) sm:text-base">
-                                                        {item.title}
-                                                    </h5>
-
-                                                    <div className="mt-auto pt-5">
-                                                        <p className="font-(--font-montserrat) text-4xl font-extrabold leading-none text-(--green) sm:text-5xl">
-                                                            {item.selections}
-                                                        </p>
-                                                        <span className="mt-1 block text-xs font-medium uppercase tracking-[0.14em] text-(--muted)">
-                                                            Selections
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <p className="border-t border-slate-100 bg-[#f8fafc] px-5 py-3 text-xs font-semibold leading-5 text-(--muted) sm:text-sm">
-                                                    {item.category}
-                                                </p>
-                                            </article>
-                                        </ScrollReveal>
-                                    ))}
+                                                    <p className="rounded-b-2xl sm:rounded-b-3xl border-t border-slate-200/50 bg-white/30 px-3 py-2 sm:px-5 sm:py-3.5 text-[9px] sm:text-xs font-semibold leading-tight text-(--muted) truncate">
+                                                        {item.category}
+                                                    </p>
+                                                </article>
+                                            </ScrollReveal>
+                                        );
+                                    })}
                                 </div>
                             </section>
                         ))}
@@ -238,20 +349,10 @@ const Result = ({ category = "all" }) => {
                 )}
             </div>
 
+
+
             {/* Prospectus */}
-            <div className="relative mx-auto flex w-full justify-center px-4 sm:px-6">
-                <Image
-                    src="/images/prince-defence-results.webp"
-                    alt="Prince Defence Academy Defence Results"
-                    width={2788}
-                    height={764}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    quality={85}
-                    className="mx-auto h-auto w-full md:w-1/2 object-contain"
-                />
-            </div>
-            <ProspectusCard />
+            <ProspectusCard heading="Be The Next Selection." />
         </section>
     );
 };

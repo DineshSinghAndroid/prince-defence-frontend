@@ -35,7 +35,7 @@ export const metadata = {
 
 const page = () => {
   return (
-    <main className="min-h-screen bg-[#ffffff]">
+    <main className="min-h-screen bg-[#F0F3F8]">
       <Result/>
       </main>
   )

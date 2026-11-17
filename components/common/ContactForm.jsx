@@ -179,16 +179,7 @@ export default function ContactForm({
 
             {/* Header */}
             <header className="mb-7">
-                <div
-                    aria-hidden="true"
-                    className={`
-                        mb-4 flex h-11 w-11 items-center justify-center
-                        rounded-xl border
-                        ${themeClass.icon}
-                    `}
-                >
-                    <Send size={20} />
-                </div>
+               
 
                 <h2
                     className={`

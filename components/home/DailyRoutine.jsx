@@ -70,15 +70,13 @@ export default function DailyRoutine() {
             <div className="mx-auto max-w-6xl">
                 <ScrollReveal>
                     <header className="mx-auto max-w-3xl text-center">
-                        <span className="inline-flex items-center gap-2 rounded-full border border-(--gold)/30 bg-white px-4 py-1.5 text-xs font-bold tracking-[0.18em] text-(--green) sm:text-sm">
-                            🕒 A DAY AT THE ACADEMY
-                        </span>
+                       
                         <h2
                             id="daily-routine-heading"
                             className="montserrat mt-4 text-2xl font-bold leading-tight text-(--navy) sm:text-3xl lg:text-4xl"
                         >
-                            A Routine Built for{" "}
-                            <span className="text-(--gold)">Success</span>
+                            A Day At The{" "}
+                            <span className="text-(--gold)">Academy</span>
                         </h2>
                         <p className="mt-4 text-sm leading-7 text-(--muted) sm:text-base">
                             Every day balances fitness, focused learning, rest

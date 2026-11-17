@@ -18,7 +18,7 @@ export const Hero = () => {
 
                     {/* Left content */}
                     <div className="max-w-5xl text-white">
-                        <span className="glass-card inline-block rounded-full px-4 py-2 text-xs font-semibold tracking-[0.2em] text-white sm:text-sm">
+                        <span className="inline-block px-1 text-xs font-semibold tracking-[0.2em] text-white sm:text-sm">
                             INDIA&apos;s NO.1 DEFENCE ACADEMY
                         </span>
 

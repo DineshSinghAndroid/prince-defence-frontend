@@ -26,7 +26,7 @@ export default function HeroPlus() {
             <div className="flex h-full flex-col justify-center lg:pl-4">
               {/* Eyebrow */}
               <div className="flex items-center gap-3">
-                <span className="h-px w-10 bg-(--gold)" />
+               
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-(--gold) sm:text-sm">
                   Introduction
                 </span>
@@ -71,7 +71,7 @@ export default function HeroPlus() {
                     key={item}
                     className="flex items-center gap-2 text-sm font-semibold text-(--navy)"
                   >
-                    <span className="h-2 w-2 rotate-45 bg-(--gold)" />
+              
                     {item}
                   </li>
                 ))}

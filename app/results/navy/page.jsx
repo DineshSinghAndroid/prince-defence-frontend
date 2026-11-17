@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function NavyResultsPage() {
     return (
-        <main className="min-h-screen bg-white">
+        <main className="min-h-screen bg-[#F0F3F8]">
             <Result category="navy" />
         </main>
     );

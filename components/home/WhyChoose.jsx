@@ -34,18 +34,15 @@ export default function WhyChooseUs() {
                 {/* Section heading */}
 
                 <div className="mx-auto max-w-3xl text-center">
-                    <span className="inline-flex rounded-full border uppercase border-[rgba(35,79,61,0.25)] bg-white/70 px-4 py-1.5 text-xs font-bold tracking-[0.18em] text-(--green) sm:text-sm">
-                        Why to Choose Prince Defence Academy?
-                    </span>
+                    
 
                     <ScrollReveal animation="up">
 
                         <h2
                             id="why-choose-heading"
-                            className="mt-4 montserrat text-2xl font-bold leading-tight text-(--navy) sm:text-3xl lg:text-4xl"
-                        >
-                            <span className="text-(--gold) montserrat"> Building </span>  Aspirants Into Future
-                            Defence Professionals
+                            className="mt-2 montserrat text-2xl font-bold leading-tight text-(--navy) sm:text-3xl lg:text-4xl"
+                        >Why to Choose
+                            <span className="text-(--gold) montserrat"> Prince </span>  Defence Academy?
                         </h2>
 
                     </ScrollReveal>

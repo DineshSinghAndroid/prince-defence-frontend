@@ -574,17 +574,13 @@ export default function DailyQuizClient() {
         <div className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full border border-white/10 sm:h-[28rem] sm:w-[28rem]" />
         <div className="pointer-events-none absolute -right-10 -top-14 h-56 w-56 rounded-full border border-[#b89242]/20 sm:h-96 sm:w-96" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-14 pt-30 sm:px-8 md:min-h-[640px] md:grid-cols-[1.1fr_0.9fr] md:gap-10 md:pb-24 md:pt-32 lg:px-10">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-14 pt-30 sm:px-8 md:min-h-[640px] md:grid-cols-[1.1fr_0.9fr] md:gap-10 md:pt-16 lg:px-10">
           {/* Left */}
           <div className="max-w-2xl">
-            <span className="pc-rise inline-flex items-center gap-2 rounded-full border border-[#b89242]/35 bg-[#b89242]/10 px-3.5 py-1.5 text-[10px] font-extrabold tracking-[0.18em] text-[#e7c36d] sm:px-4 sm:py-2 sm:text-[11px]">
-              
-              DAILY DEFENCE CHALLENGE
-            </span>
 
             <h1 className="pc-rise mt-5 text-[2.5rem] font-black leading-[1.08] tracking-tight text-white [animation-delay:80ms] sm:mt-6 sm:text-6xl lg:text-[4.25rem]">
               Today&apos;s
-              <span className="mt-1 block bg-gradient-to-r from-[#e7c36d] to-[#b89242] bg-clip-text text-transparent">
+              <span className="mt-1 pl-2 bg-gradient-to-r from-[#e7c36d] to-[#b89242] bg-clip-text text-transparent">
                 Quiz
               </span>
             </h1>
@@ -616,24 +612,24 @@ export default function DailyQuizClient() {
               </span>
             </div>
 
-            <div className="pc-rise mt-9 grid grid-cols-1 gap-3 border-t border-white/10 pt-6 text-sm font-semibold text-white/80 [animation-delay:320ms] sm:mt-10 sm:flex sm:flex-wrap sm:gap-x-7">
-              <span className="inline-flex items-center gap-2">
-                <Clock3 size={16} className="text-[#e7c36d]" />
+            <div className="pc-rise mt-9 flex flex-row items-center justify-between gap-1 border-t border-white/10 pt-6 text-[11px] font-semibold text-white/80 [animation-delay:320ms] min-[400px]:text-xs min-[400px]:gap-2 sm:mt-10 sm:justify-start sm:gap-x-7 sm:text-sm">
+              <span className="inline-flex items-center gap-1 whitespace-nowrap min-[400px]:gap-1.5 sm:gap-2">
+                <Clock3 size={16} className="h-3.5 w-3.5 shrink-0 text-[#e7c36d] sm:h-4 sm:w-4" />
                 Timed challenge
               </span>
-              <span className="inline-flex items-center gap-2">
-                <BookOpenCheck size={16} className="text-[#e7c36d]" />
+              <span className="inline-flex items-center gap-1 whitespace-nowrap min-[400px]:gap-1.5 sm:gap-2">
+                <BookOpenCheck size={16} className="h-3.5 w-3.5 shrink-0 text-[#e7c36d] sm:h-4 sm:w-4" />
                 Answer review
               </span>
-              <span className="inline-flex items-center gap-2">
-                <Target size={16} className="text-[#e7c36d]" />
+              <span className="inline-flex items-center gap-1 whitespace-nowrap min-[400px]:gap-1.5 sm:gap-2">
+                <Target size={16} className="h-3.5 w-3.5 shrink-0 text-[#e7c36d] sm:h-4 sm:w-4" />
                 Built for focus
               </span>
             </div>
           </div>
 
           {/* Right: preview card */}
-          <div className="relative mx-auto w-full max-w-[430px] md:justify-self-end">
+          <div className="relative mx-auto w-full max-w-[430px] mt-0 lg:mt-20 md:justify-self-end">
             <div className="pc-float absolute -inset-3 rounded-[2rem] border border-[#e7c36d]/20 bg-[#e7c36d]/5" />
             <div className="pc-float relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/[0.08] p-5 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur-xl [animation-delay:-2s] sm:p-7">
               <div className="flex items-center justify-between gap-3">

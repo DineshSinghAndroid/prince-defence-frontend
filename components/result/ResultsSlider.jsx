@@ -110,10 +110,10 @@ export default function ResultsSlider({ category = "all" }) {
     return (
         <section
             aria-label="Prince Defence Academy results slideshow"
-            className="bg-(--white) px-4 pt-3 sm:px-8 sm:py-8 lg:px-12 lg:py-12"
+            className="bg-transparent px-4 py-2 sm:px-8 sm:py-4 lg:px-12"
         >
             <div
-                className="relative mx-auto aspect-[1145/501] max-w-7xl overflow-hidden rounded-xl lg:rounded-2xl bg-(--navy) shadow-[0_24px_70px_rgba(8,24,48,0.2)] sm:aspect-[16/8] lg:aspect-[16/7]"
+                className="relative mx-auto aspect-[1145/501] max-w-7xl overflow-hidden rounded-2xl lg:rounded-3xl border border-white/50 bg-(--navy) shadow-[0_24px_70px_rgba(8,24,48,0.22)] ring-1 ring-black/5 sm:aspect-[16/8] lg:aspect-[16/7]"
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
                 onFocus={() => setPaused(true)}
