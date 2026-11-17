@@ -12,21 +12,17 @@ export default function HeroPlus() {
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
-          {/* ---------- Image slider ---------- */}
-          <HeroPlusSlider />
-
-          {/* ---------- Text (unchanged) ---------- */}
+        <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-6">
+          {/* ---------- Text (left side, unchanged text) ---------- */}
           <ScrollReveal
             animation="up"
-            delay={180}
+            delay={100}
             duration={700}
             className="h-full min-w-0"
           >
-            <div className="flex h-full flex-col justify-center lg:pl-4">
+            <div className="flex h-full flex-col justify-center">
               {/* Eyebrow */}
               <div className="flex items-center gap-3">
-               
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-(--gold) sm:text-sm">
                   Introduction
                 </span>
@@ -51,7 +47,7 @@ export default function HeroPlus() {
                 guidance of retired army officials.
               </p>
 
-              <div className="mt-6 max-w-xl border-l-4 border-(--gold) pl-5">
+              <div className="mt-6 max-w-xl">
                 <p className="mt-2 text-base leading-8 text-slate-600 text-justify sm:text-lg sm:leading-8">
                   The main motive of PDA Sikar is to produce Armed Personnel
                   from every corner of India and build a successful career in
@@ -64,20 +60,11 @@ export default function HeroPlus() {
                 </p>
               </div>
 
-              {/* Highlights */}
-              <ul className="mt-8 flex flex-row justify-between md:justify-start md:gap-10 lg:gap-12">
-                {["Discipline", "Expert Mentors", "Results"].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-2 text-sm font-semibold text-(--navy)"
-                  >
-              
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </div>
           </ScrollReveal>
+
+          {/* ---------- Image slider (right side) ---------- */}
+          <HeroPlusSlider />
         </div>
       </div>
     </section>

@@ -126,7 +126,7 @@ export default function HomeCourses() {
         {/* Course Slider */}
         <ScrollReveal animation="up" delay={80} duration={500}>
           <div
-            className="relative mt-5 overflow-hidden rounded-4xl"
+            className="relative mt-5 overflow-hidden rounded-4xl shadow-[0_4px_16px_rgba(0,0,0,0.05)]"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onFocus={() => setIsPaused(true)}
@@ -143,7 +143,7 @@ export default function HomeCourses() {
               transform: `translateX(-${activeIndex * 100}%)`,
             }}
           >
-            <Courses/>
+            <Courses isHome={true} />
           </div>
           </div>
         </ScrollReveal>
