@@ -319,7 +319,7 @@ img {
 }
 
 body:has(.quiz-page-shell) .floating-gold-btn {
-  @apply hidden;
+  display: none;
 }
 
 /* Accessibility */
