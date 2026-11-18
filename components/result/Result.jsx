@@ -151,11 +151,6 @@ const Result = ({ category = "all" }) => {
 
 
             <header className="relative isolate overflow-hidden bg-gradient-to-br from-[#000825] via-[#001D87] to-[#002CCD] px-4 pb-32 pt-30 sm:px-8 sm:pb-44 sm:pt-32 lg:px-12 lg:pb-56 lg:pt-36">
-                <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.3)_1px,transparent_1px)] [background-size:48px_48px]" />
-
-                <div className="pointer-events-none absolute -right-20 -top-24 -z-10 h-72 w-72 rounded-full border border-white/10 sm:h-96 sm:w-96" />
-                <div className="pointer-events-none absolute -right-8 -top-12 -z-10 h-52 w-52 rounded-full border border-white/10 sm:h-72 sm:w-72" />
-
                 <ScrollReveal className="mx-auto max-w-7xl">
                     <div>
                         <div className="flex items-center justify-center gap-3 lg:justify-start">
