@@ -13,90 +13,6 @@ const ImageTag = ({ children }) => (
     </div>
 );
 
-// FLOATING MATH FORMULAS & ALGORITHMS BACKGROUND FOR ROUNDED BOXES
-const MathAlgorithmPattern = ({ variant = 1 }) => (
-    <div className="pointer-events-none absolute inset-0 select-none overflow-hidden opacity-30">
-        {variant === 1 && (
-            <svg
-                className="h-full w-full"
-                viewBox="0 0 160 280"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-            >
-                <text x="16" y="28" fill="#F5C76A" fontSize="9" fontFamily="monospace" fontWeight="bold">lim (sin x)/x = 1</text>
-                <text x="22" y="48" fill="white" fontSize="11" fontFamily="serif" fontStyle="italic">∫ e&#739; dx = e&#739; + C</text>
-                <text x="14" y="68" fill="#F5C76A" fontSize="10" fontFamily="serif">sin²θ + cos²θ = 1</text>
-                <text x="26" y="88" fill="white" fontSize="10" fontFamily="monospace">O(n log n)</text>
-                <text x="18" y="108" fill="white" fontSize="11" fontFamily="serif" fontStyle="italic">E = mc²</text>
-                <text x="22" y="128" fill="#F5C76A" fontSize="10" fontFamily="serif">e^(iπ) + 1 = 0</text>
-                <text x="16" y="148" fill="white" fontSize="9" fontFamily="monospace">f(x) = ∑ aₙ xⁿ</text>
-
-                {/* Subtle Algorithm Graph / Flow nodes */}
-                <circle cx="45" cy="175" r="5" stroke="#F5C76A" strokeWidth="1" strokeDasharray="2 2" fill="none" />
-                <line x1="50" y1="175" x2="85" y2="175" stroke="#F5C76A" strokeWidth="1" strokeDasharray="2 2" />
-                <circle cx="90" cy="175" r="5" stroke="#F5C76A" strokeWidth="1" fill="none" />
-                <line x1="90" y1="180" x2="90" y2="205" stroke="white" strokeWidth="1" strokeDasharray="2 2" />
-                <circle cx="90" cy="210" r="5" stroke="white" strokeWidth="1" fill="none" />
-                <text x="100" y="178" fill="white" fontSize="8" fontFamily="monospace">DFS()</text>
-                <text x="100" y="213" fill="#F5C76A" fontSize="8" fontFamily="monospace">BFS()</text>
-            </svg>
-        )}
-        {variant === 2 && (
-            <svg
-                className="h-full w-full"
-                viewBox="0 0 160 300"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-            >
-                <text x="20" y="28" fill="white" fontSize="10" fontFamily="serif">|A - λI| = 0</text>
-                <text x="24" y="48" fill="#F5C76A" fontSize="10" fontFamily="serif" fontStyle="italic">∑ k = n(n+1)/2</text>
-                <text x="16" y="68" fill="white" fontSize="10" fontFamily="monospace">BinarySearch()</text>
-                <text x="20" y="88" fill="#F5C76A" fontSize="10" fontFamily="serif" fontStyle="italic">∇ × B = μ₀J</text>
-                <text x="16" y="108" fill="white" fontSize="9" fontFamily="serif">d/dx(tan x) = sec²x</text>
-                <text x="16" y="128" fill="#F5C76A" fontSize="9" fontFamily="monospace">T(n) = 2T(n/2) + O(n)</text>
-                <text x="24" y="148" fill="white" fontSize="10" fontFamily="serif" fontStyle="italic">x = (-b±√Δ)/2a</text>
-
-                {/* Tree / Algorithm Graph */}
-                <circle cx="80" cy="175" r="6" stroke="white" strokeWidth="1" fill="none" />
-                <line x1="75" y1="180" x2="55" y2="205" stroke="#F5C76A" strokeWidth="1" />
-                <line x1="85" y1="180" x2="105" y2="205" stroke="#F5C76A" strokeWidth="1" />
-                <circle cx="50" cy="210" r="5" stroke="#F5C76A" strokeWidth="1" fill="none" />
-                <circle cx="110" cy="210" r="5" stroke="#F5C76A" strokeWidth="1" fill="none" />
-                <text x="30" y="228" fill="white" fontSize="8" fontFamily="monospace">Left</text>
-                <text x="98" y="228" fill="white" fontSize="8" fontFamily="monospace">Right</text>
-            </svg>
-        )}
-        {variant === 3 && (
-            <svg
-                className="h-full w-full"
-                viewBox="0 0 160 350"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-            >
-                <text x="24" y="30" fill="#F5C76A" fontSize="11" fontFamily="serif" fontStyle="italic">F = m · a</text>
-                <text x="18" y="52" fill="white" fontSize="10" fontFamily="serif">v² = u² + 2as</text>
-                <text x="18" y="74" fill="#F5C76A" fontSize="9" fontFamily="monospace">QuickSort(A, p, r)</text>
-                <text x="16" y="96" fill="white" fontSize="10" fontFamily="serif" fontStyle="italic">∫ e^(-x²) dx = √π/2</text>
-                <text x="22" y="118" fill="#F5C76A" fontSize="10" fontFamily="serif">Δp · Δx ≥ ℏ/2</text>
-                <text x="18" y="140" fill="white" fontSize="9" fontFamily="monospace">while (left &le; right)</text>
-                <text x="22" y="162" fill="#F5C76A" fontSize="10" fontFamily="serif" fontStyle="italic">P(A|B) = P(B|A)·P(A)/P(B)</text>
-                <text x="22" y="184" fill="white" fontSize="10" fontFamily="serif">λ = h / (m·v)</text>
-
-                {/* Algorithmic Flowchart Nodes */}
-                <rect x="42" y="200" width="76" height="16" rx="4" stroke="white" strokeWidth="1" strokeDasharray="3 2" fill="none" />
-                <text x="56" y="211" fill="white" fontSize="8" fontFamily="monospace">EXECUTE</text>
-                <line x1="80" y1="216" x2="80" y2="236" stroke="#F5C76A" strokeWidth="1" />
-                <polygon points="80,242 77,235 83,235" fill="#F5C76A" />
-                <polygon points="80,246 108,258 80,270 52,258" stroke="#F5C76A" strokeWidth="1" fill="none" />
-                <text x="68" y="261" fill="#F5C76A" fontSize="8" fontFamily="monospace">VALID?</text>
-            </svg>
-        )}
-    </div>
-);
-
 export const Hero = () => {
     return (
         <section
@@ -209,7 +125,6 @@ export const Hero = () => {
                                 <div className="group relative h-44 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-60 sm:w-36 lg:h-72 lg:w-40">
 
                                     <div className="relative h-full w-full overflow-hidden rounded-full bg-[#DCE8F5]/15 shadow-xl">
-                                        <MathAlgorithmPattern variant={1} />
                                         <div className="absolute inset-x-0 bottom-0 top-3 sm:top-4 z-10">
                                             <Image
                                                 src="/images/hero-student1-cropped.webp"
@@ -269,7 +184,6 @@ export const Hero = () => {
                                 <div className="group relative h-48 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-64 sm:w-36 lg:h-76 lg:w-40">
 
                                     <div className="relative h-full w-full overflow-hidden rounded-full bg-[#DCE8F5]/15 shadow-xl">
-                                        <MathAlgorithmPattern variant={2} />
                                         <div className="absolute inset-x-0 bottom-0 top-3 sm:top-4 z-10">
                                             <Image
                                                 src="/images/hero-student3-cropped.webp"
@@ -295,7 +209,6 @@ export const Hero = () => {
                                 <div className="group relative h-60 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-80 sm:w-36 lg:h-[350px] lg:w-40">
 
                                     <div className="relative h-full w-full overflow-hidden rounded-full bg-[#DCE8F5]/15 shadow-xl">
-                                        <MathAlgorithmPattern variant={3} />
                                         <div className="absolute inset-x-0 bottom-0 top-3.5 sm:top-5 z-10">
                                             <Image
                                                 src="/images/hero-student2-cropped.webp"
