@@ -98,25 +98,7 @@ export default function AchieversHeader() {
         <>
             <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
-            <header className="achievers-hero relative isolate overflow-hidden bg-[linear-gradient(155deg,#0b1c33_0%,#081527_48%,#0a2552_100%)] px-5 py-24 text-white sm:px-6 sm:py-28">
-                {/* warm gold glow (top-left) + royal blue glow (bottom-right) */}
-                <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(780px_520px_at_6%_0%,rgba(184,146,66,.30),transparent_62%),radial-gradient(900px_620px_at_100%_100%,rgba(37,99,235,.38),transparent_60%),radial-gradient(520px_360px_at_62%_12%,rgba(231,195,109,.10),transparent_70%)]"
-                />
-                {/* fine grid, fades toward the edges */}
-                <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.035)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_40%_40%,black_35%,transparent_80%)]"
-                />
-                {/* big outline rings, top-right */}
-                <div aria-hidden="true" className="pointer-events-none absolute -right-44 -top-52 -z-10 size-[620px] rounded-full border border-white/10" />
-                <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-32 -z-10 size-[420px] rounded-full border border-[#e7c36d]/15" />
-                {/* soft bottom vignette for depth */}
-                <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-black/25 to-transparent"
-                />
+            <header className="achievers-hero relative isolate overflow-hidden bg-[#071b32] px-5 py-24 text-white sm:px-6 sm:py-28">
                 {/* thin gold line at the bottom (flat edge) */}
                 <div
                     aria-hidden="true"
@@ -202,7 +184,7 @@ export default function AchieversHeader() {
                             >
                                 <div className="ah-float-a relative" style={{ width: CENTER.s, height: CENTER.s, animationDuration: "10s" }}>
                                     <div className="size-full rounded-full bg-[conic-gradient(from_200deg,#fbeab0,#d9ae4e,#ffffff,#f1d98f,#fbeab0)] p-[5px] shadow-[0_20px_50px_rgba(0,8,60,.55),0_0_60px_rgba(246,217,140,.35)]">
-                                        <div className="relative size-full overflow-hidden rounded-full border-4 border-[#0b1c33] bg-gradient-to-br from-[#dbe6ff] to-[#8aa5e6]">
+                                        <div className="relative size-full overflow-hidden rounded-full border-4 border-[#071b32] bg-gradient-to-br from-[#dbe6ff] to-[#8aa5e6]">
                                             <Image
                                                 src={CENTER.src}
                                                 alt={CENTER.alt}
