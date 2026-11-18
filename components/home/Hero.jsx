@@ -74,9 +74,9 @@ export const Hero = () => {
                         </div>
 
                         {/* STATS */}
-                        <div className="mt-10 grid w-full max-w-[420px] grid-cols-3 pt-6 mx-auto sm:mx-0">
+                        <div className="mt-6 flex w-full max-w-md sm:max-w-none sm:w-fit items-center justify-center sm:justify-start pt-3 mx-auto sm:mx-0">
 
-                            <div className="flex flex-col items-center justify-center text-center px-2 sm:px-3">
+                            <div className="flex-1 sm:flex-initial flex flex-col items-center justify-center text-center px-1 sm:px-0 sm:pr-6">
                                 <p className="text-base font-extrabold text-(--gold) whitespace-nowrap sm:text-xl lg:text-2xl">
                                     3900+
                                 </p>
@@ -85,7 +85,7 @@ export const Hero = () => {
                                 </p>
                             </div>
 
-                            <div className="border-l border-white/10 flex flex-col items-center justify-center text-center px-2 sm:px-3">
+                            <div className="flex-1 sm:flex-initial border-l border-white/10 flex flex-col items-center justify-center text-center px-1 sm:px-6">
                                 <p className="text-base font-extrabold text-(--gold) whitespace-nowrap sm:text-xl lg:text-2xl">
                                     2012
                                 </p>
@@ -94,7 +94,7 @@ export const Hero = () => {
                                 </p>
                             </div>
 
-                            <div className="border-l border-white/10 flex flex-col items-center justify-center text-center px-2 sm:px-3">
+                            <div className="flex-1 sm:flex-initial border-l border-white/10 flex flex-col items-center justify-center text-center px-1 sm:px-0 sm:pl-6">
                                 <p className="text-base font-extrabold text-(--gold) whitespace-nowrap sm:text-xl lg:text-2xl">
                                     13+ Years
                                 </p>
