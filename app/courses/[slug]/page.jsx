@@ -282,9 +282,7 @@ export default async function Page({ params }) {
     return (
         <main className="min-h-screen bg-slate-50 text-(--navy)">
 
-            <section className="relative overflow-hidden bg-slate-950">
-                <div className="absolute -right-20 -top-32 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl" />
-
+            <section className="relative overflow-hidden bg-[#071b32]">
                 <div className="relative mx-auto grid max-w-7xl mt-30 items-center gap-10 px-5 py-6 md:grid-cols-2 md:py-24">
                     <ScrollReveal animation="right" delay="50" duration="700">
 
@@ -319,7 +317,6 @@ export default async function Page({ params }) {
 
                         {exam.image && (
                             <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[360px] md:max-w-[440px]">
-                                <div className="absolute -inset-3 rounded-3xl bg-amber-500/10 blur-xl" />
                                 <Image
                                     src={exam.image}
                                     alt={exam.title}
