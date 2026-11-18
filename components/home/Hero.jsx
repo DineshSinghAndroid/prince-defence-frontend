@@ -124,7 +124,7 @@ export const Hero = () => {
                                 {/* AIR FORCE */}
                                 <div className="group relative h-44 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-60 sm:w-36 lg:h-72 lg:w-40">
 
-                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-[20px] border border-white/30 bg-[#DCE8F5]/15 shadow-lg sm:rounded-b-[30px] lg:rounded-b-[34px]">
+                                    <div className="relative h-full w-full overflow-hidden rounded-full bg-[#B5A1D6] shadow-xl">
                                         <Image
                                             src="/images/achiever2.webp"
                                             alt="Air Force Achiever"
@@ -181,7 +181,7 @@ export const Hero = () => {
                                 {/* NDA */}
                                 <div className="group relative h-48 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-64 sm:w-36 lg:h-76 lg:w-40">
 
-                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-[20px] border border-white/30 bg-[#DCE8F5]/15 shadow-lg sm:rounded-b-[28px] lg:rounded-b-[32px]">
+                                    <div className="relative h-full w-full overflow-hidden rounded-full bg-[#D4F1CE] shadow-xl">
                                         <Image
                                             src="/images/achiever.webp"
                                             alt="NDA Achiever"
@@ -204,7 +204,7 @@ export const Hero = () => {
                                 {/* ARMY */}
                                 <div className="group relative h-60 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-80 sm:w-36 lg:h-[350px] lg:w-40">
 
-                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-[24px] border border-white/30 bg-[#DCE8F5]/15 shadow-lg sm:rounded-b-[36px] lg:rounded-b-[40px]">
+                                    <div className="relative h-full w-full overflow-hidden rounded-full bg-[#F7BAC4] shadow-xl">
                                         <Image
                                             src="/images/achiever4.webp"
                                             alt="Army Achiever"
