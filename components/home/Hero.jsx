@@ -124,7 +124,7 @@ export const Hero = () => {
                                 {/* AIR FORCE */}
                                 <div className="group relative h-44 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-60 sm:w-36 lg:h-72 lg:w-40">
 
-                                    <div className="relative h-full w-full overflow-hidden rounded-full bg-[#DCE8F5]/15 shadow-xl">
+                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-none bg-[#DCE8F5]/15 shadow-xl">
                                         <div className="absolute inset-x-0 bottom-0 top-3 sm:top-4 z-10">
                                             <Image
                                                 src="/images/hero-student-cadet1.webp"
@@ -137,7 +137,7 @@ export const Hero = () => {
                                         </div>
                                     </div>
 
-                                    <ImageTag>Air Force</ImageTag>
+                                    <ImageTag>NDA</ImageTag>
                                 </div>
 
 
@@ -183,7 +183,7 @@ export const Hero = () => {
                                 {/* NDA */}
                                 <div className="group relative h-48 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-64 sm:w-36 lg:h-76 lg:w-40">
 
-                                    <div className="relative h-full w-full overflow-hidden rounded-full bg-[#DCE8F5]/15 shadow-xl">
+                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-none bg-[#DCE8F5]/15 shadow-xl">
                                         <div className="absolute inset-x-0 bottom-0 top-3 sm:top-4 z-10">
                                             <Image
                                                 src="/images/hero-student-cadet2.webp"
@@ -196,7 +196,7 @@ export const Hero = () => {
                                         </div>
                                     </div>
 
-                                    <ImageTag>NDA</ImageTag>
+                                    <ImageTag>AirForce</ImageTag>
                                 </div>
 
                             </div>
@@ -208,7 +208,7 @@ export const Hero = () => {
                                 {/* ARMY */}
                                 <div className="group relative h-60 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-80 sm:w-36 lg:h-[350px] lg:w-40">
 
-                                    <div className="relative h-full w-full overflow-hidden rounded-full bg-[#DCE8F5]/15 shadow-xl">
+                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-none bg-[#DCE8F5]/15 shadow-xl">
                                         <div className="absolute inset-x-0 bottom-0 top-3.5 sm:top-5 z-10">
                                             <Image
                                                 src="/images/hero-student-cadet3.webp"
