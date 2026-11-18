@@ -98,12 +98,7 @@ export default function AchieversHeader() {
         <>
             <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
-            <header className="achievers-hero relative isolate overflow-hidden bg-[#071b32] px-5 py-24 text-white sm:px-6 sm:py-28">
-                {/* thin gold line at the bottom (flat edge) */}
-                <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-r from-transparent via-[#d9ae4e] to-transparent"
-                />
+            <header className="achievers-hero relative isolate overflow-hidden bg-[#071b32] px-5 pt-24 pb-10 text-white sm:px-6 sm:pt-28 sm:pb-12 lg:pt-32 lg:pb-14">
 
                 <div className="mx-auto grid w-full max-w-[1100px] items-center gap-10 lg:grid-cols-[1fr_540px]">
                     {/* LEFT  */}
