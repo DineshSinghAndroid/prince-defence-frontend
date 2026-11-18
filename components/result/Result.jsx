@@ -295,7 +295,7 @@ const Result = ({ category = "all" }) => {
                                                 duration={400}
                                                 className="h-full pt-2 sm:pt-3"
                                             >
-                                                <article className={`group relative flex h-full min-h-[195px] sm:min-h-60 flex-col rounded-2xl sm:rounded-3xl border border-white/80 bg-gradient-to-br from-white via-[#F8FAFC] to-[#F0F3F8] shadow-[0_8px_24px_rgba(15,35,65,0.07),0_2px_6px_rgba(15,35,65,0.03)] transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-1.5 ${wingTheme.borderHover} ${wingTheme.shadowHover}`}>
+                                                <article className={`group relative flex h-full min-h-[150px] sm:min-h-60 flex-col rounded-2xl sm:rounded-3xl border border-white/80 bg-gradient-to-br from-white via-[#F8FAFC] to-[#F0F3F8] shadow-[0_8px_24px_rgba(15,35,65,0.07),0_2px_6px_rgba(15,35,65,0.03)] transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-1.5 ${wingTheme.borderHover} ${wingTheme.shadowHover}`}>
                                                     {/* Top Line / Tab: Exactly Half Outside & Half Inside the Box as in Screenshot */}
                                                     <div
                                                         className="absolute top-0 left-1/2 z-10 h-2.5 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full sm:h-3.5 sm:w-28"
@@ -321,8 +321,8 @@ const Result = ({ category = "all" }) => {
                                                             {item.title}
                                                         </h5>
 
-                                                        <div className="mt-auto pt-3 sm:pt-6">
-                                                            <p className="font-(--font-montserrat) text-2xl font-black leading-none text-(--navy) sm:text-4xl lg:text-5xl">
+                                                        <div className="mt-auto pt-1 sm:pt-6">
+                                                            <p className="font-(--font-montserrat) text-[28px] font-black leading-none text-(--navy) sm:text-4xl lg:text-5xl">
                                                                 {item.selections}
                                                             </p>
                                                             <span className="mt-0.5 sm:mt-1.5 block text-[8px] sm:text-xs font-bold uppercase tracking-[0.14em] text-(--muted)">
