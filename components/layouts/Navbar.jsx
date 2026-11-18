@@ -203,7 +203,7 @@ export const Navbar = () => {
 
                     <div>
                         <p
-                            className={`poppins text-xs font-extrabold tracking-normal xl:text-sm xl:tracking-wide 2xl:text-base transition-colors duration-300 ${
+                            className={`poppins text-sm font-extrabold tracking-normal xl:text-sm xl:tracking-wide 2xl:text-base transition-colors duration-300 ${
                                 isScrolled || (!isDarkHero && !isScrolled)
                                     ? "text-(--navy)"
                                     : "text-white"

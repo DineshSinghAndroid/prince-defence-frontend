@@ -119,7 +119,7 @@ export const Hero = () => {
                         <div className="flex items-center justify-center gap-2.5 sm:gap-4 lg:gap-5">
 
                             {/* COLUMN 1 */}
-                            <div className="flex flex-col gap-2.5 sm:gap-4">
+                            <div className="relative z-10 flex flex-col gap-2.5 sm:gap-4">
 
                                 {/* AIR FORCE */}
                                 <div className="group relative h-44 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-60 sm:w-36 lg:h-72 lg:w-40">
@@ -161,7 +161,7 @@ export const Hero = () => {
 
 
                             {/* COLUMN 2 */}
-                            <div className="-translate-y-4 flex flex-col gap-2.5 sm:-translate-y-6 sm:gap-4">
+                            <div className="relative z-20 -translate-y-4 flex flex-col gap-2.5 sm:-translate-y-6 sm:gap-4">
 
                                 {/* SSB */}
                                 <div className="group relative h-24 w-24 overflow-visible rounded-2xl border border-white/80 bg-white shadow-lg transition-transform duration-300 hover:-translate-y-1 sm:h-36 sm:w-36 sm:rounded-3xl lg:h-40 lg:w-40 lg:rounded-[32px]">
@@ -203,7 +203,7 @@ export const Hero = () => {
 
 
                             {/* COLUMN 3 */}
-                            <div className="flex flex-col justify-center">
+                            <div className="relative z-30 flex flex-col justify-center">
 
                                 {/* ARMY */}
                                 <div className="group relative h-60 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-80 sm:w-36 lg:h-[350px] lg:w-40">
