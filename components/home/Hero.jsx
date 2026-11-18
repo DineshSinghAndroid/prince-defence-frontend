@@ -127,7 +127,7 @@ export const Hero = () => {
                                     <div className="relative h-full w-full overflow-hidden rounded-full bg-[#DCE8F5]/15 shadow-xl">
                                         <div className="absolute inset-x-0 bottom-0 top-3 sm:top-4 z-10">
                                             <Image
-                                                src="/images/hero-student1-cropped.webp"
+                                                src="/images/hero-student-cadet1.webp"
                                                 alt="Air Force Achiever"
                                                 fill
                                                 priority
@@ -186,7 +186,7 @@ export const Hero = () => {
                                     <div className="relative h-full w-full overflow-hidden rounded-full bg-[#DCE8F5]/15 shadow-xl">
                                         <div className="absolute inset-x-0 bottom-0 top-3 sm:top-4 z-10">
                                             <Image
-                                                src="/images/hero-student3-cropped.webp"
+                                                src="/images/hero-student-cadet2.webp"
                                                 alt="NDA Achiever"
                                                 fill
                                                 priority
@@ -211,7 +211,7 @@ export const Hero = () => {
                                     <div className="relative h-full w-full overflow-hidden rounded-full bg-[#DCE8F5]/15 shadow-xl">
                                         <div className="absolute inset-x-0 bottom-0 top-3.5 sm:top-5 z-10">
                                             <Image
-                                                src="/images/hero-student2-cropped.webp"
+                                                src="/images/hero-student-cadet3.webp"
                                                 alt="Army Achiever"
                                                 fill
                                                 sizes="(max-width: 640px) 96px, (max-width: 1024px) 144px, 160px"
