@@ -36,8 +36,12 @@ export const Navbar = () => {
     const pathname = usePathname();
     const router = useRouter();
 
+    // Course slug detail pages (/courses/[slug]) have a dark hero (bg-slate-950), while /courses listing is light
+    const isCourseDetailPage = Boolean(
+        pathname?.startsWith("/courses/") && pathname !== "/courses"
+    );
     const lightPages = ["/courses", "/about", "/facilities", "/gallery"];
-    const isLightPage = lightPages.some(
+    const isLightPage = !isCourseDetailPage && lightPages.some(
         (p) => pathname === p || pathname?.startsWith(`${p}/`)
     );
     const isDarkHero = !isLightPage;
