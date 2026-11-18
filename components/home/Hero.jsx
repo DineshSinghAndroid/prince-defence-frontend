@@ -121,17 +121,17 @@ export const Hero = () => {
                             {/* COLUMN 1 */}
                             <div className="flex flex-col gap-2.5 sm:gap-4">
 
-                                {/* AIR FORCE - HERO STUDENT 1 */}
+                                {/* AIR FORCE */}
                                 <div className="group relative h-44 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-60 sm:w-36 lg:h-72 lg:w-40">
 
-                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-[24px] border border-white/30 bg-[#0a1f3a] shadow-xl sm:rounded-b-[32px] lg:rounded-b-[36px]">
+                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-[20px] border border-white/30 bg-[#DCE8F5]/15 shadow-lg sm:rounded-b-[30px] lg:rounded-b-[34px]">
                                         <Image
-                                            src="/images/hero-student1.jpg"
+                                            src="/images/achiever2.webp"
                                             alt="Air Force Achiever"
                                             fill
                                             priority
                                             sizes="(max-width: 640px) 96px, (max-width: 1024px) 144px, 160px"
-                                            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                                            className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
                                         />
                                     </div>
 
@@ -139,8 +139,8 @@ export const Hero = () => {
                                 </div>
 
 
-                                {/* NAVY - ACHIEVER 1 (GOLD SQUIRCLE) */}
-                                <div className="group relative h-24 w-24 overflow-visible rounded-2xl border border-[#f1d98f]/60 bg-gradient-to-br from-[#e7c36d] via-[#b89242] to-[#8a6828] shadow-xl transition-transform duration-300 hover:-translate-y-1 sm:h-36 sm:w-36 sm:rounded-3xl lg:h-40 lg:w-40 lg:rounded-[32px]">
+                                {/* NAVY */}
+                                <div className="group relative h-24 w-24 overflow-visible rounded-2xl border border-[#f1d98f]/60 bg-gradient-to-br from-[#e7c36d] via-[#b89242] to-[#8a6828] shadow-lg transition-transform duration-300 hover:-translate-y-1 sm:h-36 sm:w-36 sm:rounded-3xl lg:h-40 lg:w-40 lg:rounded-[32px]">
 
                                     <div className="absolute inset-0 overflow-hidden rounded-[inherit]">
                                         <Image
@@ -161,8 +161,8 @@ export const Hero = () => {
                             {/* COLUMN 2 */}
                             <div className="-translate-y-4 flex flex-col gap-2.5 sm:-translate-y-6 sm:gap-4">
 
-                                {/* SSB - ACHIEVER 3 (WHITE SQUIRCLE) */}
-                                <div className="group relative h-24 w-24 overflow-visible rounded-2xl border border-white/80 bg-white shadow-xl transition-transform duration-300 hover:-translate-y-1 sm:h-36 sm:w-36 sm:rounded-3xl lg:h-40 lg:w-40 lg:rounded-[32px]">
+                                {/* SSB */}
+                                <div className="group relative h-24 w-24 overflow-visible rounded-2xl border border-white/80 bg-white shadow-lg transition-transform duration-300 hover:-translate-y-1 sm:h-36 sm:w-36 sm:rounded-3xl lg:h-40 lg:w-40 lg:rounded-[32px]">
 
                                     <div className="absolute inset-0 overflow-hidden rounded-[inherit]">
                                         <Image
@@ -178,17 +178,17 @@ export const Hero = () => {
                                 </div>
 
 
-                                {/* NDA - ACHIEVER (TALL ARCH) */}
+                                {/* NDA */}
                                 <div className="group relative h-48 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-64 sm:w-36 lg:h-76 lg:w-40">
 
-                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-[24px] border border-white/30 bg-[#0a1f3a] shadow-xl sm:rounded-b-[30px] lg:rounded-b-[34px]">
+                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-[20px] border border-white/30 bg-[#DCE8F5]/15 shadow-lg sm:rounded-b-[28px] lg:rounded-b-[32px]">
                                         <Image
                                             src="/images/achiever.webp"
                                             alt="NDA Achiever"
                                             fill
                                             priority
                                             sizes="(max-width: 640px) 96px, (max-width: 1024px) 144px, 160px"
-                                            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                                            className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
                                         />
                                     </div>
 
@@ -201,16 +201,16 @@ export const Hero = () => {
                             {/* COLUMN 3 */}
                             <div className="flex flex-col justify-center">
 
-                                {/* ARMY - ACHIEVER 4 (PROFILE FLIPPED INWARD TO LEFT) */}
+                                {/* ARMY */}
                                 <div className="group relative h-60 w-24 transition-transform duration-300 hover:-translate-y-1 sm:h-80 sm:w-36 lg:h-[350px] lg:w-40">
 
-                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-[28px] border border-white/30 bg-[#0a1f3a] shadow-xl sm:rounded-b-[36px] lg:rounded-b-[40px]">
+                                    <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-[24px] border border-white/30 bg-[#DCE8F5]/15 shadow-lg sm:rounded-b-[36px] lg:rounded-b-[40px]">
                                         <Image
                                             src="/images/achiever4.webp"
                                             alt="Army Achiever"
                                             fill
                                             sizes="(max-width: 640px) 96px, (max-width: 1024px) 144px, 160px"
-                                            className="object-cover object-top -scale-x-100 transition-transform duration-500 group-hover:-scale-x-105 group-hover:scale-y-105"
+                                            className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
                                         />
                                     </div>
 
