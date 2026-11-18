@@ -215,7 +215,7 @@ export const Navbar = () => {
                                 {active && (
                                     <span
                                         aria-hidden="true"
-                                        className="pointer-events-none absolute inset-x-0 bottom-0 mx-auto h-[2.5px] w-full bg-gradient-to-r from-transparent via-(--gold) to-transparent"
+                                        className="pointer-events-none absolute bottom-0 inset-x-2.5 2xl:inset-x-3 h-[2px] rounded-full bg-(--gold)"
                                     />
                                 )}
                             </Link>
