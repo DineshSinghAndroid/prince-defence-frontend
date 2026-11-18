@@ -1,10 +1,8 @@
 
 
-import { Trophy } from "lucide-react";
 import result from "@/data/results.json";
 import ScrollReveal from "../animations/ScrollReveal";
 import ProspectusCard from "./ProspectusCard";
-import Image from "next/image";
 import Link from "next/link";
 import ResultsSlider from "./ResultsSlider";
 import YearResultImage from "./YearResultImage";

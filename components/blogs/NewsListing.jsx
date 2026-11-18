@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { ChevronRight, Newspaper } from "lucide-react";
+import { Newspaper } from "lucide-react";
 import { toast } from "react-hot-toast";
 
 import BlogCard from "@/components/blogs/BlogCard";
