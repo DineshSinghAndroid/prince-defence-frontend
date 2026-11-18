@@ -74,9 +74,9 @@ export const Hero = () => {
                         </div>
 
                         {/* STATS */}
-                        <div className="mt-10 grid max-w-md grid-cols-3 sm:grid-cols-[auto_1fr_1fr] gap-2 sm:gap-4 pt-6 text-center sm:text-left mx-auto sm:mx-0">
+                        <div className="mt-10 grid w-full max-w-[420px] grid-cols-3 pt-6 mx-auto sm:mx-0">
 
-                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left pr-1 sm:pr-6">
+                            <div className="flex flex-col items-center justify-center text-center px-2 sm:px-3">
                                 <p className="text-base font-extrabold text-(--gold) whitespace-nowrap sm:text-xl lg:text-2xl">
                                     3900+
                                 </p>
@@ -85,7 +85,7 @@ export const Hero = () => {
                                 </p>
                             </div>
 
-                            <div className="border-l border-white/20 flex flex-col items-center justify-center text-center px-1 sm:px-3">
+                            <div className="border-l border-white/20 flex flex-col items-center justify-center text-center px-2 sm:px-3">
                                 <p className="text-base font-extrabold text-(--gold) whitespace-nowrap sm:text-xl lg:text-2xl">
                                     2012
                                 </p>
@@ -94,7 +94,7 @@ export const Hero = () => {
                                 </p>
                             </div>
 
-                            <div className="border-l border-white/20 flex flex-col items-center justify-center text-center px-1 sm:px-3">
+                            <div className="border-l border-white/20 flex flex-col items-center justify-center text-center px-2 sm:px-3">
                                 <p className="text-base font-extrabold text-(--gold) whitespace-nowrap sm:text-xl lg:text-2xl">
                                     13+ Years
                                 </p>
