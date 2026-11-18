@@ -30,11 +30,17 @@ const navLinks = [
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isScroll, setIsScroll] = useState(true);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const menuRef = useRef(null);
     const pathname = usePathname();
     const router = useRouter();
+
+    const lightPages = ["/courses", "/about", "/facilities", "/gallery"];
+    const isLightPage = lightPages.some(
+        (p) => pathname === p || pathname?.startsWith(`${p}/`)
+    );
+    const isDarkHero = !isLightPage;
 
     // Check current active page
     const isActive = (href) => {
@@ -85,12 +91,12 @@ export const Navbar = () => {
     // Navbar scroll handling
     useEffect(() => {
         const handleScroll = () => {
-            setIsScroll(window.scrollY <= 50);
+            setIsScrolled(window.scrollY > 30);
         };
 
         handleScroll();
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
@@ -100,17 +106,19 @@ export const Navbar = () => {
     return (
         <header
             ref={menuRef}
-            className="fixed inset-x-0 top-0 z-50 px-4 sm:px-6 lg:px-8"
+            className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+                isScrolled
+                    ? "px-4 pt-2 sm:px-6 lg:px-8"
+                    : "px-0 pt-0"
+            }`}
         >
             {/* TOP NAVBAR / ANNOUNCEMENT */}
             <div
-                className={`-mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden whitespace-nowrap
-                    text-white text-sm py-1
-                    transition-all duration-300
-                    ${isScroll
-                        ? "opacity-100"
-                        : "opacity-0"
-                    }`}
+                className={`overflow-hidden whitespace-nowrap text-white text-sm transition-all duration-300 ${
+                    isScrolled
+                        ? "max-h-0 opacity-0 -translate-y-2 pointer-events-none py-0"
+                        : "max-h-10 opacity-100 translate-y-0 py-1"
+                }`}
             >
                 <div className="animate-sequential-scroll gap-4 text-center font-medium py-1">
                     <span
@@ -126,11 +134,11 @@ export const Navbar = () => {
 
             {/* MAIN NAVBAR */}
             <nav
-                className="
-                    glass mx-auto flex max-w-full items-center
-                    justify-between gap-2 rounded-2xl px-3 py-2.5
-                    sm:px-4 lg:gap-3 xl:px-5
-                "
+                className={`flex items-center justify-between gap-2 transition-all duration-300 ${
+                    isScrolled
+                        ? "glass mx-auto w-full max-w-full rounded-2xl px-3 py-2.5 sm:px-4 lg:gap-3 xl:px-5"
+                        : "w-full max-w-full rounded-none border-none bg-transparent px-4 py-3.5 sm:px-6 lg:px-8 xl:px-12"
+                }`}
                 aria-label="Main navigation"
             >
                 {/* LOGO */}
@@ -152,26 +160,21 @@ export const Navbar = () => {
 
                     <div>
                         <p
-                            className="
-                                cinzel text-xs font-extrabold
-                                tracking-normal text-(--navy)
-                                xl:text-sm xl:tracking-wide
-                                2xl:text-base
-                            "
+                            className={`poppins text-xs font-extrabold tracking-normal xl:text-sm xl:tracking-wide 2xl:text-base transition-colors duration-300 ${
+                                isScrolled || (!isDarkHero && !isScrolled)
+                                    ? "text-(--navy)"
+                                    : "text-white"
+                            }`}
                         >
                             PRINCE DEFENCE ACADEMY
                         </p>
 
                         <p
-                            className="
-                                text-[7px] font-medium
-                                tracking-[0.08em]
-                                text-(--muted)
-                                hidden whitespace-nowrap lg:block
-                                xl:text-[8px] xl:tracking-[0.12em]
-                                2xl:text-[9px] 2xl:tracking-[0.16em]
-                                text-center
-                            "
+                            className={`text-[7px] font-medium tracking-[0.08em] hidden whitespace-nowrap lg:block xl:text-[8px] xl:tracking-[0.12em] 2xl:text-[9px] 2xl:tracking-[0.16em] text-center transition-colors duration-300 ${
+                                isScrolled || (!isDarkHero && !isScrolled)
+                                    ? "text-(--muted)"
+                                    : "text-(--gold)"
+                            }`}
                         >
                             DISCIPLINE • DEDICATION • SUCCESS
                         </p>
@@ -192,18 +195,25 @@ export const Navbar = () => {
                                 onFocus={() => prefetchOnIntent(link.href)}
                                 aria-current={active ? "page" : undefined}
                                 className={`
-                                    whitespace-nowrap rounded-xl px-2 py-2
-                                    text-xs font-medium inter
-                                    px-2.5 text-sm 2xl:px-3 2xl:text-base
-                                    transition-all duration-200
+                                    relative whitespace-nowrap px-2.5 py-1.5
+                                    text-xs inter sm:text-sm 2xl:px-3 2xl:text-base
+                                    transition-colors duration-200
 
                                     ${active
-                                        ? "bg-(--gold) text-white shadow-md shadow-(--gold)/20"
-                                        : "text-(--foreground) hover:bg-(--gold) hover:text-white"
+                                        ? "font-bold text-(--gold)"
+                                        : isScrolled || (!isDarkHero && !isScrolled)
+                                        ? "font-medium text-(--foreground) hover:text-(--gold)"
+                                        : "font-medium text-white/90 hover:text-(--gold)"
                                     }
                                 `}
                             >
                                 {link.name}
+                                {active && (
+                                    <span
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute inset-x-0 bottom-0 mx-auto h-[2.5px] w-full bg-gradient-to-r from-transparent via-(--gold) to-transparent"
+                                    />
+                                )}
                             </Link>
                         );
                     })}
@@ -241,13 +251,14 @@ export const Navbar = () => {
                 <button
                     type="button"
                     onClick={() => setIsOpen((prev) => !prev)}
-                    className="
+                    className={`
                         flex h-10 w-10 items-center justify-center
-                        rounded-xl border border-(--glass-border)
-                        bg-white/50 text-(--navy)
-                        backdrop-blur-md transition-colors
-                        hover:bg-white/80 xl:hidden
-                    "
+                        rounded-xl backdrop-blur-md transition-all xl:hidden
+                        ${isScrolled || (!isDarkHero && !isScrolled)
+                            ? "border border-(--glass-border) bg-white/50 text-(--navy) hover:bg-white/80"
+                            : "border border-white/25 bg-white/10 text-white hover:bg-white/20"
+                        }
+                    `}
                     aria-label={
                         isOpen
                             ? "Close navigation menu"
@@ -315,12 +326,12 @@ export const Navbar = () => {
                                         className={`
                                             rounded-xl px-4 py-3
                                             text-base font-semibold
-                                            border-b border-b-(--gold)
+                                            border-b border-b-(--gold)/30
                                             transition-all duration-200
 
                                             ${active
-                                                ? "bg-(--gold) text-white shadow-sm"
-                                                : "text-(--navy) hover:bg-(--gold) hover:text-white"
+                                                ? "bg-(--gold)/10 text-(--gold) font-bold"
+                                                : "text-(--navy) hover:bg-(--gold)/5 hover:text-(--gold)"
                                             }
                                         `}
                                     >

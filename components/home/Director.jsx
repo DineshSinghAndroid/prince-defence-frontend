@@ -41,7 +41,7 @@ const Directorpage = () => {
                   Director&apos;s Message
                 </h2>
 
-                <p className="m-0 text-sm leading-6 text-[var(--muted)] sm:text-[15px] lg:text-base inter text-justify">
+                <p className="m-0 text-sm leading-6 text-slate-800 sm:text-[15px] lg:text-base inter text-justify">
                   Dear Parents &amp; Students,
 
                   After Class 12, the right direction, discipline and guidance
@@ -85,7 +85,7 @@ const Directorpage = () => {
                   Chairman&apos;s Message
                 </span>
 
-                <p className="m-0 text-sm leading-6 text-[var(--muted)] sm:text-[15px] lg:text-base inter text-justify">
+                <p className="m-0 text-sm leading-6 text-slate-800 sm:text-[15px] lg:text-base inter text-justify">
                   Dear Parents &amp; Students,
 
                   At Prince Defence Academy, our aim is to provide the right

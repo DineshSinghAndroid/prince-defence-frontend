@@ -568,19 +568,14 @@ export default function DailyQuizClient() {
       <QuizStyles />
 
       {/*  HERO  */}
-      <section className="relative isolate overflow-hidden bg-[#071b32]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_12%_15%,rgba(184,146,66,0.22),transparent_34%),radial-gradient(ellipse_at_88%_82%,rgba(56,105,208,0.28),transparent_38%)]" />
-        <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.6)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
-        <div className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full border border-white/10 sm:h-[28rem] sm:w-[28rem]" />
-        <div className="pointer-events-none absolute -right-10 -top-14 h-56 w-56 rounded-full border border-[#b89242]/20 sm:h-96 sm:w-96" />
-
+      <section className="relative overflow-hidden bg-[#071b32]">
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-14 pt-30 sm:px-8 md:min-h-[640px] md:grid-cols-[1.1fr_0.9fr] md:gap-10 md:pt-16 lg:px-10">
           {/* Left */}
           <div className="max-w-2xl">
 
             <h1 className="pc-rise mt-5 text-[2.5rem] font-black leading-[1.08] tracking-tight text-white [animation-delay:80ms] sm:mt-6 sm:text-6xl lg:text-[4.25rem]">
               Today&apos;s
-              <span className="mt-1 pl-2 bg-gradient-to-r from-[#e7c36d] to-[#b89242] bg-clip-text text-transparent">
+              <span className="mt-1 pl-2 text-(--gold)">
                 Quiz
               </span>
             </h1>
@@ -594,7 +589,7 @@ export default function DailyQuizClient() {
               <button
                 type="button"
                 onClick={() => handleStartClick()}
-                className="group relative inline-flex min-h-14 w-full items-center justify-center gap-3 overflow-hidden whitespace-nowrap rounded-2xl bg-gradient-to-b from-[#e7c36d] to-[#b89242] px-8 py-4 text-base font-extrabold text-[#071b32] shadow-[0_10px_30px_rgba(184,146,66,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(184,146,66,0.5)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#e7c36d]/40 active:translate-y-0 active:scale-[0.98] sm:w-auto"
+                className="group relative inline-flex min-h-14 w-full items-center justify-center gap-3 overflow-hidden whitespace-nowrap rounded-2xl bg-(--gold) px-8 py-4 text-base font-extrabold text-[#071b32] shadow-[0_10px_30px_rgba(184,146,66,0.35)] transition duration-300 hover:-translate-y-1 hover:bg-(--gold)/90 hover:shadow-[0_18px_45px_rgba(184,146,66,0.5)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-(--gold)/40 active:translate-y-0 active:scale-[0.98] sm:w-auto"
               >
                 <Shimmer />
                 <span className="relative">
@@ -607,92 +602,54 @@ export default function DailyQuizClient() {
               </button>
 
               <span className="flex items-center gap-2 text-sm font-medium text-white/60">
-                <ShieldCheck size={17} className="shrink-0 text-[#e7c36d]" />
+                <ShieldCheck size={17} className="shrink-0 text-(--gold)" />
                 One attempt per day
               </span>
             </div>
 
-            <div className="pc-rise mt-9 flex flex-row items-center justify-between gap-1 border-t border-white/10 pt-6 text-[11px] font-semibold text-white/80 [animation-delay:320ms] min-[400px]:text-xs min-[400px]:gap-2 sm:mt-10 sm:justify-start sm:gap-x-7 sm:text-sm">
-              <span className="inline-flex items-center gap-1 whitespace-nowrap min-[400px]:gap-1.5 sm:gap-2">
-                <Clock3 size={16} className="h-3.5 w-3.5 shrink-0 text-[#e7c36d] sm:h-4 sm:w-4" />
-                Timed challenge
-              </span>
-              <span className="inline-flex items-center gap-1 whitespace-nowrap min-[400px]:gap-1.5 sm:gap-2">
-                <BookOpenCheck size={16} className="h-3.5 w-3.5 shrink-0 text-[#e7c36d] sm:h-4 sm:w-4" />
-                Answer review
-              </span>
-              <span className="inline-flex items-center gap-1 whitespace-nowrap min-[400px]:gap-1.5 sm:gap-2">
-                <Target size={16} className="h-3.5 w-3.5 shrink-0 text-[#e7c36d] sm:h-4 sm:w-4" />
-                Built for focus
-              </span>
+            <div className="pc-rise mt-9 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/10 pt-6 text-xs font-medium text-white/70 [animation-delay:320ms] sm:mt-10 sm:text-sm">
+              <span>Timed challenge</span>
+              <span className="text-white/30">•</span>
+              <span>Answer review</span>
+              <span className="text-white/30">•</span>
+              <span>Built for focus</span>
             </div>
           </div>
 
           {/* Right: preview card */}
           <div className="relative mx-auto w-full max-w-[430px] mt-0 lg:mt-20 md:justify-self-end">
-            <div className="pc-float absolute -inset-3 rounded-[2rem] border border-[#e7c36d]/20 bg-[#e7c36d]/5" />
-            <div className="pc-float relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/[0.08] p-5 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur-xl [animation-delay:-2s] sm:p-7">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-[10px] font-extrabold tracking-[0.2em] text-[#e7c36d]">
-                    TODAY’S MISSION
-                  </p>
-                  <h2 className="mt-1 text-lg font-extrabold text-white">
-                    Ready. Focus. Answer.
-                  </h2>
-                </div>
+            <div className="pc-float relative overflow-hidden rounded-2xl border border-white/15 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-xl [animation-delay:-2s] sm:p-7">
+              <div className="flex items-center justify-between text-xs font-bold text-white/60">
+                <span>QUESTION 01</span>
               </div>
 
-              <div className="mt-6 rounded-2xl border border-white/10 bg-[#071b32]/70 p-4 sm:mt-7 sm:p-5">
-                <div className="flex items-center justify-between text-xs font-bold">
-                  <span className="text-white/55">QUESTION 01</span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-white/80">
-                    <Clock3 size={13} />
-                    On the clock
+              <p className="mt-4 text-base font-bold leading-7 text-white sm:text-lg">
+                Every question is a chance to move closer to your goal.
+              </p>
+
+              <div className="mt-5 space-y-2.5" aria-hidden="true">
+                <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-3">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/20 text-[10px] font-bold text-white/65">
+                    A
                   </span>
+                  <span className="h-2 w-2/3 rounded-full bg-white/25" />
                 </div>
-                <p className="mt-4 text-base font-bold leading-7 text-white sm:text-lg">
-                  Every question is a chance to move closer to your goal.
-                </p>
-                <div className="mt-5 space-y-2.5" aria-hidden="true">
-                  <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-3">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/20 text-[10px] font-bold text-white/65">
-                      A
-                    </span>
-                    <span className="h-2 w-2/3 rounded-full bg-white/25" />
-                  </div>
-                  <div className="flex items-center gap-3 rounded-xl border border-[#e7c36d]/50 bg-[#b89242]/15 px-3.5 py-3">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#e7c36d] text-[10px] font-extrabold text-[#071b32]">
-                      B
-                    </span>
-                    <span className="h-2 w-1/2 rounded-full bg-[#e7c36d]/70" />
-                    <CheckCircle2
-                      size={16}
-                      className="ml-auto text-[#e7c36d]"
-                    />
-                  </div>
-                  <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-3">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/20 text-[10px] font-bold text-white/65">
-                      C
-                    </span>
-                    <span className="h-2 w-3/4 rounded-full bg-white/25" />
-                  </div>
-                </div>
-              </div>
 
-              <div className="mt-5 flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#b89242]/15 text-[#e7c36d]">
-                  <Trophy size={19} />
+                <div className="flex items-center gap-3 rounded-xl border border-(--gold)/50 bg-(--gold)/15 px-3.5 py-3">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-(--gold) text-[10px] font-extrabold text-[#071b32]">
+                    B
+                  </span>
+                  <span className="h-2 w-1/2 rounded-full bg-(--gold)/70" />
                 </div>
-                <div>
-                  <p className="text-sm font-bold text-white">Finish strong</p>
-                  <p className="mt-0.5 text-xs text-white/55">
-                    Your score and answer review are waiting at the end.
-                  </p>
+
+                <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-3">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/20 text-[10px] font-bold text-white/65">
+                    C
+                  </span>
+                  <span className="h-2 w-3/4 rounded-full bg-white/25" />
                 </div>
               </div>
             </div>
-            <div className="pointer-events-none absolute -bottom-5 -left-5 hidden h-20 w-20 rounded-3xl border border-[#e7c36d]/20 bg-[#b89242]/10 blur-[1px] sm:block" />
           </div>
         </div>
       </section>

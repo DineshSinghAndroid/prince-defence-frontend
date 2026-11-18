@@ -71,7 +71,7 @@ const Courses = ({ isHome = false }) => {
                                 Selection Process
                             </p>
 
-                            <p className="mt-4 max-w-xl text-sm leading-5 text-slate-600 line-clamp-7 text-left md:text-justify sm:text-base lg:text-medium lg:leading-7">
+                            <p className="mt-4 max-w-xl text-sm leading-5 text-black line-clamp-7 text-left md:text-justify sm:text-base lg:text-medium lg:leading-7">
                                 {exam.contentNote}
                             </p>
 

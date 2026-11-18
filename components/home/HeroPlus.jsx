@@ -5,12 +5,7 @@ export default function HeroPlus() {
   return (
     <section className="overflow-x-hidden border-b border-slate-200/60 bg-white px-4 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
       <div className="mx-auto w-full max-w-7xl">
-        <ScrollReveal className="mx-auto mb-8 max-w-4xl text-center sm:mb-10">
-          <h2 className="montserrat text-2xl font-bold leading-tight text-(--navy) sm:text-3xl lg:text-4xl">
-            Where Defence Dreams Become <br />
-            <span className="text-(--gold)">Proud Achievements</span>
-          </h2>
-        </ScrollReveal>
+       
 
         <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-6">
           {/* ---------- Text (left side, unchanged text) ---------- */}
@@ -21,20 +16,16 @@ export default function HeroPlus() {
             className="h-full min-w-0"
           >
             <div className="flex h-full flex-col justify-center">
-              {/* Eyebrow */}
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-(--gold) sm:text-sm">
-                  Introduction
-                </span>
-              </div>
+              
 
               {/* Heading */}
-              <h3 className="cinzel mt-4 text-2xl font-bold leading-snug text-(--navy) sm:text-3xl lg:text-4xl">
-                Prince Defence Academy
+              <h3 className="poppins mt-4 text-2xl font-bold leading-snug text-(--navy) sm:text-3xl lg:text-4xl">
+                Prince Defence Academy: 
+                <span className="text-(--gold) text-xl lg:text-4xl"> Where Defence Dreams Become True</span>
               </h3>
 
               {/* Introduction */}
-              <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 text-justify sm:text-lg sm:leading-8">
+              <p className="mt-6 max-w-xl font-lato text-base font-semibold leading-6 text-black text-justify sm:text-lg sm:leading-8">
                 Started in 2012, &nbsp;
                 <span className="font-semibold text-(--navy)">
                   Prince Defence Academy
@@ -48,7 +39,7 @@ export default function HeroPlus() {
               </p>
 
               <div className="mt-6 max-w-xl">
-                <p className="mt-2 text-base leading-8 text-slate-600 text-justify sm:text-lg sm:leading-8">
+                <p className="mt-2 font-lato font-semibold text-base leading-6 text-black text-justify sm:text-lg sm:leading-8">
                   The main motive of PDA Sikar is to produce Armed Personnel
                   from every corner of India and build a successful career in
                   the Indian Defence Forces. We not only believe in delivering

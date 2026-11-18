@@ -78,7 +78,7 @@ export default function DailyRoutine() {
                             A Day At The{" "}
                             <span className="text-(--gold)">Academy</span>
                         </h2>
-                        <p className="mt-4 text-sm leading-7 text-(--muted) sm:text-base">
+                        <p className="mt-4 text-sm leading-7 text-slate-800 sm:text-base">
                             Every day balances fitness, focused learning, rest
                             and preparation for a future in the armed forces.
                         </p>

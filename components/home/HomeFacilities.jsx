@@ -22,7 +22,7 @@ export default function HomeFacilities() {
                     >
                         Our <span className="text-(--gold)">Facilities</span>
                     </h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-(--muted) sm:text-base">
+                    <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-800 sm:text-base">
                         Explore the spaces and services that support focused
                         preparation, student wellbeing, and campus life.
                     </p>
@@ -60,7 +60,7 @@ export default function HomeFacilities() {
                                 </div>
 
                                 <div className="flex flex-1 flex-col p-5 sm:p-6">
-                                    <p className="line-clamp-3 text-sm leading-6 text-(--muted)">
+                                    <p className="line-clamp-3 text-sm leading-6 text-slate-800">
                                         {facility.longDescription}
                                     </p>
                                     <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-(--navy)">
