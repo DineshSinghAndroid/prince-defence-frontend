@@ -1175,7 +1175,7 @@ function QuizScreen({
     <main className="min-h-screen bg-[#F4F7FC] pb-14">
       <QuizStyles />
 
-      <header className="relative overflow-hidden bg-gradient-to-r from-[#EEF3FF] via-[#F6F8FF] to-[#FFF7E3]">
+      <header id="light-hero" className="relative z-10 overflow-hidden bg-gradient-to-r from-[#EEF3FF] via-[#F6F8FF] to-[#FFF7E3] shadow-[0_4px_16px_rgba(16,42,67,0.06)]">
         <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto] items-center gap-3 px-4 pb-5 pt-30 sm:gap-6 sm:px-6 sm:pb-6 sm:pt-32">
           <div className="min-w-0">
 
@@ -1212,14 +1212,7 @@ function QuizScreen({
         {/* ================= Quiz section ================= */}
         <section className="overflow-hidden rounded-3xl border border-[#D8E2F0] bg-white shadow-[0_20px_55px_rgba(16,42,67,0.10)]">
           {/* Top bar: question + timer */}
-          <div className="flex items-center justify-between gap-3 border-b border-[#EDF1F7] px-4 py-4 sm:px-8 sm:py-5">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#3869D0]/10 px-3 py-1.5 text-xs font-bold text-[#3869D0]">
-                <BookOpenCheck size={13} />
-                {getCategory(question)}
-              </span>
-            </div>
-
+          <div className="flex items-center justify-end gap-3 border-b border-[#EDF1F7] px-4 py-4 sm:px-8 sm:py-5">
             <div
               className={`flex shrink-0 items-center gap-2 rounded-2xl border px-3.5 py-2 sm:px-4 sm:py-2.5 ${timerClass}`}
               role="timer"
@@ -1461,10 +1454,7 @@ function QuizResult({ result, onRestart }) {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(184,146,66,0.28),transparent_55%),radial-gradient(ellipse_at_90%_90%,rgba(56,105,208,0.25),transparent_40%)]" />
 
         <div className="relative">
-          <p className="inline-flex items-center gap-2 rounded-full border border-[#b89242]/35 bg-[#b89242]/10 px-4 py-1.5 text-[11px] font-extrabold tracking-[0.18em] text-[#e7c36d]">
-            <Trophy size={13} />
-            QUIZ COMPLETED
-          </p>
+         
 
           <h1 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-5xl">
             Your Result

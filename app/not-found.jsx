@@ -10,7 +10,10 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="relative isolate flex min-h-[70vh] items-center overflow-hidden bg-white px-5 py-14 sm:px-8 lg:px-12">
+    <section
+      id="not-found-page"
+      className="relative isolate flex min-h-[70vh] items-center overflow-hidden bg-white px-5 pt-28 pb-14 sm:px-8 sm:pt-36 sm:pb-20 lg:px-12 lg:pt-40 lg:pb-24"
+    >
       <div
         aria-hidden="true"
         className="absolute -left-32 top-0 -z-10 h-80 w-80 rounded-full bg-(--gold)/10 blur-3xl"

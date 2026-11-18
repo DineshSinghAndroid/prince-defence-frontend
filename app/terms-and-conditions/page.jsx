@@ -87,16 +87,15 @@ export default function TermsAndConditions() {
     return (
         <div className="min-h-screen bg-[#f7f6f2] text-[#20241f]">
             {/* Header */}
-            <header className="w-full bg-[#22301f] pt-30 text-[#f2efe6]">
-                <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 sm:py-10">
-                    <p className="font-serif text-xl tracking-tight sm:text-2xl">
+            <header className="relative w-full overflow-hidden bg-[#071b32] pt-32 pb-10 text-white sm:pt-36 sm:pb-12 lg:pt-40 lg:pb-14">
+                <div className="mx-auto max-w-7xl px-5 sm:px-8">
+                    <h1 className="font-poppins text-2xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">
                         Prince Defence Academy
-                    </p>
-                    <p className="mt-1 text-xs text-[#c9c2a6] sm:text-sm">
+                    </h1>
+                    <p className="mt-2 text-sm font-bold text-(--gold) sm:text-base lg:text-lg">
                         Terms and Conditions
                     </p>
                 </div>
-                <div className="h-1 w-full bg-gradient-to-r from-[#8a6d2f] via-[#c9a54a] to-[#8a6d2f]" />
             </header>
 
             {/* Content */}

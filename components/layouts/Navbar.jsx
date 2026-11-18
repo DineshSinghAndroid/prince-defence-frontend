@@ -31,20 +31,59 @@ const navLinks = [
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [hasLightHero, setHasLightHero] = useState(false);
 
     const menuRef = useRef(null);
     const pathname = usePathname();
     const router = useRouter();
 
-    // Course slug detail pages (/courses/[slug]) have a dark hero (bg-slate-950), while /courses listing is light
+    useEffect(() => {
+        const checkLightHero = () => {
+            const isLight = Boolean(
+                document.getElementById("not-found-page") ||
+                document.getElementById("light-hero")
+            );
+            setHasLightHero(isLight);
+        };
+
+        checkLightHero();
+        const timer = setTimeout(checkLightHero, 50);
+
+        let observer = null;
+        if (typeof document !== "undefined" && document.body) {
+            observer = new MutationObserver(checkLightHero);
+            observer.observe(document.body, { childList: true, subtree: true });
+        }
+
+        return () => {
+            clearTimeout(timer);
+            if (observer) observer.disconnect();
+        };
+    }, [pathname]);
+
+    // Pages that genuinely have a dark hero section (bg-[#071b32] / dark gradient)
     const isCourseDetailPage = Boolean(
         pathname?.startsWith("/courses/") && pathname !== "/courses"
     );
-    const lightPages = ["/courses", "/about", "/facilities", "/gallery"];
-    const isLightPage = !isCourseDetailPage && lightPages.some(
-        (p) => pathname === p || pathname?.startsWith(`${p}/`)
+    const isLightSubPage = Boolean(
+        pathname?.startsWith("/results/image") ||
+        pathname?.startsWith("/quiz/archive")
     );
-    const isDarkHero = !isLightPage;
+    const darkHeroPages = [
+        "/",
+        "/achievers",
+        "/results",
+        "/quiz",
+        "/contact",
+        "/privacy-policy",
+        "/terms-and-conditions",
+    ];
+    const isKnownDarkPage =
+        !isLightSubPage &&
+        (darkHeroPages.some((p) => pathname === p || (p !== "/" && pathname?.startsWith(`${p}/`))) ||
+        isCourseDetailPage);
+
+    const isDarkHero = isKnownDarkPage && !hasLightHero;
 
     // Check current active page
     const isActive = (href) => {

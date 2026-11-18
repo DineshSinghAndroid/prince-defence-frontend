@@ -271,10 +271,10 @@ const Result = ({ category = "all" }) => {
                                             <span>{year}</span>
                                             <span className="h-px flex-1 bg-gradient-to-r from-slate-300 via-slate-200 to-transparent" />
                                         </h4>
-                                        <YearResultImage
+                                        {/* <YearResultImage
                                             year={year}
                                             category={activeCategory.value}
-                                        />
+                                        /> */}
                                     </div>
                                 </ScrollReveal>
 

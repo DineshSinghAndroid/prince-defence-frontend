@@ -39,7 +39,7 @@ export default async function ResultImagePage({ params }) {
     const src = getResultImage(year, exam);
 
     return (
-        <main className="min-h-screen bg-slate-50 px-4 py-30 sm:px-8 sm:py-32">
+        <main id="light-hero" className="min-h-screen bg-slate-50 px-4 pt-32 pb-16 sm:px-8 sm:pt-36 sm:pb-20">
             <div className="mx-auto max-w-7xl">
                 <Link
                     href={
