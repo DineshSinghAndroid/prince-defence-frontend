@@ -283,7 +283,7 @@ export default async function Page({ params }) {
         <main className="min-h-screen bg-slate-50 text-(--navy)">
 
             <section className="relative overflow-hidden bg-[#071b32]">
-                <div className="relative mx-auto grid max-w-7xl mt-30 items-center gap-10 px-5 py-6 md:grid-cols-2 md:py-24">
+                <div className="relative mx-auto grid max-w-7xl mt-28 items-center gap-8 px-5 py-6 sm:mt-30 md:grid-cols-2 md:mt-24 md:py-10 lg:gap-10 lg:py-12">
                     <ScrollReveal animation="right" delay="50" duration="700">
 
                         <div>
