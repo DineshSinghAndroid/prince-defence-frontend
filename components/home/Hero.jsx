@@ -85,7 +85,7 @@ export const Hero = () => {
                                 </p>
                             </div>
 
-                            <div className="border-l border-white/20 flex flex-col items-center justify-center text-center px-2 sm:px-3">
+                            <div className="flex flex-col items-center justify-center text-center px-2 sm:px-3">
                                 <p className="text-base font-extrabold text-(--gold) whitespace-nowrap sm:text-xl lg:text-2xl">
                                     2012
                                 </p>
@@ -94,7 +94,7 @@ export const Hero = () => {
                                 </p>
                             </div>
 
-                            <div className="border-l border-white/20 flex flex-col items-center justify-center text-center px-2 sm:px-3">
+                            <div className="flex flex-col items-center justify-center text-center px-2 sm:px-3">
                                 <p className="text-base font-extrabold text-(--gold) whitespace-nowrap sm:text-xl lg:text-2xl">
                                     13+ Years
                                 </p>
