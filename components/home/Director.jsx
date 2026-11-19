@@ -81,7 +81,7 @@ const Directorpage = () => {
               {/* Chairman Content */}
               <div className="flex min-w-0 flex-1 flex-col gap-3 rounded-2xl p-4 sm:p-5 lg:p-4">
 
-                <span className="inline-flex rounded-full montserrat py-1 text-xl font-bold text-[var(--navy)]">
+                <span className="inline-flex rounded-full montserrat py-1 text-2xl sm:text-3xl lg:text-xl font-bold text-[var(--navy)]">
                   Chairman&apos;s Message
                 </span>
 
