@@ -28,11 +28,9 @@ const FacilitiesContact = () => {
                         </div>
 
                         <div className="flex flex-col items-start">
-                            <span className="inline-flex items-center gap-2 rounded-full
-                                border border-white/80 bg-white/50 px-4 py-2
-                                text-sm font-medium text-blue-900 shadow-sm
-                                backdrop-blur-xl">
-                                <span className="h-2 w-2 rounded-full bg-blue-900" />
+                            <span className="inline-flex items-center gap-2
+                                text-sm font-medium text-blue-900">
+                             
                                 CONTACT US
                             </span>
 

@@ -15,13 +15,13 @@ const place = (r, a, s) => {
     return { x: Math.round(CX + r * Math.cos(rad) - s / 2), y: Math.round(CY + r * Math.sin(rad) - s / 2) };
 };
 
-const CENTER = { src: "/images/achiever.webp", alt: "Achiever 1", tag: "NDA", s: 180 };
+const CENTER = { src: "/images/achiever-nda.png", alt: "NDA Achiever", tag: "NDA", s: 180 };
 
 const ORBIT = [
-    { src: "/images/achiever1.webp", alt: "Achiever 3", tag: "Navy", s: 88, r: 150, a: -90, dur: 9, d: 0, in: 0.15, priority: true },
-    { src: "/images/achiever2.webp", alt: "Achiever 4", tag: "AirForce", s: 84, r: 150, a: 30, dur: 10, d: 0.5, in: 0.25, priority: true },
-    { src: "/images/achiever3.webp", alt: "Achiever 5", tag: "AirForce", s: 90, r: 150, a: 150, dur: 9.5, d: 0.9, in: 0.35, priority: true },
-    { src: "/images/achiever4.webp", alt: "Achiever 6", tag: "Army", s: 72, r: 225, a: -135, dur: 10.5, d: 0.3, in: 0.45 },
+    { src: "/images/achiever-navy.png", alt: "Navy Achiever", tag: "Airforce", s: 88, r: 150, a: -90, dur: 9, d: 0, in: 0.15, priority: true },
+    { src: "/images/achiever-airforce1.png", alt: "Air Force Achiever", tag: "AirForce", s: 84, r: 150, a: 30, dur: 10, d: 0.5, in: 0.25, priority: true },
+    { src: "/images/achiever-airforce2.png", alt: "Air Force Achiever", tag: "Army", s: 90, r: 150, a: 150, dur: 9.5, d: 0.9, in: 0.35, priority: true },
+    { src: "/images/achiever-army.png", alt: "Army Achiever", tag: "Navy", s: 72, r: 225, a: -135, dur: 10.5, d: 0.3, in: 0.45 },
     { src: "/images/achiever5.webp", alt: "Achiever 7", s: 66, r: 225, a: -45, dur: 9, d: 1.1, in: 0.55 },
     { src: "/images/achiever6.webp", alt: "Achiever 8", s: 76, r: 225, a: 45, dur: 10, d: 0.7, in: 0.65 },
     { src: "/images/achiever7.webp", alt: "Achiever 9", s: 68, r: 225, a: 135, dur: 9.2, d: 1.3, in: 0.75 },

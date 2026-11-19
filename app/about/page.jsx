@@ -16,19 +16,19 @@ import SelectionRecords from "@/components/home/SelectionRecords";
 
 const achievements = [
   {
-    icon: GraduationCap,
+    
     number: "2012",
     title: "Established",
     desc: "A journey of excellence",
   },
   {
-    icon: Trophy,
+  
     number: "3900+",
     title: "Selections",
     desc: "Reported selections",
   },
   {
-    icon: ShieldCheck,
+   
     number: "13+",
     title: "Years",
     desc: "Of educational experience",
@@ -128,7 +128,7 @@ export default function About() {
 
                   <div className="absolute bottom-6 left-6 right-6 z-10 rounded-2xl border border-white/20 bg-gradient-to-b from-black/70 via-black/45 to-white/10 p-5 text-white backdrop-blur-[2px] sm:bottom-8 sm:left-8 sm:right-8">
                     <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#e7c36d]">
-                      <Star size={15} fill="currentColor" />
+                      
                       Our Journey Since 2012
                     </div>
 
@@ -148,14 +148,14 @@ export default function About() {
                 <div className="relative z-20 mx-4 -mt-7 rounded-2xl border border-slate-100 bg-white p-5 shadow-lg sm:mx-8 sm:p-6">
                   <div className="grid grid-cols-3 divide-x divide-slate-200">
                     {achievements.map((item) => {
-                      const Icon = item.icon;
+                     
 
                       return (
                         <div
                           key={item.title}
                           className="px-2 text-center sm:px-4"
                         >
-                          <Icon size={21} className="mx-auto text-(--gold)" />
+                          
 
                           <h4 className="mt-2 text-lg font-extrabold text-(--navy) sm:text-2xl">
                             {item.number}
