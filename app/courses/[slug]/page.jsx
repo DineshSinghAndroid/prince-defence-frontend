@@ -304,7 +304,7 @@ export default async function Page({ params }) {
                                     href="#exam-content"
                                     className="rounded-xl bg-(--gold) px-6 py-3.5 text-sm font-bold text-white transition hover:bg-amber-400"
                                 >
-                                    Explore Exam Guide →
+                                    Explore Exam Guide
                                 </a>
 
 

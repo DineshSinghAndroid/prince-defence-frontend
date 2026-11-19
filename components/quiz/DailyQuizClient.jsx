@@ -595,10 +595,7 @@ export default function DailyQuizClient() {
                 <span className="relative">
                   Start Today&apos;s Quiz
                 </span>
-                <ArrowRight
-                  size={19}
-                  className="relative transition-transform duration-300 group-hover:translate-x-1.5"
-                />
+               
               </button>
 
               <span className="flex items-center gap-2 text-sm font-medium text-white/60">
@@ -916,7 +913,7 @@ function QuizStartModal({
           <div className="relative flex items-start justify-between gap-4">
             <div>
               <p className="flex items-center gap-1.5 text-[11px] font-extrabold tracking-[0.18em] text-[#e7c36d]">
-                <Sparkles size={13} />
+                
                 START QUIZ
               </p>
 
