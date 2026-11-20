@@ -1,8 +1,9 @@
-
-import { notFound } from "next/navigation";
+export function generateStaticParams() {
+    return [{ slug: "none" }];
+}
 
 export default function NewsArticlePage() {
-    notFound();
+    return null;
 }
 
 // import Link from "next/link";

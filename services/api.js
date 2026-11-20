@@ -8,7 +8,7 @@ const configuredApiUrl = (
 ).trim().replace(/\/+$/, "");
 
 export const API_URL = configuredApiUrl
-    ? `${configuredApiUrl.replace(/\/api$/i, "")}/api`
+    ? (configuredApiUrl.includes("index.php") ? configuredApiUrl : `${configuredApiUrl.replace(/\/api$/i, "")}/api`)
     : "";
 
 export const apiRequest = async (

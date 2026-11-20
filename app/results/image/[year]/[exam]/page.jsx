@@ -4,6 +4,18 @@ import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import { getExamLabel, getResultImage } from "@/components/result/resultImages";
 
+export function generateStaticParams() {
+    const exams = ["all", "air-force", "army", "navy", "nda", "other"];
+    const years = ["2026", "2025", "2024", "Other"];
+    const params = [];
+    for (const year of years) {
+        for (const exam of exams) {
+            params.push({ year, exam });
+        }
+    }
+    return params;
+}
+
 export async function generateMetadata({ params }) {
     const { year, exam } = await params;
     const examLabel = getExamLabel(exam);

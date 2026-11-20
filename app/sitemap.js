@@ -1,6 +1,8 @@
 import examData from "@/data/course.json";
 import facilitiesData from "@/data/facilities.json";
 
+export const dynamic = "force-static";
+
 export default function sitemap() {
   const baseUrl = "https://www.princedefence.com";
   const now = new Date();

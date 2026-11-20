@@ -6,7 +6,7 @@ const cspValue = [
     "font-src 'self' data: https://fonts.gstatic.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://app.coachingsinsikar.com",
-    `connect-src 'self' http://localhost:5000 http://127.0.0.1:5000 https://api.princedefence.com https://princedefence.com https://www.princedefence.com https://admin.princedefence.com ${(() => { try { return new URL(process.env.NEXT_PUBLIC_API_URL).origin; } catch { return ""; } })()} https://res.cloudinary.com`,
+    `connect-src 'self' http://localhost:5000 http://127.0.0.1:5000 http://localhost:5001 http://127.0.0.1:5001 https://api.princedefence.com https://princedefence.com https://www.princedefence.com https://admin.princedefence.com ${(() => { try { return new URL(process.env.NEXT_PUBLIC_API_URL).origin; } catch { return ""; } })()} https://res.cloudinary.com`,
     "frame-src 'self' https://www.youtube.com https://www.google.com https://app.coachingsinsikar.com",
     "object-src 'none'",
     "base-uri 'self'",
@@ -15,6 +15,8 @@ const cspValue = [
 ].join("; ");
 
 const nextConfig = {
+    output: "export",
+    trailingSlash: true,
     compress: true,
     poweredByHeader: false,
     experimental: {
@@ -22,6 +24,7 @@ const nextConfig = {
         agentUpgrade: "security",
     },
     images: {
+        unoptimized: true,
         formats: ["image/avif", "image/webp"],
 
         qualities: [30, 40,45, 55, 70, 75, 85, 90, 95, 100],

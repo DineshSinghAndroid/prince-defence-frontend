@@ -1,7 +1,9 @@
-import { notFound } from "next/navigation";
+export function generateStaticParams() {
+    return [{ slug: "none" }];
+}
 
 export default function BlogArticlePage() {
-    notFound();
+    return null;
 }
 
 // import Image from "next/image";

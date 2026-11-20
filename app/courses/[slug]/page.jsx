@@ -26,6 +26,12 @@ function findExamBySlug(rawSlug) {
     );
 }
 
+export function generateStaticParams() {
+    return (examData.exams || []).map((exam) => ({
+        slug: exam.slug,
+    }));
+}
+
 export async function generateMetadata({ params }) {
     const { slug } = await params;
     const exam = findExamBySlug(slug);

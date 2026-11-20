@@ -1,6 +1,16 @@
 import AchieversClient from "@/components/achievers/AchieversClient";
 import Achieversheader from "@/components/achievers/Achieversheader";
 
+export function generateStaticParams() {
+    return [
+        { slug: "nda" },
+        { slug: "air-force" },
+        { slug: "navy" },
+        { slug: "army" },
+        { slug: "all" },
+    ];
+}
+
 export async function generateMetadata({ params }) {
     const { slug } = await params;
     const categoryName = slug ? slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ') : 'Defence';

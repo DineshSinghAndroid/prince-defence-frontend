@@ -1,4 +1,6 @@
-// import DailyQuizClient from "@/components/quiz/DailyQuizClient";
+export function generateStaticParams() {
+  return [{ date: "latest" }];
+}
 
 export async function generateMetadata({ params }) {
   const { date } = await params;
