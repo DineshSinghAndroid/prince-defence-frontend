@@ -176,7 +176,7 @@ export const Hero = () => {
                                         />
                                     </div>
 
-                                    <ImageTag>SSB</ImageTag>
+                                    <ImageTag>AirForce</ImageTag>
                                 </div>
 
 

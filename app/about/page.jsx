@@ -112,7 +112,7 @@ export default function About() {
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               {/* IMAGE SIDE */}
               <div className="relative mx-auto w-full max-w-xl lg:mx-0">
-                <div className="absolute -left-5 -top-5 h-32 w-32 rounded-3xl border-2 border-(--gold)/30" />
+                {/* <div className="absolute -left-5 -top-5 h-32 w-32 rounded-3xl border-2 border-(--gold)/30" /> */}
 
                 <div className="relative z-10 h-[360px] overflow-hidden rounded-3xl bg-slate-200 shadow-xl sm:h-[480px] lg:h-[560px]">
                   <Image
@@ -124,28 +124,13 @@ export default function About() {
                     className="object-cover"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 via-40% to-black/20" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/20 via-40% to-black/20" />
 
-                  <div className="absolute bottom-6 left-6 right-6 z-10 rounded-2xl border border-white/20 bg-gradient-to-b from-black/70 via-black/45 to-white/10 p-5 text-white backdrop-blur-[2px] sm:bottom-8 sm:left-8 sm:right-8">
-                    <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#e7c36d]">
-                      
-                      Our Journey Since 2012
-                    </div>
-
-                    <h3 className="text-2xl font-extrabold sm:text-3xl">
-                      Discipline. Dedication.
-                      <br />
-                      Determination.
-                    </h3>
-
-                    <p className="mt-2 text-sm text-white/80">
-                      Building careers through quality education.
-                    </p>
-                  </div>
+                  
                 </div>
 
                 {/* FLOATING ACHIEVEMENT CARD */}
-                <div className="relative z-20 mx-4 -mt-7 rounded-2xl border border-slate-100 bg-white p-5 shadow-lg sm:mx-8 sm:p-6">
+                <div className="relative z-20 mx-4 -mt-15 rounded-2xl border border-slate-100 bg-white p-5 shadow-lg sm:mx-8 sm:p-6">
                   <div className="grid grid-cols-3 divide-x divide-slate-200">
                     {achievements.map((item) => {
                      
